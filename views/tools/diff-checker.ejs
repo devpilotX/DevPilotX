@@ -1,0 +1,533 @@
+<!-- ========================================================================
+     DIFF CHECKER v2 — views/tools/diff-checker.ejs
+     Production-grade text/code comparison tool.
+     Myers O(ND) diff · Web Worker · Virtual scroll · Syntax highlight
+     Dark mode · Minimap · Auto-compare · Share via URL
+     Value.Codes — Free Developer Tools
+     ======================================================================== -->
+
+<% layout('layouts/main') %>
+
+<main id="main-content" class="tool-page diff-checker-page">
+
+  <!-- ========== TOOL HEADER ========== -->
+  <section class="tool-hero" aria-label="Diff Checker tool header">
+    <div class="container">
+      <div class="tool-hero-inner">
+        <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/tools">Tools</a></li>
+            <li aria-current="page">Diff Checker</li>
+          </ol>
+        </nav>
+        <div class="tool-hero-content">
+          <div class="tool-hero-text">
+            <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free &amp; Private</span></div>
+            <h1>Diff Checker</h1>
+            <p class="tool-hero-desc">Compare two blocks of text or code with character-level precision. Myers O(ND) algorithm handles files with 100k+ lines. Everything runs in your browser via Web Workers — nothing is ever sent to a server.</p>
+          </div>
+          <div class="tool-hero-meta">
+            <div class="tool-meta-item">
+              <span class="tool-meta-icon" aria-hidden="true">⇄</span>
+              <div class="tool-meta-body">
+                <span class="tool-meta-label">View Modes</span>
+                <span class="tool-meta-value">Split · Unified · Inline</span>
+              </div>
+            </div>
+            <div class="tool-meta-item">
+              <span class="tool-meta-icon" aria-hidden="true">🔒</span>
+              <div class="tool-meta-body">
+                <span class="tool-meta-label">Privacy</span>
+                <span class="tool-meta-value">100% Client-Side + Web Worker</span>
+              </div>
+            </div>
+            <div class="tool-meta-item">
+              <span class="tool-meta-icon" aria-hidden="true">⚡</span>
+              <div class="tool-meta-body">
+                <span class="tool-meta-label">Performance</span>
+                <span class="tool-meta-value">Myers O(ND) · Virtual Scroll</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MAIN TOOL SECTION ========== -->
+  <section class="tool-workspace" aria-label="Diff Checker workspace">
+    <div class="container">
+
+      <!-- PRIMARY TOOLBAR -->
+      <div class="dc-toolbar" role="toolbar" aria-label="Diff checker controls">
+        <div class="dc-toolbar-group dc-toolbar-left">
+
+          <!-- View mode toggle -->
+          <div class="dc-view-toggle" role="radiogroup" aria-label="Diff view mode">
+            <button class="dc-view-btn dc-view-btn--active" type="button" role="radio" aria-checked="true" data-view="split" title="Side by side (Ctrl+1)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+              <span>Split</span>
+            </button>
+            <button class="dc-view-btn" type="button" role="radio" aria-checked="false" data-view="unified" title="Unified view (Ctrl+2)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+              <span>Unified</span>
+            </button>
+            <button class="dc-view-btn" type="button" role="radio" aria-checked="false" data-view="inline" title="Inline view (Ctrl+3)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 10H3"/><path d="M21 6H3"/><path d="M21 14H3"/><path d="M17 18H3"/></svg>
+              <span>Inline</span>
+            </button>
+          </div>
+
+          <span class="dc-toolbar-sep" aria-hidden="true"></span>
+
+          <!-- Language selector -->
+          <div class="dc-select-wrap">
+            <label for="dc-language" class="sr-only">Syntax language</label>
+            <select id="dc-language" class="dc-select" aria-label="Syntax highlighting language">
+              <option value="plaintext">Plain Text</option>
+              <option value="javascript">JavaScript</option>
+              <option value="typescript">TypeScript</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="cpp">C / C++</option>
+              <option value="csharp">C#</option>
+              <option value="go">Go</option>
+              <option value="rust">Rust</option>
+              <option value="ruby">Ruby</option>
+              <option value="php">PHP</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="json">JSON</option>
+              <option value="xml">XML</option>
+              <option value="yaml">YAML</option>
+              <option value="sql">SQL</option>
+              <option value="markdown">Markdown</option>
+              <option value="shell">Shell / Bash</option>
+            </select>
+            <svg class="dc-select-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <span class="dc-toolbar-sep" aria-hidden="true"></span>
+
+          <!-- Options -->
+          <label class="dc-check-label" title="Ignore whitespace differences">
+            <input type="checkbox" id="dc-ignore-ws" class="dc-check-input">
+            <span class="dc-check-box" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Whitespace</span>
+          </label>
+          <label class="dc-check-label" title="Ignore case differences">
+            <input type="checkbox" id="dc-ignore-case" class="dc-check-input">
+            <span class="dc-check-box" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Case</span>
+          </label>
+          <label class="dc-check-label" title="Wrap long lines">
+            <input type="checkbox" id="dc-word-wrap" class="dc-check-input">
+            <span class="dc-check-box" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Wrap</span>
+          </label>
+          <label class="dc-check-label" title="Auto-compare as you type">
+            <input type="checkbox" id="dc-auto-compare" class="dc-check-input" checked>
+            <span class="dc-check-box" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Auto</span>
+          </label>
+        </div>
+
+        <div class="dc-toolbar-group dc-toolbar-right">
+          <!-- Stats -->
+          <div class="dc-stats" id="dc-stats" aria-live="polite" aria-atomic="true">
+            <span class="dc-stat dc-stat--add" title="Lines added"><span class="dc-stat-icon" aria-hidden="true">+</span><span id="dc-n-add">0</span></span>
+            <span class="dc-stat dc-stat--del" title="Lines removed"><span class="dc-stat-icon" aria-hidden="true">−</span><span id="dc-n-del">0</span></span>
+            <span class="dc-stat dc-stat--eq" title="Lines unchanged"><span class="dc-stat-icon" aria-hidden="true">≡</span><span id="dc-n-eq">0</span></span>
+          </div>
+
+          <span class="dc-toolbar-sep" aria-hidden="true"></span>
+
+          <!-- Actions -->
+          <button class="dc-act-btn" id="dc-btn-swap" type="button" title="Swap sides (Ctrl+Shift+S)" aria-label="Swap original and modified">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </button>
+          <button class="dc-act-btn" id="dc-btn-clear" type="button" title="Clear all (Ctrl+Shift+X)" aria-label="Clear both editors and output">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          </button>
+          <button class="dc-act-btn" id="dc-btn-theme" type="button" title="Toggle dark mode (Ctrl+Shift+D)" aria-label="Toggle dark mode">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="dc-theme-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <span class="dc-toolbar-sep" aria-hidden="true"></span>
+
+          <button class="btn btn-sm btn-primary dc-btn-compare" id="dc-btn-compare" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Compare</span>
+            <kbd class="dc-kbd">⌘↵</kbd>
+          </button>
+        </div>
+      </div>
+
+      <!-- INPUT EDITORS -->
+      <div class="dc-editors" id="dc-editors">
+        <!-- Original -->
+        <div class="dc-panel" id="dc-panel-original" data-side="original">
+          <div class="dc-panel-head">
+            <span class="dc-panel-title">Original</span>
+            <span class="dc-panel-info" id="dc-info-original" aria-live="polite">0 lines · 0 chars</span>
+            <div class="dc-panel-acts">
+              <button class="dc-icon-btn" data-action="upload" data-side="original" type="button" title="Upload file" aria-label="Upload original file">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </button>
+              <button class="dc-icon-btn" data-action="paste" data-side="original" type="button" title="Paste from clipboard" aria-label="Paste into original">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+              </button>
+              <button class="dc-icon-btn" data-action="copy" data-side="original" type="button" title="Copy text" aria-label="Copy original text">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+              <button class="dc-icon-btn" data-action="clear-side" data-side="original" type="button" title="Clear this editor" aria-label="Clear original editor">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="dc-panel-body">
+            <div class="dc-gutter" id="dc-gutter-original" aria-hidden="true"></div>
+            <textarea class="dc-textarea" id="dc-input-original" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Original text input" placeholder="Paste original text here, or drag & drop a file…"></textarea>
+            <div class="dc-drop-overlay" aria-hidden="true">
+              <div class="dc-drop-overlay-inner">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span>Drop file here</span>
+              </div>
+            </div>
+          </div>
+          <input type="file" class="dc-file-input sr-only" data-side="original" accept=".txt,.js,.jsx,.ts,.tsx,.py,.java,.c,.cpp,.h,.hpp,.cs,.go,.rs,.rb,.php,.html,.htm,.css,.scss,.sass,.less,.json,.xml,.yml,.yaml,.md,.sql,.sh,.bat,.ps1,.env,.toml,.ini,.cfg,.log,.diff,.patch" tabindex="-1">
+        </div>
+
+        <!-- Resize handle -->
+        <div class="dc-resize-handle" id="dc-resize-handle" role="separator" aria-orientation="vertical" aria-label="Resize editor panels" tabindex="0">
+          <div class="dc-resize-grip" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <!-- Modified -->
+        <div class="dc-panel" id="dc-panel-modified" data-side="modified">
+          <div class="dc-panel-head">
+            <span class="dc-panel-title">Modified</span>
+            <span class="dc-panel-info" id="dc-info-modified" aria-live="polite">0 lines · 0 chars</span>
+            <div class="dc-panel-acts">
+              <button class="dc-icon-btn" data-action="upload" data-side="modified" type="button" title="Upload file" aria-label="Upload modified file">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </button>
+              <button class="dc-icon-btn" data-action="paste" data-side="modified" type="button" title="Paste from clipboard" aria-label="Paste into modified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+              </button>
+              <button class="dc-icon-btn" data-action="copy" data-side="modified" type="button" title="Copy text" aria-label="Copy modified text">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+              <button class="dc-icon-btn" data-action="clear-side" data-side="modified" type="button" title="Clear this editor" aria-label="Clear modified editor">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="dc-panel-body">
+            <div class="dc-gutter" id="dc-gutter-modified" aria-hidden="true"></div>
+            <textarea class="dc-textarea" id="dc-input-modified" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Modified text input" placeholder="Paste modified text here, or drag & drop a file…"></textarea>
+            <div class="dc-drop-overlay" aria-hidden="true">
+              <div class="dc-drop-overlay-inner">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span>Drop file here</span>
+              </div>
+            </div>
+          </div>
+          <input type="file" class="dc-file-input sr-only" data-side="modified" accept=".txt,.js,.jsx,.ts,.tsx,.py,.java,.c,.cpp,.h,.hpp,.cs,.go,.rs,.rb,.php,.html,.htm,.css,.scss,.sass,.less,.json,.xml,.yml,.yaml,.md,.sql,.sh,.bat,.ps1,.env,.toml,.ini,.cfg,.log,.diff,.patch" tabindex="-1">
+        </div>
+      </div>
+
+      <!-- DIFF OUTPUT -->
+      <div class="dc-output" id="dc-output" data-state="empty" data-view="split">
+
+        <!-- Output toolbar -->
+        <div class="dc-output-bar" id="dc-output-bar">
+          <div class="dc-output-bar-left">
+            <h2 class="dc-output-title">Diff Results</h2>
+            <span class="dc-output-timing" id="dc-timing" aria-live="polite"></span>
+          </div>
+          <div class="dc-output-bar-right">
+            <!-- Change navigation -->
+            <div class="dc-nav" role="navigation" aria-label="Navigate between changes">
+              <button class="dc-icon-btn" id="dc-prev" type="button" title="Previous change (↑)" aria-label="Previous change">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+              </button>
+              <span class="dc-nav-counter" id="dc-nav-counter" aria-live="polite">0 / 0</span>
+              <button class="dc-icon-btn" id="dc-next" type="button" title="Next change (↓)" aria-label="Next change">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+            <span class="dc-toolbar-sep" aria-hidden="true"></span>
+            <button class="dc-act-btn" id="dc-btn-share" type="button" title="Share diff via URL" aria-label="Share diff via URL">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
+            <button class="dc-act-btn" id="dc-btn-copy-diff" type="button" title="Copy diff" aria-label="Copy diff output">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+            <button class="dc-act-btn" id="dc-btn-download" type="button" title="Download .diff file" aria-label="Download diff file">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </button>
+            <button class="dc-act-btn" id="dc-btn-fullscreen" type="button" title="Toggle fullscreen (F11)" aria-label="Toggle fullscreen diff view">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="dc-fs-icon"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Diff body container -->
+        <div class="dc-output-body" id="dc-output-body">
+
+          <!-- Loading spinner -->
+          <div class="dc-loading" id="dc-loading" aria-hidden="true">
+            <div class="dc-spinner" aria-hidden="true"></div>
+            <span>Computing diff…</span>
+          </div>
+
+          <!-- Split view -->
+          <div class="dc-split" id="dc-split">
+            <div class="dc-split-col dc-split-left" id="dc-split-left" tabindex="0" role="region" aria-label="Original diff">
+              <div class="dc-minimap dc-minimap-left" id="dc-minimap-left" aria-hidden="true">
+                <canvas id="dc-minimap-canvas-left" width="60" height="300"></canvas>
+                <div class="dc-minimap-viewport" id="dc-minimap-vp-left"></div>
+              </div>
+              <div class="dc-scroll-area" id="dc-scroll-left"></div>
+            </div>
+            <div class="dc-split-gutter" aria-hidden="true"></div>
+            <div class="dc-split-col dc-split-right" id="dc-split-right" tabindex="0" role="region" aria-label="Modified diff">
+              <div class="dc-scroll-area" id="dc-scroll-right"></div>
+              <div class="dc-minimap dc-minimap-right" id="dc-minimap-right" aria-hidden="true">
+                <canvas id="dc-minimap-canvas-right" width="60" height="300"></canvas>
+                <div class="dc-minimap-viewport" id="dc-minimap-vp-right"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unified view -->
+          <div class="dc-unified" id="dc-unified" tabindex="0" role="region" aria-label="Unified diff">
+            <div class="dc-minimap dc-minimap-unified" id="dc-minimap-unified" aria-hidden="true">
+              <canvas id="dc-minimap-canvas-unified" width="60" height="300"></canvas>
+              <div class="dc-minimap-viewport" id="dc-minimap-vp-unified"></div>
+            </div>
+            <div class="dc-scroll-area" id="dc-scroll-unified"></div>
+          </div>
+
+          <!-- Inline view -->
+          <div class="dc-inline" id="dc-inline" tabindex="0" role="region" aria-label="Inline diff">
+            <div class="dc-scroll-area" id="dc-scroll-inline"></div>
+          </div>
+
+          <!-- Empty state -->
+          <div class="dc-state dc-state-empty" id="dc-state-empty">
+            <div class="dc-state-icon" aria-hidden="true">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M7 8h2"/><path d="M7 12h2"/><path d="M15 8h2"/><path d="M15 12h2"/><path d="M15 16h2"/></svg>
+            </div>
+            <h3>Paste text in both editors</h3>
+            <p>Or drag &amp; drop files. Your data never leaves the browser.</p>
+            <div class="dc-state-shortcuts">
+              <kbd>Ctrl+Enter</kbd> Compare &nbsp;·&nbsp;
+              <kbd>Ctrl+1/2/3</kbd> Views &nbsp;·&nbsp;
+              <kbd>Ctrl+Shift+S</kbd> Swap
+            </div>
+          </div>
+
+          <!-- Identical state -->
+          <div class="dc-state dc-state-identical" id="dc-state-identical">
+            <div class="dc-state-icon dc-state-icon--success" aria-hidden="true">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Texts are identical</h3>
+            <p>No differences found between original and modified.</p>
+          </div>
+
+          <!-- Error state -->
+          <div class="dc-state dc-state-error" id="dc-state-error">
+            <div class="dc-state-icon dc-state-icon--error" aria-hidden="true">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
+            <h3>Something went wrong</h3>
+            <p id="dc-error-msg">An unexpected error occurred while computing the diff.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TOAST -->
+      <div class="dc-toast-container" id="dc-toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    </div>
+  </section>
+
+  <!-- ========== HOW TO USE ========== -->
+  <section class="tool-guide" aria-label="How to use Diff Checker">
+    <div class="container">
+      <div class="section-header"><span class="section-number" aria-hidden="true">[01]</span><h2>How to Use</h2></div>
+      <p class="section-desc">Compare any two pieces of text in seconds.</p>
+      <div class="dc-guide-grid">
+        <div class="dc-guide-step">
+          <div class="dc-guide-num" aria-hidden="true">1</div>
+          <div class="dc-guide-body">
+            <h3>Paste or Upload</h3>
+            <p>Paste your original text on the left and modified text on the right. Or drag &amp; drop files directly onto either panel.</p>
+          </div>
+        </div>
+        <div class="dc-guide-step">
+          <div class="dc-guide-num" aria-hidden="true">2</div>
+          <div class="dc-guide-body">
+            <h3>Compare Instantly</h3>
+            <p>With auto-compare enabled, results appear as you type. Or press <kbd>Ctrl+Enter</kbd> for manual compare. The diff engine runs in a Web Worker — your UI never freezes.</p>
+          </div>
+        </div>
+        <div class="dc-guide-step">
+          <div class="dc-guide-num" aria-hidden="true">3</div>
+          <div class="dc-guide-body">
+            <h3>Review Changes</h3>
+            <p>Green = added, red = removed. Character-level highlights show exactly what changed. Use arrow keys or navigation buttons to jump between changes.</p>
+          </div>
+        </div>
+        <div class="dc-guide-step">
+          <div class="dc-guide-num" aria-hidden="true">4</div>
+          <div class="dc-guide-body">
+            <h3>Export Results</h3>
+            <p>Copy the unified diff to clipboard, download as a <code>.diff</code> file, or share via URL. Switch between Split, Unified, and Inline views anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section class="tool-features" aria-label="Diff Checker features">
+    <div class="container">
+      <div class="section-header"><span class="section-number" aria-hidden="true">[02]</span><h2>Features</h2></div>
+      <p class="section-desc">Everything you need for <strong>accurate, fast text comparison.</strong></p>
+      <div class="dc-features-grid">
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">⚡</span>
+          <h3>Myers O(ND) Algorithm</h3>
+          <p>Industry-standard diff algorithm used by Git. Handles 100k+ line files with optimal performance. Runs in a dedicated Web Worker so your UI never freezes.</p>
+        </div>
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">🔍</span>
+          <h3>Character-Level Precision</h3>
+          <p>See exactly which characters changed within each modified line. Words and individual characters are highlighted with sub-line granularity.</p>
+        </div>
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">⇄</span>
+          <h3>Three View Modes</h3>
+          <p>Side-by-side split view for visual comparison, unified diff for compact review, and inline mode for character-level change tracking.</p>
+        </div>
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">🗺️</span>
+          <h3>Minimap Navigation</h3>
+          <p>VS Code-style minimap shows a bird's-eye view of all changes. Click anywhere on the minimap to instantly jump to that section.</p>
+        </div>
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">📜</span>
+          <h3>Virtual Scrolling</h3>
+          <p>Renders only visible rows in the viewport. Handles 100k+ line diffs with consistent 60fps scrolling and minimal memory usage.</p>
+        </div>
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">🎨</span>
+          <h3>Syntax Highlighting</h3>
+          <p>19 languages supported. Select your language to see diff output with proper syntax coloring — keywords, strings, comments, and more.</p>
+        </div>
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">🌗</span>
+          <h3>Dark Mode</h3>
+          <p>Full dark theme support. Respects your system preference and can be toggled manually. All diff colors are optimized for both themes.</p>
+        </div>
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">⚙️</span>
+          <h3>Smart Options</h3>
+          <p>Ignore whitespace, case sensitivity, word wrap. Auto-compare as you type with debounce. Resizable editor panels with drag handle.</p>
+        </div>
+        <div class="dc-feature-card">
+          <span class="dc-feature-icon" aria-hidden="true">📤</span>
+          <h3>Export &amp; Share</h3>
+          <p>Copy unified diff, download as .diff file, or generate a shareable URL with compressed content. Full keyboard shortcuts for everything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== USE CASES ========== -->
+  <section class="tool-usecases" aria-label="Diff Checker use cases">
+    <div class="container">
+      <div class="section-header"><span class="section-number" aria-hidden="true">[03]</span><h2>Use Cases</h2></div>
+      <p class="section-desc">Who uses Diff Checker and why.</p>
+      <div class="dc-usecases-grid">
+        <div class="dc-usecase">
+          <h3>Code Reviews</h3>
+          <p>Compare code before and after changes. Review pull requests, identify regressions, and verify refactors without leaving your browser.</p>
+        </div>
+        <div class="dc-usecase">
+          <h3>Configuration Diffs</h3>
+          <p>Compare .env files, YAML configs, JSON settings across environments to catch mismatches before they hit production.</p>
+        </div>
+        <div class="dc-usecase">
+          <h3>Document Comparison</h3>
+          <p>Track changes in contracts, READMEs, documentation. See every word that was added, removed, or modified.</p>
+        </div>
+        <div class="dc-usecase">
+          <h3>Database Schemas</h3>
+          <p>Compare SQL schema dumps to find missing columns, changed indexes, or altered constraints between database versions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== KEYBOARD SHORTCUTS ========== -->
+  <section class="tool-shortcuts" aria-label="Keyboard shortcuts">
+    <div class="container">
+      <div class="section-header"><span class="section-number" aria-hidden="true">[04]</span><h2>Keyboard Shortcuts</h2></div>
+      <div class="dc-shortcuts-grid">
+        <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>Enter</kbd><span>Compare</span></div>
+        <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>1</kbd><span>Split view</span></div>
+        <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>2</kbd><span>Unified view</span></div>
+        <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>3</kbd><span>Inline view</span></div>
+        <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd><span>Swap sides</span></div>
+        <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd><span>Clear all</span></div>
+        <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd><span>Toggle dark mode</span></div>
+        <div class="dc-shortcut"><kbd>↑</kbd> / <kbd>↓</kbd><span>Previous / Next change</span></div>
+        <div class="dc-shortcut"><kbd>F11</kbd><span>Toggle fullscreen</span></div>
+        <div class="dc-shortcut"><kbd>Tab</kbd><span>Insert 2 spaces in editor</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED TOOLS ========== -->
+  <section class="tool-related" aria-label="Related developer tools">
+    <div class="container">
+      <div class="section-header"><span class="section-number" aria-hidden="true">[05]</span><h2>Related Tools</h2></div>
+      <div class="dc-related-grid">
+        <a href="/tools/json-formatter" class="tool-card">
+          <span class="tool-card-icon" aria-hidden="true">{ }</span>
+          <h3 class="tool-card-name">JSON Formatter</h3>
+          <p class="tool-card-desc">Format, validate, and minify JSON instantly.</p>
+          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        </a>
+        <a href="/tools/code-formatter" class="tool-card">
+          <span class="tool-card-icon" aria-hidden="true">✨</span>
+          <h3 class="tool-card-name">Code Formatter</h3>
+          <p class="tool-card-desc">Beautify and format code in multiple languages.</p>
+          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        </a>
+        <a href="/tools/hash-generator" class="tool-card">
+          <span class="tool-card-icon" aria-hidden="true">#</span>
+          <h3 class="tool-card-name">Hash Generator</h3>
+          <p class="tool-card-desc">Generate MD5, SHA-1, SHA-256, SHA-512 hashes.</p>
+          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        </a>
+        <a href="/compiler" class="tool-card">
+          <span class="tool-card-icon" aria-hidden="true">▶</span>
+          <h3 class="tool-card-name">Online Compiler</h3>
+          <p class="tool-card-desc">Write and run code in 19 languages. Zero setup.</p>
+          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>

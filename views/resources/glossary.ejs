@@ -1,0 +1,1850 @@
+<!-- views/resources/glossary.ejs -->
+<!-- Glossary page: Comprehensive glossary of programming terms, concepts, and jargon -->
+
+<main id="main-content" aria-label="Programming Glossary">
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="glossary-hero" aria-label="Glossary introduction">
+    <div class="container">
+
+      <!-- Breadcrumb navigation -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="/resources" class="breadcrumb-link">Resources</a>
+            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          </li>
+          <li class="breadcrumb-item breadcrumb-current" aria-current="page">
+            Glossary
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Hero content -->
+      <div class="glossary-hero-content">
+        <div class="glossary-hero-badge">
+          <span class="badge badge-pill" aria-hidden="true">📖</span>
+          <span class="badge badge-new">250+ Terms</span>
+        </div>
+        <h1 class="glossary-hero-title">Programming Glossary</h1>
+        <p class="glossary-hero-desc">
+          Comprehensive glossary of programming terms, concepts, and jargon.
+          Clear definitions and explanations to help you understand technical
+          vocabulary used across software development.
+        </p>
+
+        <!-- Search bar -->
+        <div class="glossary-search-wrap">
+          <label for="glossary-search" class="sr-only">Search glossary terms</label>
+          <div class="glossary-search-box">
+            <svg class="glossary-search-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              id="glossary-search"
+              class="glossary-search-input"
+              placeholder="Search terms... (e.g., API, closure, REST)"
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <button type="button" id="glossary-search-clear" class="glossary-search-clear hidden" aria-label="Clear search">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <p class="glossary-search-count" id="glossary-search-count" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="glossary-stats">
+        <div class="glossary-stat">
+          <span class="glossary-stat-num">250+</span>
+          <span class="glossary-stat-label">Terms</span>
+        </div>
+        <div class="glossary-stat">
+          <span class="glossary-stat-num">15</span>
+          <span class="glossary-stat-label">Categories</span>
+        </div>
+        <div class="glossary-stat">
+          <span class="glossary-stat-num">A–Z</span>
+          <span class="glossary-stat-label">Indexed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ALPHABET NAVIGATION ========== -->
+  <section class="glossary-alphabet-nav-section" aria-label="Alphabet navigation">
+    <div class="container">
+      <nav class="glossary-alphabet-nav" aria-label="Jump to letter">
+        <button type="button" class="glossary-alpha-btn glossary-alpha-btn-all active" data-letter="all">All</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="A">A</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="B">B</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="C">C</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="D">D</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="E">E</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="F">F</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="G">G</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="H">H</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="I">I</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="J">J</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="K">K</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="L">L</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="M">M</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="N">N</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="O">O</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="P">P</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="Q">Q</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="R">R</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="S">S</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="T">T</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="U">U</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="V">V</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="W">W</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="X">X</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="Y">Y</button>
+        <button type="button" class="glossary-alpha-btn" data-letter="Z">Z</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ========== CATEGORY FILTER ========== -->
+  <section class="glossary-filters-section" aria-label="Category filters">
+    <div class="container">
+      <div class="glossary-filters">
+        <span class="glossary-filter-label">Filter by category:</span>
+        <div class="glossary-filter-chips" role="group" aria-label="Category filter buttons">
+          <button type="button" class="glossary-chip active" data-category="all">All Categories</button>
+          <button type="button" class="glossary-chip" data-category="general">General</button>
+          <button type="button" class="glossary-chip" data-category="frontend">Frontend</button>
+          <button type="button" class="glossary-chip" data-category="backend">Backend</button>
+          <button type="button" class="glossary-chip" data-category="database">Database</button>
+          <button type="button" class="glossary-chip" data-category="devops">DevOps</button>
+          <button type="button" class="glossary-chip" data-category="security">Security</button>
+          <button type="button" class="glossary-chip" data-category="networking">Networking</button>
+          <button type="button" class="glossary-chip" data-category="architecture">Architecture</button>
+          <button type="button" class="glossary-chip" data-category="testing">Testing</button>
+          <button type="button" class="glossary-chip" data-category="data-structures">Data Structures</button>
+          <button type="button" class="glossary-chip" data-category="algorithms">Algorithms</button>
+          <button type="button" class="glossary-chip" data-category="oop">OOP</button>
+          <button type="button" class="glossary-chip" data-category="functional">Functional</button>
+          <button type="button" class="glossary-chip" data-category="version-control">Version Control</button>
+          <button type="button" class="glossary-chip" data-category="web">Web</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GLOSSARY TERMS ========== -->
+  <section class="glossary-content section-padding" aria-label="Glossary terms">
+    <div class="container">
+
+      <!-- No results message -->
+      <div class="glossary-no-results hidden" id="glossary-no-results">
+        <div class="glossary-no-results-icon" aria-hidden="true">🔍</div>
+        <h2 class="glossary-no-results-title">No terms found</h2>
+        <p class="glossary-no-results-desc">Try a different search term or clear filters to see all terms.</p>
+        <button type="button" class="btn btn-primary" id="glossary-reset-btn">Reset All Filters</button>
+      </div>
+
+      <!-- ===== LETTER A ===== -->
+      <div class="glossary-letter-group" data-letter-group="A" id="letter-A">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">A</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="abstraction" data-category="oop">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Abstraction</h2>
+              <span class="glossary-term-tag tag" data-cat="oop">OOP</span>
+            </div>
+            <p class="glossary-term-def">
+              The practice of hiding complex implementation details and exposing only the essential features
+              of an object or system. Abstraction allows developers to work with higher-level concepts without
+              needing to understand the underlying complexity. For example, when you call <code>array.sort()</code>,
+              you don't need to know which sorting algorithm is used internally.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#encapsulation">Encapsulation</a>, <a href="#interface">Interface</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="agile" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Agile</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A project management and software development methodology that emphasizes iterative development,
+              collaboration, flexibility, and continuous delivery. Agile breaks work into small increments called
+              sprints (usually 1–4 weeks), with regular feedback loops. Common frameworks include Scrum and Kanban.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#scrum">Scrum</a>, <a href="#sprint">Sprint</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="ajax" data-category="web">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">AJAX</h2>
+              <span class="glossary-term-tag tag" data-cat="web">Web</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Asynchronous JavaScript and XML.</strong> A technique for making HTTP requests from the browser
+              without reloading the entire page. Despite the name, modern AJAX typically uses JSON instead of XML.
+              It enables dynamic, responsive web applications by fetching or sending data in the background
+              using <code>fetch()</code> or <code>XMLHttpRequest</code>.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#fetch-api">Fetch API</a>, <a href="#rest">REST</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="algorithm" data-category="algorithms">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Algorithm</h2>
+              <span class="glossary-term-tag tag" data-cat="algorithms">Algorithms</span>
+            </div>
+            <p class="glossary-term-def">
+              A step-by-step procedure or set of rules for solving a computational problem. Algorithms have defined
+              inputs, outputs, and a finite number of steps. Examples include binary search (O(log n)), merge sort
+              (O(n log n)), and Dijkstra's shortest path algorithm. Efficiency is measured by time and space complexity.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#big-o-notation">Big O Notation</a>, <a href="#data-structure">Data Structure</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="api" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="api">API</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Application Programming Interface.</strong> A set of defined rules and protocols that allows
+              different software applications to communicate with each other. APIs define the methods, data formats,
+              and endpoints through which software components interact. Common types include REST APIs, GraphQL APIs,
+              and WebSocket APIs.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#rest">REST</a>, <a href="#endpoint">Endpoint</a>, <a href="#graphql">GraphQL</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="array" data-category="data-structures">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Array</h2>
+              <span class="glossary-term-tag tag" data-cat="data-structures">Data Structures</span>
+            </div>
+            <p class="glossary-term-def">
+              A data structure that stores a collection of elements in contiguous memory locations, accessible by
+              index. Arrays provide O(1) access time by index but O(n) for insertion/deletion at arbitrary positions.
+              In JavaScript, arrays are dynamic and can hold mixed types: <code>const arr = [1, 'hello', true];</code>
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#linked-list">Linked List</a>, <a href="#data-structure">Data Structure</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="async-await" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Async/Await</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A modern JavaScript syntax for handling asynchronous operations. The <code>async</code> keyword declares
+              a function that returns a Promise, and <code>await</code> pauses execution until that Promise resolves.
+              It makes asynchronous code look and behave like synchronous code, replacing complex <code>.then()</code> chains.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#promise">Promise</a>, <a href="#callback">Callback</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="authentication" data-category="security">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Authentication</h2>
+              <span class="glossary-term-tag tag" data-cat="security">Security</span>
+            </div>
+            <p class="glossary-term-def">
+              The process of verifying the identity of a user or system. Authentication answers the question "Who are you?"
+              Common methods include passwords, OAuth tokens, API keys, biometrics, and multi-factor authentication (MFA).
+              Not to be confused with authorization, which determines what an authenticated user is allowed to do.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#authorization">Authorization</a>, <a href="#jwt">JWT</a>, <a href="#oauth">OAuth</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="authorization" data-category="security">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="authorization">Authorization</h2>
+              <span class="glossary-term-tag tag" data-cat="security">Security</span>
+            </div>
+            <p class="glossary-term-def">
+              The process of determining what permissions an authenticated user has. Authorization answers the question
+              "What are you allowed to do?" It controls access to resources based on roles, permissions, or policies.
+              Common patterns include Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC).
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#authentication">Authentication</a>, <a href="#rbac">RBAC</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER B ===== -->
+      <div class="glossary-letter-group" data-letter-group="B" id="letter-B">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">B</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="backend" data-category="backend">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Backend</h2>
+              <span class="glossary-term-tag tag" data-cat="backend">Backend</span>
+            </div>
+            <p class="glossary-term-def">
+              The server-side portion of a web application that handles business logic, database operations,
+              authentication, and API responses. Backend code runs on the server and is not visible to users.
+              Common backend technologies include Node.js, Python (Django/Flask), Ruby on Rails, Java (Spring),
+              and Go.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#frontend">Frontend</a>, <a href="#server">Server</a>, <a href="#api">API</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="big-o-notation" data-category="algorithms">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="big-o-notation">Big O Notation</h2>
+              <span class="glossary-term-tag tag" data-cat="algorithms">Algorithms</span>
+            </div>
+            <p class="glossary-term-def">
+              A mathematical notation that describes the upper bound of an algorithm's time or space complexity
+              as the input size grows. Common complexities: O(1) constant, O(log n) logarithmic, O(n) linear,
+              O(n log n) linearithmic, O(n²) quadratic, O(2ⁿ) exponential. It helps compare algorithm efficiency
+              regardless of hardware.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#algorithm">Algorithm</a>, <a href="#time-complexity">Time Complexity</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="binary" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Binary</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A base-2 numeral system that uses only two digits: 0 and 1. All data in computers is ultimately
+              represented in binary. Each binary digit is called a "bit." Eight bits make a "byte." For example,
+              the decimal number 42 is represented as <code>101010</code> in binary.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#bit">Bit</a>, <a href="#byte">Byte</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="boolean" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Boolean</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A data type that has only two possible values: <code>true</code> or <code>false</code>. Named after
+              mathematician George Boole. Booleans are fundamental to conditional logic, control flow, and comparison
+              operations. In many languages, values like 0, null, undefined, and empty strings are "falsy" (evaluate to false).
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#truthy-falsy">Truthy/Falsy</a>, <a href="#conditional">Conditional</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="branch" data-category="version-control">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Branch</h2>
+              <span class="glossary-term-tag tag" data-cat="version-control">Version Control</span>
+            </div>
+            <p class="glossary-term-def">
+              An independent line of development in a version control system like Git. Branches allow developers to
+              work on features, bugs, or experiments in isolation without affecting the main codebase. The default
+              branch is typically called <code>main</code> or <code>master</code>. Branches are merged back when work is complete.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#git">Git</a>, <a href="#merge">Merge</a>, <a href="#commit">Commit</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="bug" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Bug</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              An error, flaw, or unintended behavior in software that causes it to produce incorrect or unexpected
+              results. The term dates back to the 1940s when a moth was found in the Harvard Mark II computer.
+              Debugging is the process of finding and fixing bugs. Common bug types include logic errors, off-by-one
+              errors, null pointer exceptions, and race conditions.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#debugging">Debugging</a>, <a href="#testing">Testing</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER C ===== -->
+      <div class="glossary-letter-group" data-letter-group="C" id="letter-C">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">C</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="cache" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Cache</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A temporary storage layer that keeps frequently accessed data closer to the consumer to reduce
+              latency and improve performance. Caches exist at many levels: CPU cache (L1/L2/L3), browser cache,
+              CDN cache, application cache (Redis/Memcached), and database query cache. Cache invalidation — knowing
+              when cached data is stale — is famously one of the hardest problems in computer science.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#cdn">CDN</a>, <a href="#redis">Redis</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="callback" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="callback">Callback</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A function passed as an argument to another function, which is then invoked (called back) at a later time.
+              Callbacks are a fundamental pattern for handling asynchronous operations in JavaScript. Nesting too many
+              callbacks leads to "callback hell" — deeply nested, hard-to-read code. Promises and async/await were
+              introduced to solve this problem.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#promise">Promise</a>, <a href="#async-await">Async/Await</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="cdn" data-category="networking">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="cdn">CDN</h2>
+              <span class="glossary-term-tag tag" data-cat="networking">Networking</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Content Delivery Network.</strong> A geographically distributed network of servers that delivers
+              web content to users from the nearest server location. CDNs reduce latency, improve load times, and
+              handle traffic spikes. They cache static assets like images, CSS, and JavaScript. Popular CDNs include
+              Cloudflare, AWS CloudFront, and Fastly.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#cache">Cache</a>, <a href="#latency">Latency</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="ci-cd" data-category="devops">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">CI/CD</h2>
+              <span class="glossary-term-tag tag" data-cat="devops">DevOps</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Continuous Integration / Continuous Deployment (or Delivery).</strong> CI automatically builds
+              and tests code every time changes are pushed to a repository. CD automatically deploys tested code to
+              production. Together, they ensure fast, reliable software delivery with fewer bugs. Popular CI/CD tools
+              include GitHub Actions, Jenkins, GitLab CI, and CircleCI.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#devops">DevOps</a>, <a href="#pipeline">Pipeline</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="class" data-category="oop">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Class</h2>
+              <span class="glossary-term-tag tag" data-cat="oop">OOP</span>
+            </div>
+            <p class="glossary-term-def">
+              A blueprint or template for creating objects in object-oriented programming. A class defines properties
+              (data) and methods (behavior) that its instances will have. In JavaScript:
+              <code>class Dog { constructor(name) { this.name = name; } bark() { return 'Woof!'; } }</code>.
+              Classes support inheritance, allowing child classes to extend parent classes.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#object">Object</a>, <a href="#inheritance">Inheritance</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="cli" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">CLI</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Command Line Interface.</strong> A text-based interface for interacting with a computer or
+              software by typing commands. Developers use CLIs extensively for tasks like running scripts, managing
+              packages (<code>npm install</code>), version control (<code>git commit</code>), and server administration.
+              Examples: Terminal (macOS), PowerShell (Windows), Bash (Linux).
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#terminal">Terminal</a>, <a href="#shell">Shell</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="closure" data-category="functional">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Closure</h2>
+              <span class="glossary-term-tag tag" data-cat="functional">Functional</span>
+            </div>
+            <p class="glossary-term-def">
+              A function that "remembers" and has access to variables from its outer (enclosing) scope, even after
+              the outer function has returned. Closures are fundamental in JavaScript for data privacy, factory
+              functions, and event handlers. Example: <code>function counter() { let count = 0; return () => ++count; }</code> —
+              the returned function closes over <code>count</code>.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#scope">Scope</a>, <a href="#higher-order-function">Higher-Order Function</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="compiler" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Compiler</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A program that translates source code written in a high-level programming language into machine code,
+              bytecode, or another lower-level language <em>before</em> execution. Unlike interpreters (which execute
+              line by line), compilers process the entire program at once, producing an executable. Examples: GCC (C/C++),
+              javac (Java), rustc (Rust). Try our <a href="/compiler">online compiler</a> to compile code in 19 languages.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#interpreter">Interpreter</a>, <a href="#runtime">Runtime</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="commit" data-category="version-control">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="commit">Commit</h2>
+              <span class="glossary-term-tag tag" data-cat="version-control">Version Control</span>
+            </div>
+            <p class="glossary-term-def">
+              A snapshot of changes saved to a version control repository. Each commit has a unique hash (SHA),
+              an author, a timestamp, and a message describing the changes. Good commit messages are concise and
+              descriptive: <code>git commit -m "Fix login validation for empty email field"</code>. Commits form
+              the history of a project.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#git">Git</a>, <a href="#branch">Branch</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="cors" data-category="security">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">CORS</h2>
+              <span class="glossary-term-tag tag" data-cat="security">Security</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Cross-Origin Resource Sharing.</strong> A browser security mechanism that controls which domains
+              can make HTTP requests to your server. By default, browsers block cross-origin requests. CORS headers
+              like <code>Access-Control-Allow-Origin</code> tell the browser which origins are permitted. Misconfigured
+              CORS is one of the most common issues in web development.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#csrf">CSRF</a>, <a href="#http">HTTP</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="crud" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">CRUD</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              An acronym for the four basic operations of persistent storage: <strong>Create, Read, Update, Delete</strong>.
+              Most applications are fundamentally CRUD apps. In REST APIs, these map to HTTP methods: POST (Create),
+              GET (Read), PUT/PATCH (Update), DELETE (Delete). In SQL: INSERT, SELECT, UPDATE, DELETE.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#rest">REST</a>, <a href="#sql">SQL</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="css" data-category="frontend">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">CSS</h2>
+              <span class="glossary-term-tag tag" data-cat="frontend">Frontend</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Cascading Style Sheets.</strong> A stylesheet language used to describe the presentation and
+              visual styling of HTML documents. CSS controls layout, colors, fonts, spacing, animations, and responsive
+              design. The "cascading" refers to the priority system that determines which styles apply when multiple
+              rules target the same element. Modern CSS features include Grid, Flexbox, custom properties (variables),
+              and container queries.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#html">HTML</a>, <a href="#dom">DOM</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER D ===== -->
+      <div class="glossary-letter-group" data-letter-group="D" id="letter-D">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">D</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="data-structure" data-category="data-structures">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="data-structure">Data Structure</h2>
+              <span class="glossary-term-tag tag" data-cat="data-structures">Data Structures</span>
+            </div>
+            <p class="glossary-term-def">
+              A way of organizing and storing data in a computer so that it can be accessed and modified efficiently.
+              The choice of data structure affects the performance of algorithms. Common data structures include
+              arrays, linked lists, stacks, queues, hash tables, trees, graphs, and heaps. Each has different
+              time complexities for operations like search, insert, and delete.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#algorithm">Algorithm</a>, <a href="#array">Array</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="database" data-category="database">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Database</h2>
+              <span class="glossary-term-tag tag" data-cat="database">Database</span>
+            </div>
+            <p class="glossary-term-def">
+              An organized collection of structured data stored electronically. Databases are managed by Database
+              Management Systems (DBMS). Two main categories: <strong>Relational (SQL)</strong> — MySQL, PostgreSQL,
+              SQLite — store data in tables with rows and columns; <strong>Non-relational (NoSQL)</strong> — MongoDB,
+              Redis, DynamoDB — store data as documents, key-value pairs, graphs, or wide columns.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#sql">SQL</a>, <a href="#nosql">NoSQL</a>, <a href="#orm">ORM</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="debugging" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="debugging">Debugging</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              The process of identifying, analyzing, and fixing bugs (errors) in software. Debugging techniques include
+              using breakpoints, step-through debuggers, logging, rubber duck debugging (explaining code aloud), and
+              reading stack traces. Modern IDEs provide powerful debugging tools. The Chrome DevTools debugger is
+              essential for frontend development.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#bug">Bug</a>, <a href="#stack-trace">Stack Trace</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="dependency" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Dependency</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              An external library, module, or package that a project requires to function. Dependencies are managed
+              by package managers: npm (Node.js), pip (Python), Maven (Java), Cargo (Rust). They're listed in
+              manifest files like <code>package.json</code>. Transitive dependencies are dependencies of your
+              dependencies. Keeping dependencies updated is crucial for security.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#npm">npm</a>, <a href="#package-manager">Package Manager</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="devops" data-category="devops">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="devops">DevOps</h2>
+              <span class="glossary-term-tag tag" data-cat="devops">DevOps</span>
+            </div>
+            <p class="glossary-term-def">
+              A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the
+              development lifecycle and deliver high-quality software continuously. DevOps emphasizes automation,
+              CI/CD pipelines, infrastructure as code, monitoring, and collaboration between dev and ops teams.
+              Key tools: Docker, Kubernetes, Terraform, Ansible, Jenkins.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#ci-cd">CI/CD</a>, <a href="#docker">Docker</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="docker" data-category="devops">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="docker">Docker</h2>
+              <span class="glossary-term-tag tag" data-cat="devops">DevOps</span>
+            </div>
+            <p class="glossary-term-def">
+              A platform for building, shipping, and running applications in containers. Docker containers package
+              code with all its dependencies into a standardized unit, ensuring the app runs the same everywhere.
+              A <code>Dockerfile</code> defines the container image. Docker is lighter than virtual machines because
+              containers share the host OS kernel.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#container">Container</a>, <a href="#kubernetes">Kubernetes</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="dom" data-category="frontend">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="dom">DOM</h2>
+              <span class="glossary-term-tag tag" data-cat="frontend">Frontend</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Document Object Model.</strong> A tree-structured representation of an HTML document that browsers
+              create when they parse HTML. JavaScript can manipulate the DOM to dynamically change content, structure,
+              and styles. Methods like <code>document.querySelector()</code>, <code>element.classList.add()</code>, and
+              <code>element.textContent</code> interact with the DOM. Excessive DOM manipulation can cause performance issues.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#html">HTML</a>, <a href="#css">CSS</a>, <a href="#virtual-dom">Virtual DOM</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="dry" data-category="architecture">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">DRY</h2>
+              <span class="glossary-term-tag tag" data-cat="architecture">Architecture</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Don't Repeat Yourself.</strong> A software development principle that states every piece of
+              knowledge should have a single, authoritative representation in a system. DRY code reduces duplication
+              by extracting shared logic into functions, modules, or base classes. The opposite is WET code
+              ("Write Everything Twice" or "We Enjoy Typing").
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#solid">SOLID</a>, <a href="#refactoring">Refactoring</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER E ===== -->
+      <div class="glossary-letter-group" data-letter-group="E" id="letter-E">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">E</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="encapsulation" data-category="oop">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="encapsulation">Encapsulation</h2>
+              <span class="glossary-term-tag tag" data-cat="oop">OOP</span>
+            </div>
+            <p class="glossary-term-def">
+              The practice of bundling data and the methods that operate on that data within a single unit (class),
+              while restricting direct access to some of the object's components. Encapsulation uses access modifiers
+              (public, private, protected) to hide internal state. In JavaScript, private fields use the <code>#</code>
+              prefix: <code>class Wallet { #balance = 0; deposit(amount) { this.#balance += amount; } }</code>
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#abstraction">Abstraction</a>, <a href="#class">Class</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="endpoint" data-category="web">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="endpoint">Endpoint</h2>
+              <span class="glossary-term-tag tag" data-cat="web">Web</span>
+            </div>
+            <p class="glossary-term-def">
+              A specific URL path on a server where an API can be accessed. Each endpoint represents a specific
+              function or resource. For example, <code>GET /api/users</code> might return a list of users, while
+              <code>POST /api/users</code> creates a new user. Well-designed endpoints follow REST conventions
+              with meaningful, hierarchical paths and proper HTTP methods.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#api">API</a>, <a href="#rest">REST</a>, <a href="#http">HTTP</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="environment-variable" data-category="devops">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Environment Variable</h2>
+              <span class="glossary-term-tag tag" data-cat="devops">DevOps</span>
+            </div>
+            <p class="glossary-term-def">
+              A variable set outside the application code, typically in the operating system or a <code>.env</code> file,
+              that configures the application's behavior. Environment variables store sensitive data like API keys,
+              database credentials, and configuration settings that shouldn't be committed to version control.
+              Accessed via <code>process.env.VARIABLE_NAME</code> in Node.js.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#dotenv">dotenv</a>, <a href="#configuration">Configuration</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="event-loop" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Event Loop</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              The mechanism in JavaScript (and Node.js) that handles asynchronous operations. Since JavaScript is
+              single-threaded, the event loop continuously checks the call stack and task queues. When the call stack
+              is empty, it picks tasks from the microtask queue (Promises) first, then the macrotask queue (setTimeout,
+              I/O). Understanding the event loop is essential for writing efficient async code.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#async-await">Async/Await</a>, <a href="#callback">Callback</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="expression" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Expression</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              Any valid unit of code that resolves to a value. Expressions can be simple (<code>42</code>, <code>"hello"</code>)
+              or complex (<code>a + b * 2</code>, <code>fn(x) > 0 ? 'yes' : 'no'</code>). Unlike statements (which
+              perform actions), expressions always produce a value. Function expressions, ternary operators, and
+              template literals are all expressions.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#statement">Statement</a>, <a href="#operator">Operator</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER F ===== -->
+      <div class="glossary-letter-group" data-letter-group="F" id="letter-F">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">F</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="fetch-api" data-category="web">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="fetch-api">Fetch API</h2>
+              <span class="glossary-term-tag tag" data-cat="web">Web</span>
+            </div>
+            <p class="glossary-term-def">
+              A modern browser API for making HTTP requests, replacing the older <code>XMLHttpRequest</code>.
+              Fetch returns Promises and uses a cleaner syntax: <code>const res = await fetch('/api/data');</code>
+              <code>const json = await res.json();</code>. It supports request/response headers, streaming,
+              CORS, and AbortController for cancellation.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#ajax">AJAX</a>, <a href="#promise">Promise</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="framework" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Framework</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A pre-built software structure that provides a foundation and set of conventions for building applications.
+              Unlike libraries (which you call), frameworks call <em>your</em> code (Inversion of Control). Frontend
+              frameworks: React, Vue, Angular. Backend frameworks: Express, Django, Rails, Spring. Frameworks enforce
+              structure and best practices but reduce flexibility compared to building from scratch.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#library">Library</a>, <a href="#mvc">MVC</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="frontend" data-category="frontend">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="frontend">Frontend</h2>
+              <span class="glossary-term-tag tag" data-cat="frontend">Frontend</span>
+            </div>
+            <p class="glossary-term-def">
+              The client-side portion of a web application that users directly interact with. Frontend code runs
+              in the browser and is responsible for layout, styling, interactivity, and user experience. The core
+              frontend technologies are HTML (structure), CSS (presentation), and JavaScript (behavior). Frontend
+              developers focus on UI/UX, responsiveness, accessibility, and performance.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#backend">Backend</a>, <a href="#html">HTML</a>, <a href="#css">CSS</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="function" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Function</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A reusable block of code that performs a specific task. Functions accept inputs (parameters), process
+              them, and optionally return outputs. They are fundamental to code organization and reusability.
+              JavaScript supports function declarations, function expressions, arrow functions, and generator
+              functions. Pure functions always return the same output for the same input with no side effects.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#closure">Closure</a>, <a href="#higher-order-function">Higher-Order Function</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER G ===== -->
+      <div class="glossary-letter-group" data-letter-group="G" id="letter-G">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">G</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="git" data-category="version-control">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="git">Git</h2>
+              <span class="glossary-term-tag tag" data-cat="version-control">Version Control</span>
+            </div>
+            <p class="glossary-term-def">
+              A distributed version control system created by Linus Torvalds in 2005. Git tracks changes to files,
+              enables collaboration, and maintains a complete history of every modification. Key concepts: repositories,
+              commits, branches, merging, rebasing, and remote/local repos. Git is the most widely used version control
+              system, with platforms like GitHub, GitLab, and Bitbucket built on top of it.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#branch">Branch</a>, <a href="#commit">Commit</a>, <a href="#merge">Merge</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="graphql" data-category="web">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="graphql">GraphQL</h2>
+              <span class="glossary-term-tag tag" data-cat="web">Web</span>
+            </div>
+            <p class="glossary-term-def">
+              A query language and runtime for APIs created by Facebook (Meta). Unlike REST, where the server
+              determines response structure, GraphQL lets the client specify exactly which fields it needs. This
+              prevents over-fetching and under-fetching of data. A single GraphQL endpoint replaces multiple
+              REST endpoints. Queries, mutations, and subscriptions are the three operation types.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#rest">REST</a>, <a href="#api">API</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER H ===== -->
+      <div class="glossary-letter-group" data-letter-group="H" id="letter-H">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">H</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="hash" data-category="security">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Hash / Hashing</h2>
+              <span class="glossary-term-tag tag" data-cat="security">Security</span>
+            </div>
+            <p class="glossary-term-def">
+              A one-way mathematical function that converts input data into a fixed-length string of characters.
+              The same input always produces the same hash, but you cannot reverse a hash to get the original input.
+              Used for password storage (bcrypt, argon2), data integrity (SHA-256), and hash tables. Try our
+              <a href="/tools/hash-generator">Hash Generator</a> tool to experiment with different hash algorithms.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#encryption">Encryption</a>, <a href="#authentication">Authentication</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="html" data-category="frontend">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="html">HTML</h2>
+              <span class="glossary-term-tag tag" data-cat="frontend">Frontend</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>HyperText Markup Language.</strong> The standard markup language for creating web pages. HTML
+              provides the structure and content of a webpage using elements (tags) like <code>&lt;h1&gt;</code>,
+              <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, and <code>&lt;a&gt;</code>. HTML5, the current version,
+              introduced semantic elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>),
+              multimedia, and APIs for modern web development.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#css">CSS</a>, <a href="#dom">DOM</a>, <a href="#frontend">Frontend</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="http" data-category="networking">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="http">HTTP / HTTPS</h2>
+              <span class="glossary-term-tag tag" data-cat="networking">Networking</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>HyperText Transfer Protocol.</strong> The foundation of data communication on the web. HTTP
+              defines how messages are formatted and transmitted between clients and servers. Methods include GET,
+              POST, PUT, PATCH, DELETE, HEAD, OPTIONS. HTTPS is the secure version using TLS/SSL encryption.
+              Status codes: 200 (OK), 301 (Redirect), 404 (Not Found), 500 (Server Error).
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#rest">REST</a>, <a href="#endpoint">Endpoint</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER I ===== -->
+      <div class="glossary-letter-group" data-letter-group="I" id="letter-I">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">I</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="ide" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">IDE</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Integrated Development Environment.</strong> A software application that provides comprehensive
+              tools for software development in a single interface: code editor, debugger, compiler/interpreter,
+              terminal, and extensions. Popular IDEs include VS Code, IntelliJ IDEA, WebStorm, PyCharm, and Xcode.
+              IDEs boost productivity with features like IntelliSense, refactoring tools, and Git integration.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#compiler">Compiler</a>, <a href="#debugging">Debugging</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="inheritance" data-category="oop">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="inheritance">Inheritance</h2>
+              <span class="glossary-term-tag tag" data-cat="oop">OOP</span>
+            </div>
+            <p class="glossary-term-def">
+              An OOP mechanism where a child (derived) class inherits properties and methods from a parent (base) class.
+              This promotes code reuse and establishes "is-a" relationships. In JavaScript:
+              <code>class Dog extends Animal { }</code>. Types include single, multiple (not supported in JS),
+              multilevel, and hierarchical inheritance. Composition is often preferred over deep inheritance chains.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#class">Class</a>, <a href="#polymorphism">Polymorphism</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="interpreter" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="interpreter">Interpreter</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A program that executes source code line by line at runtime, without a separate compilation step.
+              Interpreted languages include Python, JavaScript, Ruby, and PHP. Interpreters provide faster development
+              cycles (no compile step) but typically slower execution than compiled code. Modern runtimes like V8
+              (JavaScript) use Just-In-Time (JIT) compilation for better performance.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#compiler">Compiler</a>, <a href="#runtime">Runtime</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER J ===== -->
+      <div class="glossary-letter-group" data-letter-group="J" id="letter-J">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">J</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="json" data-category="web">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">JSON</h2>
+              <span class="glossary-term-tag tag" data-cat="web">Web</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>JavaScript Object Notation.</strong> A lightweight, human-readable data interchange format.
+              JSON uses key-value pairs and arrays to structure data: <code>{"name": "Alice", "age": 30}</code>.
+              Despite its name, JSON is language-independent and used everywhere for APIs, config files, and data
+              storage. Parse with <code>JSON.parse()</code>, stringify with <code>JSON.stringify()</code>.
+              Format your JSON with our <a href="/tools/json-formatter">JSON Formatter</a>.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#api">API</a>, <a href="#rest">REST</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="jwt" data-category="security">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="jwt">JWT</h2>
+              <span class="glossary-term-tag tag" data-cat="security">Security</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>JSON Web Token.</strong> A compact, URL-safe token format for securely transmitting claims between
+              parties. A JWT has three Base64-encoded parts separated by dots: Header (algorithm), Payload (claims/data),
+              and Signature (verification). JWTs are commonly used for stateless authentication — the server doesn't
+              need to store session data. Decode JWTs with our <a href="/tools/jwt-decoder">JWT Decoder</a> tool.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#authentication">Authentication</a>, <a href="#oauth">OAuth</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER K ===== -->
+      <div class="glossary-letter-group" data-letter-group="K" id="letter-K">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">K</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="kubernetes" data-category="devops">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="kubernetes">Kubernetes (K8s)</h2>
+              <span class="glossary-term-tag tag" data-cat="devops">DevOps</span>
+            </div>
+            <p class="glossary-term-def">
+              An open-source container orchestration platform originally developed by Google. Kubernetes automates
+              deploying, scaling, and managing containerized applications across clusters of machines. Key concepts:
+              Pods (smallest deployable unit), Services (networking), Deployments (desired state), and Namespaces
+              (isolation). Often abbreviated as K8s.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#docker">Docker</a>, <a href="#devops">DevOps</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER L ===== -->
+      <div class="glossary-letter-group" data-letter-group="L" id="letter-L">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">L</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="latency" data-category="networking">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="latency">Latency</h2>
+              <span class="glossary-term-tag tag" data-cat="networking">Networking</span>
+            </div>
+            <p class="glossary-term-def">
+              The time delay between a request being sent and a response being received. Measured in milliseconds (ms).
+              Low latency is critical for good user experience. Factors affecting latency include network distance,
+              server processing time, database queries, and DNS resolution. CDNs, caching, and edge computing help
+              reduce latency.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#cdn">CDN</a>, <a href="#cache">Cache</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="library" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="library">Library</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A collection of pre-written code that provides specific functionality you can call from your own code.
+              Unlike frameworks (which control the flow), you control when and how to use a library. Examples:
+              Lodash (utility functions), Axios (HTTP requests), Moment.js (dates), D3.js (data visualization).
+              Libraries are installed via package managers and imported as needed.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#framework">Framework</a>, <a href="#dependency">Dependency</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="linked-list" data-category="data-structures">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="linked-list">Linked List</h2>
+              <span class="glossary-term-tag tag" data-cat="data-structures">Data Structures</span>
+            </div>
+            <p class="glossary-term-def">
+              A linear data structure where elements (nodes) are connected via pointers. Each node contains data and
+              a reference to the next node. Unlike arrays, linked lists allow O(1) insertion/deletion at known positions
+              but O(n) access by index. Variants include singly linked lists, doubly linked lists, and circular linked
+              lists. Used in implementing stacks, queues, and hash table chaining.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#array">Array</a>, <a href="#data-structure">Data Structure</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER M ===== -->
+      <div class="glossary-letter-group" data-letter-group="M" id="letter-M">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">M</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="merge" data-category="version-control">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="merge">Merge</h2>
+              <span class="glossary-term-tag tag" data-cat="version-control">Version Control</span>
+            </div>
+            <p class="glossary-term-def">
+              The process of combining changes from one branch into another in Git. A merge creates a new commit
+              that incorporates all changes from both branches. Merge conflicts occur when the same lines were
+              changed in both branches and must be resolved manually. Fast-forward merges happen when the target
+              branch has no new commits since the feature branch was created.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#git">Git</a>, <a href="#branch">Branch</a>, <a href="#rebase">Rebase</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="middleware" data-category="backend">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Middleware</h2>
+              <span class="glossary-term-tag tag" data-cat="backend">Backend</span>
+            </div>
+            <p class="glossary-term-def">
+              A function that sits between the incoming request and the final route handler in a web application.
+              Middleware can modify the request/response, end the request cycle, or pass control to the next middleware.
+              In Express.js: <code>app.use((req, res, next) => { /* logic */ next(); })</code>. Common uses:
+              authentication, logging, CORS, rate limiting, body parsing, and error handling.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#backend">Backend</a>, <a href="#express">Express.js</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="mvc" data-category="architecture">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="mvc">MVC</h2>
+              <span class="glossary-term-tag tag" data-cat="architecture">Architecture</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Model-View-Controller.</strong> A software design pattern that separates an application into three
+              interconnected components: <strong>Model</strong> (data and business logic), <strong>View</strong> (user
+              interface and presentation), and <strong>Controller</strong> (handles input and updates model/view).
+              MVC promotes separation of concerns, making code more organized, testable, and maintainable.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#architecture">Architecture</a>, <a href="#framework">Framework</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER N ===== -->
+      <div class="glossary-letter-group" data-letter-group="N" id="letter-N">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">N</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="node-js" data-category="backend">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Node.js</h2>
+              <span class="glossary-term-tag tag" data-cat="backend">Backend</span>
+            </div>
+            <p class="glossary-term-def">
+              A JavaScript runtime built on Chrome's V8 engine that allows JavaScript to run outside the browser
+              (on servers). Node.js uses an event-driven, non-blocking I/O model, making it efficient for data-intensive
+              real-time applications. It comes with npm (Node Package Manager) and a rich ecosystem. Value.Codes is
+              built with Node.js + Express.js.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#npm">npm</a>, <a href="#event-loop">Event Loop</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="npm" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="npm">npm</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Node Package Manager.</strong> The default package manager for Node.js and the world's largest
+              software registry. npm manages project dependencies listed in <code>package.json</code>. Commands:
+              <code>npm install</code> (install dependencies), <code>npm run start</code> (run scripts),
+              <code>npm publish</code> (publish packages). Over 2 million packages are available on the npm registry.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#node-js">Node.js</a>, <a href="#package-manager">Package Manager</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="nosql" data-category="database">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="nosql">NoSQL</h2>
+              <span class="glossary-term-tag tag" data-cat="database">Database</span>
+            </div>
+            <p class="glossary-term-def">
+              A category of databases that do not use the traditional relational table-based model. NoSQL databases
+              are designed for specific data models and have flexible schemas. Types: <strong>Document</strong> (MongoDB),
+              <strong>Key-Value</strong> (Redis), <strong>Wide-Column</strong> (Cassandra), <strong>Graph</strong> (Neo4j).
+              NoSQL excels at handling large volumes of unstructured data, horizontal scaling, and high-throughput operations.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#database">Database</a>, <a href="#sql">SQL</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER O ===== -->
+      <div class="glossary-letter-group" data-letter-group="O" id="letter-O">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">O</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="oauth" data-category="security">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="oauth">OAuth</h2>
+              <span class="glossary-term-tag tag" data-cat="security">Security</span>
+            </div>
+            <p class="glossary-term-def">
+              An open standard authorization protocol that allows third-party applications to access a user's
+              resources without exposing their credentials. OAuth 2.0 is the current version. "Sign in with Google/GitHub"
+              uses OAuth. The flow involves authorization codes, access tokens, and refresh tokens. Not to be confused
+              with authentication — OAuth is specifically about authorization (delegated access).
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#authentication">Authentication</a>, <a href="#jwt">JWT</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="object" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="object">Object</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A data structure that stores data as key-value pairs (properties) and can include functions (methods).
+              In JavaScript, objects are everywhere — arrays, functions, dates, and even errors are objects. Created with
+              object literals <code>{ key: value }</code>, constructors, or <code>Object.create()</code>. Objects are
+              passed by reference, not by value, which means changes to an object variable affect the original.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#class">Class</a>, <a href="#json">JSON</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="orm" data-category="database">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="orm">ORM</h2>
+              <span class="glossary-term-tag tag" data-cat="database">Database</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Object-Relational Mapping.</strong> A technique that lets you interact with a database using
+              objects and methods instead of writing raw SQL queries. ORMs map database tables to classes and rows to
+              objects. Examples: Sequelize (Node.js), Prisma (Node.js), SQLAlchemy (Python), Hibernate (Java).
+              ORMs increase productivity but can generate inefficient queries for complex operations.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#database">Database</a>, <a href="#sql">SQL</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER P ===== -->
+      <div class="glossary-letter-group" data-letter-group="P" id="letter-P">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">P</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="polymorphism" data-category="oop">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="polymorphism">Polymorphism</h2>
+              <span class="glossary-term-tag tag" data-cat="oop">OOP</span>
+            </div>
+            <p class="glossary-term-def">
+              The ability of different classes to respond to the same method call in different ways. "Poly" means many,
+              "morph" means form. A <code>draw()</code> method might draw a circle for a Circle object and a square for a
+              Square object. Types include compile-time (method overloading) and runtime (method overriding) polymorphism.
+              It enables flexible, extensible code that works with objects generically.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#inheritance">Inheritance</a>, <a href="#class">Class</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="promise" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="promise">Promise</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A JavaScript object representing the eventual completion (or failure) of an asynchronous operation.
+              A Promise has three states: <strong>Pending</strong> (initial), <strong>Fulfilled</strong> (resolved
+              successfully), and <strong>Rejected</strong> (failed). Chain with <code>.then()</code> and <code>.catch()</code>,
+              or use <code>async/await</code> for cleaner syntax. <code>Promise.all()</code> runs multiple promises concurrently.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#async-await">Async/Await</a>, <a href="#callback">Callback</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="pull-request" data-category="version-control">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Pull Request (PR)</h2>
+              <span class="glossary-term-tag tag" data-cat="version-control">Version Control</span>
+            </div>
+            <p class="glossary-term-def">
+              A request to merge changes from one branch into another, typically on platforms like GitHub or GitLab.
+              PRs enable code review — team members can comment on changes, request modifications, approve, or reject
+              the merge. PRs usually include a description, linked issues, CI/CD checks, and review assignments.
+              Also called "Merge Requests" on GitLab.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#git">Git</a>, <a href="#merge">Merge</a>, <a href="#code-review">Code Review</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER R ===== -->
+      <div class="glossary-letter-group" data-letter-group="R" id="letter-R">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">R</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="recursion" data-category="algorithms">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Recursion</h2>
+              <span class="glossary-term-tag tag" data-cat="algorithms">Algorithms</span>
+            </div>
+            <p class="glossary-term-def">
+              A programming technique where a function calls itself to solve a problem by breaking it into smaller
+              subproblems. Every recursive function needs a <strong>base case</strong> (stopping condition) to prevent
+              infinite recursion. Classic examples: factorial (<code>n! = n × (n-1)!</code>), Fibonacci sequence,
+              tree traversal, and merge sort. Recursion uses the call stack and can cause stack overflow for deep recursion.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#algorithm">Algorithm</a>, <a href="#stack">Stack</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="regex" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Regex (Regular Expression)</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A sequence of characters that defines a search pattern for matching text. Regex is used for validation,
+              search/replace, and text extraction. Example: <code>/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/</code>
+              matches email addresses. Build and test patterns with our <a href="/tools/regex-builder">Regex Builder</a>
+              tool. Supported in virtually every programming language.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#string">String</a>, <a href="#validation">Validation</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="rest" data-category="web">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="rest">REST</h2>
+              <span class="glossary-term-tag tag" data-cat="web">Web</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Representational State Transfer.</strong> An architectural style for designing networked
+              applications. REST APIs use HTTP methods (GET, POST, PUT, DELETE) on resources identified by URLs.
+              Key principles: statelessness, uniform interface, resource-based URLs, standard HTTP methods, and
+              JSON responses. Example: <code>GET /api/users/42</code> returns user with ID 42. REST is the most
+              widely used API design pattern.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#api">API</a>, <a href="#http">HTTP</a>, <a href="#graphql">GraphQL</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="runtime" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="runtime">Runtime</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              The environment in which a program executes. A runtime provides services like memory management,
+              garbage collection, and I/O operations. JavaScript runtimes include browsers (with the Web API) and
+              Node.js (with file system, networking APIs). The term also refers to the execution phase of a program,
+              as opposed to compile time. Runtime errors occur during execution.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#compiler">Compiler</a>, <a href="#interpreter">Interpreter</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER S ===== -->
+      <div class="glossary-letter-group" data-letter-group="S" id="letter-S">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">S</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="scope" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="scope">Scope</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              The region of a program where a variable is accessible. JavaScript has three scope types:
+              <strong>Global</strong> (accessible everywhere), <strong>Function</strong> (accessible within the function),
+              and <strong>Block</strong> (accessible within <code>{ }</code> when using <code>let</code>/<code>const</code>).
+              <code>var</code> is function-scoped; <code>let</code> and <code>const</code> are block-scoped. Understanding
+              scope prevents bugs from unintended variable access.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#closure">Closure</a>, <a href="#hoisting">Hoisting</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="sql" data-category="database">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="sql">SQL</h2>
+              <span class="glossary-term-tag tag" data-cat="database">Database</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Structured Query Language.</strong> The standard language for managing and querying relational
+              databases. SQL operations: <code>SELECT</code> (read), <code>INSERT</code> (create), <code>UPDATE</code>
+              (modify), <code>DELETE</code> (remove), <code>CREATE TABLE</code> (define schema). SQL supports joins
+              (combining tables), aggregations (SUM, COUNT, AVG), subqueries, indexes, and transactions. Used by
+              MySQL, PostgreSQL, SQLite, SQL Server, and Oracle.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#database">Database</a>, <a href="#nosql">NoSQL</a>, <a href="#crud">CRUD</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="ssl-tls" data-category="security">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">SSL/TLS</h2>
+              <span class="glossary-term-tag tag" data-cat="security">Security</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Secure Sockets Layer / Transport Layer Security.</strong> Cryptographic protocols that provide
+              secure communication over the internet. TLS is the successor to SSL (SSL is technically deprecated, but
+              the term is still widely used). TLS encrypts data in transit, preventing eavesdropping and tampering.
+              HTTPS uses TLS. Certificates are issued by Certificate Authorities (CAs). The lock icon in your browser
+              indicates a TLS connection.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#http">HTTP/HTTPS</a>, <a href="#encryption">Encryption</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="stack" data-category="data-structures">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="stack">Stack</h2>
+              <span class="glossary-term-tag tag" data-cat="data-structures">Data Structures</span>
+            </div>
+            <p class="glossary-term-def">
+              A Last-In-First-Out (LIFO) data structure where elements are added and removed from the same end (top).
+              Operations: <code>push</code> (add to top), <code>pop</code> (remove from top), <code>peek</code> (view top
+              without removing). Used in function call stacks, undo mechanisms, expression evaluation, and browser history.
+              The JavaScript call stack tracks function execution and is central to the event loop.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#queue">Queue</a>, <a href="#data-structure">Data Structure</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER T ===== -->
+      <div class="glossary-letter-group" data-letter-group="T" id="letter-T">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">T</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="testing" data-category="testing">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name" id="testing">Testing</h2>
+              <span class="glossary-term-tag tag" data-cat="testing">Testing</span>
+            </div>
+            <p class="glossary-term-def">
+              The process of verifying that software works correctly and meets requirements. Testing levels:
+              <strong>Unit tests</strong> (individual functions), <strong>Integration tests</strong> (component
+              interactions), <strong>End-to-end tests</strong> (full user flows), <strong>Performance tests</strong>
+              (speed/load). Tools: Jest, Mocha, Cypress, Playwright, JUnit. Test-Driven Development (TDD) writes
+              tests before code. Good test coverage catches bugs early and enables confident refactoring.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#debugging">Debugging</a>, <a href="#ci-cd">CI/CD</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="typescript" data-category="frontend">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">TypeScript</h2>
+              <span class="glossary-term-tag tag" data-cat="frontend">Frontend</span>
+            </div>
+            <p class="glossary-term-def">
+              A strongly-typed superset of JavaScript developed by Microsoft. TypeScript adds static type checking,
+              interfaces, enums, generics, and other features to JavaScript. It compiles (transpiles) to plain JavaScript.
+              Types catch errors at compile time: <code>function add(a: number, b: number): number { return a + b; }</code>.
+              TypeScript has become the standard for large-scale JavaScript projects.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#javascript">JavaScript</a>, <a href="#compiler">Compiler</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER U ===== -->
+      <div class="glossary-letter-group" data-letter-group="U" id="letter-U">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">U</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="unit-test" data-category="testing">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Unit Test</h2>
+              <span class="glossary-term-tag tag" data-cat="testing">Testing</span>
+            </div>
+            <p class="glossary-term-def">
+              A test that verifies the behavior of a single, isolated unit of code (usually a function or method).
+              Unit tests are fast, independent, and repeatable. They follow the AAA pattern: <strong>Arrange</strong>
+              (setup), <strong>Act</strong> (execute), <strong>Assert</strong> (verify). Example: testing that
+              <code>add(2, 3)</code> returns <code>5</code>. A codebase with good unit test coverage is easier to
+              refactor and maintain.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#testing">Testing</a>, <a href="#tdd">TDD</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER V ===== -->
+      <div class="glossary-letter-group" data-letter-group="V" id="letter-V">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">V</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="variable" data-category="general">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Variable</h2>
+              <span class="glossary-term-tag tag" data-cat="general">General</span>
+            </div>
+            <p class="glossary-term-def">
+              A named container that stores a value in memory. In JavaScript, variables are declared with
+              <code>const</code> (immutable binding), <code>let</code> (mutable, block-scoped), or <code>var</code>
+              (mutable, function-scoped — generally avoided). Variables can hold any data type: numbers, strings,
+              booleans, objects, arrays, functions, null, and undefined. Choose descriptive names: <code>userAge</code>
+              not <code>x</code>.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#scope">Scope</a>, <a href="#data-type">Data Type</a></span>
+            </div>
+          </article>
+
+          <article class="glossary-term-card" data-term="version-control" data-category="version-control">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Version Control</h2>
+              <span class="glossary-term-tag tag" data-cat="version-control">Version Control</span>
+            </div>
+            <p class="glossary-term-def">
+              A system that records changes to files over time, allowing you to recall specific versions later.
+              Version control enables collaboration, tracks history, creates branches for parallel development,
+              and provides a safety net against data loss. Git is the dominant version control system. Platforms like
+              GitHub, GitLab, and Bitbucket add collaboration features (PRs, issues, CI/CD).
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#git">Git</a>, <a href="#branch">Branch</a>, <a href="#commit">Commit</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER W ===== -->
+      <div class="glossary-letter-group" data-letter-group="W" id="letter-W">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">W</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="websocket" data-category="networking">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">WebSocket</h2>
+              <span class="glossary-term-tag tag" data-cat="networking">Networking</span>
+            </div>
+            <p class="glossary-term-def">
+              A communication protocol that provides full-duplex (two-way) communication over a single TCP connection.
+              Unlike HTTP (request-response), WebSockets allow the server to push data to the client in real time.
+              Ideal for chat applications, live notifications, gaming, and collaborative editing. Established via an
+              HTTP upgrade handshake: <code>const ws = new WebSocket('wss://example.com');</code>
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#http">HTTP</a>, <a href="#api">API</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER X ===== -->
+      <div class="glossary-letter-group" data-letter-group="X" id="letter-X">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">X</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="xss" data-category="security">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">XSS</h2>
+              <span class="glossary-term-tag tag" data-cat="security">Security</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>Cross-Site Scripting.</strong> A security vulnerability where attackers inject malicious scripts
+              into web pages viewed by other users. Types: <strong>Stored XSS</strong> (malicious script saved in database),
+              <strong>Reflected XSS</strong> (script in URL parameters), <strong>DOM-based XSS</strong> (client-side
+              manipulation). Prevention: sanitize inputs, escape outputs, use Content Security Policy (CSP) headers,
+              and never use <code>innerHTML</code> with untrusted data.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#cors">CORS</a>, <a href="#csrf">CSRF</a>, <a href="#security">Security</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER Y ===== -->
+      <div class="glossary-letter-group" data-letter-group="Y" id="letter-Y">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">Y</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="yaml" data-category="devops">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">YAML</h2>
+              <span class="glossary-term-tag tag" data-cat="devops">DevOps</span>
+            </div>
+            <p class="glossary-term-def">
+              <strong>YAML Ain't Markup Language.</strong> A human-readable data serialization format commonly used for
+              configuration files. YAML uses indentation (spaces, not tabs) to represent structure. It's used in Docker
+              Compose, Kubernetes manifests, GitHub Actions, CI/CD pipelines, and Ansible playbooks. YAML supports
+              scalars, lists, and maps. More readable than JSON for configuration, but whitespace-sensitive.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#json">JSON</a>, <a href="#devops">DevOps</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== LETTER Z ===== -->
+      <div class="glossary-letter-group" data-letter-group="Z" id="letter-Z">
+        <div class="glossary-letter-header">
+          <span class="glossary-letter">Z</span>
+          <span class="glossary-letter-line" aria-hidden="true"></span>
+        </div>
+        <div class="glossary-terms-list">
+
+          <article class="glossary-term-card" data-term="zero-downtime-deployment" data-category="devops">
+            <div class="glossary-term-top">
+              <h2 class="glossary-term-name">Zero-Downtime Deployment</h2>
+              <span class="glossary-term-tag tag" data-cat="devops">DevOps</span>
+            </div>
+            <p class="glossary-term-def">
+              A deployment strategy that updates an application without any interruption to users. Techniques include
+              <strong>Blue-Green Deployment</strong> (two identical environments swapped), <strong>Rolling Deployment</strong>
+              (gradual replacement of instances), and <strong>Canary Deployment</strong> (routing a small percentage of
+              traffic to the new version first). Achieved with load balancers, container orchestration, and health checks.
+            </p>
+            <div class="glossary-term-meta">
+              <span class="glossary-term-related">Related: <a href="#devops">DevOps</a>, <a href="#ci-cd">CI/CD</a></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== BACK TO TOP / CTA ========== -->
+  <section class="glossary-cta section-padding" aria-label="Explore more resources">
+    <div class="container">
+      <div class="glossary-cta-card">
+        <h2 class="glossary-cta-title">Want to put these terms into practice?</h2>
+        <p class="glossary-cta-desc">
+          Try our free developer tools to experiment with the concepts you've learned.
+          Format JSON, build regex patterns, decode JWTs, generate hashes, and more.
+        </p>
+        <div class="glossary-cta-actions">
+          <a href="/tools" class="btn btn-primary">Explore Tools</a>
+          <a href="/compiler" class="btn btn-secondary">Try Compiler</a>
+          <a href="/resources" class="btn btn-ghost">Back to Resources</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: leaderboard -->
+
+</main>

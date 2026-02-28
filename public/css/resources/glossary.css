@@ -1,0 +1,671 @@
+/**
+ * glossary.css
+ * Styles for the Programming Glossary page
+ * Part of the Value.Codes Resources section
+ */
+
+/* ========== HERO SECTION ========== */
+.glossary-hero {
+  padding: 3rem 0 2.5rem;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.glossary-hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.glossary-hero-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.glossary-hero-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.glossary-hero-desc {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+/* ========== SEARCH ========== */
+.glossary-search-wrap {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.glossary-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.glossary-search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--subtle);
+  pointer-events: none;
+}
+
+.glossary-search-input {
+  width: 100%;
+  padding: 12px 44px 12px 44px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--paper);
+  color: var(--ink);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.glossary-search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.glossary-search-input::placeholder {
+  color: var(--subtle);
+}
+
+.glossary-search-clear {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--subtle);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.glossary-search-clear:hover {
+  background-color: var(--surface);
+  color: var(--ink);
+}
+
+.glossary-search-clear:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.glossary-search-count {
+  font-size: 0.85rem;
+  color: var(--subtle);
+  text-align: center;
+  margin-top: 0.5rem;
+  min-height: 1.2em;
+}
+
+/* ========== STATS ========== */
+.glossary-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.glossary-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.glossary-stat-num {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.glossary-stat-label {
+  font-size: 0.8rem;
+  color: var(--subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========== ALPHABET NAVIGATION ========== */
+.glossary-alphabet-nav-section {
+  padding: 1rem 0;
+  background-color: var(--paper);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 90;
+}
+
+.glossary-alphabet-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.glossary-alpha-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--paper);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.glossary-alpha-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: var(--accent-light);
+}
+
+.glossary-alpha-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.glossary-alpha-btn.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+.glossary-alpha-btn.disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.glossary-alpha-btn-all {
+  width: auto;
+  padding: 0 12px;
+}
+
+/* ========== CATEGORY FILTERS ========== */
+.glossary-filters-section {
+  padding: 1.25rem 0;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.glossary-filters {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.glossary-filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 6px;
+}
+
+.glossary-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.glossary-chip {
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background-color: var(--paper);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.glossary-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.glossary-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.glossary-chip.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+/* ========== LETTER GROUPS ========== */
+.glossary-letter-group {
+  margin-bottom: 2.5rem;
+}
+
+.glossary-letter-group.hidden {
+  display: none;
+}
+
+.glossary-letter-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.glossary-letter {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.glossary-letter-line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--border);
+  border-radius: 1px;
+}
+
+/* ========== TERM CARDS ========== */
+.glossary-terms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.glossary-term-card {
+  padding: 1.25rem 1.5rem;
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.glossary-term-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.glossary-term-card.hidden {
+  display: none;
+}
+
+.glossary-term-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.glossary-term-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  scroll-margin-top: calc(var(--nav-h) + 80px);
+}
+
+.glossary-term-tag {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.glossary-term-tag[data-cat="general"] {
+  background-color: #f0f4ff;
+  color: #3b5bdb;
+}
+
+.glossary-term-tag[data-cat="frontend"] {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.glossary-term-tag[data-cat="backend"] {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.glossary-term-tag[data-cat="database"] {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}
+
+.glossary-term-tag[data-cat="devops"] {
+  background-color: #fce7f3;
+  color: #9d174d;
+}
+
+.glossary-term-tag[data-cat="security"] {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.glossary-term-tag[data-cat="networking"] {
+  background-color: #e0f2fe;
+  color: #075985;
+}
+
+.glossary-term-tag[data-cat="architecture"] {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.glossary-term-tag[data-cat="testing"] {
+  background-color: #ccfbf1;
+  color: #134e4a;
+}
+
+.glossary-term-tag[data-cat="data-structures"] {
+  background-color: #fff7ed;
+  color: #9a3412;
+}
+
+.glossary-term-tag[data-cat="algorithms"] {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.glossary-term-tag[data-cat="oop"] {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.glossary-term-tag[data-cat="functional"] {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+
+.glossary-term-tag[data-cat="version-control"] {
+  background-color: #fdf2f8;
+  color: #831843;
+}
+
+.glossary-term-tag[data-cat="web"] {
+  background-color: #ecfdf5;
+  color: #047857;
+}
+
+.glossary-term-def {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.glossary-term-def code {
+  background-color: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
+  font-size: 0.82em;
+  color: var(--accent);
+}
+
+.glossary-term-def strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.glossary-term-def a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition);
+}
+
+.glossary-term-def a:hover {
+  color: var(--accent-dark);
+}
+
+.glossary-term-meta {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.glossary-term-related {
+  font-size: 0.8rem;
+  color: var(--subtle);
+}
+
+.glossary-term-related a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.glossary-term-related a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+/* ========== NO RESULTS ========== */
+.glossary-no-results {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.glossary-no-results.hidden {
+  display: none;
+}
+
+.glossary-no-results-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.glossary-no-results-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.glossary-no-results-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ========== CTA SECTION ========== */
+.glossary-cta {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.glossary-cta-card {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.glossary-cta-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.glossary-cta-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.glossary-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ========== BREADCRUMB ========== */
+.breadcrumb {
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.breadcrumb-link {
+  color: var(--subtle);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.breadcrumb-link:hover {
+  color: var(--accent);
+}
+
+.breadcrumb-sep {
+  margin: 0 0.4rem;
+  color: var(--border);
+}
+
+.breadcrumb-current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ========== UTILITY ========== */
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .glossary-hero {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .glossary-stats {
+    gap: 2rem;
+  }
+
+  .glossary-alphabet-nav-section {
+    padding: 0.75rem 0;
+  }
+
+  .glossary-alpha-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .glossary-filter-label {
+    width: 100%;
+  }
+
+  .glossary-term-card {
+    padding: 1rem 1.15rem;
+  }
+
+  .glossary-term-name {
+    font-size: 1rem;
+  }
+
+  .glossary-cta-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .glossary-cta-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glossary-alpha-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+  }
+
+  .glossary-alpha-btn-all {
+    padding: 0 8px;
+  }
+
+  .glossary-stats {
+    gap: 1.5rem;
+  }
+
+  .glossary-term-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .glossary-cta-actions {
+    flex-direction: column;
+  }
+
+  .glossary-cta-actions .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,2550 @@
+<!-- views/resources/index.ejs — Developer Documentation Directory page -->
+<% layout('layouts/main') %>
+
+<main id="main-content" class="resources-page">
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="resources-hero" aria-label="Documentation directory hero">
+    <div class="container">
+      <div class="resources-hero__content">
+        <span class="section-number">Resources</span>
+        <h1 class="resources-hero__title">Developer Documentation Directory</h1>
+        <p class="resources-hero__desc">
+          A comprehensive, curated directory of official documentation for every major programming language, framework,
+          database, and development tool. Direct links to authoritative sources, organized for efficient discovery.
+        </p>
+        <p class="resources-hero__sub">
+          No tutorials. No opinions. Just the official documentation you need to build software properly.
+        </p>
+        <div class="resources-hero__search">
+          <label for="resources-search" class="sr-only">Search documentation resources</label>
+          <div class="resources-search-wrap">
+            <svg class="resources-search-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="resources-search" class="resources-search-input" placeholder="Search documentation resources..." autocomplete="off">
+          </div>
+        </div>
+        <p class="resources-hero__note">
+          Use the search above to quickly filter documentation resources, or browse by category below.
+          All links point directly to official, maintained documentation sources.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== JUMP TO CATEGORY ========== -->
+  <nav class="resources-jumpnav" aria-label="Jump to documentation category">
+    <div class="container">
+      <h2 class="resources-jumpnav__title">Jump to Category</h2>
+      <ul class="resources-jumpnav__list">
+        <li><a href="#languages" class="resources-jumpnav__link">Languages</a></li>
+        <li><a href="#frontend" class="resources-jumpnav__link">Frontend</a></li>
+        <li><a href="#backend" class="resources-jumpnav__link">Backend</a></li>
+        <li><a href="#databases" class="resources-jumpnav__link">Databases</a></li>
+        <li><a href="#devops" class="resources-jumpnav__link">DevOps</a></li>
+        <li><a href="#mobile" class="resources-jumpnav__link">Mobile</a></li>
+        <li><a href="#apis" class="resources-jumpnav__link">APIs &amp; Protocols</a></li>
+        <li><a href="#vcs" class="resources-jumpnav__link">Version Control</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ADSENSE: leaderboard -->
+
+  <!-- ========== 01 — PROGRAMMING LANGUAGES ========== -->
+  <section id="languages" class="resources-category section-padding" aria-label="Programming languages documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">01</span>
+        <h2 class="resources-category__title">Programming Languages</h2>
+        <p class="resources-category__desc">
+          Official documentation for major programming languages. These resources provide comprehensive language specifications,
+          standard library references, and authoritative guides to syntax and semantics. Understanding language documentation is
+          fundamental to writing idiomatic, efficient code that leverages the full power of each platform.
+        </p>
+        <p class="resources-category__subdesc">
+          Each language's official documentation typically includes getting started guides for newcomers, comprehensive API
+          references for the standard library, language specification details for advanced users, and release notes tracking
+          changes across versions. Bookmark these as your primary reference when working in any language.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- Python -->
+        <article class="resource-card" data-search="python beginner programming language standard library">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--beginner">Beginner Friendly</span>
+            </div>
+            <h3 class="resource-card__title">Python</h3>
+          </div>
+          <p class="resource-card__desc">
+            Python's official documentation is exceptionally well-written, featuring tutorials for beginners, comprehensive
+            standard library references, and the language reference specification. The documentation includes extensive
+            examples and follows clear conventions that make learning Python straightforward.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.python.org/3/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Official Documentation</a>
+            <a href="<https://docs.python.org/3/tutorial/>" target="_blank" rel="noopener noreferrer" class="resource-link">Python Tutorial</a>
+            <a href="<https://docs.python.org/3/library/>" target="_blank" rel="noopener noreferrer" class="resource-link">Standard Library</a>
+            <a href="<https://peps.python.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">Python Enhancement Proposals</a>
+            <a href="<https://www.python.org/community/>" target="_blank" rel="noopener noreferrer" class="resource-link">Community Resources</a>
+          </div>
+        </article>
+
+        <!-- JavaScript -->
+        <article class="resource-card" data-search="javascript js mdn ecmascript web development node nodejs">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--popular">Most Popular</span>
+            </div>
+            <h3 class="resource-card__title">JavaScript</h3>
+          </div>
+          <p class="resource-card__desc">
+            JavaScript documentation through MDN Web Docs is the gold standard for web development references. It covers
+            ECMAScript specifications, browser APIs, and includes compatibility tables. Essential for both frontend and
+            Node.js backend development.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">MDN JavaScript Guide</a>
+            <a href="<https://tc39.es/ecma262/>" target="_blank" rel="noopener noreferrer" class="resource-link">ECMAScript Specification</a>
+            <a href="<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>" target="_blank" rel="noopener noreferrer" class="resource-link">JavaScript Reference</a>
+            <a href="<https://nodejs.org/docs/latest/api/>" target="_blank" rel="noopener noreferrer" class="resource-link">Node.js API Docs</a>
+            <a href="<https://github.com/tc39/proposals>" target="_blank" rel="noopener noreferrer" class="resource-link">TC39 Proposals</a>
+          </div>
+        </article>
+
+        <!-- TypeScript -->
+        <article class="resource-card" data-search="typescript ts typed javascript static typing">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">TypeScript</h3>
+          </div>
+          <p class="resource-card__desc">
+            TypeScript's documentation provides comprehensive coverage of the type system, compiler options, and advanced
+            features. Essential reading for anyone building scalable JavaScript applications with static typing. The handbook
+            is particularly well-structured for progressive learning.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.typescriptlang.org/docs/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Official Documentation</a>
+            <a href="<https://www.typescriptlang.org/docs/handbook/>" target="_blank" rel="noopener noreferrer" class="resource-link">TypeScript Handbook</a>
+            <a href="<https://www.typescriptlang.org/tsconfig>" target="_blank" rel="noopener noreferrer" class="resource-link">TSConfig Reference</a>
+            <a href="<https://www.typescriptlang.org/play>" target="_blank" rel="noopener noreferrer" class="resource-link">TypeScript Playground</a>
+          </div>
+        </article>
+
+        <!-- Java -->
+        <article class="resource-card" data-search="java oracle jvm jdk se enterprise">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Java</h3>
+          </div>
+          <p class="resource-card__desc">
+            Java documentation includes comprehensive API specifications, tutorials, and the language specification itself.
+            Oracle's Java SE documentation is the authoritative source for understanding the platform, from basic syntax to
+            advanced concurrency patterns.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.oracle.com/en/java/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Oracle Java Documentation</a>
+            <a href="<https://docs.oracle.com/javase/tutorial/>" target="_blank" rel="noopener noreferrer" class="resource-link">Java Tutorials</a>
+            <a href="<https://docs.oracle.com/en/java/javase/21/docs/api/>" target="_blank" rel="noopener noreferrer" class="resource-link">Java SE API</a>
+            <a href="<https://openjdk.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">OpenJDK Project</a>
+          </div>
+        </article>
+
+        <!-- C++ -->
+        <article class="resource-card" data-search="c++ cpp cplusplus systems programming memory templates">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">C++</h3>
+          </div>
+          <p class="resource-card__desc">
+            C++ documentation spans multiple sources, with cppreference.com being the community standard and the ISO standard
+            being the official specification. Essential for understanding memory management, templates, and modern C++ features
+            through C++23.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://en.cppreference.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">cppreference.com</a>
+            <a href="<https://isocpp.org/std/the-standard>" target="_blank" rel="noopener noreferrer" class="resource-link">ISO C++ Standards</a>
+            <a href="<https://en.cppreference.com/w/cpp/language>" target="_blank" rel="noopener noreferrer" class="resource-link">Language Reference</a>
+            <a href="<https://en.cppreference.com/w/cpp/header>" target="_blank" rel="noopener noreferrer" class="resource-link">Standard Library</a>
+          </div>
+        </article>
+
+        <!-- Rust -->
+        <article class="resource-card" data-search="rust systems programming ownership memory safety cargo">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--modern">Modern</span>
+            </div>
+            <h3 class="resource-card__title">Rust</h3>
+          </div>
+          <p class="resource-card__desc">
+            Rust's documentation is exemplary, featuring "The Book" for learning, comprehensive API docs, and the reference.
+            The ownership and borrowing system is explained thoroughly, making Rust's memory safety guarantees accessible to
+            developers from all backgrounds.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.rust-lang.org/learn>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Official Documentation</a>
+            <a href="<https://doc.rust-lang.org/book/>" target="_blank" rel="noopener noreferrer" class="resource-link">The Rust Book</a>
+            <a href="<https://doc.rust-lang.org/std/>" target="_blank" rel="noopener noreferrer" class="resource-link">Standard Library</a>
+            <a href="<https://doc.rust-lang.org/reference/>" target="_blank" rel="noopener noreferrer" class="resource-link">Rust Reference</a>
+            <a href="<https://doc.rust-lang.org/cargo/>" target="_blank" rel="noopener noreferrer" class="resource-link">Cargo Documentation</a>
+          </div>
+        </article>
+
+        <!-- Go -->
+        <article class="resource-card" data-search="go golang cloud native systems programming concurrency">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Go</h3>
+          </div>
+          <p class="resource-card__desc">
+            Go's documentation emphasizes simplicity and clarity, reflecting the language's design philosophy. The standard
+            library documentation is extensive, and "Effective Go" provides idiomatic patterns. Essential for cloud-native
+            and systems programming.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://go.dev/doc/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Official Documentation</a>
+            <a href="<https://go.dev/tour/>" target="_blank" rel="noopener noreferrer" class="resource-link">A Tour of Go</a>
+            <a href="<https://pkg.go.dev/std>" target="_blank" rel="noopener noreferrer" class="resource-link">Standard Library</a>
+            <a href="<https://go.dev/doc/effective_go>" target="_blank" rel="noopener noreferrer" class="resource-link">Effective Go</a>
+            <a href="<https://go.dev/ref/spec>" target="_blank" rel="noopener noreferrer" class="resource-link">Language Specification</a>
+          </div>
+        </article>
+
+        <!-- C# -->
+        <article class="resource-card" data-search="c# csharp dotnet .net microsoft async linq">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">C#</h3>
+          </div>
+          <p class="resource-card__desc">
+            Microsoft's C# documentation covers the language, .NET framework, and platform-specific development. The docs
+            include excellent tutorials, API references, and guidance on modern features like async/await and LINQ.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://learn.microsoft.com/en-us/dotnet/csharp/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">C# Documentation</a>
+            <a href="<https://learn.microsoft.com/en-us/dotnet/api/>" target="_blank" rel="noopener noreferrer" class="resource-link">.NET API Browser</a>
+            <a href="<https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/>" target="_blank" rel="noopener noreferrer" class="resource-link">C# Tour</a>
+            <a href="<https://github.com/dotnet/csharplang/tree/main/proposals>" target="_blank" rel="noopener noreferrer" class="resource-link">Language Proposals</a>
+          </div>
+        </article>
+
+        <!-- Ruby -->
+        <article class="resource-card" data-search="ruby rails metaprogramming elegant expressive">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Ruby</h3>
+          </div>
+          <p class="resource-card__desc">
+            Ruby's documentation includes comprehensive API references and guides to the language's elegant, expressive syntax.
+            The Ruby core and standard library docs are essential for understanding the language's powerful metaprogramming
+            capabilities.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.ruby-lang.org/en/documentation/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Official Documentation</a>
+            <a href="<https://ruby-doc.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">Ruby-Doc.org</a>
+            <a href="<https://ruby-doc.org/core/>" target="_blank" rel="noopener noreferrer" class="resource-link">Core API</a>
+            <a href="<https://guides.rubyonrails.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">Rails Guides</a>
+          </div>
+        </article>
+
+        <!-- PHP -->
+        <article class="resource-card" data-search="php web development server side scripting">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">PHP</h3>
+          </div>
+          <p class="resource-card__desc">
+            PHP's manual is one of the most comprehensive language documentations available, with user-contributed notes that
+            provide real-world context. Essential for web development, covering both procedural and object-oriented approaches.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.php.net/manual/en/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">PHP Manual</a>
+            <a href="<https://www.php.net/docs.php>" target="_blank" rel="noopener noreferrer" class="resource-link">Official Documentation</a>
+            <a href="<https://www.php-fig.org/psr/>" target="_blank" rel="noopener noreferrer" class="resource-link">PHP Standards</a>
+            <a href="<https://wiki.php.net/rfc>" target="_blank" rel="noopener noreferrer" class="resource-link">PHP RFCs</a>
+          </div>
+        </article>
+
+        <!-- Swift -->
+        <article class="resource-card" data-search="swift apple ios macos protocol oriented programming">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Swift</h3>
+          </div>
+          <p class="resource-card__desc">
+            Apple's Swift documentation covers the language comprehensively, from basic syntax to advanced features like
+            protocol-oriented programming. Essential for iOS, macOS, and cross-platform development with Swift.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.swift.org/documentation/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Swift.org Documentation</a>
+            <a href="<https://docs.swift.org/swift-book/>" target="_blank" rel="noopener noreferrer" class="resource-link">The Swift Book</a>
+            <a href="<https://developer.apple.com/documentation/swift>" target="_blank" rel="noopener noreferrer" class="resource-link">Apple Swift Docs</a>
+            <a href="<https://www.swift.org/package-manager/>" target="_blank" rel="noopener noreferrer" class="resource-link">Swift Package Manager</a>
+          </div>
+        </article>
+
+        <!-- Kotlin -->
+        <article class="resource-card" data-search="kotlin android jvm jetbrains multiplatform coroutines">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Kotlin</h3>
+          </div>
+          <p class="resource-card__desc">
+            JetBrains' Kotlin documentation is well-organized and includes comparisons with Java, making it accessible to
+            existing JVM developers. Covers Android development, multiplatform projects, and coroutines in depth.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://kotlinlang.org/docs/home.html>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Official Documentation</a>
+            <a href="<https://kotlinlang.org/docs/reference/>" target="_blank" rel="noopener noreferrer" class="resource-link">Language Reference</a>
+            <a href="<https://kotlinlang.org/api/latest/jvm/stdlib/>" target="_blank" rel="noopener noreferrer" class="resource-link">Standard Library</a>
+            <a href="<https://kotlinlang.org/docs/coroutines-guide.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Coroutines Guide</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== 02 — FRONTEND FRAMEWORKS ========== -->
+  <section id="frontend" class="resources-category section-padding" aria-label="Frontend frameworks documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">02</span>
+        <h2 class="resources-category__title">Frontend Frameworks &amp; Libraries</h2>
+        <p class="resources-category__desc">
+          Modern frontend development relies on frameworks that provide structure, reactivity, and efficient rendering. These
+          official documentation resources cover component architecture, state management, routing, and best practices for
+          building user interfaces that scale from small applications to enterprise systems.
+        </p>
+        <p class="resources-category__subdesc">
+          Each framework's documentation includes getting started guides, API references, migration guides, and increasingly
+          important performance optimization techniques. The ecosystem documentation is equally crucial, covering testing,
+          state management libraries, and deployment strategies.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- React -->
+        <article class="resource-card" data-search="react reactjs hooks components jsx facebook meta frontend ui">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--popular">Most Used</span>
+            </div>
+            <h3 class="resource-card__title">React</h3>
+          </div>
+          <p class="resource-card__desc">
+            React's new documentation focuses on hooks and modern patterns. Comprehensive coverage of component lifecycle,
+            state management, and performance optimization. The new docs emphasize learning through interactive examples and
+            real-world scenarios.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://react.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">React Documentation</a>
+            <a href="<https://react.dev/learn>" target="_blank" rel="noopener noreferrer" class="resource-link">Learn React</a>
+            <a href="<https://react.dev/reference/react>" target="_blank" rel="noopener noreferrer" class="resource-link">API Reference</a>
+            <a href="<https://reactnative.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link">React Native</a>
+            <a href="<https://nextjs.org/docs>" target="_blank" rel="noopener noreferrer" class="resource-link">Next.js Framework</a>
+          </div>
+        </article>
+
+        <!-- Vue.js -->
+        <article class="resource-card" data-search="vue vuejs composition api options api progressive frontend">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Vue.js</h3>
+          </div>
+          <p class="resource-card__desc">
+            Vue's documentation is renowned for clarity and progressive learning approach. Covers the Composition API,
+            Options API, and ecosystem tools. Excellent for developers seeking a gentler learning curve than React while
+            maintaining enterprise capabilities.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://vuejs.org/guide/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Vue.js Guide</a>
+            <a href="<https://vuejs.org/api/>" target="_blank" rel="noopener noreferrer" class="resource-link">API Reference</a>
+            <a href="<https://vuejs.org/examples/>" target="_blank" rel="noopener noreferrer" class="resource-link">Examples</a>
+            <a href="<https://router.vuejs.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">Vue Router</a>
+            <a href="<https://pinia.vuejs.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">Pinia State Management</a>
+          </div>
+        </article>
+
+        <!-- Angular -->
+        <article class="resource-card" data-search="angular typescript rxjs dependency injection google frontend enterprise">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Angular</h3>
+          </div>
+          <p class="resource-card__desc">
+            Angular's comprehensive documentation covers the complete framework including TypeScript, RxJS, and dependency
+            injection. Suited for large-scale applications with strong opinions on architecture and testing. The CLI
+            documentation is particularly valuable.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://angular.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Angular Documentation</a>
+            <a href="<https://angular.dev/overview>" target="_blank" rel="noopener noreferrer" class="resource-link">Architecture Guide</a>
+            <a href="<https://angular.dev/api>" target="_blank" rel="noopener noreferrer" class="resource-link">API Reference</a>
+            <a href="<https://angular.dev/tools/cli>" target="_blank" rel="noopener noreferrer" class="resource-link">Angular CLI</a>
+            <a href="<https://material.angular.io/>" target="_blank" rel="noopener noreferrer" class="resource-link">Angular Material</a>
+          </div>
+        </article>
+
+        <!-- Svelte -->
+        <article class="resource-card" data-search="svelte sveltekit compiler reactive frontend no virtual dom">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--rising">Rising Star</span>
+            </div>
+            <h3 class="resource-card__title">Svelte</h3>
+          </div>
+          <p class="resource-card__desc">
+            Svelte's documentation emphasizes simplicity and compiler-driven reactivity. Unlike virtual DOM frameworks, Svelte
+            compiles components to efficient imperative code. The tutorial is interactive and covers the complete framework
+            efficiently.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://svelte.dev/docs>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Svelte Documentation</a>
+            <a href="<https://learn.svelte.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link">Interactive Tutorial</a>
+            <a href="<https://kit.svelte.dev/docs>" target="_blank" rel="noopener noreferrer" class="resource-link">SvelteKit</a>
+            <a href="<https://svelte.dev/examples>" target="_blank" rel="noopener noreferrer" class="resource-link">Examples</a>
+          </div>
+        </article>
+
+        <!-- Solid.js -->
+        <article class="resource-card" data-search="solid solidjs fine grained reactivity jsx performance frontend">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Solid.js</h3>
+          </div>
+          <p class="resource-card__desc">
+            Solid's fine-grained reactivity offers exceptional performance without a virtual DOM. Documentation covers reactive
+            primitives, JSX compilation, and performance characteristics. Ideal for developers seeking maximum control over
+            rendering.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.solidjs.com/docs/latest>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Solid Documentation</a>
+            <a href="<https://www.solidjs.com/tutorial/>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorial</a>
+            <a href="<https://www.solidjs.com/guides/getting-started>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://start.solidjs.com/>" target="_blank" rel="noopener noreferrer" class="resource-link">SolidStart</a>
+          </div>
+        </article>
+
+        <!-- Tailwind CSS -->
+        <article class="resource-card" data-search="tailwind tailwindcss utility first css framework responsive design">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Tailwind CSS</h3>
+          </div>
+          <p class="resource-card__desc">
+            Tailwind's utility-first CSS framework documentation is comprehensive and searchable. Covers all utility classes,
+            customization, and responsive design patterns. Essential for modern frontend development with rapid prototyping
+            capabilities.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://tailwindcss.com/docs>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Tailwind Documentation</a>
+            <a href="<https://tailwindcss.com/docs/installation>" target="_blank" rel="noopener noreferrer" class="resource-link">Installation</a>
+            <a href="<https://tailwindcss.com/docs/utility-first>" target="_blank" rel="noopener noreferrer" class="resource-link">Core Concepts</a>
+            <a href="<https://tailwindui.com/>" target="_blank" rel="noopener noreferrer" class="resource-link">Tailwind UI</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 — BACKEND FRAMEWORKS ========== -->
+  <section id="backend" class="resources-category section-padding" aria-label="Backend frameworks documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">03</span>
+        <h2 class="resources-category__title">Backend Frameworks &amp; Runtime</h2>
+        <p class="resources-category__desc">
+          Backend frameworks provide structure for server-side applications, handling routing, middleware, authentication, and
+          database integration. These documentation resources cover everything from basic request handling to advanced topics
+          like microservices architecture, caching strategies, and horizontal scaling patterns.
+        </p>
+        <p class="resources-category__subdesc">
+          Understanding backend framework documentation is crucial for building reliable, secure, and performant server
+          applications. Each framework has distinct philosophies about convention versus configuration, making thorough
+          documentation study essential for idiomatic development.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- Node.js -->
+        <article class="resource-card" data-search="nodejs node javascript runtime event loop async backend server">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--essential">Essential</span>
+            </div>
+            <h3 class="resource-card__title">Node.js</h3>
+          </div>
+          <p class="resource-card__desc">
+            Node.js documentation covers the runtime, event loop, streams, and core modules. Understanding Node's asynchronous
+            nature and non-blocking I/O is fundamental to JavaScript backend development. The API docs are comprehensive and
+            version-specific.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://nodejs.org/docs/latest/api/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Node.js API</a>
+            <a href="<https://nodejs.org/en/learn>" target="_blank" rel="noopener noreferrer" class="resource-link">Guides</a>
+            <a href="<https://nodejs.org/en/docs>" target="_blank" rel="noopener noreferrer" class="resource-link">Documentation Home</a>
+            <a href="<https://nodejs.org/en/about>" target="_blank" rel="noopener noreferrer" class="resource-link">About Node.js</a>
+          </div>
+        </article>
+
+        <!-- Express.js -->
+        <article class="resource-card" data-search="express expressjs middleware routing nodejs web framework">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Express.js</h3>
+          </div>
+          <p class="resource-card__desc">
+            Express documentation covers routing, middleware, templating, and error handling. As the most popular Node.js
+            framework, understanding Express patterns is valuable even when using other frameworks. The middleware ecosystem
+            is extensive.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://expressjs.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Express Documentation</a>
+            <a href="<https://expressjs.com/en/starter/installing.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://expressjs.com/en/guide/routing.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Routing Guide</a>
+            <a href="<https://expressjs.com/en/advanced/best-practice-security.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Security Best Practices</a>
+          </div>
+        </article>
+
+        <!-- Django -->
+        <article class="resource-card" data-search="django python web framework orm batteries included admin">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Django</h3>
+          </div>
+          <p class="resource-card__desc">
+            Django's documentation is comprehensive, covering the ORM, authentication, admin interface, and deployment. The
+            "batteries included" philosophy means extensive built-in functionality. Essential for Python web development at
+            any scale.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.djangoproject.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Django Documentation</a>
+            <a href="<https://docs.djangoproject.com/en/stable/intro/tutorial01/>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorial</a>
+            <a href="<https://docs.djangoproject.com/en/stable/ref/>" target="_blank" rel="noopener noreferrer" class="resource-link">API Reference</a>
+            <a href="<https://docs.djangoproject.com/en/stable/topics/>" target="_blank" rel="noopener noreferrer" class="resource-link">Topic Guides</a>
+          </div>
+        </article>
+
+        <!-- Flask -->
+        <article class="resource-card" data-search="flask python micro framework lightweight web blueprints">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Flask</h3>
+          </div>
+          <p class="resource-card__desc">
+            Flask's minimalist documentation reflects the framework's philosophy. Covers routing, templates, blueprints, and
+            extensions. Ideal for developers who prefer explicit control over framework magic. The extension ecosystem is
+            well-documented.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://flask.palletsprojects.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Flask Documentation</a>
+            <a href="<https://flask.palletsprojects.com/quickstart/>" target="_blank" rel="noopener noreferrer" class="resource-link">Quickstart</a>
+            <a href="<https://flask.palletsprojects.com/tutorial/>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorial</a>
+            <a href="<https://flask.palletsprojects.com/api/>" target="_blank" rel="noopener noreferrer" class="resource-link">API Reference</a>
+          </div>
+        </article>
+
+        <!-- Spring Boot -->
+        <article class="resource-card" data-search="spring boot java jvm enterprise dependency injection microservices">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Spring Boot</h3>
+          </div>
+          <p class="resource-card__desc">
+            Spring Boot documentation covers auto-configuration, dependency injection, data access, and cloud deployment.
+            The reference documentation is extensive, covering both core concepts and production-ready features like metrics
+            and health checks.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://spring.io/projects/spring-boot>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Spring Boot</a>
+            <a href="<https://docs.spring.io/spring-boot/docs/current/reference/html/>" target="_blank" rel="noopener noreferrer" class="resource-link">Reference Guide</a>
+            <a href="<https://spring.io/guides>" target="_blank" rel="noopener noreferrer" class="resource-link">Spring Guides</a>
+            <a href="<https://docs.spring.io/spring-boot/docs/current/api/>" target="_blank" rel="noopener noreferrer" class="resource-link">API Documentation</a>
+          </div>
+        </article>
+
+        <!-- FastAPI -->
+        <article class="resource-card" data-search="fastapi python async api pydantic starlette modern">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">FastAPI</h3>
+          </div>
+          <p class="resource-card__desc">
+            FastAPI's documentation emphasizes modern Python features, automatic API documentation, and performance. Built on
+            Pydantic and Starlette, it offers excellent type safety and async support. The interactive API docs are
+            automatically generated.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://fastapi.tiangolo.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">FastAPI Documentation</a>
+            <a href="<https://fastapi.tiangolo.com/tutorial/>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorial</a>
+            <a href="<https://fastapi.tiangolo.com/advanced/>" target="_blank" rel="noopener noreferrer" class="resource-link">Advanced Guide</a>
+            <a href="<https://fastapi.tiangolo.com/deployment/>" target="_blank" rel="noopener noreferrer" class="resource-link">Deployment</a>
+          </div>
+        </article>
+
+        <!-- Ruby on Rails -->
+        <article class="resource-card" data-search="rails ruby on rails convention configuration active record mvc">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Ruby on Rails</h3>
+          </div>
+          <p class="resource-card__desc">
+            Rails guides are legendary for their clarity and completeness. Covering Active Record, Action Controller, routing,
+            testing, and more. The convention-over-configuration philosophy is thoroughly documented, making Rails accessible
+            yet powerful.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://guides.rubyonrails.org/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Rails Guides</a>
+            <a href="<https://guides.rubyonrails.org/getting_started.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://api.rubyonrails.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">API Documentation</a>
+            <a href="<https://guides.rubyonrails.org/active_record_basics.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Active Record</a>
+          </div>
+        </article>
+
+        <!-- ASP.NET Core -->
+        <article class="resource-card" data-search="aspnet asp.net core microsoft blazor signalr web api mvc">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">ASP.NET Core</h3>
+          </div>
+          <p class="resource-card__desc">
+            Microsoft's ASP.NET Core documentation covers MVC, Web API, Blazor, and SignalR. The modern cross-platform
+            framework documentation includes deployment to various cloud providers and performance optimization guidance.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://learn.microsoft.com/en-us/aspnet/core/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">ASP.NET Core Docs</a>
+            <a href="<https://learn.microsoft.com/en-us/aspnet/core/tutorials/>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorials</a>
+            <a href="<https://learn.microsoft.com/en-us/aspnet/core/fundamentals/>" target="_blank" rel="noopener noreferrer" class="resource-link">Fundamentals</a>
+            <a href="<https://learn.microsoft.com/en-us/aspnet/core/blazor/>" target="_blank" rel="noopener noreferrer" class="resource-link">Blazor</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== 04 — DATABASES ========== -->
+  <section id="databases" class="resources-category section-padding" aria-label="Databases documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">04</span>
+        <h2 class="resources-category__title">Databases &amp; Data Storage</h2>
+        <p class="resources-category__desc">
+          Database documentation covers query languages, indexing strategies, transaction management, replication, and
+          performance tuning. Understanding database internals through official documentation is essential for building
+          applications that handle data reliably at scale.
+        </p>
+        <p class="resources-category__subdesc">
+          Relational databases emphasize ACID transactions and normalized schemas, while NoSQL databases offer flexibility
+          and horizontal scaling. Documentation quality varies significantly, making thorough study of official resources
+          crucial for production deployments.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- PostgreSQL -->
+        <article class="resource-card" data-search="postgresql postgres sql relational database acid json fulltext">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--production">Production Ready</span>
+            </div>
+            <h3 class="resource-card__title">PostgreSQL</h3>
+          </div>
+          <p class="resource-card__desc">
+            PostgreSQL documentation is comprehensive and technically precise. Covers SQL syntax, indexing, transactions,
+            replication, and advanced features like JSON support and full-text search. Essential reading for understanding
+            relational database fundamentals.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.postgresql.org/docs/current/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">PostgreSQL Documentation</a>
+            <a href="<https://www.postgresql.org/docs/current/tutorial.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorial</a>
+            <a href="<https://www.postgresql.org/docs/current/sql-commands.html>" target="_blank" rel="noopener noreferrer" class="resource-link">SQL Commands</a>
+            <a href="<https://www.postgresql.org/docs/current/admin.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Server Administration</a>
+            <a href="<https://wiki.postgresql.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">PostgreSQL Wiki</a>
+          </div>
+        </article>
+
+        <!-- MySQL -->
+        <article class="resource-card" data-search="mysql sql relational database web applications open source">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">MySQL</h3>
+          </div>
+          <p class="resource-card__desc">
+            MySQL documentation covers the most widely deployed open-source database. Includes reference manuals, optimization
+            guides, and replication documentation. Understanding MySQL is valuable given its ubiquity in web applications.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://dev.mysql.com/doc/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">MySQL Documentation</a>
+            <a href="<https://dev.mysql.com/doc/refman/8.0/en/>" target="_blank" rel="noopener noreferrer" class="resource-link">Reference Manual</a>
+            <a href="<https://dev.mysql.com/doc/refman/8.0/en/tutorial.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorial</a>
+            <a href="<https://dev.mysql.com/doc/refman/8.0/en/optimization.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Optimization</a>
+          </div>
+        </article>
+
+        <!-- MongoDB -->
+        <article class="resource-card" data-search="mongodb nosql document database aggregation sharding flexible schema">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">MongoDB</h3>
+          </div>
+          <p class="resource-card__desc">
+            MongoDB's documentation covers document-oriented database concepts, aggregation pipelines, indexing, and sharding.
+            Essential for applications requiring flexible schemas and horizontal scaling. The aggregation framework documentation
+            is particularly detailed.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.mongodb.com/docs/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">MongoDB Documentation</a>
+            <a href="<https://www.mongodb.com/docs/manual/>" target="_blank" rel="noopener noreferrer" class="resource-link">MongoDB Manual</a>
+            <a href="<https://www.mongodb.com/docs/manual/tutorial/getting-started/>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://www.mongodb.com/docs/manual/aggregation/>" target="_blank" rel="noopener noreferrer" class="resource-link">Aggregation</a>
+          </div>
+        </article>
+
+        <!-- Redis -->
+        <article class="resource-card" data-search="redis cache in-memory key value pub sub session store">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Redis</h3>
+          </div>
+          <p class="resource-card__desc">
+            Redis documentation covers data structures, persistence, replication, and pub/sub messaging. Essential for caching,
+            session management, and real-time applications. The command reference is comprehensive with time complexity
+            information.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://redis.io/docs/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Redis Documentation</a>
+            <a href="<https://redis.io/docs/getting-started/>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://redis.io/commands/>" target="_blank" rel="noopener noreferrer" class="resource-link">Command Reference</a>
+            <a href="<https://redis.io/docs/management/persistence/>" target="_blank" rel="noopener noreferrer" class="resource-link">Persistence</a>
+          </div>
+        </article>
+
+        <!-- Elasticsearch -->
+        <article class="resource-card" data-search="elasticsearch elastic search analytics distributed full text query">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Elasticsearch</h3>
+          </div>
+          <p class="resource-card__desc">
+            Elasticsearch documentation covers full-text search, analytics, and distributed systems concepts. Essential for
+            implementing search functionality and log analysis. The query DSL documentation is comprehensive and includes
+            performance considerations.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.elastic.co/guide/index.html>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Elastic Documentation</a>
+            <a href="<https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Elasticsearch Guide</a>
+            <a href="<https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Query DSL</a>
+            <a href="<https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Search</a>
+          </div>
+        </article>
+
+        <!-- SQLite -->
+        <article class="resource-card" data-search="sqlite embedded database mobile desktop lightweight serverless">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">SQLite</h3>
+          </div>
+          <p class="resource-card__desc">
+            SQLite documentation covers the most deployed database engine globally. Essential for mobile apps, embedded systems,
+            and desktop applications. The documentation includes extensive internals information and SQL dialect specifics.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.sqlite.org/docs.html>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">SQLite Documentation</a>
+            <a href="<https://www.sqlite.org/lang.html>" target="_blank" rel="noopener noreferrer" class="resource-link">SQL Syntax</a>
+            <a href="<https://www.sqlite.org/quickstart.html>" target="_blank" rel="noopener noreferrer" class="resource-link">Quick Start</a>
+            <a href="<https://www.sqlite.org/faq.html>" target="_blank" rel="noopener noreferrer" class="resource-link">FAQ</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 — DEVOPS ========== -->
+  <section id="devops" class="resources-category section-padding" aria-label="DevOps and cloud documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">05</span>
+        <h2 class="resources-category__title">DevOps &amp; Cloud Infrastructure</h2>
+        <p class="resources-category__desc">
+          DevOps tool documentation covers containerization, orchestration, continuous integration, infrastructure as code, and
+          cloud platform services. Understanding these tools is essential for modern software deployment and operations.
+        </p>
+        <p class="resources-category__subdesc">
+          Cloud provider documentation is extensive and constantly evolving. Each platform offers hundreds of services with
+          distinct configurations, pricing models, and best practices. Infrastructure as code tools require understanding both
+          the tool syntax and the underlying cloud resources being managed.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- Docker -->
+        <article class="resource-card" data-search="docker container image dockerfile compose containerization deployment">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--essential">Industry Standard</span>
+            </div>
+            <h3 class="resource-card__title">Docker</h3>
+          </div>
+          <p class="resource-card__desc">
+            Docker documentation covers containerization fundamentals, image building, networking, and orchestration basics.
+            Essential for modern application deployment. Understanding Dockerfiles, multi-stage builds, and volume management
+            is crucial for production use.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.docker.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Docker Documentation</a>
+            <a href="<https://docs.docker.com/get-started/>" target="_blank" rel="noopener noreferrer" class="resource-link">Get Started</a>
+            <a href="<https://docs.docker.com/engine/reference/builder/>" target="_blank" rel="noopener noreferrer" class="resource-link">Dockerfile Reference</a>
+            <a href="<https://docs.docker.com/compose/>" target="_blank" rel="noopener noreferrer" class="resource-link">Docker Compose</a>
+          </div>
+        </article>
+
+        <!-- Kubernetes -->
+        <article class="resource-card" data-search="kubernetes k8s container orchestration pods services deployments scaling">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Kubernetes</h3>
+          </div>
+          <p class="resource-card__desc">
+            Kubernetes documentation is comprehensive and essential for container orchestration at scale. Covers pods, services,
+            deployments, networking, storage, and security. The learning curve is steep but the documentation is thorough and
+            well-organized.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://kubernetes.io/docs/home/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Kubernetes Documentation</a>
+            <a href="<https://kubernetes.io/docs/tutorials/>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorials</a>
+            <a href="<https://kubernetes.io/docs/concepts/>" target="_blank" rel="noopener noreferrer" class="resource-link">Concepts</a>
+            <a href="<https://kubernetes.io/docs/reference/>" target="_blank" rel="noopener noreferrer" class="resource-link">Reference</a>
+          </div>
+        </article>
+
+        <!-- AWS -->
+        <article class="resource-card" data-search="aws amazon web services cloud ec2 s3 rds lambda">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">AWS</h3>
+          </div>
+          <p class="resource-card__desc">
+            Amazon Web Services documentation covers hundreds of cloud services. The sheer breadth is overwhelming but the
+            documentation quality is high. Start with core services like EC2, S3, and RDS before exploring specialized services.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.aws.amazon.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">AWS Documentation</a>
+            <a href="<https://aws.amazon.com/getting-started/>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://docs.aws.amazon.com/ec2/>" target="_blank" rel="noopener noreferrer" class="resource-link">EC2 Documentation</a>
+            <a href="<https://docs.aws.amazon.com/s3/>" target="_blank" rel="noopener noreferrer" class="resource-link">S3 Documentation</a>
+          </div>
+        </article>
+
+        <!-- Azure -->
+        <article class="resource-card" data-search="azure microsoft cloud computing ai enterprise">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Azure</h3>
+          </div>
+          <p class="resource-card__desc">
+            Microsoft Azure documentation covers cloud computing, AI services, and enterprise integration. The documentation
+            includes quickstarts, tutorials, and architectural guidance. Strong integration with Microsoft development tools.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://learn.microsoft.com/en-us/azure/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Azure Documentation</a>
+            <a href="<https://learn.microsoft.com/en-us/azure/developer/>" target="_blank" rel="noopener noreferrer" class="resource-link">Developer Guide</a>
+            <a href="<https://azure.microsoft.com/en-us/get-started/>" target="_blank" rel="noopener noreferrer" class="resource-link">Get Started</a>
+            <a href="<https://learn.microsoft.com/en-us/azure/architecture/>" target="_blank" rel="noopener noreferrer" class="resource-link">Architecture Center</a>
+          </div>
+        </article>
+
+        <!-- Google Cloud -->
+        <article class="resource-card" data-search="gcp google cloud platform compute engine kubernetes bigquery">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Google Cloud</h3>
+          </div>
+          <p class="resource-card__desc">
+            Google Cloud Platform documentation emphasizes data and machine learning services alongside standard cloud
+            infrastructure. The documentation includes interactive tutorials and architectural best practices from Google's
+            internal systems.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://cloud.google.com/docs>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">GCP Documentation</a>
+            <a href="<https://cloud.google.com/docs/get-started>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://cloud.google.com/compute/docs>" target="_blank" rel="noopener noreferrer" class="resource-link">Compute Engine</a>
+            <a href="<https://cloud.google.com/kubernetes-engine/docs>" target="_blank" rel="noopener noreferrer" class="resource-link">Kubernetes Engine</a>
+          </div>
+        </article>
+
+        <!-- Terraform -->
+        <article class="resource-card" data-search="terraform infrastructure as code iac hashicorp provider hcl">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Terraform</h3>
+          </div>
+          <p class="resource-card__desc">
+            Terraform documentation covers infrastructure as code across multiple cloud providers. Understanding providers,
+            resources, state management, and modules is essential for maintaining infrastructure consistently.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://developer.hashicorp.com/terraform/docs>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Terraform Documentation</a>
+            <a href="<https://developer.hashicorp.com/terraform/tutorials>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorials</a>
+            <a href="<https://developer.hashicorp.com/terraform/language>" target="_blank" rel="noopener noreferrer" class="resource-link">Language Reference</a>
+            <a href="<https://registry.terraform.io/>" target="_blank" rel="noopener noreferrer" class="resource-link">Provider Registry</a>
+          </div>
+        </article>
+
+        <!-- Jenkins -->
+        <article class="resource-card" data-search="jenkins ci cd continuous integration deployment pipeline automation">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Jenkins</h3>
+          </div>
+          <p class="resource-card__desc">
+            Jenkins documentation covers continuous integration and continuous deployment pipelines. The plugin ecosystem is
+            vast, making understanding pipeline syntax and configuration essential for automation.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.jenkins.io/doc/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Jenkins Documentation</a>
+            <a href="<https://www.jenkins.io/doc/book/pipeline/>" target="_blank" rel="noopener noreferrer" class="resource-link">Pipeline</a>
+            <a href="<https://www.jenkins.io/doc/pipeline/tour/getting-started/>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://plugins.jenkins.io/>" target="_blank" rel="noopener noreferrer" class="resource-link">Plugin Index</a>
+          </div>
+        </article>
+
+        <!-- Ansible -->
+        <article class="resource-card" data-search="ansible configuration management automation playbook yaml agentless">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Ansible</h3>
+          </div>
+          <p class="resource-card__desc">
+            Ansible documentation covers configuration management and application deployment through YAML playbooks. Agentless
+            architecture simplifies operations. Understanding modules, roles, and inventory management is key to effective
+            automation.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.ansible.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Ansible Documentation</a>
+            <a href="<https://docs.ansible.com/ansible/latest/getting_started/>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://docs.ansible.com/ansible/latest/playbook_guide/>" target="_blank" rel="noopener noreferrer" class="resource-link">Playbook Guide</a>
+            <a href="<https://docs.ansible.com/ansible/latest/collections/>" target="_blank" rel="noopener noreferrer" class="resource-link">Collections</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== 06 — MOBILE DEVELOPMENT ========== -->
+  <section id="mobile" class="resources-category section-padding" aria-label="Mobile development documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">06</span>
+        <h2 class="resources-category__title">Mobile Development</h2>
+        <p class="resources-category__desc">
+          Mobile development documentation covers native and cross-platform approaches to building applications for iOS and
+          Android. Each platform has distinct design patterns, lifecycle management, and performance considerations. Cross-platform
+          frameworks offer code sharing but require understanding their abstraction layers and native bridges.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- Flutter -->
+        <article class="resource-card" data-search="flutter dart google cross platform mobile widget ios android">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--modern">Cross-Platform</span>
+            </div>
+            <h3 class="resource-card__title">Flutter</h3>
+          </div>
+          <p class="resource-card__desc">
+            Flutter documentation covers Dart programming, widget composition, state management, and platform-specific
+            integration. Google's framework compiles to native code with excellent performance. The widget catalog is
+            comprehensive.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.flutter.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Flutter Documentation</a>
+            <a href="<https://docs.flutter.dev/get-started>" target="_blank" rel="noopener noreferrer" class="resource-link">Get Started</a>
+            <a href="<https://api.flutter.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link">API Reference</a>
+            <a href="<https://docs.flutter.dev/cookbook>" target="_blank" rel="noopener noreferrer" class="resource-link">Cookbook</a>
+          </div>
+        </article>
+
+        <!-- React Native -->
+        <article class="resource-card" data-search="react native javascript mobile ios android cross platform bridge">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">React Native</h3>
+          </div>
+          <p class="resource-card__desc">
+            React Native documentation enables JavaScript developers to build native mobile apps. Covers components, navigation,
+            platform-specific code, and native module integration. Understanding the bridge architecture is important for
+            performance.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://reactnative.dev/docs/getting-started>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">React Native Docs</a>
+            <a href="<https://reactnative.dev/docs/tutorial>" target="_blank" rel="noopener noreferrer" class="resource-link">Tutorial</a>
+            <a href="<https://reactnative.dev/docs/components-and-apis>" target="_blank" rel="noopener noreferrer" class="resource-link">Components</a>
+            <a href="<https://reactnative.dev/docs/native-modules-intro>" target="_blank" rel="noopener noreferrer" class="resource-link">Native Modules</a>
+          </div>
+        </article>
+
+        <!-- iOS Development -->
+        <article class="resource-card" data-search="ios apple swiftui uikit xcode iphone ipad native development">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">iOS Development</h3>
+          </div>
+          <p class="resource-card__desc">
+            Apple's iOS documentation covers SwiftUI, UIKit, and platform frameworks. Essential for native iOS development.
+            Understanding the iOS SDK, App Store guidelines, and Apple's design principles is crucial for building quality
+            applications.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://developer.apple.com/documentation/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Apple Developer Docs</a>
+            <a href="<https://developer.apple.com/documentation/swiftui>" target="_blank" rel="noopener noreferrer" class="resource-link">SwiftUI</a>
+            <a href="<https://developer.apple.com/documentation/uikit>" target="_blank" rel="noopener noreferrer" class="resource-link">UIKit</a>
+            <a href="<https://developer.apple.com/design/human-interface-guidelines/>" target="_blank" rel="noopener noreferrer" class="resource-link">HIG</a>
+          </div>
+        </article>
+
+        <!-- Android Development -->
+        <article class="resource-card" data-search="android google kotlin jetpack compose material design native development">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Android Development</h3>
+          </div>
+          <p class="resource-card__desc">
+            Android documentation covers Kotlin, Jetpack libraries, and platform APIs. Google's comprehensive documentation
+            includes architecture guidance, best practices, and modern declarative UI with Jetpack Compose.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://developer.android.com/docs>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Android Documentation</a>
+            <a href="<https://developer.android.com/jetpack>" target="_blank" rel="noopener noreferrer" class="resource-link">Jetpack</a>
+            <a href="<https://developer.android.com/jetpack/compose>" target="_blank" rel="noopener noreferrer" class="resource-link">Jetpack Compose</a>
+            <a href="<https://developer.android.com/guide>" target="_blank" rel="noopener noreferrer" class="resource-link">Developer Guides</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 — APIs & PROTOCOLS ========== -->
+  <section id="apis" class="resources-category section-padding" aria-label="APIs and protocols documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">07</span>
+        <h2 class="resources-category__title">APIs &amp; Communication Protocols</h2>
+        <p class="resources-category__desc">
+          Understanding APIs and protocols is essential for building connected systems. These documentation resources cover
+          architectural patterns for designing, implementing, and consuming APIs. Modern applications rely on diverse
+          communication patterns from traditional REST to real-time WebSockets and GraphQL queries.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- REST -->
+        <article class="resource-card" data-search="rest restful api http methods status codes architecture">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">REST Architecture</h3>
+          </div>
+          <p class="resource-card__desc">
+            REST architectural principles define modern web APIs. Understanding HTTP methods, status codes, content negotiation,
+            and stateless design is fundamental to API development. Roy Fielding's dissertation remains the authoritative source.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">REST Dissertation</a>
+            <a href="<https://developer.mozilla.org/en-US/docs/Web/HTTP>" target="_blank" rel="noopener noreferrer" class="resource-link">HTTP Protocol</a>
+            <a href="<https://restfulapi.net/>" target="_blank" rel="noopener noreferrer" class="resource-link">REST API Tutorial</a>
+            <a href="<https://www.rfc-editor.org/rfc/rfc2616>" target="_blank" rel="noopener noreferrer" class="resource-link">HTTP/1.1 RFC</a>
+          </div>
+        </article>
+
+        <!-- GraphQL -->
+        <article class="resource-card" data-search="graphql query language type system schema resolver apollo">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--modern">Modern</span>
+            </div>
+            <h3 class="resource-card__title">GraphQL</h3>
+          </div>
+          <p class="resource-card__desc">
+            GraphQL documentation covers query language, type system, and server implementation. Enables clients to request
+            exactly the data needed. Understanding schemas, resolvers, and caching strategies is essential for effective
+            implementation.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://graphql.org/learn/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">GraphQL Documentation</a>
+            <a href="<https://spec.graphql.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">GraphQL Specification</a>
+            <a href="<https://www.apollographql.com/docs/>" target="_blank" rel="noopener noreferrer" class="resource-link">Apollo Client</a>
+            <a href="<https://graphql.org/code/>" target="_blank" rel="noopener noreferrer" class="resource-link">Libraries</a>
+          </div>
+        </article>
+
+        <!-- WebSockets -->
+        <article class="resource-card" data-search="websocket real time full duplex chat notifications live updates socket.io">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">WebSockets</h3>
+          </div>
+          <p class="resource-card__desc">
+            WebSocket protocol enables full-duplex communication for real-time applications. Essential for chat, notifications,
+            and live updates. Understanding connection lifecycle, message framing, and fallback strategies is important for
+            reliable implementation.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">WebSocket API</a>
+            <a href="<https://www.rfc-editor.org/rfc/rfc6455>" target="_blank" rel="noopener noreferrer" class="resource-link">WebSocket RFC</a>
+            <a href="<https://socket.io/docs/>" target="_blank" rel="noopener noreferrer" class="resource-link">Socket.IO</a>
+            <a href="<https://developer.mozilla.org/en-US/docs/Web/API/WebSocket>" target="_blank" rel="noopener noreferrer" class="resource-link">WebSocket Tutorial</a>
+          </div>
+        </article>
+
+        <!-- gRPC -->
+        <article class="resource-card" data-search="grpc rpc protocol buffers protobuf microservices streaming high performance">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">gRPC</h3>
+          </div>
+          <p class="resource-card__desc">
+            gRPC documentation covers Google's high-performance RPC framework using Protocol Buffers. Essential for microservices
+            communication requiring strong typing and efficient serialization. Understanding service definitions and streaming
+            patterns is key.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://grpc.io/docs/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">gRPC Documentation</a>
+            <a href="<https://grpc.io/docs/what-is-grpc/introduction/>" target="_blank" rel="noopener noreferrer" class="resource-link">Introduction</a>
+            <a href="<https://grpc.io/docs/languages/>" target="_blank" rel="noopener noreferrer" class="resource-link">Language Guides</a>
+            <a href="<https://protobuf.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link">Protocol Buffers</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 08 — VERSION CONTROL ========== -->
+  <section id="vcs" class="resources-category section-padding" aria-label="Version control documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">08</span>
+        <h2 class="resources-category__title">Version Control Systems</h2>
+        <p class="resources-category__desc">
+          Version control is fundamental to modern software development. These documentation resources cover distributed version
+          control, branching strategies, collaboration workflows, and platform-specific features.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- Git -->
+        <article class="resource-card" data-search="git version control distributed branching merging commits">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--essential">Essential</span>
+            </div>
+            <h3 class="resource-card__title">Git</h3>
+          </div>
+          <p class="resource-card__desc">
+            Git documentation covers the distributed version control system used universally in software development. Understanding
+            commits, branches, merging, rebasing, and the underlying object model is essential for effective collaboration.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://git-scm.com/doc>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Git Documentation</a>
+            <a href="<https://git-scm.com/book/en/v2>" target="_blank" rel="noopener noreferrer" class="resource-link">Pro Git Book</a>
+            <a href="<https://git-scm.com/docs>" target="_blank" rel="noopener noreferrer" class="resource-link">Reference Manual</a>
+            <a href="<https://git-scm.com/docs/gittutorial>" target="_blank" rel="noopener noreferrer" class="resource-link">Git Tutorial</a>
+          </div>
+        </article>
+
+        <!-- GitHub -->
+        <article class="resource-card" data-search="github pull requests actions ci cd collaboration open source repositories">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">GitHub</h3>
+          </div>
+          <p class="resource-card__desc">
+            GitHub documentation covers repositories, pull requests, actions, and collaboration features. Essential for open
+            source and team development. Understanding GitHub Actions enables sophisticated CI/CD workflows directly in your
+            repository.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.github.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">GitHub Documentation</a>
+            <a href="<https://docs.github.com/en/get-started>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://docs.github.com/en/actions>" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub Actions</a>
+            <a href="<https://docs.github.com/en/rest>" target="_blank" rel="noopener noreferrer" class="resource-link">REST API</a>
+          </div>
+        </article>
+
+        <!-- GitLab -->
+        <article class="resource-card" data-search="gitlab ci cd devops pipeline container registry project management">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">GitLab</h3>
+          </div>
+          <p class="resource-card__desc">
+            GitLab documentation covers the complete DevOps platform including CI/CD pipelines, container registry, and
+            project management. Understanding GitLab CI syntax and runner configuration enables powerful automation workflows.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://docs.gitlab.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">GitLab Documentation</a>
+            <a href="<https://docs.gitlab.com/ee/ci/>" target="_blank" rel="noopener noreferrer" class="resource-link">CI/CD</a>
+            <a href="<https://docs.gitlab.com/ee/user/>" target="_blank" rel="noopener noreferrer" class="resource-link">User Documentation</a>
+            <a href="<https://docs.gitlab.com/ee/api/>" target="_blank" rel="noopener noreferrer" class="resource-link">API Documentation</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== 09 — MOST REFERENCED ========== -->
+  <section class="resources-referenced section-padding" aria-label="Most referenced documentation">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">09</span>
+        <h2 class="resources-category__title">Most Referenced Documentation</h2>
+      </div>
+
+      <ol class="resources-top-list">
+        <li class="resources-top-item">
+          <span class="resources-top-item__rank">01</span>
+          <div class="resources-top-item__content">
+            <h3 class="resources-top-item__title">MDN Web Docs</h3>
+            <p class="resources-top-item__desc">
+              The definitive reference for web technologies. Covers HTML, CSS, JavaScript, and Web APIs with unmatched
+              depth and clarity. Browser compatibility tables are invaluable for cross-browser development.
+            </p>
+          </div>
+        </li>
+        <li class="resources-top-item">
+          <span class="resources-top-item__rank">02</span>
+          <div class="resources-top-item__content">
+            <h3 class="resources-top-item__title">Stack Overflow</h3>
+            <p class="resources-top-item__desc">
+              Community-driven Q&amp;A covering virtually every programming question imaginable. While not official documentation,
+              the collective knowledge and real-world solutions make it indispensable for problem-solving.
+            </p>
+          </div>
+        </li>
+        <li class="resources-top-item">
+          <span class="resources-top-item__rank">03</span>
+          <div class="resources-top-item__content">
+            <h3 class="resources-top-item__title">GitHub</h3>
+            <p class="resources-top-item__desc">
+              Beyond hosting code, GitHub's documentation, discussions, and issue tracking create living documentation for
+              open source projects. README files and wiki pages often provide more practical guidance than official docs.
+            </p>
+          </div>
+        </li>
+        <li class="resources-top-item">
+          <span class="resources-top-item__rank">04</span>
+          <div class="resources-top-item__content">
+            <h3 class="resources-top-item__title">Docker Hub</h3>
+            <p class="resources-top-item__desc">
+              The largest container image registry, with documentation for thousands of official and community images.
+              Essential for understanding containerization and finding pre-built solutions.
+            </p>
+          </div>
+        </li>
+        <li class="resources-top-item">
+          <span class="resources-top-item__rank">05</span>
+          <div class="resources-top-item__content">
+            <h3 class="resources-top-item__title">npm Registry</h3>
+            <p class="resources-top-item__desc">
+              JavaScript's package registry contains documentation for millions of packages. Understanding package dependencies,
+              semantic versioning, and security advisories is crucial for Node.js development.
+            </p>
+          </div>
+        </li>
+        <li class="resources-top-item">
+          <span class="resources-top-item__rank">06</span>
+          <div class="resources-top-item__content">
+            <h3 class="resources-top-item__title">Python Package Index</h3>
+            <p class="resources-top-item__desc">
+              PyPI hosts documentation for Python packages with consistent formatting and discoverability. The ecosystem's
+              strength lies in comprehensive documentation standards across most packages.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== 10 — TUTORIAL PLATFORMS ========== -->
+  <section class="resources-category section-padding" aria-label="Tutorial platforms and interactive learning">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">10</span>
+        <h2 class="resources-category__title">Tutorial Platforms &amp; Interactive Learning</h2>
+        <p class="resources-category__desc">
+          Interactive learning platforms transform programming education through hands-on practice, immediate feedback, and
+          structured curriculums. Unlike passive video consumption, these platforms require active coding, testing your
+          understanding in real-time while building actual projects that demonstrate practical competence.
+        </p>
+        <p class="resources-category__subdesc">
+          The best learning happens through doing. These platforms guide you from fundamentals through advanced topics with
+          progressive difficulty, community support, and often free certifications that validate your skills.
+        </p>
+      </div>
+
+      <div class="resources-grid resources-grid--detailed">
+
+        <!-- freeCodeCamp -->
+        <article class="resource-card resource-card--detailed" data-search="freecodecamp free learn code certification web development project based">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--popular">Most Popular</span>
+            </div>
+            <h3 class="resource-card__title">freeCodeCamp</h3>
+          </div>
+          <p class="resource-card__desc">
+            With over 3,000 hours of free content, freeCodeCamp offers comprehensive certifications in responsive web design,
+            JavaScript algorithms, front-end libraries, data visualization, APIs, quality assurance, scientific computing with
+            Python, data analysis, information security, and machine learning. The curriculum is entirely project-based.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Community Support</dt>
+              <dd>Over 40,000 active volunteers contribute to curriculum development, forum support, and local study groups in 2,000+ cities worldwide.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Advanced</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Best For</dt>
+              <dd>Career changers, self-taught developers, and anyone building a portfolio from scratch.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Time Investment</dt>
+              <dd>Each certification takes approximately 300 hours of focused work.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.freecodecamp.org/learn>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Start Learning</a>
+            <a href="<https://www.freecodecamp.org/learn>" target="_blank" rel="noopener noreferrer" class="resource-link">Full Curriculum</a>
+            <a href="<https://forum.freecodecamp.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">Community Forum</a>
+            <a href="<https://www.freecodecamp.org/news>" target="_blank" rel="noopener noreferrer" class="resource-link">Developer News</a>
+          </div>
+        </article>
+
+        <!-- The Odin Project -->
+        <article class="resource-card resource-card--detailed" data-search="odin project full stack web development free open source javascript ruby">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--essential">Comprehensive</span>
+            </div>
+            <h3 class="resource-card__title">The Odin Project</h3>
+          </div>
+          <p class="resource-card__desc">
+            The Odin Project provides complete full-stack development paths in JavaScript and Ruby, emphasizing real-world
+            development workflows from day one. You'll learn using actual developer tools—command line, Git, GitHub, text editors,
+            and deployment platforms.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Philosophy</dt>
+              <dd>100% free and open-source forever, created by developers for aspiring developers.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Job-Ready</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Community</dt>
+              <dd>Active Discord with 170,000+ members, study groups, pair programming opportunities.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.theodinproject.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Start Learning</a>
+            <a href="<https://www.theodinproject.com/paths>" target="_blank" rel="noopener noreferrer" class="resource-link">Learning Paths</a>
+            <a href="<https://discord.gg/theodinproject>" target="_blank" rel="noopener noreferrer" class="resource-link">Join Discord</a>
+            <a href="<https://github.com/TheOdinProject>" target="_blank" rel="noopener noreferrer" class="resource-link">Open Source</a>
+          </div>
+        </article>
+
+        <!-- MDN Learn -->
+        <article class="resource-card resource-card--detailed" data-search="mdn learn web development mozilla html css javascript standards">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--production">Authoritative</span>
+            </div>
+            <h3 class="resource-card__title">MDN Learn Web Development</h3>
+          </div>
+          <p class="resource-card__desc">
+            Mozilla's official learning path represents web standards documentation translated into structured curriculum. Covers
+            semantic HTML, modern CSS including Grid and Flexbox, JavaScript fundamentals, DOM manipulation, asynchronous
+            programming, web APIs, and front-end tooling.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Quality</dt>
+              <dd>Maintained by Mozilla and reviewed by web standards experts and working developers.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Intermediate</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Best Practices</dt>
+              <dd>Emphasizes accessibility, semantic markup, progressive enhancement, and standards-compliant code.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://developer.mozilla.org/en-US/docs/Learn>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Learn Web Development</a>
+            <a href="<https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide>" target="_blank" rel="noopener noreferrer" class="resource-link">JavaScript Guide</a>
+            <a href="<https://developer.mozilla.org/en-US/docs/Web/Tutorials>" target="_blank" rel="noopener noreferrer" class="resource-link">Web Tutorials</a>
+          </div>
+        </article>
+
+        <!-- Codecademy -->
+        <article class="resource-card resource-card--detailed" data-search="codecademy interactive learn coding browser exercises beginner python javascript">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Codecademy</h3>
+          </div>
+          <p class="resource-card__desc">
+            Codecademy's interactive coding environment lets you write code directly in your browser with instant feedback on every
+            exercise. The free tier includes introduction courses for Python, JavaScript, HTML/CSS, SQL, and more.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Intermediate</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Best For</dt>
+              <dd>Complete beginners who need hand-holding through early concepts.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.codecademy.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Codecademy Home</a>
+            <a href="<https://www.codecademy.com/catalog>" target="_blank" rel="noopener noreferrer" class="resource-link">Course Catalog</a>
+            <a href="<https://www.codecademy.com/resources/docs>" target="_blank" rel="noopener noreferrer" class="resource-link">Documentation</a>
+          </div>
+        </article>
+
+        <!-- Khan Academy -->
+        <article class="resource-card resource-card--detailed" data-search="khan academy free computer programming visual creative javascript cs">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Khan Academy</h3>
+          </div>
+          <p class="resource-card__desc">
+            Khan Academy offers completely free computer programming courses emphasizing computer science fundamentals through visual,
+            creative projects. The JavaScript course teaches programming concepts through drawing, animation, and games.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Early Intermediate</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Always Free</dt>
+              <dd>Non-profit model means all content remains free forever.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.khanacademy.org/computing/computer-programming>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Computer Programming</a>
+            <a href="<https://www.khanacademy.org/computing/computer-science>" target="_blank" rel="noopener noreferrer" class="resource-link">Computer Science</a>
+            <a href="<https://www.khanacademy.org/computing/ap-computer-science-principles>" target="_blank" rel="noopener noreferrer" class="resource-link">AP Computer Science</a>
+          </div>
+        </article>
+
+        <!-- W3Schools -->
+        <article class="resource-card resource-card--detailed" data-search="w3schools try it yourself tutorial reference html css javascript python sql php">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">W3Schools</h3>
+          </div>
+          <p class="resource-card__desc">
+            W3Schools provides quick-reference tutorials with "Try it Yourself" editors for immediate experimentation. Covers web
+            technologies comprehensively: HTML, CSS, JavaScript, Python, SQL, PHP, and more.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Intermediate</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Best Use</dt>
+              <dd>Quick syntax lookup, concept review, and testing code snippets.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.w3schools.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">W3Schools Home</a>
+            <a href="<https://www.w3schools.com/js/>" target="_blank" rel="noopener noreferrer" class="resource-link">JavaScript Tutorial</a>
+            <a href="<https://www.w3schools.com/python/>" target="_blank" rel="noopener noreferrer" class="resource-link">Python Tutorial</a>
+            <a href="<https://www.w3schools.com/html/>" target="_blank" rel="noopener noreferrer" class="resource-link">HTML Tutorial</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== 11 — VIDEO LEARNING ========== -->
+  <section class="resources-category section-padding" aria-label="Video learning resources">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">11</span>
+        <h2 class="resources-category__title">Video Learning Resources &amp; Online Courses</h2>
+        <p class="resources-category__desc">
+          Video content provides visual learning experiences that complement written documentation. Watching experienced developers
+          code, explain concepts, and troubleshoot problems offers insights that text alone cannot convey.
+        </p>
+        <p class="resources-category__subdesc">
+          Quality varies dramatically in programming video content. The resources below represent consistent quality, clear
+          explanation, accurate information, and regular updates reflecting current best practices.
+        </p>
+      </div>
+
+      <div class="resources-grid resources-grid--detailed">
+
+        <!-- Traversy Media -->
+        <article class="resource-card resource-card--detailed" data-search="traversy media brad traversy web development javascript crash course youtube">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--popular">Top Channel</span>
+            </div>
+            <h3 class="resource-card__title">Traversy Media</h3>
+          </div>
+          <p class="resource-card__desc">
+            Brad Traversy creates practical web development tutorials covering modern JavaScript frameworks, Python, PHP, and
+            full-stack development. His "crash course" series provides comprehensive technology overviews in 1-2 hours.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Intermediate</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Audience</dt>
+              <dd>2.2M+ subscribers</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Best Series</dt>
+              <dd>"50 Projects in 50 Days," Modern JavaScript tutorials, React/Vue/Angular crash courses.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.youtube.com/c/TraversyMedia>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">YouTube Channel</a>
+            <a href="<https://www.traversymedia.com/>" target="_blank" rel="noopener noreferrer" class="resource-link">Website &amp; Courses</a>
+          </div>
+        </article>
+
+        <!-- The Net Ninja -->
+        <article class="resource-card resource-card--detailed" data-search="net ninja shaun pelling javascript react vue svelte nextjs firebase youtube">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">The Net Ninja</h3>
+          </div>
+          <p class="resource-card__desc">
+            The Net Ninja specializes in JavaScript framework tutorials with organized playlists progressing from
+            basics through advanced topics. Exceptional coverage of React, Vue, Svelte, Next.js, Firebase, and modern CSS.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Advanced</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Subscribers</dt>
+              <dd>1.2M+</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.youtube.com/c/TheNetNinja>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">YouTube Channel</a>
+            <a href="<https://netninja.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link">Website &amp; Courses</a>
+          </div>
+        </article>
+
+        <!-- Fireship -->
+        <article class="resource-card resource-card--detailed" data-search="fireship jeff delaney 100 seconds fast paced technology overview youtube">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--rising">Quick Learning</span>
+            </div>
+            <h3 class="resource-card__title">Fireship</h3>
+          </div>
+          <p class="resource-card__desc">
+            Fireship creates high-density, fast-paced technology explanations. The signature "100 Seconds" series
+            introduces programming languages, frameworks, and concepts in ultra-concise format.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Intermediate to Advanced</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Subscribers</dt>
+              <dd>3.2M+</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.youtube.com/c/Fireship>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">YouTube Channel</a>
+            <a href="<https://fireship.io/>" target="_blank" rel="noopener noreferrer" class="resource-link">Fireship.io Courses</a>
+          </div>
+        </article>
+
+        <!-- Web Dev Simplified -->
+        <article class="resource-card resource-card--detailed" data-search="web dev simplified kyle cook javascript react css web fundamentals youtube">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Web Dev Simplified</h3>
+          </div>
+          <p class="resource-card__desc">
+            Kyle Cook creates clear, concise web development tutorials focusing on JavaScript, React, CSS, and
+            web fundamentals. Each video tackles one specific concept, making the channel excellent for targeted learning.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Intermediate</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Subscribers</dt>
+              <dd>1.5M+</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.youtube.com/c/WebDevSimplified>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">YouTube Channel</a>
+            <a href="<https://courses.webdevsimplified.com/>" target="_blank" rel="noopener noreferrer" class="resource-link">Courses</a>
+          </div>
+        </article>
+
+        <!-- Corey Schafer -->
+        <article class="resource-card resource-card--detailed" data-search="corey schafer python django flask pandas tutorial youtube">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Corey Schafer</h3>
+          </div>
+          <p class="resource-card__desc">
+            Corey Schafer creates exceptionally clear Python tutorials covering fundamentals, Django, Flask, pandas, matplotlib, and
+            professional development workflows. His teaching methodology emphasizes thorough understanding.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Advanced</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Subscribers</dt>
+              <dd>1.3M+</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.youtube.com/c/Coreyms>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">YouTube Channel</a>
+            <a href="<https://coreyms.com/>" target="_blank" rel="noopener noreferrer" class="resource-link">Website</a>
+          </div>
+        </article>
+
+        <!-- Programming with Mosh -->
+        <article class="resource-card resource-card--detailed" data-search="programming with mosh mosh hamedani python javascript react csharp youtube">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Programming with Mosh</h3>
+          </div>
+          <p class="resource-card__desc">
+            Mosh Hamedani creates professional-quality programming tutorials with excellent production values. Free YouTube content
+            includes full courses on Python, JavaScript, React, C#, and more.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Intermediate</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Subscribers</dt>
+              <dd>3.5M+</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.youtube.com/c/programmingwithmosh>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">YouTube Channel</a>
+            <a href="<https://codewithmosh.com/>" target="_blank" rel="noopener noreferrer" class="resource-link">Paid Courses</a>
+          </div>
+        </article>
+
+        <!-- CS50 -->
+        <article class="resource-card resource-card--detailed" data-search="cs50 harvard david malan computer science free course university algorithms">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--production">University Course</span>
+            </div>
+            <h3 class="resource-card__title">CS50 (Harvard)</h3>
+          </div>
+          <p class="resource-card__desc">
+            Harvard's CS50 is the most popular computer science course ever, now freely available online. Covers computational
+            thinking, algorithms, data structures, web development, and software engineering principles.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Time Commitment</dt>
+              <dd>12 weeks, 10-20 hours weekly for complete course.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Certificate</dt>
+              <dd>Free certificate upon completion; verified certificate available for fee.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://cs50.harvard.edu/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">CS50 Home</a>
+            <a href="<https://www.youtube.com/cs50>" target="_blank" rel="noopener noreferrer" class="resource-link">YouTube Channel</a>
+            <a href="<https://cs50.harvard.edu/x/>" target="_blank" rel="noopener noreferrer" class="resource-link">CS50x Intro Course</a>
+            <a href="<https://cs50.harvard.edu/web/>" target="_blank" rel="noopener noreferrer" class="resource-link">CS50 Web Programming</a>
+          </div>
+        </article>
+
+        <!-- Udemy -->
+        <article class="resource-card resource-card--detailed" data-search="udemy online courses paid web development python data science react">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Udemy</h3>
+          </div>
+          <p class="resource-card__desc">
+            Udemy hosts thousands of programming courses from independent instructors. Quality varies—check ratings, reviews,
+            and enrollment numbers before purchasing. Frequent sales bring courses down to $10-15.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Pricing</dt>
+              <dd>Individual course purchases; frequent sales reduce prices 85-90%.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Quality Check</dt>
+              <dd>Only purchase courses with 4.5+ stars, 10,000+ students, recent updates.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.udemy.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Udemy Home</a>
+            <a href="<https://www.udemy.com/courses/development/>" target="_blank" rel="noopener noreferrer" class="resource-link">Development Courses</a>
+          </div>
+        </article>
+
+        <!-- Coursera -->
+        <article class="resource-card resource-card--detailed" data-search="coursera university google meta ibm professional certificate online course">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Coursera</h3>
+          </div>
+          <p class="resource-card__desc">
+            Coursera partners with universities and companies offering professional courses, specializations, and degrees. Most
+            courses can be audited free with paid certificates for assessments and projects.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Free Access</dt>
+              <dd>Audit most courses for free; pay only for certificates/degrees.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Best Programs</dt>
+              <dd>Google IT certificates, IBM data science, Meta front-end developer.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.coursera.org/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Coursera Home</a>
+            <a href="<https://www.coursera.org/browse/computer-science>" target="_blank" rel="noopener noreferrer" class="resource-link">Computer Science</a>
+            <a href="<https://www.coursera.org/professional-certificates>" target="_blank" rel="noopener noreferrer" class="resource-link">Professional Certificates</a>
+          </div>
+        </article>
+
+        <!-- edX -->
+        <article class="resource-card resource-card--detailed" data-search="edx harvard mit university computer science free online course certificate">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">edX</h3>
+          </div>
+          <p class="resource-card__desc">
+            Founded by Harvard and MIT, edX offers university-level courses with audit options for free. Computer science courses
+            provide rigorous academic education with MicroBachelors and MicroMasters programs.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Quality</dt>
+              <dd>University-level rigor; expect challenging coursework.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Best Programs</dt>
+              <dd>Harvard CS50, MIT Python/algorithms, Microsoft professional certificates.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.edx.org/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">edX Home</a>
+            <a href="<https://www.edx.org/learn/computer-programming>" target="_blank" rel="noopener noreferrer" class="resource-link">Computer Programming</a>
+            <a href="<https://www.edx.org/certificates>" target="_blank" rel="noopener noreferrer" class="resource-link">Professional Certificates</a>
+          </div>
+        </article>
+
+        <!-- MIT OpenCourseWare -->
+        <article class="resource-card resource-card--detailed" data-search="mit opencourseware free university lecture algorithms computer science academic">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--beginner">Completely Free</span>
+            </div>
+            <h3 class="resource-card__title">MIT OpenCourseWare</h3>
+          </div>
+          <p class="resource-card__desc">
+            MIT publishes complete course materials from actual MIT courses: lecture videos, notes, assignments, exams, and solutions.
+            Access MIT-quality education completely free without enrollment, deadlines, or requirements.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Access</dt>
+              <dd>Completely free, no registration required.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Intermediate to Advanced; assumes strong math/CS foundation.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://ocw.mit.edu/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">MIT OpenCourseWare</a>
+            <a href="<https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/>" target="_blank" rel="noopener noreferrer" class="resource-link">Computer Science Courses</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 12 — BOOKS ========== -->
+  <section class="resources-category section-padding" aria-label="Books and publications">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">12</span>
+        <h2 class="resources-category__title">Books &amp; Publications</h2>
+        <p class="resources-category__desc">
+          Programming books provide depth impossible in video tutorials or documentation. Well-written technical books explain the "why"
+          behind patterns, dive deep into language internals, and develop mental models for thinking about code.
+        </p>
+        <p class="resources-category__subdesc">
+          Reading technical books actively—typing examples, solving exercises, questioning concepts—accelerates learning dramatically compared
+          to passive reading.
+        </p>
+      </div>
+
+      <div class="resources-grid resources-grid--detailed">
+
+        <!-- YDKJS -->
+        <article class="resource-card resource-card--detailed" data-search="you dont know js ydkjs kyle simpson javascript deep dive scope closures free">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--essential">Essential Series</span>
+            </div>
+            <h3 class="resource-card__title">You Don't Know JS (YDKJS)</h3>
+          </div>
+          <p class="resource-card__desc">
+            Kyle Simpson's series dives deep into JavaScript mechanics that most developers never fully understand.
+            Six books cover scope and closures, this and object prototypes, types and grammar, async and performance,
+            ES6 and beyond, and getting started with JavaScript.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Availability</dt>
+              <dd>Free to read online on GitHub; purchase option available.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Intermediate. Assumes basic JavaScript knowledge.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://github.com/getify/You-Dont-Know-JS>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Free on GitHub</a>
+            <a href="<https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/README.md>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+            <a href="<https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/README.md>" target="_blank" rel="noopener noreferrer" class="resource-link">Scope &amp; Closures</a>
+          </div>
+        </article>
+
+        <!-- Eloquent JavaScript -->
+        <article class="resource-card resource-card--detailed" data-search="eloquent javascript marijn haverbeke programming fundamentals free book exercises">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--modern">Modern Classic</span>
+            </div>
+            <h3 class="resource-card__title">Eloquent JavaScript</h3>
+          </div>
+          <p class="resource-card__desc">
+            Marijn Haverbeke's "Eloquent JavaScript" teaches programming fundamentals through JavaScript, covering values, types,
+            functions, data structures, higher-order functions, objects, asynchronous programming, and browser/Node.js programming.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Availability</dt>
+              <dd>Free online (eloquentjavascript.net); purchase available.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Skill Level</dt>
+              <dd>Beginner to Intermediate</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://eloquentjavascript.net/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Read Free Online</a>
+            <a href="<https://eloquentjavascript.net/code/>" target="_blank" rel="noopener noreferrer" class="resource-link">Code Sandbox</a>
+          </div>
+        </article>
+
+        <!-- Automate the Boring Stuff -->
+        <article class="resource-card resource-card--detailed" data-search="automate boring stuff python al sweigart automation beginner practical free">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--popular">Most Popular</span>
+            </div>
+            <h3 class="resource-card__title">Automate the Boring Stuff with Python</h3>
+          </div>
+          <p class="resource-card__desc">
+            Al Sweigart's book teaches Python through practical automation tasks: manipulating files, scraping websites, parsing PDFs,
+            sending emails, updating spreadsheets, scheduling tasks, and more. Perfect for beginners.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Availability</dt>
+              <dd>Free online; purchase supports author.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Best For</dt>
+              <dd>First programming book, learning Python for productivity, automating work tasks.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://automatetheboringstuff.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Read Free Online</a>
+            <a href="<https://www.udemy.com/course/automate/>" target="_blank" rel="noopener noreferrer" class="resource-link">Free Udemy Course</a>
+          </div>
+        </article>
+
+        <!-- The Rust Book -->
+        <article class="resource-card resource-card--detailed" data-search="rust book programming language ownership memory safety systems free">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">The Rust Programming Language</h3>
+          </div>
+          <p class="resource-card__desc">
+            The official Rust book teaches systems programming through Rust's ownership system, borrowing, lifetimes, and concurrency
+            without data races. Comprehensive coverage from basics through advanced topics.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://doc.rust-lang.org/book/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Read Free Online</a>
+            <a href="<https://doc.rust-lang.org/rust-by-example/>" target="_blank" rel="noopener noreferrer" class="resource-link">Rust by Example</a>
+          </div>
+        </article>
+
+        <!-- Pro Git -->
+        <article class="resource-card resource-card--detailed" data-search="pro git scott chacon version control branching workflow internals free">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Pro Git</h3>
+          </div>
+          <p class="resource-card__desc">
+            Scott Chacon and Ben Straub's "Pro Git" covers Git comprehensively from basics through advanced topics and internals.
+            Essential for any developer using Git professionally.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://git-scm.com/book/en/v2>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Read Free Online</a>
+            <a href="<https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control>" target="_blank" rel="noopener noreferrer" class="resource-link">Getting Started</a>
+          </div>
+        </article>
+
+        <!-- O'Reilly -->
+        <article class="resource-card resource-card--detailed" data-search="oreilly safari books online technical subscription professional library">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--production">Professional Library</span>
+            </div>
+            <h3 class="resource-card__title">O'Reilly Learning Platform</h3>
+          </div>
+          <p class="resource-card__desc">
+            O'Reilly provides subscription access to 40,000+ books, videos, and courses from O'Reilly, Packt,
+            Manning, and other publishers. Many companies provide O'Reilly subscriptions to employees.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>Pricing</dt>
+              <dd>$49/month or $499/year individual subscription.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://www.oreilly.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">O'Reilly Learning</a>
+            <a href="<https://www.oreilly.com/openbook/>" target="_blank" rel="noopener noreferrer" class="resource-link">Free Resources</a>
+          </div>
+        </article>
+
+        <!-- Manning -->
+        <article class="resource-card resource-card--detailed" data-search="manning publications in action grokking algorithms technical books meap">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Manning Publications</h3>
+          </div>
+          <p class="resource-card__desc">
+            Manning publishes high-quality programming books through traditional publishing and Manning Early Access Program (MEAP).
+            Known for thorough technical reviews, clear writing, and practical examples.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.manning.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Manning Publications</a>
+            <a href="<https://www.manning.com/catalog>" target="_blank" rel="noopener noreferrer" class="resource-link">Book Catalog</a>
+          </div>
+        </article>
+
+        <!-- GitHub Awesome Lists -->
+        <article class="resource-card resource-card--detailed" data-search="github awesome lists curated resources free programming books courses collections">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--modern">Curated Lists</span>
+            </div>
+            <h3 class="resource-card__title">GitHub Awesome Lists</h3>
+          </div>
+          <p class="resource-card__desc">
+            GitHub Awesome lists are curated collections of resources for virtually every programming topic. Lists cover languages,
+            frameworks, concepts, and domains—each vetted by community maintainers.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://github.com/sindresorhus/awesome>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Awesome Lists</a>
+            <a href="<https://github.com/EbookFoundation/free-programming-books>" target="_blank" rel="noopener noreferrer" class="resource-link">Free Programming Books</a>
+            <a href="<https://github.com/ossu/computer-science>" target="_blank" rel="noopener noreferrer" class="resource-link">CS Curriculum</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== 13 — COMMUNITY ========== -->
+  <section class="resources-category section-padding" aria-label="Community resources and forums">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">13</span>
+        <h2 class="resources-category__title">Community Resources &amp; Forums</h2>
+        <p class="resources-category__desc">
+          Programming communities provide real-time help, knowledge sharing, networking opportunities, and career advice that documentation
+          alone cannot offer. Participating in developer communities accelerates learning through exposure to diverse perspectives.
+        </p>
+      </div>
+
+      <div class="resources-grid resources-grid--detailed">
+
+        <!-- Stack Overflow -->
+        <article class="resource-card resource-card--detailed" data-search="stack overflow q&a programming questions answers reputation voting community">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--essential">Essential</span>
+            </div>
+            <h3 class="resource-card__title">Stack Overflow</h3>
+          </div>
+          <p class="resource-card__desc">
+            Stack Overflow contains over 50 million programming questions and answers, making it the largest programming knowledge base in
+            existence. The voting system surfaces highest-quality answers, saving time otherwise spent testing multiple solutions.
+          </p>
+          <dl class="resource-card__meta">
+            <div class="resource-card__meta-item">
+              <dt>How to Search Effectively</dt>
+              <dd>Include error messages, language/framework versions, and specific symptoms in searches.</dd>
+            </div>
+            <div class="resource-card__meta-item">
+              <dt>Career Value</dt>
+              <dd>Strong Stack Overflow profile demonstrates expertise; many employers check profiles.</dd>
+            </div>
+          </dl>
+          <div class="resource-card__links">
+            <a href="<https://stackoverflow.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Stack Overflow</a>
+            <a href="<https://stackoverflow.com/tour>" target="_blank" rel="noopener noreferrer" class="resource-link">Tour</a>
+            <a href="<https://stackoverflow.com/help/how-to-ask>" target="_blank" rel="noopener noreferrer" class="resource-link">How to Ask</a>
+          </div>
+        </article>
+
+        <!-- Reddit -->
+        <article class="resource-card resource-card--detailed" data-search="reddit learnprogramming webdev community support career advice learning">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--popular">Active Community</span>
+            </div>
+            <h3 class="resource-card__title">Reddit - r/learnprogramming</h3>
+          </div>
+          <p class="resource-card__desc">
+            With 3.8+ million members, r/learnprogramming provides supportive community for programming learners at all levels.
+            The community emphasizes helping beginners overcome common obstacles.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.reddit.com/r/learnprogramming/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">r/learnprogramming</a>
+            <a href="<https://www.reddit.com/r/learnprogramming/wiki/faq/>" target="_blank" rel="noopener noreferrer" class="resource-link">FAQ Wiki</a>
+            <a href="<https://www.reddit.com/r/webdev/>" target="_blank" rel="noopener noreferrer" class="resource-link">r/webdev</a>
+          </div>
+        </article>
+
+        <!-- Dev.to -->
+        <article class="resource-card resource-card--detailed" data-search="devto dev.to blog community tutorials articles developers writing">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Dev.to</h3>
+          </div>
+          <p class="resource-card__desc">
+            Dev.to is a constructive blogging and networking platform for developers to share knowledge, experiences, and tutorials.
+            The platform's inclusive culture encourages beginners to write alongside senior developers.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://dev.to/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Dev.to</a>
+            <a href="<https://dev.to/top/infinity>" target="_blank" rel="noopener noreferrer" class="resource-link">Top Posts</a>
+            <a href="<https://dev.to/tags>" target="_blank" rel="noopener noreferrer" class="resource-link">Browse Tags</a>
+          </div>
+        </article>
+
+        <!-- Hashnode -->
+        <article class="resource-card resource-card--detailed" data-search="hashnode blog custom domain developer seo technical writing">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Hashnode</h3>
+          </div>
+          <p class="resource-card__desc">
+            Hashnode combines blogging platform with developer community, allowing you to create blog on custom domain while benefiting from
+            platform's built-in audience. Strong emphasis on technical writing quality and SEO optimization.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://hashnode.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Hashnode</a>
+            <a href="<https://hashnode.com/explore>" target="_blank" rel="noopener noreferrer" class="resource-link">Explore Content</a>
+          </div>
+        </article>
+
+        <!-- Discord -->
+        <article class="resource-card resource-card--detailed" data-search="discord programming communities real time chat help collaboration voice">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--rising">Real-time</span>
+            </div>
+            <h3 class="resource-card__title">Discord Programming Communities</h3>
+          </div>
+          <p class="resource-card__desc">
+            Discord servers provide real-time chat for programming communities, offering immediate help, collaboration opportunities, and social
+            connection. Most major frameworks and languages maintain official Discord servers.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://discord.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Discord</a>
+            <a href="<https://discord.com/servers>" target="_blank" rel="noopener noreferrer" class="resource-link">Find Programming Servers</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 14 — NEWSLETTERS & BLOGS ========== -->
+  <section class="resources-category section-padding" aria-label="Newsletters and blogs">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">14</span>
+        <h2 class="resources-category__title">Newsletters &amp; Blogs</h2>
+        <p class="resources-category__desc">
+          Technical newsletters curate the best content, latest releases, and important discussions from across the development world into
+          digestible weekly digests. Quality technical blogs provide deep dives into technologies, architecture decisions, and development practices.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- JavaScript Weekly -->
+        <article class="resource-card" data-search="javascript weekly newsletter curated cooperpress news articles tutorials">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--essential">Essential</span>
+            </div>
+            <h3 class="resource-card__title">JavaScript Weekly</h3>
+          </div>
+          <p class="resource-card__desc">
+            JavaScript Weekly curates the best JavaScript news, articles, tutorials, and tools every week. Maintained for over a decade
+            with consistent quality, it's essential reading for JavaScript developers.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://javascriptweekly.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Subscribe</a>
+            <a href="<https://javascriptweekly.com/issues>" target="_blank" rel="noopener noreferrer" class="resource-link">Browse Archive</a>
+          </div>
+        </article>
+
+        <!-- Python Weekly -->
+        <article class="resource-card" data-search="python weekly newsletter curated news articles data science django flask">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Python Weekly</h3>
+          </div>
+          <p class="resource-card__desc">
+            Python Weekly delivers curated Python news, articles, new releases, jobs, and events every Thursday. Coverage spans
+            web development, data science, machine learning, automation, and Python language development.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.pythonweekly.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Subscribe</a>
+            <a href="<https://www.pythonweekly.com/archive>" target="_blank" rel="noopener noreferrer" class="resource-link">Archive</a>
+          </div>
+        </article>
+
+        <!-- CSS-Tricks -->
+        <article class="resource-card" data-search="css tricks chris coyier web development css javascript flexbox grid guide">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--production">CSS Authority</span>
+            </div>
+            <h3 class="resource-card__title">CSS-Tricks</h3>
+          </div>
+          <p class="resource-card__desc">
+            CSS-Tricks publishes daily articles covering CSS techniques, JavaScript tutorials, web development workflows, and design
+            implementation. The "Complete Guide" series are definitive references used by developers worldwide.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://css-tricks.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">CSS-Tricks</a>
+            <a href="<https://css-tricks.com/snippets/css/a-guide-to-flexbox/>" target="_blank" rel="noopener noreferrer" class="resource-link">Flexbox Guide</a>
+            <a href="<https://css-tricks.com/snippets/css/complete-guide-grid/>" target="_blank" rel="noopener noreferrer" class="resource-link">Grid Guide</a>
+            <a href="<https://css-tricks.com/newsletter/>" target="_blank" rel="noopener noreferrer" class="resource-link">Newsletter</a>
+          </div>
+        </article>
+
+        <!-- Smashing Magazine -->
+        <article class="resource-card" data-search="smashing magazine web design frontend ux performance accessibility articles">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Smashing Magazine</h3>
+          </div>
+          <p class="resource-card__desc">
+            Smashing Magazine publishes in-depth articles about web design, front-end development, UX, performance optimization, and accessibility.
+            Articles are longer-form, thoroughly researched, and extensively illustrated.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.smashingmagazine.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Smashing Magazine</a>
+            <a href="<https://www.smashingmagazine.com/the-smashing-newsletter/>" target="_blank" rel="noopener noreferrer" class="resource-link">Newsletter</a>
+            <a href="<https://www.smashingmagazine.com/articles/>" target="_blank" rel="noopener noreferrer" class="resource-link">All Articles</a>
+          </div>
+        </article>
+
+        <!-- A List Apart -->
+        <article class="resource-card" data-search="a list apart web standards design development accessibility long form articles">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">A List Apart</h3>
+          </div>
+          <p class="resource-card__desc">
+            A List Apart explores web design, development, and standards with emphasis on long-term thinking about web technologies.
+            Maintained since 1998, it's one of the most respected web development publications.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://alistapart.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">A List Apart</a>
+            <a href="<https://alistapart.com/articles/>" target="_blank" rel="noopener noreferrer" class="resource-link">Articles</a>
+          </div>
+        </article>
+
+        <!-- Daily.dev -->
+        <article class="resource-card" data-search="daily.dev aggregator developer news personalized feed browser extension">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--modern">Aggregator</span>
+            </div>
+            <h3 class="resource-card__title">Daily.dev</h3>
+          </div>
+          <p class="resource-card__desc">
+            Daily.dev aggregates developer news from hundreds of sources into personalized feed. Available as browser extension, web app,
+            and mobile app, it replaces your new tab with curated developer content.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://daily.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Daily.dev</a>
+            <a href="<https://app.daily.dev/>" target="_blank" rel="noopener noreferrer" class="resource-link">Web App</a>
+          </div>
+        </article>
+
+        <!-- Frontend Focus -->
+        <article class="resource-card" data-search="frontend focus html css browser api newsletter cooperpress weekly">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Frontend Focus</h3>
+          </div>
+          <p class="resource-card__desc">
+            Frontend Focus curates front-end development news covering HTML, CSS, browser APIs, performance, accessibility,
+            and JavaScript frameworks from UI perspective.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://frontendfoc.us/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Frontend Focus</a>
+            <a href="<https://frontendfoc.us/issues>" target="_blank" rel="noopener noreferrer" class="resource-link">Archive</a>
+          </div>
+        </article>
+
+        <!-- Node Weekly -->
+        <article class="resource-card" data-search="node weekly nodejs server side javascript newsletter express nestjs backend">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Node Weekly</h3>
+          </div>
+          <p class="resource-card__desc">
+            Node Weekly curates Node.js and server-side JavaScript news, tutorials, releases, and tools. Particularly valuable for
+            developers focused on backend JavaScript development.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://nodeweekly.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Node Weekly</a>
+            <a href="<https://nodeweekly.com/issues>" target="_blank" rel="noopener noreferrer" class="resource-link">Archive</a>
+          </div>
+        </article>
+
+        <!-- Ruby Weekly -->
+        <article class="resource-card" data-search="ruby weekly rails newsletter gems community updates articles tutorials">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Ruby Weekly</h3>
+          </div>
+          <p class="resource-card__desc">
+            Ruby Weekly curates Ruby and Rails news, articles, gems, tutorials, and community updates. Essential for Ruby developers
+            staying connected to community evolution.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://rubyweekly.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Ruby Weekly</a>
+            <a href="<https://rubyweekly.com/issues>" target="_blank" rel="noopener noreferrer" class="resource-link">Archive</a>
+          </div>
+        </article>
+
+        <!-- Golang Weekly -->
+        <article class="resource-card" data-search="golang weekly go newsletter cloud devops systems programming concurrency">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Golang Weekly</h3>
+          </div>
+          <p class="resource-card__desc">
+            Golang Weekly curates Go programming language news, tutorials, libraries, and tools. Balances beginner-friendly tutorials
+            with advanced systems programming topics.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://golangweekly.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Golang Weekly</a>
+            <a href="<https://golangweekly.com/issues>" target="_blank" rel="noopener noreferrer" class="resource-link">Archive</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 15 — PODCASTS ========== -->
+  <section class="resources-category section-padding" aria-label="Podcast resources">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">15</span>
+        <h2 class="resources-category__title">Podcast Resources</h2>
+        <p class="resources-category__desc">
+          Developer podcasts provide technical education, industry insights, and career advice in consumable audio format.
+          Podcast formats vary from casual conversations to structured interviews, technical deep dives to industry analysis.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+
+        <!-- Syntax.fm -->
+        <article class="resource-card" data-search="syntax fm wes bos scott tolinski web development javascript css podcast">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--popular">Most Popular</span>
+            </div>
+            <h3 class="resource-card__title">Syntax.fm</h3>
+          </div>
+          <p class="resource-card__desc">
+            Wes Bos and Scott Tolinski discuss web development, JavaScript, CSS, tooling, careers, and development workflows.
+            Two episodes weekly combining short-form "Tasty Treats" with deep dives.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://syntax.fm/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Syntax.fm</a>
+            <a href="<https://syntax.fm/shows>" target="_blank" rel="noopener noreferrer" class="resource-link">All Episodes</a>
+          </div>
+        </article>
+
+        <!-- Software Engineering Daily -->
+        <article class="resource-card" data-search="software engineering daily interview systems architecture databases infrastructure podcast">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--essential">Daily Content</span>
+            </div>
+            <h3 class="resource-card__title">Software Engineering Daily</h3>
+          </div>
+          <p class="resource-card__desc">
+            Software Engineering Daily publishes technical interviews with software engineers about systems, architectures, and technologies
+            they build. 1500+ episodes covering virtually every technology in modern software.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://softwareengineeringdaily.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Software Engineering Daily</a>
+            <a href="<https://softwareengineeringdaily.com/category/all-episodes/>" target="_blank" rel="noopener noreferrer" class="resource-link">All Episodes</a>
+          </div>
+        </article>
+
+        <!-- The Changelog -->
+        <article class="resource-card" data-search="changelog open source developers community interviews podcast">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">The Changelog</h3>
+          </div>
+          <p class="resource-card__desc">
+            The Changelog interviews open source developers and community leaders about the software they create and maintain.
+            Produces multiple shows including JS Party, Go Time, Practical AI.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://changelog.com/podcast>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">The Changelog</a>
+            <a href="<https://changelog.com/podcasts>" target="_blank" rel="noopener noreferrer" class="resource-link">All Shows</a>
+          </div>
+        </article>
+
+        <!-- JS Party -->
+        <article class="resource-card" data-search="js party javascript web platform panel discussion community podcast">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">JS Party</h3>
+          </div>
+          <p class="resource-card__desc">
+            JS Party celebrates JavaScript and the web platform with weekly discussions among a panel of JavaScript developers.
+            Multiple perspectives on each topic with regular community engagement.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://changelog.com/jsparty>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">JS Party</a>
+            <a href="<https://changelog.com/jsparty/episodes>" target="_blank" rel="noopener noreferrer" class="resource-link">Episodes</a>
+          </div>
+        </article>
+
+        <!-- CodeNewbie -->
+        <article class="resource-card" data-search="codenewbie beginner learn code career transition stories encouragement podcast">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">CodeNewbie</h3>
+          </div>
+          <p class="resource-card__desc">
+            CodeNewbie shares stories from people learning to code and transitioning into tech careers. Emphasizes the human
+            side of learning programming—dealing with impostor syndrome and building confidence.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://www.codenewbie.org/podcast>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">CodeNewbie Podcast</a>
+            <a href="<https://community.codenewbie.org/>" target="_blank" rel="noopener noreferrer" class="resource-link">Community</a>
+          </div>
+        </article>
+
+        <!-- Developer Tea -->
+        <article class="resource-card" data-search="developer tea short format career soft skills productivity leadership podcast">
+          <div class="resource-card__header">
+            <div class="resource-card__badges">
+              <span class="badge badge-pill resource-badge--modern">Short Format</span>
+            </div>
+            <h3 class="resource-card__title">Developer Tea</h3>
+          </div>
+          <p class="resource-card__desc">
+            Developer Tea offers short-format episodes (10-15 minutes) covering soft skills, career development, communication,
+            productivity, and mindset for developers. Over 1000 episodes.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://developertea.com/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Developer Tea</a>
+          </div>
+        </article>
+
+        <!-- Python Bytes -->
+        <article class="resource-card" data-search="python bytes python news libraries tools concise weekly short podcast">
+          <div class="resource-card__header">
+            <h3 class="resource-card__title">Python Bytes</h3>
+          </div>
+          <p class="resource-card__desc">
+            Python Bytes delivers weekly Python news in concise 20-30 minute episodes. High information density covering
+            libraries, tools, articles, and projects in short format.
+          </p>
+          <div class="resource-card__links">
+            <a href="<https://pythonbytes.fm/>" target="_blank" rel="noopener noreferrer" class="resource-link resource-link--primary">Python Bytes</a>
+            <a href="<https://talkpython.fm/>" target="_blank" rel="noopener noreferrer" class="resource-link">Talk Python To Me</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== 16 — HOW TO USE DOCUMENTATION ========== -->
+  <section class="resources-tips section-padding" aria-label="Tips for using documentation effectively">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">16</span>
+        <h2 class="resources-category__title">How to Use Documentation Effectively</h2>
+        <p class="resources-category__desc">
+          Reading documentation is a skill that improves with practice. Understanding how to navigate, search, and extract
+          relevant information efficiently makes you more productive.
+        </p>
+      </div>
+
+      <ol class="resources-tips-list">
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 01</span>
+          <h3 class="resources-tip__title">Start with Getting Started Guides</h3>
+          <p class="resources-tip__desc">
+            Begin with official tutorials and quickstarts before diving into API references. These introductory materials
+            establish mental models and common patterns that make detailed documentation more comprehensible.
+          </p>
+        </li>
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 02</span>
+          <h3 class="resources-tip__title">Bookmark Frequently Referenced Sections</h3>
+          <p class="resources-tip__desc">
+            Maintain browser bookmarks or notes for documentation sections you reference repeatedly. Common targets include
+            API references, configuration options, and migration guides.
+          </p>
+        </li>
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 03</span>
+          <h3 class="resources-tip__title">Understand the Documentation Structure</h3>
+          <p class="resources-tip__desc">
+            Each documentation site has its own organization. Spend time understanding the structure before searching.
+            Typical sections include guides, API references, examples, and release notes.
+          </p>
+        </li>
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 04</span>
+          <h3 class="resources-tip__title">Read Release Notes and Changelogs</h3>
+          <p class="resources-tip__desc">
+            Release notes document changes, new features, deprecations, and breaking changes. Understanding deprecation timelines
+            prevents surprises during upgrades.
+          </p>
+        </li>
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 05</span>
+          <h3 class="resources-tip__title">Use Documentation Search Effectively</h3>
+          <p class="resources-tip__desc">
+            Most documentation sites have powerful search. Learn search syntax and keyboard shortcuts. Search for specific
+            function names, error messages, or concepts.
+          </p>
+        </li>
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 06</span>
+          <h3 class="resources-tip__title">Check Documentation Version</h3>
+          <p class="resources-tip__desc">
+            Ensure documentation matches your installed version. Version mismatches are a common source of frustration
+            when APIs change between releases.
+          </p>
+        </li>
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 07</span>
+          <h3 class="resources-tip__title">Read Beyond Your Immediate Problem</h3>
+          <p class="resources-tip__desc">
+            When solving a specific issue, read surrounding documentation sections. Context helps understand why APIs work
+            the way they do and reveals better approaches.
+          </p>
+        </li>
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 08</span>
+          <h3 class="resources-tip__title">Experiment with Examples</h3>
+          <p class="resources-tip__desc">
+            Type out and run documentation examples yourself. Don't just read them. Hands-on experimentation builds deeper
+            understanding than passive reading.
+          </p>
+        </li>
+        <li class="resources-tip">
+          <span class="resources-tip__number">TIP 09</span>
+          <h3 class="resources-tip__title">Contribute to Documentation</h3>
+          <p class="resources-tip__desc">
+            When you find unclear documentation or errors, contribute improvements. Most projects accept documentation PRs
+            readily. Contributing deepens your own understanding.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== 17 — RELATED VALUE.CODES RESOURCES ========== -->
+  <section class="resources-related section-padding" aria-label="Related Value.Codes resources">
+    <div class="container">
+      <div class="resources-category__header">
+        <span class="section-number">17</span>
+        <h2 class="resources-category__title">Related Value.Codes Resources</h2>
+        <p class="resources-category__desc">
+          Complement your documentation reading with our educational content. We explain the concepts and systems that
+          documentation describes, providing the context needed to use APIs effectively.
+        </p>
+      </div>
+
+      <div class="resources-related-grid">
+        <a href="/blog" class="resources-related-card">
+          <h3 class="resources-related-card__title">Programming Fundamentals</h3>
+          <p class="resources-related-card__desc">
+            Learn core programming concepts that appear across all languages and frameworks. Understanding fundamentals makes
+            documentation easier to parse and apply effectively.
+          </p>
+          <span class="resources-related-card__action">View Course <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a href="/blog" class="resources-related-card">
+          <h3 class="resources-related-card__title">Data Structures &amp; Algorithms</h3>
+          <p class="resources-related-card__desc">
+            Deep explanations of data structures and algorithms help you understand the implementations behind standard
+            library methods documented in language references.
+          </p>
+          <span class="resources-related-card__action">View Course <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a href="/blog" class="resources-related-card">
+          <h3 class="resources-related-card__title">How Computers Work</h3>
+          <p class="resources-related-card__desc">
+            Understanding computer architecture, operating systems, and networking provides context for system-level
+            documentation and performance characteristics.
+          </p>
+          <span class="resources-related-card__action">View Course <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: leaderboard -->
+
+  <!-- ========== NO RESULTS MESSAGE ========== -->
+  <div class="resources-no-results" aria-live="polite" hidden>
+    <div class="container">
+      <svg class="resources-no-results__icon" aria-hidden="true" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      <h2 class="resources-no-results__title">No matching documentation found</h2>
+      <p class="resources-no-results__desc">Try a different search term or browse the categories above.</p>
+    </div>
+  </div>
+
+</main>

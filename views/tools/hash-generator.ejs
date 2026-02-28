@@ -1,0 +1,217 @@
+<!-- ========================================================================
+     HASH GENERATOR v1 — views/tools/hash-generator.ejs
+     Generate MD5, SHA-1, SHA-256, SHA-512 hashes. 100% browser-based.
+     Value.Codes — Free Developer Tools
+     ======================================================================== -->
+
+<!-- TOOL HERO -->
+<section class="tool-hero" aria-label="Hash Generator tool">
+  <div class="container">
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools">Tools</a></li>
+        <li aria-current="page">Hash Generator</li>
+      </ol>
+    </nav>
+    <div class="tool-hero-content">
+      <div class="tool-hero-text">
+        <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free Tool</span></div>
+        <h1>Hash Generator</h1>
+        <p class="tool-hero-desc">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from any text. Compare hashes to verify data integrity. 100% browser-based — your data never leaves your device.</p>
+      </div>
+      <div class="tool-hero-actions">
+        <button class="btn btn-secondary btn-sm" id="hash-clear-btn" type="button">Clear</button>
+        <button class="btn btn-secondary btn-sm" id="hash-sample-btn" type="button">Load Sample</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL WORKSPACE -->
+<section class="tool-workspace" aria-label="Hash Generator workspace">
+  <div class="container">
+
+    <!-- Input -->
+    <div class="hash-input-section">
+      <div class="hash-input-header">
+        <label for="hash-input" class="hash-label">Input Text</label>
+        <div class="hash-input-meta">
+          <span class="hash-char-count" id="hash-char-count">0 chars</span>
+          <span class="hash-byte-count" id="hash-byte-count">0 bytes</span>
+        </div>
+      </div>
+      <div class="hash-input-wrap">
+        <textarea
+          class="hash-textarea"
+          id="hash-input"
+          placeholder="Enter text to hash..."
+          rows="5"
+          spellcheck="false"
+          autocomplete="off"
+          aria-label="Text to hash"
+        ></textarea>
+        <div class="hash-input-actions">
+          <button class="hash-action-btn" id="hash-paste-btn" type="button" aria-label="Paste from clipboard">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            Paste
+          </button>
+          <button class="hash-action-btn" id="hash-clear-input-btn" type="button" aria-label="Clear input">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="hash-options-bar">
+        <label class="hash-option-label">
+          <input type="checkbox" id="hash-uppercase" class="hash-checkbox" />
+          <span class="hash-checkbox-custom" aria-hidden="true"></span>
+          Uppercase output
+        </label>
+        <label class="hash-option-label">
+          <input type="checkbox" id="hash-hmac" class="hash-checkbox" />
+          <span class="hash-checkbox-custom" aria-hidden="true"></span>
+          HMAC (with secret)
+        </label>
+        <div class="hash-hmac-key-wrap hash-hmac-hidden" id="hash-hmac-key-wrap">
+          <label for="hash-hmac-key" class="sr-only">HMAC secret key</label>
+          <input type="text" id="hash-hmac-key" class="hash-hmac-key-input" placeholder="Enter HMAC secret key..." aria-label="HMAC secret key" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Hash outputs -->
+    <div class="hash-outputs-section">
+      <h2 class="hash-outputs-title">Generated Hashes</h2>
+
+      <div class="hash-output-row" id="hash-md5-row">
+        <div class="hash-output-header">
+          <span class="hash-algo-name">MD5</span>
+          <span class="hash-algo-bits">128-bit</span>
+          <span class="hash-algo-note">⚠ Not for security</span>
+        </div>
+        <div class="hash-output-wrap">
+          <output class="hash-output-value" id="hash-md5" aria-label="MD5 hash" aria-live="polite"></output>
+          <button class="hash-copy-btn" data-target="hash-md5" type="button" aria-label="Copy MD5 hash">Copy</button>
+        </div>
+      </div>
+
+      <div class="hash-output-row">
+        <div class="hash-output-header">
+          <span class="hash-algo-name">SHA-1</span>
+          <span class="hash-algo-bits">160-bit</span>
+          <span class="hash-algo-note">⚠ Deprecated for security</span>
+        </div>
+        <div class="hash-output-wrap">
+          <output class="hash-output-value" id="hash-sha1" aria-label="SHA-1 hash" aria-live="polite"></output>
+          <button class="hash-copy-btn" data-target="hash-sha1" type="button" aria-label="Copy SHA-1 hash">Copy</button>
+        </div>
+      </div>
+
+      <div class="hash-output-row hash-output-row-highlight">
+        <div class="hash-output-header">
+          <span class="hash-algo-name">SHA-256</span>
+          <span class="hash-algo-bits">256-bit</span>
+          <span class="hash-algo-note hash-algo-good">✓ Recommended</span>
+        </div>
+        <div class="hash-output-wrap">
+          <output class="hash-output-value" id="hash-sha256" aria-label="SHA-256 hash" aria-live="polite"></output>
+          <button class="hash-copy-btn" data-target="hash-sha256" type="button" aria-label="Copy SHA-256 hash">Copy</button>
+        </div>
+      </div>
+
+      <div class="hash-output-row">
+        <div class="hash-output-header">
+          <span class="hash-algo-name">SHA-512</span>
+          <span class="hash-algo-bits">512-bit</span>
+          <span class="hash-algo-note hash-algo-good">✓ Most secure</span>
+        </div>
+        <div class="hash-output-wrap">
+          <output class="hash-output-value" id="hash-sha512" aria-label="SHA-512 hash" aria-live="polite"></output>
+          <button class="hash-copy-btn" data-target="hash-sha512" type="button" aria-label="Copy SHA-512 hash">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compare hashes -->
+    <div class="hash-compare-section">
+      <h3 class="hash-compare-title">Compare Hashes</h3>
+      <p class="hash-compare-desc">Paste a hash to verify it matches the output above.</p>
+      <div class="hash-compare-row">
+        <label for="hash-compare-input" class="sr-only">Hash to compare</label>
+        <input type="text" id="hash-compare-input" class="hash-compare-input" placeholder="Paste hash to compare..." spellcheck="false" aria-label="Hash to compare" />
+        <div class="hash-compare-result hash-compare-hidden" id="hash-compare-result" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="cp-toast" id="hash-toast" role="status" aria-live="polite">Copied!</div>
+
+  </div>
+</section>
+
+<!-- INFO SECTION -->
+<section class="tool-info-section" aria-label="About Hash Generator">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[01]</span>
+      <h2>Cryptographic Hash Functions</h2>
+    </div>
+    <p class="section-desc">A hash function transforms any input into a fixed-length string. The same input always produces the same hash, but it's computationally infeasible to reverse the process.</p>
+
+    <div class="tool-usecases-grid">
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🔒</span>
+        <h3>Password Storage</h3>
+        <p>Passwords are stored as hashes (ideally with bcrypt or Argon2). SHA-256 is fine for data integrity but not for passwords without salting.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">📁</span>
+        <h3>File Integrity</h3>
+        <p>Verify downloaded files by comparing the file's SHA-256 hash against the publisher's checksum. Any change produces a completely different hash.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🔑</span>
+        <h3>HMAC Authentication</h3>
+        <p>HMAC (Hash-based Message Authentication Code) uses a secret key to authenticate API requests. Used in AWS Signature v4, webhooks, and OAuth.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🪙</span>
+        <h3>Blockchain</h3>
+        <p>Bitcoin and Ethereum use SHA-256 for proof-of-work and transaction signing. Every block contains the hash of the previous block.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED TOOLS -->
+<section class="tool-related-section" aria-label="Related tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[02]</span>
+      <h2>Related Tools</h2>
+    </div>
+    <div class="tool-related-grid">
+      <a href="/tools/base64-encoder" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">64</span>
+        <h3 class="tool-card-name">Base64 Encoder</h3>
+        <p class="tool-card-desc">Encode and decode Base64 strings.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/jwt-decoder" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">🔑</span>
+        <h3 class="tool-card-name">JWT Decoder</h3>
+        <p class="tool-card-desc">Decode and inspect JSON Web Tokens.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/json-formatter" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">{ }</span>
+        <h3 class="tool-card-name">JSON Formatter</h3>
+        <p class="tool-card-desc">Format and validate JSON data.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>

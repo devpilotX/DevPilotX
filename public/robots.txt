@@ -1,0 +1,23 @@
+# ============================================================
+# Value.Codes — Robots.txt
+# ============================================================
+# Controls which pages search engine crawlers can access.
+# References the XML sitemap for efficient discovery.
+# ============================================================
+
+User-agent: *
+
+# Allow all public pages
+Allow: /
+
+# Block authentication and private pages
+Disallow: /login
+Disallow: /register
+Disallow: /logout
+Disallow: /profile
+Disallow: /settings
+Disallow: /search
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://value.codes/sitemap.xml

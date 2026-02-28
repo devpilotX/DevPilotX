@@ -1,0 +1,735 @@
+/* ==========================================================================
+   HOME — HERO SECTION
+   ==========================================================================
+   Two-column hero: content left, code card right.
+   ========================================================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem var(--pad-x);
+  min-height: calc(85vh - var(--nav-h));
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-content h1 {
+  margin-bottom: 1.25rem;
+}
+
+.hero-content .accent {
+  color: var(--accent);
+}
+
+.hero-lead {
+  font-size: 1.0625rem;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* ==========================================================================
+   HOME — CODE PREVIEW CARD (Reusable)
+   ========================================================================== */
+
+.code-card {
+  background: #1a1a2e;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.code-card-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #151525;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.code-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.code-dot--red    { background: #ff5f56; }
+.code-dot--yellow { background: #ffbd2e; }
+.code-dot--green  { background: #27c93f; }
+
+.code-card-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: auto;
+  font-family: monospace;
+}
+
+.code-card-body {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.code-line {
+  font-family: monospace;
+  font-size: 0.8125rem;
+  color: #e5e7eb;
+  line-height: 1.7;
+  display: block;
+}
+
+/* Syntax highlighting tokens */
+.c-comment  { color: #6b7280; }
+.c-keyword  { color: #818cf8; }
+.c-string   { color: #86efac; }
+.c-function { color: #fbbf24; }
+
+
+/* ==========================================================================
+   HOME — TOOLS SHOWCASE
+   ========================================================================== */
+
+.tools-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.tool-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.tool-card:active {
+  transform: translateY(0);
+}
+
+.tool-card-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.tool-card-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.tool-card-desc {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.tool-card-arrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: auto;
+}
+
+
+/* ==========================================================================
+   HOME — COMPILER FEATURE SECTION
+   ========================================================================== */
+
+.compiler-section {
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+}
+
+.compiler-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.compiler-content h2 {
+  margin-bottom: 1rem;
+}
+
+.compiler-content p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  max-width: 480px;
+}
+
+.compiler-langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.lang-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+}
+
+
+/* ==========================================================================
+   HOME — DEVELOPER COMMUNITY (Discord-Style Chat)
+   ==========================================================================
+   Login-gated community section with chat preview.
+   ========================================================================== */
+
+.community-section {
+  background: #0a0a0a;
+  color: #e5e5e5;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.community-content h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.community-content p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 1.75rem;
+}
+
+.community-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.community-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.community-features li svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.community-login-note {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.community-login-note strong {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.community-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.community-actions .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.community-actions .btn-secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.community-actions .btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+
+/* ==========================================================================
+   HOME — CHAT PREVIEW CARD (Discord-Style)
+   ========================================================================== */
+
+.chat-card {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.chat-card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #27c93f;
+  flex-shrink: 0;
+}
+
+.chat-card-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-card-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.chat-message {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.chat-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.chat-avatar--alt {
+  background: #3b82f6;
+}
+
+.chat-avatar--green {
+  background: #16a34a;
+}
+
+.chat-bubble {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px 8px 8px 2px;
+  padding: 0.6rem 0.85rem;
+  flex: 1;
+}
+
+.chat-bubble-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.2rem;
+}
+
+.chat-bubble-text {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.chat-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.chat-card-lock {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.chat-card-lock svg {
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+
+/* ==========================================================================
+   HOME — RESOURCES SECTION
+   ========================================================================== */
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.resource-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.resource-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+.resource-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.resource-body h3 {
+  font-size: 0.9375rem;
+  margin-bottom: 0.35rem;
+}
+
+.resource-body p {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   HOME — NEWSLETTER CTA
+   ========================================================================== */
+
+.newsletter-section {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+}
+
+.newsletter-section h2 {
+  color: var(--paper);
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.75;
+}
+
+.newsletter-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.newsletter-section .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.newsletter-section .btn-secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--paper);
+}
+
+.newsletter-section .btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--paper);
+}
+
+
+/* ==========================================================================
+   HOME — CONTRIBUTE SECTION (Before Final CTA)
+   ========================================================================== */
+
+.contribute-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.contribute-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contribute-content h2 {
+  margin-bottom: 1rem;
+}
+
+.contribute-content > p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.contribute-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.contribute-ways {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contribute-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+
+.contribute-card:hover {
+  border-color: var(--accent);
+}
+
+.contribute-card-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.contribute-card-body h3 {
+  font-size: 0.9375rem;
+  margin-bottom: 0.3rem;
+}
+
+.contribute-card-body p {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   HOME — FINAL CTA
+   ========================================================================== */
+
+.final-cta {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+}
+
+.final-cta-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.final-cta-inner h2 {
+  margin-bottom: 1rem;
+}
+
+.final-cta-inner p {
+  color: var(--muted);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.final-cta-inner .accent {
+  color: var(--accent);
+}
+
+
+/* ==========================================================================
+   HOME — SCROLL REVEAL ANIMATION (Progressive Enhancement)
+   ========================================================================== */
+
+.reveal-target {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-target.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   HOME — RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .tools-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .resources-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 3rem;
+    padding: 4rem var(--pad-x);
+  }
+
+  .hero-visual {
+    justify-content: flex-start;
+  }
+
+  .code-card {
+    max-width: 100%;
+  }
+
+  .compiler-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .community-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contribute-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions,
+  .community-actions,
+  .contribute-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn,
+  .community-actions .btn,
+  .contribute-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

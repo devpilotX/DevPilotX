@@ -1,0 +1,206 @@
+<!-- ========================================================================
+     COLOR PICKER v1 — views/tools/color-picker.ejs
+     Pick colors, convert HEX/RGB/HSL, copy codes, generate palettes.
+     100% browser-based — no server calls.
+     Value.Codes — Free Developer Tools
+     ======================================================================== -->
+
+<!-- TOOL HERO -->
+<section class="tool-hero" aria-label="Color Picker tool">
+  <div class="container">
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools">Tools</a></li>
+        <li aria-current="page">Color Picker</li>
+      </ol>
+    </nav>
+    <div class="tool-hero-content">
+      <div class="tool-hero-text">
+        <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free Tool</span></div>
+        <h1>Color Picker</h1>
+        <p class="tool-hero-desc">Pick any color and instantly get HEX, RGB, HSL, and HSB codes. Generate palettes, check contrast ratios, and copy any format with one click.</p>
+      </div>
+      <div class="tool-hero-meta">
+        <span class="badge-pill">100% Private</span>
+        <span class="badge-pill">No Upload</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL WORKSPACE -->
+<section class="tool-workspace cp-workspace" aria-label="Color Picker workspace">
+  <div class="container">
+    <div class="cp-layout">
+
+      <!-- LEFT: Picker -->
+      <div class="cp-picker-panel">
+        <div class="cp-picker-wrap">
+          <!-- Color canvas -->
+          <div class="cp-canvas-wrap">
+            <canvas id="cp-canvas" width="300" height="200" role="img" aria-label="Color spectrum canvas"></canvas>
+            <div class="cp-canvas-cursor" id="cp-cursor" aria-hidden="true"></div>
+          </div>
+          <!-- Hue slider -->
+          <div class="cp-slider-wrap">
+            <label for="cp-hue" class="sr-only">Hue</label>
+            <input type="range" id="cp-hue" class="cp-hue-slider" min="0" max="360" value="0" aria-label="Hue" />
+          </div>
+          <!-- Alpha slider -->
+          <div class="cp-slider-wrap">
+            <label for="cp-alpha" class="sr-only">Opacity</label>
+            <input type="range" id="cp-alpha" class="cp-alpha-slider" min="0" max="100" value="100" aria-label="Opacity" />
+          </div>
+        </div>
+
+        <!-- Native input + preview -->
+        <div class="cp-input-row">
+          <label for="cp-native" class="sr-only">Color picker</label>
+          <input type="color" id="cp-native" class="cp-native-input" value="#c9281a" aria-label="Choose color" />
+          <div class="cp-preview-swatch" id="cp-preview" style="background:#c9281a;" aria-hidden="true"></div>
+          <div class="cp-preview-info">
+            <span class="cp-preview-hex" id="cp-preview-hex">#C9281A</span>
+            <span class="cp-preview-name" id="cp-preview-name"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Color values -->
+      <div class="cp-values-panel">
+        <h2 class="cp-values-title">Color Values</h2>
+
+        <div class="cp-value-row">
+          <label class="cp-value-label">HEX</label>
+          <input type="text" class="cp-value-input" id="cp-hex" value="#C9281A" aria-label="Hex color value" spellcheck="false" />
+          <button class="cp-copy-btn" data-target="cp-hex" type="button" aria-label="Copy HEX">Copy</button>
+        </div>
+
+        <div class="cp-value-row">
+          <label class="cp-value-label">RGB</label>
+          <input type="text" class="cp-value-input" id="cp-rgb" value="rgb(201, 40, 26)" aria-label="RGB color value" spellcheck="false" />
+          <button class="cp-copy-btn" data-target="cp-rgb" type="button" aria-label="Copy RGB">Copy</button>
+        </div>
+
+        <div class="cp-value-row">
+          <label class="cp-value-label">HSL</label>
+          <input type="text" class="cp-value-input" id="cp-hsl" value="hsl(4, 77%, 44%)" aria-label="HSL color value" spellcheck="false" />
+          <button class="cp-copy-btn" data-target="cp-hsl" type="button" aria-label="Copy HSL">Copy</button>
+        </div>
+
+        <div class="cp-value-row">
+          <label class="cp-value-label">RGBA</label>
+          <input type="text" class="cp-value-input" id="cp-rgba" value="rgba(201, 40, 26, 1)" aria-label="RGBA color value" spellcheck="false" />
+          <button class="cp-copy-btn" data-target="cp-rgba" type="button" aria-label="Copy RGBA">Copy</button>
+        </div>
+
+        <div class="cp-value-row">
+          <label class="cp-value-label">HSB</label>
+          <input type="text" class="cp-value-input" id="cp-hsb" value="hsb(4°, 87%, 79%)" aria-label="HSB color value" spellcheck="false" />
+          <button class="cp-copy-btn" data-target="cp-hsb" type="button" aria-label="Copy HSB">Copy</button>
+        </div>
+
+        <!-- Contrast checker -->
+        <div class="cp-contrast-section">
+          <h3 class="cp-section-label">Contrast Ratio</h3>
+          <div class="cp-contrast-row">
+            <div class="cp-contrast-preview" id="cp-contrast-preview">
+              <span class="cp-contrast-text-dark" id="cp-contrast-on-dark">Aa</span>
+              <span class="cp-contrast-text-light" id="cp-contrast-on-light">Aa</span>
+            </div>
+            <div class="cp-contrast-info">
+              <div class="cp-contrast-score" id="cp-contrast-vs-white">
+                <span class="cp-contrast-ratio" id="cp-ratio-white">—</span>
+                <span class="cp-contrast-label">vs White</span>
+              </div>
+              <div class="cp-contrast-score" id="cp-contrast-vs-black">
+                <span class="cp-contrast-ratio" id="cp-ratio-black">—</span>
+                <span class="cp-contrast-label">vs Black</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Palette section -->
+    <div class="cp-palette-section">
+      <h2 class="cp-palette-title">Generated Palette</h2>
+      <div class="cp-palette-grid" id="cp-palette" aria-label="Color palette"></div>
+    </div>
+
+    <!-- Recent colors -->
+    <div class="cp-recent-section">
+      <h3 class="cp-section-label">Recent Colors</h3>
+      <div class="cp-recent-grid" id="cp-recent" aria-label="Recent colors"></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="cp-toast" id="cp-toast" role="status" aria-live="polite">Copied!</div>
+  </div>
+</section>
+
+<!-- INFO SECTION -->
+<section class="tool-info-section" aria-label="About Color Picker">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[01]</span>
+      <h2>How to Use the Color Picker</h2>
+    </div>
+    <p class="section-desc">Click anywhere on the color spectrum, drag the hue slider, or type a hex/RGB/HSL value directly. All color formats update in real time.</p>
+
+    <div class="tool-usecases-grid">
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🎨</span>
+        <h3>Pick from Spectrum</h3>
+        <p>Click and drag on the color canvas to select any hue, saturation, and brightness combination.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🔄</span>
+        <h3>Convert Formats</h3>
+        <p>Type any HEX, RGB, or HSL value and instantly see all other formats updated.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">♿</span>
+        <h3>Check Contrast</h3>
+        <p>WCAG contrast ratios are calculated automatically against white and black backgrounds.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🖌️</span>
+        <h3>Palette Generator</h3>
+        <p>Auto-generates tints, shades, and complementary colors based on your selection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED TOOLS -->
+<section class="tool-related-section" aria-label="Related tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[02]</span>
+      <h2>Related Tools</h2>
+    </div>
+    <div class="tool-related-grid">
+      <a href="/tools/hash-generator" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">#</span>
+        <h3 class="tool-card-name">Hash Generator</h3>
+        <p class="tool-card-desc">Generate MD5, SHA-1, SHA-256 hashes.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/json-formatter" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">{ }</span>
+        <h3 class="tool-card-name">JSON Formatter</h3>
+        <p class="tool-card-desc">Format and validate JSON data.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/code-formatter" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">✦</span>
+        <h3 class="tool-card-name">Code Formatter</h3>
+        <p class="tool-card-desc">Beautify and format code online.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>

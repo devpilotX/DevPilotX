@@ -1,0 +1,2759 @@
+<!-- ========== views/resources/essential-software.ejs ========== -->
+<!-- Essential Software resource page - Comprehensive guide to must-have developer software -->
+
+<% layout('layouts/main') %>
+
+<main id="main-content" class="essential-software-page">
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="ess-hero" aria-label="Essential software hero">
+    <div class="container">
+      <div class="ess-hero__breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="/resources">Resources</a>
+        <span aria-hidden="true">›</span>
+        <span>Essential Software</span>
+      </div>
+      <div class="ess-hero__badges">
+        <span class="badge badge-pill">Complete Guide</span>
+        <span class="badge badge-pill badge-new">2026 Edition</span>
+        <span class="badge badge-pill">5000+ Words</span>
+      </div>
+      <h1 class="ess-hero__title">Essential Software for Developers in 2026</h1>
+      <p class="ess-hero__desc">A comprehensive guide to the must-have software tools every developer needs. From IDEs and code editors to design tools and productivity apps, we cover what matters. Real reviews based on actual development workflows. Platform availability, pricing models, setup guides, and honest comparisons of alternatives. Whether you're just starting or optimizing your toolkit, this guide helps you make informed decisions about the software you use every day.</p>
+    </div>
+  </section>
+
+  <!-- ADSENSE: leaderboard -->
+
+  <!-- ========== TABLE OF CONTENTS ========== -->
+  <section class="ess-toc" aria-label="Table of contents">
+    <div class="container">
+      <h2 class="ess-toc__title">What We'll Cover</h2>
+      <div class="ess-toc__grid">
+        <a href="#ides-code-editors" class="ess-toc__card">
+          <span class="ess-toc__number">01</span>
+          <h3 class="ess-toc__card-title">IDEs & Code Editors</h3>
+          <p class="ess-toc__card-desc">5 essential tools reviewed</p>
+        </a>
+        <a href="#terminals-shells" class="ess-toc__card">
+          <span class="ess-toc__number">02</span>
+          <h3 class="ess-toc__card-title">Terminals & Shells</h3>
+          <p class="ess-toc__card-desc">4 terminal solutions</p>
+        </a>
+        <a href="#developer-browsers" class="ess-toc__card">
+          <span class="ess-toc__number">03</span>
+          <h3 class="ess-toc__card-title">Developer Browsers</h3>
+          <p class="ess-toc__card-desc">3 browser tools</p>
+        </a>
+        <a href="#design-tools" class="ess-toc__card">
+          <span class="ess-toc__number">04</span>
+          <h3 class="ess-toc__card-title">Design Tools</h3>
+          <p class="ess-toc__card-desc">5 design applications</p>
+        </a>
+        <a href="#communication" class="ess-toc__card">
+          <span class="ess-toc__number">05</span>
+          <h3 class="ess-toc__card-title">Communication</h3>
+          <p class="ess-toc__card-desc">3 collaboration tools</p>
+        </a>
+        <a href="#productivity-apps" class="ess-toc__card">
+          <span class="ess-toc__number">06</span>
+          <h3 class="ess-toc__card-title">Productivity Apps</h3>
+          <p class="ess-toc__card-desc">5 productivity tools</p>
+        </a>
+        <a href="#database-tools" class="ess-toc__card">
+          <span class="ess-toc__number">07</span>
+          <h3 class="ess-toc__card-title">Database Tools</h3>
+          <p class="ess-toc__card-desc">3 database clients</p>
+        </a>
+        <a href="#api-clients" class="ess-toc__card">
+          <span class="ess-toc__number">08</span>
+          <h3 class="ess-toc__card-title">API Clients</h3>
+          <p class="ess-toc__card-desc">3 API testing tools</p>
+        </a>
+        <a href="#package-managers" class="ess-toc__card">
+          <span class="ess-toc__number">09</span>
+          <h3 class="ess-toc__card-title">Package Managers</h3>
+          <p class="ess-toc__card-desc">4 essential managers</p>
+        </a>
+        <a href="#virtualization" class="ess-toc__card">
+          <span class="ess-toc__number">10</span>
+          <h3 class="ess-toc__card-title">Virtualization</h3>
+          <p class="ess-toc__card-desc">4 VM solutions</p>
+        </a>
+        <a href="#local-dev-servers" class="ess-toc__card">
+          <span class="ess-toc__number">11</span>
+          <h3 class="ess-toc__card-title">Local Dev Servers</h3>
+          <p class="ess-toc__card-desc">5 local environments</p>
+        </a>
+        <a href="#documentation-generators" class="ess-toc__card">
+          <span class="ess-toc__number">12</span>
+          <h3 class="ess-toc__card-title">Documentation Generators</h3>
+          <p class="ess-toc__card-desc">5 doc tools</p>
+        </a>
+        <a href="#monitoring-observability" class="ess-toc__card">
+          <span class="ess-toc__number">13</span>
+          <h3 class="ess-toc__card-title">Monitoring & Observability</h3>
+          <p class="ess-toc__card-desc">5 monitoring platforms</p>
+        </a>
+        <a href="#cicd-tools" class="ess-toc__card">
+          <span class="ess-toc__number">14</span>
+          <h3 class="ess-toc__card-title">CI/CD Tools</h3>
+          <p class="ess-toc__card-desc">4 automation platforms</p>
+        </a>
+        <a href="#quick-comparison" class="ess-toc__card">
+          <span class="ess-toc__number">15</span>
+          <h3 class="ess-toc__card-title">Quick Comparisons</h3>
+          <p class="ess-toc__card-desc">Head-to-head reviews</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 01: IDEs & CODE EDITORS ========== -->
+  <section id="ides-code-editors" class="ess-section" aria-label="IDEs and code editors">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">01</span>
+        <h2 class="ess-section__title">IDEs & Code Editors</h2>
+      </div>
+      <p class="ess-section__intro">Where you write code matters significantly for productivity. The right editor reduces friction, catches errors early, and makes refactoring safer. Modern editors blur the line between lightweight text editors and full IDEs. We examine the most popular choices, their strengths, and where each excels.</p>
+
+      <!-- ===== Visual Studio Code ===== -->
+      <article class="ess-tool" id="vscode">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Visual Studio Code</h3>
+            <p class="ess-tool__tagline">The developer's Swiss Army knife</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Visual Studio Code has become the de facto standard for web development and is increasingly popular across all programming domains. Built by Microsoft as an Electron app, VS Code strikes an impressive balance between performance, extensibility, and ease of use. What sets it apart is the ecosystem. Over 40,000 extensions cover nearly every language, framework, and workflow imaginable.</p>
+          <p>The editor itself is fast and responsive despite being built on web technologies. IntelliSense provides context-aware code completion that genuinely improves productivity. The integrated terminal, debugging tools, and Git support mean you rarely need to leave the editor. Remote development capabilities let you code on containers, WSL, or SSH targets as if they were local.</p>
+          <p>VS Code's popularity means extensive community support. Nearly any problem you encounter has been solved and documented. The extension marketplace is curated well enough that finding quality tools is straightforward. Updates ship monthly with noticeable improvements.</p>
+
+          <div class="ess-tool__features">
+            <h4 class="ess-tool__subtitle">Key Features</h4>
+            <ul class="ess-tool__feature-list">
+              <li>IntelliSense code completion with context awareness across 50+ languages</li>
+              <li>Built-in Git integration with visual diff, staging, and merge conflict resolution</li>
+              <li>Integrated debugging for Node.js, Python, C++, and more with breakpoints and watch expressions</li>
+              <li>Extension marketplace with 40,000+ extensions covering languages, themes, and tools</li>
+              <li>Remote development over SSH, containers, and WSL without performance penalty</li>
+              <li>Live Share for real-time collaborative editing and debugging</li>
+              <li>Multi-cursor editing and sophisticated find-and-replace with regex support</li>
+              <li>Workspace settings and project-specific configurations</li>
+            </ul>
+          </div>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Completely free and open source with no limitations</li>
+                <li>Vast extension ecosystem solves nearly any workflow need</li>
+                <li>Excellent performance despite Electron base</li>
+                <li>Strong language support out of the box</li>
+                <li>Frequent updates with meaningful improvements</li>
+                <li>Remote development capabilities are game-changing</li>
+                <li>Cross-platform with consistent experience</li>
+                <li>Low resource usage compared to full IDEs</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Extension quality varies significantly</li>
+                <li>Can feel overwhelming to configure optimally</li>
+                <li>Not as powerful as JetBrains IDEs for refactoring</li>
+                <li>Some Microsoft telemetry by default (can be disabled)</li>
+                <li>Large projects can experience slowdown</li>
+                <li>Learning curve for advanced features</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ADSENSE: in-article -->
+
+          <div class="ess-tool__setup">
+            <h4 class="ess-tool__subtitle">Setup & Configuration Tips</h4>
+            <ol class="ess-tool__setup-list">
+              <li>Download from <code>code.visualstudio.com</code> and install for your platform</li>
+              <li>Install essential extensions: ESLint/Pylint for linting, Prettier for formatting, GitLens for enhanced Git features</li>
+              <li>Configure settings sync to share configurations across machines via GitHub or Microsoft account</li>
+              <li>Customize keybindings early to match your workflow and muscle memory</li>
+              <li>Set up language-specific extensions and debugger configurations for your primary stack</li>
+              <li>Enable auto-save to reduce manual save friction during development</li>
+              <li>Configure integrated terminal to use your preferred shell (bash, zsh, PowerShell)</li>
+            </ol>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>VSCodium</strong>
+                <p>VS Code without Microsoft branding and telemetry. Same functionality, fully open source.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>Sublime Text</strong>
+                <p>Faster startup and responsiveness. Costs $99 but offers unlimited trial. Smaller extension ecosystem.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Sublime Text ===== -->
+      <article class="ess-tool" id="sublime-text">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Sublime Text</h3>
+            <p class="ess-tool__tagline">Speed and elegance refined</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-paid">$99</span>
+          <span class="tag">Unlimited Trial</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Sublime Text prioritizes performance above all else. It starts instantly, handles massive files without breaking a sweat, and responds to every keystroke without lag. Built in C++ rather than Electron, the difference is immediately noticeable. If you work with large codebases or files exceeding several megabytes, Sublime Text remains fluid where other editors struggle.</p>
+          <p>The multi-cursor editing implementation is the best in class. Once you internalize the workflow, editing becomes remarkably efficient. Goto Anything lets you navigate projects by fuzzy filename, symbol, or line number with blazing speed. The minimap provides spatial awareness in long files that proves surprisingly useful.</p>
+          <p>The $99 price includes all updates within a major version and works across all platforms. You can evaluate indefinitely with occasional purchase prompts. The extension ecosystem is smaller than VS Code but covers essential needs. Package Control makes installation straightforward.</p>
+
+          <div class="ess-tool__features">
+            <h4 class="ess-tool__subtitle">Key Features</h4>
+            <ul class="ess-tool__feature-list">
+              <li>Native performance handles files of any size without performance degradation</li>
+              <li>Multiple selections and split editing accelerate bulk changes</li>
+              <li>Goto Anything for instant project-wide navigation</li>
+              <li>Command palette for keyboard-driven workflow</li>
+              <li>Distraction-free mode hides everything except code</li>
+              <li>Python-based plugin API for customization</li>
+              <li>Project-specific settings and build systems</li>
+              <li>Instant project switching without window management</li>
+            </ul>
+          </div>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Exceptional speed and responsiveness</li>
+                <li>Handles files of any size effortlessly</li>
+                <li>Multi-cursor editing is best-in-class</li>
+                <li>Minimal resource usage</li>
+                <li>Clean, distraction-free interface</li>
+                <li>Unlimited evaluation period</li>
+                <li>One-time purchase, not subscription</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Costs $99 after evaluation</li>
+                <li>Smaller extension ecosystem than VS Code</li>
+                <li>Less powerful for complex debugging</li>
+                <li>No built-in Git UI</li>
+                <li>Updates are less frequent</li>
+                <li>Learning curve for advanced features</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>Atom</strong>
+                <p>GitHub's editor, now maintained by community. Free but slower than Sublime. Being sunset in favor of VS Code.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Vim / Neovim ===== -->
+      <article class="ess-tool" id="vim-neovim">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Vim / Neovim</h3>
+            <p class="ess-tool__tagline">Terminal-native power editing</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Terminal</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Vim represents a fundamentally different editing philosophy. Modal editing means you switch between modes for different tasks: normal mode for navigation, insert mode for typing, visual mode for selection. The learning curve is steep. For the first weeks, you'll be slower than with any other editor. After the hump, editing speed increases dramatically.</p>
+          <p>Neovim modernizes Vim's codebase with better extensibility, async support, and Lua configuration. The distinction matters for plugin authors more than users, but Neovim's momentum has made it the preferred choice for new users. LSP (Language Server Protocol) integration brings IDE features to the terminal.</p>
+          <p>Why choose Vim? It's available on every Unix system. You can edit files on remote servers without installing anything. Once internalized, the keybindings become automatic. Your hands never leave the home row. Many developers use Vim keybindings in other editors via plugins, testament to the model's efficiency.</p>
+
+          <div class="ess-tool__features">
+            <h4 class="ess-tool__subtitle">Key Features</h4>
+            <ul class="ess-tool__feature-list">
+              <li>Modal editing separates navigation from text input for efficiency</li>
+              <li>Composable commands create powerful editing operations from simple primitives</li>
+              <li>Runs in terminal, works over SSH without additional setup</li>
+              <li>Minimal resource usage, starts instantly</li>
+              <li>Extensible via Vimscript or Lua (Neovim)</li>
+              <li>LSP integration provides IDE features in terminal</li>
+              <li>Text objects enable surgical editing operations</li>
+              <li>Macros automate repetitive editing tasks</li>
+            </ul>
+          </div>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Editing speed once mastered is unmatched</li>
+                <li>Available everywhere, especially remote servers</li>
+                <li>Terminal-based workflow keeps hands on keyboard</li>
+                <li>Extremely lightweight and fast</li>
+                <li>Powerful text manipulation capabilities</li>
+                <li>Highly customizable and scriptable</li>
+                <li>Strong community and extensive plugins</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Steep learning curve requires dedicated practice</li>
+                <li>Initial productivity drop can be frustrating</li>
+                <li>Configuration requires significant time investment</li>
+                <li>Debugging support is limited compared to IDEs</li>
+                <li>Terminal-only interface not for everyone</li>
+                <li>Plugin compatibility can be fragile</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__setup">
+            <h4 class="ess-tool__subtitle">Getting Started with Vim/Neovim</h4>
+            <ol class="ess-tool__setup-list">
+              <li>Run <code>vimtutor</code> in terminal for interactive 30-minute tutorial covering basics</li>
+              <li>Force yourself to use only Vim for one week to build muscle memory</li>
+              <li>Install plugin manager (vim-plug for Vim, packer.nvim for Neovim)</li>
+              <li>Add essential plugins: fzf for file navigation, LSP for code intelligence, treesitter for syntax</li>
+              <li>Configure incrementally, adding features as you discover needs</li>
+              <li>Join community forums or Discord servers for configuration help</li>
+              <li>Consider pre-configured distributions like LunarVim or AstroNvim for head start</li>
+            </ol>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>Emacs</strong>
+                <p>Another powerful, extensible editor with different philosophy. Lisp-based, infinitely customizable. Steep learning curve.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== JetBrains IDEs ===== -->
+      <article class="ess-tool" id="jetbrains">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">JetBrains IDEs</h3>
+            <p class="ess-tool__tagline">Professional-grade language-specific IDEs</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-paid">$149-$249/year</span>
+          <span class="tag tag-free">Free for Students</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>JetBrains produces language-specific IDEs: IntelliJ IDEA for Java/Kotlin, PyCharm for Python, WebStorm for JavaScript, PhpStorm for PHP, and others. Each IDE deeply understands its target language. Code analysis goes beyond syntax checking to detect logic errors, suggest optimizations, and enforce best practices.</p>
+          <p>Refactoring tools are the industry standard. Rename a variable, method, or class and the IDE updates every reference across your codebase, including strings and comments where appropriate. Extract method, inline variable, change signature — these operations are safe and comprehensive. For large Java or Python projects, this capability alone justifies the cost.</p>
+          <p>Subscription pricing ($149–$249 annually depending on product) includes all updates and a perpetual fallback license. Students and open source projects get free licenses. The resource usage is heavier than lightweight editors but reasonable for modern hardware.</p>
+
+          <div class="ess-tool__features">
+            <h4 class="ess-tool__subtitle">Key Features</h4>
+            <ul class="ess-tool__feature-list">
+              <li>Advanced refactoring tools that safely transform code across entire projects</li>
+              <li>Deep code analysis detects bugs, code smells, and suggests improvements</li>
+              <li>Intelligent code completion understands context and types</li>
+              <li>Built-in database tools with SQL editing and schema navigation</li>
+              <li>Sophisticated debugger with frame navigation and expression evaluation</li>
+              <li>Version control integration with local history and merge tools</li>
+              <li>Code generation for boilerplate reduction</li>
+              <li>Framework-specific support for Spring, Django, React, and others</li>
+            </ul>
+          </div>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Best-in-class refactoring capabilities</li>
+                <li>Deep language understanding catches subtle bugs</li>
+                <li>Everything integrated and polished</li>
+                <li>Excellent for large codebases</li>
+                <li>Consistent experience across different language IDEs</li>
+                <li>Free for students and open source</li>
+                <li>Perpetual fallback license after subscription</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Expensive for individual developers</li>
+                <li>Higher resource usage than lightweight editors</li>
+                <li>Slower startup time</li>
+                <li>Indexing can slow down initial project load</li>
+                <li>Subscription model ongoing cost</li>
+                <li>May feel heavy for quick edits</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>IntelliJ IDEA Community</strong>
+                <p>Free version with Java, Kotlin, Groovy, and Scala support. Missing some enterprise features but fully functional.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>Eclipse</strong>
+                <p>Free Java IDE with large plugin ecosystem. More dated interface but still capable for Java development.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Emacs ===== -->
+      <article class="ess-tool" id="emacs">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Emacs</h3>
+            <p class="ess-tool__tagline">The extensible, customizable computing environment</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Emacs is less an editor and more a Lisp-based platform for text manipulation. People joke about it being an operating system that happens to include a text editor. The joke has truth: Emacs users read email, browse the web, manage tasks, and edit code without leaving Emacs. Everything is extensible through Emacs Lisp.</p>
+          <p>The power comes from extensibility. Don't like how something works? Change it. Need a feature that doesn't exist? Implement it. Thousands of packages provide functionality from Git integration (Magit is considered the best Git interface ever created) to org-mode for task management and literate programming.</p>
+          <p>The learning curve rivals Vim's. Keybindings are unique and extensive. Configuration happens in Emacs Lisp, requiring programming knowledge. Distributions like Spacemacs and Doom Emacs provide curated configurations that reduce initial complexity. Once configured to your workflow, Emacs becomes deeply personal and efficient.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Infinitely extensible via Lisp</li>
+                <li>Magit is the best Git interface available</li>
+                <li>Org-mode unmatched for notes and task management</li>
+                <li>Can do everything in one environment</li>
+                <li>Decades of packages and community knowledge</li>
+                <li>Completely free and open source</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Extremely steep learning curve</li>
+                <li>Configuration requires Lisp knowledge</li>
+                <li>Default experience is dated</li>
+                <li>Keybinding conflicts with modern OS shortcuts</li>
+                <li>Can become time sink optimizing configuration</li>
+                <li>Package compatibility issues common</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 02: TERMINALS & SHELLS ========== -->
+  <section id="terminals-shells" class="ess-section" aria-label="Terminals and shells">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">02</span>
+        <h2 class="ess-section__title">Terminals & Shells</h2>
+      </div>
+      <p class="ess-section__intro">The terminal is where developers spend significant time. Modern terminal applications have evolved beyond simple text interfaces to support tabs, splits, themes, and extensive customization. The shell interprets your commands and can be enhanced with plugins for better auto-completion, history search, and visual feedback.</p>
+
+      <!-- ADSENSE: in-article -->
+
+      <!-- ===== iTerm2 ===== -->
+      <article class="ess-tool" id="iterm2">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="8" x2="22" y2="8"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">iTerm2</h3>
+            <p class="ess-tool__tagline">macOS terminal replacement done right</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">macOS</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>iTerm2 replaces macOS Terminal with a feature-rich alternative. Split panes let you view multiple sessions without window juggling. Search works across scrollback with regex support. Hotkey windows show and hide the terminal with a keystroke, keeping it accessible without cluttering your workspace.</p>
+          <p>Shell integration provides semantic history, knowing where commands start and end. Click on filenames to open them. Mouse reporting works with programs like vim and tmux. The triggers system can perform actions based on output patterns, like highlighting errors or sending notifications.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Split panes and tabs for multi-tasking</li>
+                <li>Powerful search and selection</li>
+                <li>Hotkey windows for quick access</li>
+                <li>Extensive customization options</li>
+                <li>Shell integration features</li>
+                <li>Free and actively maintained</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>macOS only</li>
+                <li>Can feel overwhelming with features</li>
+                <li>Performance impact with many panes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Windows Terminal ===== -->
+      <article class="ess-tool" id="windows-terminal">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Windows Terminal</h3>
+            <p class="ess-tool__tagline">Microsoft's modern terminal for Windows</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Windows Terminal modernizes the Windows command-line experience. Multiple tabs can host PowerShell, Command Prompt, WSL distributions, or SSH sessions. GPU-accelerated rendering handles large outputs smoothly. The configuration is JSON-based, making customization straightforward and shareable.</p>
+          <p>WSL integration is seamless. Launch Ubuntu or any installed distribution in a tab alongside Windows shells. The terminal supports modern features like Unicode and emoji rendering. Custom themes and color schemes make the terminal visually pleasant.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Modern Windows terminal experience</li>
+                <li>Excellent WSL integration</li>
+                <li>GPU acceleration for performance</li>
+                <li>Highly customizable</li>
+                <li>Multiple profiles for different shells</li>
+                <li>Free and built by Microsoft</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Windows only</li>
+                <li>Requires Windows 10 or later</li>
+                <li>JSON configuration has learning curve</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Hyper ===== -->
+      <article class="ess-tool" id="hyper">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Hyper</h3>
+            <p class="ess-tool__tagline">Beautiful, extensible terminal built on web tech</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Hyper takes a different approach, building the terminal in HTML/CSS/JavaScript using Electron. This enables extreme customization through themes and plugins. The extension ecosystem includes everything from Spotify integration to notification systems. Appearance can be styled with CSS.</p>
+          <p>The web-based approach has trade-offs. Performance isn't as snappy as native terminals. Resource usage is higher. But for users who value aesthetics and extensibility over raw speed, Hyper delivers a beautiful experience.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Beautiful default appearance</li>
+                <li>Highly customizable with CSS</li>
+                <li>Plugin ecosystem for extensions</li>
+                <li>Cross-platform consistency</li>
+                <li>Free and open source</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Slower than native terminals</li>
+                <li>Higher resource usage (Electron)</li>
+                <li>Can feel sluggish with heavy output</li>
+                <li>Development less active recently</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Oh My Zsh / PowerShell ===== -->
+      <article class="ess-tool" id="oh-my-zsh">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Oh My Zsh / PowerShell</h3>
+            <p class="ess-tool__tagline">Shell enhancement frameworks</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Oh My Zsh enhances the Zsh shell with plugins, themes, and better defaults. Auto-completion becomes smarter, suggesting commands based on history and context. Git integration shows branch and status in your prompt. Hundreds of plugins add functionality for specific tools and workflows.</p>
+          <p>PowerShell (cross-platform version) provides object-oriented pipelines where commands pass structured data rather than text. Cmdlets follow consistent naming conventions. Scripting capabilities exceed traditional Unix shells. On Windows, it's the preferred automation environment.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Oh My Zsh: Extensive plugin ecosystem</li>
+                <li>Better auto-completion out of box</li>
+                <li>PowerShell: Object pipelines more powerful</li>
+                <li>Both free and cross-platform</li>
+                <li>Active communities and support</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Oh My Zsh can slow shell startup</li>
+                <li>PowerShell verbosity takes adjustment</li>
+                <li>Learning curve for advanced features</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 03: DEVELOPER BROWSERS ========== -->
+  <section id="developer-browsers" class="ess-section" aria-label="Developer browsers">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">03</span>
+        <h2 class="ess-section__title">Developer Browsers</h2>
+      </div>
+      <p class="ess-section__intro">Web developers need browsers with powerful developer tools. Chrome DevTools set the standard that others follow. Network analysis, performance profiling, JavaScript debugging, and responsive design testing all happen in the browser's developer tools.</p>
+
+      <!-- ===== Chrome DevTools ===== -->
+      <article class="ess-tool" id="chrome-devtools">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Chrome DevTools</h3>
+            <p class="ess-tool__tagline">Industry-standard web development toolkit</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Chrome DevTools is the most comprehensive browser development environment. The Elements panel shows live DOM with computed styles. Network panel reveals every request with timing breakdowns. Performance profiler identifies bottlenecks with flame charts showing exactly where time is spent.</p>
+          <p>JavaScript debugging is sophisticated with breakpoints, watch expressions, and call stack navigation. The Console provides REPL access to page JavaScript. Application panel inspects storage, service workers, and PWA manifests. Lighthouse runs audits for performance, accessibility, SEO, and best practices.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Most comprehensive developer tools</li>
+                <li>Excellent performance profiling</li>
+                <li>Network waterfall analysis</li>
+                <li>Lighthouse audits built-in</li>
+                <li>Chrome's V8 engine performance</li>
+                <li>Largest extension ecosystem</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>High memory usage</li>
+                <li>Google tracking concerns</li>
+                <li>Battery drain on laptops</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Firefox Developer Edition ===== -->
+      <article class="ess-tool" id="firefox-dev">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a7 7 0 0 1 7 7c0 3-2 5-4 6"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Firefox Developer Edition</h3>
+            <p class="ess-tool__tagline">Privacy-focused browser with excellent dev tools</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Firefox Developer Edition provides Chrome-competitive dev tools with better privacy. CSS Grid and Flexbox inspectors visually show layout structure. Accessibility inspector checks ARIA attributes and contrast ratios. The JavaScript debugger includes time travel debugging through replay.io integration.</p>
+          <p>Firefox's rendering engine differs from Chrome's Blink, making it essential for cross-browser testing. The browser blocks tracking by default, protecting your privacy during development. Multi-account containers isolate cookies and storage, useful for testing multiple user scenarios.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Excellent CSS layout tools</li>
+                <li>Strong privacy protections</li>
+                <li>Different rendering engine aids testing</li>
+                <li>Lower memory usage than Chrome</li>
+                <li>Multi-account containers</li>
+                <li>Open source</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Smaller market share than Chrome</li>
+                <li>Some dev tools lag Chrome features</li>
+                <li>Extension ecosystem smaller</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Safari Technology Preview ===== -->
+      <article class="ess-tool" id="safari-preview">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Safari Technology Preview</h3>
+            <p class="ess-tool__tagline">Apple's experimental browser for web developers</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag">macOS</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Safari Technology Preview previews upcoming Safari features before general release. For developers targeting iOS, it's essential for testing. The Web Inspector provides debugging tools matching Chrome and Firefox capabilities. Responsive design mode simulates various iOS devices.</p>
+          <p>Safari's WebKit engine powers all iOS browsers, making Safari testing critical for mobile web. The browser's energy efficiency is unmatched on macOS, important for battery-powered testing. Privacy features block tracking aggressively, sometimes breaking sites that assume tracking works.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Essential for iOS testing</li>
+                <li>Excellent energy efficiency</li>
+                <li>Strong privacy protections</li>
+                <li>Native macOS integration</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>macOS only</li>
+                <li>Dev tools less polished than Chrome</li>
+                <li>Extension ecosystem limited</li>
+                <li>Can be behind web standards</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 04: DESIGN TOOLS ========== -->
+  <section id="design-tools" class="ess-section" aria-label="Design tools">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">04</span>
+        <h2 class="ess-section__title">Design Tools</h2>
+      </div>
+      <p class="ess-section__intro">Modern development requires collaboration with designers and sometimes creating designs yourself. Contemporary design tools enable real-time collaboration, developer handoff with code generation, and prototyping that feels interactive.</p>
+
+      <!-- ===== Figma ===== -->
+      <article class="ess-tool" id="figma">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Figma</h3>
+            <p class="ess-tool__tagline">Collaborative design tool that runs in browsers</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Tier</span>
+          <span class="tag tag-paid">$12-45/editor/mo</span>
+          <span class="tag">Web Browser</span>
+          <span class="tag">Windows App</span>
+          <span class="tag">macOS App</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Figma revolutionized design tools by being browser-based and multiplayer by default. Multiple people can edit the same file simultaneously, seeing each other's cursors move in real time. For developer-designer collaboration, this eliminates the email-attachments workflow entirely.</p>
+          <p>The developer handoff experience is excellent. Inspect mode shows CSS, iOS, and Android code for any element. Assets can be exported at multiple resolutions. Design tokens can be extracted to JSON or other formats. Figma doesn't replace communication but makes implementation questions answerable without interrupting designers.</p>
+          <p>Component systems with variants mirror frontend component thinking. Auto-layout behaves like Flexbox, making responsive designs easier to create and understand. Plugins extend functionality, often created by the community to solve specific workflow needs.</p>
+
+          <div class="ess-tool__features">
+            <h4 class="ess-tool__subtitle">Key Features</h4>
+            <ul class="ess-tool__feature-list">
+              <li>Real-time collaborative editing with multiplayer cursors</li>
+              <li>Developer handoff with code generation for CSS, iOS, Android</li>
+              <li>Component system with variants for design consistency</li>
+              <li>Auto-layout mirrors Flexbox for responsive design</li>
+              <li>Plugin ecosystem extends functionality</li>
+              <li>Version history with branching</li>
+              <li>Prototyping with interactive transitions</li>
+              <li>Design systems with shared component libraries</li>
+            </ul>
+          </div>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Excellent collaboration features</li>
+                <li>Browser-based works everywhere</li>
+                <li>Developer handoff built-in</li>
+                <li>Free tier generous for small teams</li>
+                <li>Fast and responsive</li>
+                <li>Active plugin ecosystem</li>
+                <li>Constantly improving</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Requires internet connection</li>
+                <li>Paid plans get expensive for teams</li>
+                <li>Less powerful than Sketch for some workflows</li>
+                <li>Now owned by Adobe (acquisition concerns)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>Sketch</strong>
+                <p>macOS only, mature tool with extensive plugin ecosystem. One-time purchase plus updates. Strong for UI design.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>Adobe XD</strong>
+                <p>Adobe's competitor to Figma. Good integration with Adobe ecosystem. Free tier available.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ADSENSE: in-article -->
+
+      <!-- ===== GIMP ===== -->
+      <article class="ess-tool" id="gimp">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">GIMP</h3>
+            <p class="ess-tool__tagline">Free and open source image editor</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>GIMP provides Photoshop-level image editing without the subscription cost. Layer-based editing, selection tools, filters, and color correction cover most image manipulation needs. For developers who occasionally need to edit images or create graphics, GIMP delivers professional capabilities free.</p>
+          <p>The interface follows traditional image editor conventions. Learning curve exists but extensive tutorials are available. Script-Fu and Python-Fu allow automation. File format support is comprehensive, including PSD import for designer handoffs.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Completely free and open source</li>
+                <li>Powerful image editing capabilities</li>
+                <li>Cross-platform availability</li>
+                <li>Extensive plugin support</li>
+                <li>No subscription required</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Interface less polished than commercial tools</li>
+                <li>Steeper learning curve</li>
+                <li>Performance can lag with large files</li>
+                <li>Missing some Photoshop features</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Inkscape ===== -->
+      <article class="ess-tool" id="inkscape">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Inkscape</h3>
+            <p class="ess-tool__tagline">Professional vector graphics editor</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Inkscape handles vector graphics creation and editing. SVG is the native format, making it ideal for web graphics that scale without quality loss. Path operations, text to path conversion, and precise object manipulation support icon and logo creation.</p>
+          <p>For developers creating icons, diagrams, or illustrations, Inkscape provides professional tools without Adobe Illustrator's cost. The pen tool takes practice but enables precise curve creation. Export to PNG at any resolution maintains quality.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Free alternative to Illustrator</li>
+                <li>Native SVG format</li>
+                <li>Powerful vector editing tools</li>
+                <li>Cross-platform</li>
+                <li>Active development</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Interface can feel dated</li>
+                <li>Learning curve for vector graphics</li>
+                <li>Performance issues with complex documents</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 05: COMMUNICATION ========== -->
+  <section id="communication" class="ess-section" aria-label="Communication tools">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">05</span>
+        <h2 class="ess-section__title">Communication Tools</h2>
+      </div>
+      <p class="ess-section__intro">Remote work and distributed teams make communication tools essential infrastructure. These platforms enable asynchronous discussion, real-time collaboration, and knowledge sharing across time zones.</p>
+
+      <!-- ===== Slack ===== -->
+      <article class="ess-tool" id="slack">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"></path><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"></path><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"></path><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"></path><path d="M14 20.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5z"></path><path d="M10 9.5C10 10.33 9.33 11 8.5 11h-5C2.67 11 2 10.33 2 9.5S2.67 8 3.5 8h5c.83 0 1.5.67 1.5 1.5z"></path><path d="M10 3.5C10 4.33 9.33 5 8.5 5S7 4.33 7 3.5 7.67 2 8.5 2s1.5.67 1.5 1.5z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Slack</h3>
+            <p class="ess-tool__tagline">Team communication organized by channels</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Tier</span>
+          <span class="tag tag-paid">$7.25-12.50/user/mo</span>
+          <span class="tag">Web</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+          <span class="tag">iOS</span>
+          <span class="tag">Android</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Slack organizes team communication into channels, reducing email clutter. Channels can be public for transparency or private for sensitive discussions. Threading keeps conversations organized without fragmenting them across separate chats. Search across all message history turns Slack into institutional memory.</p>
+          <p>Integrations connect Slack to development workflows. GitHub notifications appear in relevant channels. CI/CD systems report build status. Error monitoring services alert teams to production issues. Custom slash commands trigger automated workflows. The app directory provides thousands of pre-built integrations.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Excellent channel organization</li>
+                <li>Powerful search and archiving</li>
+                <li>Extensive integration ecosystem</li>
+                <li>Threading keeps discussions organized</li>
+                <li>Works across all platforms</li>
+                <li>Free tier suitable for small teams</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Can become noisy and distracting</li>
+                <li>Expensive for larger teams</li>
+                <li>Free tier limits message history</li>
+                <li>Resource heavy on desktop</li>
+                <li>Notification management challenging</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>Discord</strong>
+                <p>Originally for gaming, now popular with dev communities. Better voice/video, free tier more generous. Less business-focused.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>Microsoft Teams</strong>
+                <p>Integrated with Office 365. Better for organizations already in Microsoft ecosystem. Video conferencing included.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 06: PRODUCTIVITY APPS ========== -->
+  <section id="productivity-apps" class="ess-section" aria-label="Productivity apps">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">06</span>
+        <h2 class="ess-section__title">Productivity & Note-Taking</h2>
+      </div>
+      <p class="ess-section__intro">Developers juggle requirements, technical notes, learning resources, and task management. The right productivity tools help organize information, track work, and maintain focus.</p>
+
+      <!-- ===== Notion ===== -->
+      <article class="ess-tool" id="notion">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><line x1="8" y1="2" x2="8" y2="22"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Notion</h3>
+            <p class="ess-tool__tagline">All-in-one workspace for notes, docs, and databases</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Personal</span>
+          <span class="tag tag-paid">$8-15/user/mo</span>
+          <span class="tag">Web</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">iOS</span>
+          <span class="tag">Android</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Notion combines note-taking, task management, databases, and wikis into one flexible system. Pages can contain any combination of text, tables, kanban boards, calendars, and embedded content. The block-based editor makes structuring information intuitive.</p>
+          <p>For developers, Notion works well for documentation, technical design docs, learning notes, and personal knowledge bases. Code blocks support syntax highlighting. Database views let you track tasks, bugs, or learning resources with filtering and sorting. Templates accelerate creating consistent page structures.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Extremely flexible and customizable</li>
+                <li>Beautiful, modern interface</li>
+                <li>Database features unique among note apps</li>
+                <li>Real-time collaboration</li>
+                <li>Free personal tier generous</li>
+                <li>Works across all platforms</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Requires internet connection</li>
+                <li>Can be slow with large workspaces</li>
+                <li>Learning curve to use effectively</li>
+                <li>Offline editing limited</li>
+                <li>Export options could be better</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>Obsidian</strong>
+                <p>Local-first markdown notes with bidirectional linking. Free for personal use. Plugin ecosystem. Better for knowledge graphs.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>Trello</strong>
+                <p>Kanban-style task management. Simpler than Notion but excellent for visual workflow organization. Free tier available.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>Jira</strong>
+                <p>Project management for software teams. Powerful for agile workflows, issue tracking. Overkill for individuals, essential for teams.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ADSENSE: leaderboard -->
+
+  <!-- ========== SECTION 07: DATABASE TOOLS ========== -->
+  <section id="database-tools" class="ess-section" aria-label="Database management tools">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">07</span>
+        <h2 class="ess-section__title">Database Management Tools</h2>
+      </div>
+      <p class="ess-section__intro">Working with databases requires tools for querying, schema visualization, and data manipulation. GUI clients make complex operations more accessible and reduce the risk of destructive mistakes.</p>
+
+      <!-- ===== DBeaver ===== -->
+      <article class="ess-tool" id="dbeaver">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">DBeaver</h3>
+            <p class="ess-tool__tagline">Universal database client supporting dozens of databases</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Community Edition</span>
+          <span class="tag tag-paid">Pro $10/mo</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>DBeaver connects to virtually any database: PostgreSQL, MySQL, Oracle, MongoDB, Cassandra, Redis, and dozens more. The unified interface means learning one tool works across different databases. SQL editor includes auto-completion, syntax highlighting, and execution history.</p>
+          <p>Schema visualization shows relationships between tables. Data editing happens in spreadsheet-like grids with inline validation. Query results can be exported to CSV, JSON, or other formats. The free Community Edition covers most needs; Pro adds NoSQL databases and cloud storage support.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Supports almost any database</li>
+                <li>Free version very capable</li>
+                <li>ERD generation and visualization</li>
+                <li>Cross-platform availability</li>
+                <li>Active development</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Interface can feel cluttered</li>
+                <li>Java-based, heavier resource usage</li>
+                <li>Learning curve for advanced features</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>pgAdmin</strong>
+                <p>Official PostgreSQL client. Free and open source. PostgreSQL-specific features more polished than universal clients.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>MongoDB Compass</strong>
+                <p>Official MongoDB GUI. Visual query builder, aggregation pipeline builder. Free. Essential for MongoDB development.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 08: API CLIENTS ========== -->
+  <section id="api-clients" class="ess-section" aria-label="API testing clients">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">08</span>
+        <h2 class="ess-section__title">API Testing Clients</h2>
+      </div>
+      <p class="ess-section__intro">APIs drive modern applications. Testing endpoints, debugging responses, and documenting APIs require specialized tools that go beyond browser dev tools or curl commands.</p>
+
+      <!-- ===== Postman ===== -->
+      <article class="ess-tool" id="postman">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Postman</h3>
+            <p class="ess-tool__tagline">Comprehensive API development platform</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Tier</span>
+          <span class="tag tag-paid">$12-29/user/mo</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Web</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Postman has evolved from simple API client to full development platform. Collections organize related requests. Environments switch between development, staging, and production with variable substitution. Pre-request scripts and tests enable automation with JavaScript.</p>
+          <p>Mock servers simulate APIs during frontend development. Documentation generation creates shareable API references from collections. Team collaboration features include shared workspaces and version control. The Newman CLI runs collections in CI/CD pipelines for API testing.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Full-featured API development platform</li>
+                <li>Excellent documentation generation</li>
+                <li>Team collaboration features</li>
+                <li>Mock server capabilities</li>
+                <li>Extensive testing framework</li>
+                <li>Free tier suitable for individuals</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Can feel bloated for simple testing</li>
+                <li>Requires account for syncing</li>
+                <li>Paid features necessary for teams</li>
+                <li>Resource heavy</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>Insomnia</strong>
+                <p>Simpler API client with cleaner interface. Good GraphQL support. Free with optional paid sync. Lighter weight than Postman.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>Hoppscotch</strong>
+                <p>Open source, web-based API client. No installation required. Free. Good for quick testing without local software.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 09: PACKAGE MANAGERS ========== -->
+  <section id="package-managers" class="ess-section" aria-label="Package managers">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">09</span>
+        <h2 class="ess-section__title">Package Managers</h2>
+      </div>
+      <p class="ess-section__intro">Package managers automate software installation, updates, and dependency resolution. They're essential infrastructure for development environments, enabling reproducible setups and easy tooling management.</p>
+
+      <!-- ADSENSE: in-article -->
+
+      <!-- ===== npm ===== -->
+      <article class="ess-tool" id="npm">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">npm (Node Package Manager)</h3>
+            <p class="ess-tool__tagline">JavaScript ecosystem package manager</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>npm manages JavaScript packages for Node.js and frontend projects. The registry contains over 1.5 million packages covering every conceivable need. Package.json declares dependencies with semantic versioning. Lock files ensure consistent installations across machines and time.</p>
+          <p>Scripts in package.json automate common tasks: testing, building, linting. npm run becomes the universal interface for project commands. For JavaScript developers, npm is unavoidable infrastructure.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Massive package ecosystem</li>
+                <li>Standard for JavaScript development</li>
+                <li>Script running built-in</li>
+                <li>Free and ubiquitous</li>
+                <li>Security audit tools included</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Can be slow with large dependency trees</li>
+                <li>Node_modules size becomes huge</li>
+                <li>Version conflicts require manual resolution</li>
+                <li>Security issues in packages common</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>Yarn</strong>
+                <p>Facebook's alternative to npm. Faster installs, better monorepo support. Compatible with npm registry.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>pnpm</strong>
+                <p>Efficient package manager using hard links to save disk space. Much faster and smaller than npm. Growing adoption.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== pip ===== -->
+      <article class="ess-tool" id="pip">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">pip (Python Package Installer)</h3>
+            <p class="ess-tool__tagline">Python's package management system</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>pip installs Python packages from PyPI (Python Package Index). Virtual environments isolate project dependencies, preventing conflicts between projects requiring different package versions. Requirements.txt files declare dependencies for reproducible environments.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Standard Python package manager</li>
+                <li>Simple to use</li>
+                <li>Vast package ecosystem</li>
+                <li>Built into Python</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>No built-in lockfile support</li>
+                <li>Dependency resolution can fail</li>
+                <li>Requires virtual environments for isolation</li>
+                <li>Binary package installation can be problematic</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Homebrew ===== -->
+      <article class="ess-tool" id="homebrew">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="2" x2="6" y2="4"></line><line x1="10" y1="2" x2="10" y2="4"></line><line x1="14" y1="2" x2="14" y2="4"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Homebrew</h3>
+            <p class="ess-tool__tagline">The missing package manager for macOS and Linux</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Homebrew installs development tools and utilities on macOS that Apple doesn't provide. Git, Python, Node.js, Docker, databases, and thousands of other packages install with simple commands. For macOS developers, Homebrew becomes essential infrastructure installed within the first hour of setting up a new machine.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Essential for macOS development</li>
+                <li>Huge package selection</li>
+                <li>Easy to use</li>
+                <li>Keeps software updated</li>
+                <li>Brewfile for reproducible setups</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>macOS/Linux only</li>
+                <li>Updates can break things</li>
+                <li>Requires Xcode command line tools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== apt ===== -->
+      <article class="ess-tool" id="apt">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">apt (Advanced Package Tool)</h3>
+            <p class="ess-tool__tagline">Debian/Ubuntu package management system</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Linux (Debian/Ubuntu)</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>apt manages system packages on Debian-based Linux distributions. It handles dependency resolution automatically, ensuring all required libraries install with software. Repositories provide curated, tested packages. Understanding apt is essential for Linux system administration and development environment setup.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Rock-solid dependency resolution</li>
+                <li>Curated, tested packages</li>
+                <li>System-wide package management</li>
+                <li>Security updates automated</li>
+                <li>PPA system for additional software</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Debian/Ubuntu only</li>
+                <li>Package versions can lag latest releases</li>
+                <li>Requires root privileges</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 10: VIRTUALIZATION ========== -->
+  <section id="virtualization" class="ess-section" aria-label="Virtualization software">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">10</span>
+        <h2 class="ess-section__title">Virtualization Software</h2>
+      </div>
+      <p class="ess-section__intro">Virtualization enables running multiple operating systems simultaneously on a single machine. Essential for testing cross-platform applications, creating isolated development environments, and running legacy software.</p>
+
+      <!-- ===== VirtualBox ===== -->
+      <article class="ess-tool" id="virtualbox">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Oracle VirtualBox</h3>
+            <p class="ess-tool__tagline">Free cross-platform virtualization powerhouse</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>VirtualBox delivers enterprise-grade virtualization at no cost. It runs any x86 operating system as a guest, making it perfect for testing applications across Windows, Linux distributions, and BSD variants. The snapshot system lets you capture machine states and roll back changes instantly.</p>
+          <p>Shared folders bridge the gap between host and guest systems. Network modes range from simple NAT to bridged networking. USB device passthrough, clipboard sharing, and drag-and-drop support reduce friction when working across systems.</p>
+
+          <div class="ess-tool__features">
+            <h4 class="ess-tool__subtitle">Key Features</h4>
+            <ul class="ess-tool__feature-list">
+              <li>Snapshot system for instant state capture and rollback during testing</li>
+              <li>Shared folders for seamless file transfer between host and guest</li>
+              <li>Multiple networking modes including NAT, bridged, and host-only</li>
+              <li>USB device passthrough for accessing physical devices in VMs</li>
+              <li>Guest Additions for enhanced integration and performance</li>
+              <li>Headless mode for running VMs without GUI overhead</li>
+              <li>Command-line management via VBoxManage for automation</li>
+              <li>Support for all major x86 operating systems as guests</li>
+            </ul>
+          </div>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Completely free with no feature limitations</li>
+                <li>Cross-platform host support</li>
+                <li>Excellent snapshot and cloning capabilities</li>
+                <li>Active development and community support</li>
+                <li>Extensive documentation and tutorials</li>
+                <li>Easy to use with good GUI</li>
+                <li>CLI automation support</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Performance overhead compared to native execution</li>
+                <li>Requires significant RAM (4GB+ per VM)</li>
+                <li>3D graphics acceleration limited</li>
+                <li>CPU virtualization extensions required</li>
+                <li>Updates occasionally break existing VMs</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ess-tool__setup">
+            <h4 class="ess-tool__subtitle">Getting Started with VirtualBox</h4>
+            <ol class="ess-tool__setup-list">
+              <li>Download from <code>virtualbox.org</code> and install for your platform</li>
+              <li>Enable CPU virtualization (VT-x/AMD-V) in BIOS if not already enabled</li>
+              <li>Download Extension Pack for USB 3.0 and additional features</li>
+              <li>Create your first VM: Allocate 2-4GB RAM minimum, 20GB+ storage</li>
+              <li>Install Guest Additions in the guest OS for better integration</li>
+              <li>Configure shared folders and networking based on your needs</li>
+              <li>Take snapshots before major changes or system updates</li>
+            </ol>
+            <p class="ess-tool__learning-curve"><strong>Learning Curve:</strong> Gentle for basic usage, moderate for advanced networking and automation.</p>
+          </div>
+
+          <div class="ess-tool__alternatives">
+            <h4 class="ess-tool__subtitle">Alternatives to Consider</h4>
+            <div class="ess-tool__alt-grid">
+              <div class="ess-tool__alt-card">
+                <strong>QEMU</strong>
+                <p>Open-source emulator and virtualizer. More powerful but steeper learning curve.</p>
+              </div>
+              <div class="ess-tool__alt-card">
+                <strong>KVM (Linux)</strong>
+                <p>Linux kernel-based virtualization with near-native performance. Best for Linux hosts running Linux guests.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== VMware ===== -->
+      <article class="ess-tool" id="vmware">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">VMware Workstation/Fusion</h3>
+            <p class="ess-tool__tagline">Professional virtualization with superior performance</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-paid">$199-$299</span>
+          <span class="tag tag-free">Free Player Version</span>
+          <span class="tag">Windows</span>
+          <span class="tag">Linux</span>
+          <span class="tag">macOS</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>VMware delivers the most polished virtualization experience available. Virtual machines run noticeably faster thanks to optimized hypervisor technology and better resource management. Advanced networking enables complex virtual network topologies for testing distributed systems.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Best-in-class performance and stability</li>
+                <li>Excellent 3D graphics support</li>
+                <li>Superior Mac integration (Fusion)</li>
+                <li>Advanced networking capabilities</li>
+                <li>Free Player for personal use</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Expensive for Pro versions ($199-299)</li>
+                <li>Player version lacks advanced features</li>
+                <li>Larger resource footprint</li>
+                <li>Licensing can be confusing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Parallels ===== -->
+      <article class="ess-tool" id="parallels">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="16" y2="21"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Parallels Desktop</h3>
+            <p class="ess-tool__tagline">macOS virtualization perfected</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-paid">$99/year</span>
+          <span class="tag">Subscription</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Apple Silicon</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Parallels Desktop represents the gold standard for running Windows on Mac. Optimized specifically for macOS, it delivers performance and integration that cross-platform solutions can't match. Coherence mode hides the Windows desktop entirely, presenting Windows apps as native Mac applications.</p>
+          <p>Apple Silicon support (M1/M2/M3) runs ARM-based Windows and Linux distributions with remarkable efficiency. Performance on Apple Silicon rivals or exceeds native Windows on similar Intel hardware.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Best Windows-on-Mac performance</li>
+                <li>Seamless macOS integration</li>
+                <li>Excellent Apple Silicon optimization</li>
+                <li>Simple setup with guided installation</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>macOS only</li>
+                <li>Subscription pricing ($99/year)</li>
+                <li>Requires purchasing Windows license separately</li>
+                <li>ARM Windows limitations on Apple Silicon</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Hyper-V ===== -->
+      <article class="ess-tool" id="hyper-v">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Microsoft Hyper-V</h3>
+            <p class="ess-tool__tagline">Windows built-in enterprise virtualization</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag">Built-in Windows Pro</span>
+          <span class="tag">Windows 10/11 Pro</span>
+          <span class="tag">Windows Server</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Hyper-V is Microsoft's Type-1 hypervisor built into Windows Pro and Enterprise editions. Unlike VirtualBox and VMware which run as applications, Hyper-V operates at the kernel level, providing better performance and security isolation. It powers Azure cloud infrastructure and brings enterprise-grade virtualization to developer workstations.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Free with Windows Pro and Enterprise</li>
+                <li>Excellent Windows guest performance</li>
+                <li>Enterprise-grade security</li>
+                <li>PowerShell automation</li>
+                <li>Integration with WSL 2 and Docker</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Windows Pro/Enterprise only</li>
+                <li>Conflicts with VirtualBox and VMware</li>
+                <li>Limited USB device passthrough</li>
+                <li>Steeper learning curve</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 11: LOCAL DEV SERVERS ========== -->
+  <section id="local-dev-servers" class="ess-section" aria-label="Local development servers">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">11</span>
+        <h2 class="ess-section__title">Local Development Servers</h2>
+      </div>
+      <p class="ess-section__intro">Local development servers replicate production environments on your machine, enabling offline development and testing without deploying to remote servers. Essential for web development, they provide Apache/Nginx web servers, MySQL/PostgreSQL databases, and PHP/Python runtimes in pre-configured packages.</p>
+
+      <!-- ADSENSE: in-article -->
+
+      <!-- ===== XAMPP ===== -->
+      <article class="ess-tool" id="xampp">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">XAMPP</h3>
+            <p class="ess-tool__tagline">Complete local development stack in one package</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>XAMPP bundles Apache, MySQL, PHP, and Perl into a single installation that configures itself automatically. One installer sets up a complete web development environment ready for PHP development, WordPress sites, or any LAMP-stack application.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Extremely easy installation and setup</li>
+                <li>Everything configured and working out of box</li>
+                <li>Perfect for PHP and WordPress development</li>
+                <li>Cross-platform consistency</li>
+                <li>Portable version available</li>
+                <li>Completely free</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Not production-ready security by default</li>
+                <li>All-in-one means less flexibility</li>
+                <li>Can conflict with existing servers</li>
+                <li>Uses older Apache instead of modern Nginx</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== MAMP ===== -->
+      <article class="ess-tool" id="mamp">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">MAMP</h3>
+            <p class="ess-tool__tagline">Mac and Windows Apache, MySQL, PHP made simple</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-paid">Pro: $79</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Windows</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>MAMP provides a polished local server environment with a cleaner interface than XAMPP. Multiple PHP and MySQL versions coexist, switchable per project. MAMP Pro's $79 one-time purchase unlocks unlimited virtual hosts with custom domains and email testing.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Beautiful, intuitive interface</li>
+                <li>Easy PHP/MySQL version switching</li>
+                <li>Excellent Mac integration</li>
+                <li>Stable and well-maintained</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Best features locked behind Pro ($79)</li>
+                <li>Free version limited to one site</li>
+                <li>Windows version less polished</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Local by Flywheel ===== -->
+      <article class="ess-tool" id="local-flywheel">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Local by Flywheel</h3>
+            <p class="ess-tool__tagline">WordPress local development reimagined</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Local specializes in WordPress development with a workflow-optimized approach. Creating a new WordPress site takes one click. Each site runs in its own container, preventing conflicts. Built-in SSL, email testing, and Live Link for sharing local sites publicly.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Easiest WordPress local development</li>
+                <li>SSL support built-in</li>
+                <li>Live Link for client previews</li>
+                <li>Free with no limitations</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>WordPress-only</li>
+                <li>Higher resource usage</li>
+                <li>Initial site creation slower</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Laragon ===== -->
+      <article class="ess-tool" id="laragon">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Laragon</h3>
+            <p class="ess-tool__tagline">Modern, fast, powerful WAMP alternative</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Laragon represents modern thinking about local development servers. It's fast — starting servers takes seconds. Auto virtual host creation makes each project accessible via pretty URLs automatically. Support extends beyond PHP to Node.js, Python, Ruby, and Go.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Incredibly fast and lightweight</li>
+                <li>Auto virtual hosts save configuration time</li>
+                <li>Supports multiple languages and frameworks</li>
+                <li>Truly portable with no system modifications</li>
+                <li>Completely free</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Windows only</li>
+                <li>Less documentation than XAMPP</li>
+                <li>Smaller community</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 12: DOCUMENTATION GENERATORS ========== -->
+  <section id="documentation-generators" class="ess-section" aria-label="Documentation generators">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">12</span>
+        <h2 class="ess-section__title">Documentation Generators</h2>
+      </div>
+      <p class="ess-section__intro">Documentation generators create professional documentation websites from code comments and markdown files. Essential for maintaining technical documentation that stays synchronized with code.</p>
+
+      <!-- ===== Sphinx ===== -->
+      <article class="ess-tool" id="sphinx">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Sphinx</h3>
+            <p class="ess-tool__tagline">Python documentation standard</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Sphinx powers the official Python documentation and uses reStructuredText markup language. Autodoc extensions extract documentation from Python docstrings automatically. Multiple output formats: HTML, PDF, ePub, man pages, and more from the same source.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Industry standard for Python documentation</li>
+                <li>Powerful cross-referencing</li>
+                <li>Professional-quality output</li>
+                <li>Read the Docs integration</li>
+                <li>Multiple output formats</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Steeper learning curve than Markdown tools</li>
+                <li>ReStructuredText more complex</li>
+                <li>Best suited for Python projects</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== JSDoc ===== -->
+      <article class="ess-tool" id="jsdoc">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline><line x1="14" y1="4" x2="10" y2="20"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">JSDoc</h3>
+            <p class="ess-tool__tagline">JavaScript API documentation from comments</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>JSDoc generates API documentation from specially-formatted comments in JavaScript code. TypeScript support and IDE autocompletion from JSDoc comments makes it valuable even without generating docs.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Documentation lives alongside code</li>
+                <li>Free and widely used</li>
+                <li>Improves IDE autocomplete</li>
+                <li>Easy build tool integration</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Limited to API documentation</li>
+                <li>Comment syntax can be verbose</li>
+                <li>Default template somewhat dated</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Doxygen ===== -->
+      <article class="ess-tool" id="doxygen">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Doxygen</h3>
+            <p class="ess-tool__tagline">Multi-language documentation with diagrams</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Doxygen generates documentation from C++, C, Java, Python, and several other languages. It produces class diagrams, inheritance hierarchies, and collaboration diagrams via Graphviz. For C++ projects, Doxygen is the de facto standard.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Industry standard for C++ documentation</li>
+                <li>Automatic diagram generation</li>
+                <li>Multi-language support</li>
+                <li>Professional-quality results</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Complex configuration</li>
+                <li>Steeper learning curve</li>
+                <li>Generated HTML somewhat dated</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Swagger/OpenAPI ===== -->
+      <article class="ess-tool" id="swagger">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Swagger/OpenAPI</h3>
+            <p class="ess-tool__tagline">Interactive REST API documentation standard</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Web-based</span>
+          <span class="tag">Cross-platform</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>OpenAPI (formerly Swagger) is the industry standard for REST API documentation. Swagger UI generates interactive documentation where users can explore and test API endpoints directly in the browser. Most API frameworks include OpenAPI support — auto-generating specs from code.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Industry standard for API documentation</li>
+                <li>Interactive testing built-in</li>
+                <li>Code generation saves time</li>
+                <li>Framework support for auto-generation</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>REST API specific</li>
+                <li>YAML specs can become complex</li>
+                <li>Manual spec writing tedious</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== MkDocs ===== -->
+      <article class="ess-tool" id="mkdocs">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">MkDocs</h3>
+            <p class="ess-tool__tagline">Fast, simple documentation from Markdown</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Windows</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Linux</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>MkDocs generates documentation sites from Markdown files with minimal configuration. The Material for MkDocs theme produces beautiful, responsive documentation. Live reloading during development shows changes instantly. Many open-source projects have migrated to MkDocs for its simplicity.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Extremely simple to set up</li>
+                <li>Material theme is gorgeous</li>
+                <li>Markdown keeps content simple</li>
+                <li>Live reload accelerates writing</li>
+                <li>Fast build times</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>No automatic API documentation</li>
+                <li>Markdown less powerful than ReStructuredText</li>
+                <li>Less suitable for very large projects</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 13: MONITORING & OBSERVABILITY ========== -->
+  <section id="monitoring-observability" class="ess-section" aria-label="Monitoring and observability tools">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">13</span>
+        <h2 class="ess-section__title">Monitoring & Observability</h2>
+      </div>
+      <p class="ess-section__intro">Modern applications require visibility into performance, errors, and user experience. Monitoring and observability tools collect metrics, logs, and traces to help diagnose issues, optimize performance, and understand system behavior.</p>
+
+      <!-- ===== New Relic ===== -->
+      <article class="ess-tool" id="new-relic">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">New Relic</h3>
+            <p class="ess-tool__tagline">Full-stack observability platform</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Tier</span>
+          <span class="tag tag-paid">From $99/mo</span>
+          <span class="tag">Cloud SaaS</span>
+          <span class="tag">All Platforms</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>New Relic provides comprehensive observability across your entire stack — applications, infrastructure, logs, and user experience. APM automatically instruments applications to track transaction times, database queries, and errors. The free tier provides 100GB monthly data ingestion.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Comprehensive all-in-one platform</li>
+                <li>Easy setup with automatic instrumentation</li>
+                <li>Excellent distributed tracing</li>
+                <li>Generous free tier</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Can get expensive at scale</li>
+                <li>Data retention limits</li>
+                <li>Query language learning curve</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Datadog ===== -->
+      <article class="ess-tool" id="datadog">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Datadog</h3>
+            <p class="ess-tool__tagline">Unified monitoring for cloud-scale infrastructure</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag">Free Trial</span>
+          <span class="tag tag-paid">From $15/host/mo</span>
+          <span class="tag">Cloud SaaS</span>
+          <span class="tag">All Platforms</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Datadog excels at monitoring cloud infrastructure with over 600 integrations. Service maps automatically visualize dependencies between microservices, databases, and APIs. Machine learning-based anomaly detection catches issues before they impact users.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Unmatched integration breadth (600+ services)</li>
+                <li>Excellent for cloud-native apps</li>
+                <li>Unified metrics, logs, traces</li>
+                <li>ML-based anomaly detection</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Can become expensive quickly</li>
+                <li>Billing complexity</li>
+                <li>Learning curve for advanced features</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ADSENSE: in-article -->
+
+      <!-- ===== Prometheus + Grafana ===== -->
+      <article class="ess-tool" id="prometheus-grafana">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Prometheus + Grafana</h3>
+            <p class="ess-tool__tagline">Open-source monitoring stack</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Self-hosted</span>
+          <span class="tag">All Platforms</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>The most popular open-source monitoring stack, especially in Kubernetes environments. Prometheus scrapes metrics via HTTP endpoints. Grafana creates rich dashboards. Together they provide enterprise-grade monitoring without licensing costs.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Completely free and open source</li>
+                <li>Industry standard for Kubernetes</li>
+                <li>Powerful query language (PromQL)</li>
+                <li>Grafana dashboards are beautiful</li>
+                <li>No vendor lock-in</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Requires self-hosting and management</li>
+                <li>Steeper learning curve</li>
+                <li>Scaling requires planning</li>
+                <li>No built-in distributed tracing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Sentry ===== -->
+      <article class="ess-tool" id="sentry">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Sentry</h3>
+            <p class="ess-tool__tagline">Error tracking and performance monitoring</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Tier</span>
+          <span class="tag tag-paid">From $26/mo</span>
+          <span class="tag">Cloud SaaS</span>
+          <span class="tag">Self-hosted</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Sentry specializes in error tracking with exceptional developer experience. Full context with stack traces, breadcrumbs, release versions, and source maps. Issue grouping uses ML to cluster similar errors. Integration with GitHub, Jira, and Slack. Free tier includes 5,000 monthly events.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Best-in-class error tracking</li>
+                <li>Excellent developer experience</li>
+                <li>Smart issue grouping</li>
+                <li>Strong workflow integrations</li>
+                <li>Free tier for small projects</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Limited infrastructure monitoring</li>
+                <li>Event-based pricing unpredictable</li>
+                <li>Self-hosted requires maintenance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== ELK Stack ===== -->
+      <article class="ess-tool" id="elk-stack">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">ELK Stack</h3>
+            <p class="ess-tool__tagline">Open-source log aggregation and analysis</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Self-hosted</span>
+          <span class="tag">All Platforms</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>The ELK Stack combines Elasticsearch (search/analytics), Logstash (log processing), and Kibana (visualization) for comprehensive log management. Centralizes logs from distributed systems, enabling full-text search across terabytes of data.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Powerful log search and analysis</li>
+                <li>Free and open source</li>
+                <li>Handles massive log volumes</li>
+                <li>Beautiful Kibana visualizations</li>
+                <li>No per-GB ingestion costs</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Complex to set up and operate</li>
+                <li>Requires significant infrastructure</li>
+                <li>Steep learning curve</li>
+                <li>Resource intensive</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 14: CI/CD TOOLS ========== -->
+  <section id="cicd-tools" class="ess-section" aria-label="CI/CD tools">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">14</span>
+        <h2 class="ess-section__title">CI/CD Tools</h2>
+      </div>
+      <p class="ess-section__intro">Continuous Integration and Continuous Deployment automate testing and deployment workflows, ensuring code quality and enabling rapid release cycles. Essential for modern development teams.</p>
+
+      <!-- ===== Jenkins ===== -->
+      <article class="ess-tool" id="jenkins">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">Jenkins</h3>
+            <p class="ess-tool__tagline">Self-hosted automation server</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-oss">Open Source</span>
+          <span class="tag">Self-hosted</span>
+          <span class="tag">All Platforms</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>Jenkins remains the most widely used CI/CD tool with over 1,800 plugins. Pipelines defined in Groovy-based Jenkinsfiles provide version-controlled build configurations. Self-hosting provides complete control over infrastructure and security.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Completely free with unlimited usage</li>
+                <li>Unmatched flexibility (1,800+ plugins)</li>
+                <li>Self-hosted for complete control</li>
+                <li>Mature and battle-tested</li>
+                <li>Works with any technology stack</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Steep learning curve</li>
+                <li>Requires infrastructure management</li>
+                <li>UI feels dated</li>
+                <li>Plugin quality varies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== GitHub Actions ===== -->
+      <article class="ess-tool" id="github-actions">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">GitHub Actions</h3>
+            <p class="ess-tool__tagline">Native GitHub CI/CD automation</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Public Repos</span>
+          <span class="tag tag-paid">$0.008/minute</span>
+          <span class="tag">Cloud SaaS</span>
+          <span class="tag">GitHub Integration</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>GitHub Actions integrates CI/CD directly into GitHub repositories. YAML workflows trigger on push, pull requests, schedules, or manual events. The Actions marketplace provides thousands of pre-built actions. Free unlimited minutes for public repositories.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Seamless GitHub integration</li>
+                <li>Free for public repositories</li>
+                <li>Large marketplace of actions</li>
+                <li>Simple YAML syntax</li>
+                <li>Matrix builds for parallel testing</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Limited to GitHub</li>
+                <li>Minutes cost adds up</li>
+                <li>Less flexible than Jenkins</li>
+                <li>Debugging workflows can be frustrating</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== GitLab CI/CD ===== -->
+      <article class="ess-tool" id="gitlab-ci">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">GitLab CI/CD</h3>
+            <p class="ess-tool__tagline">Built-in GitLab DevOps platform</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Tier</span>
+          <span class="tag tag-paid">From $29/user/mo</span>
+          <span class="tag">Cloud SaaS</span>
+          <span class="tag">Self-hosted</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>GitLab provides a complete DevOps platform with integrated CI/CD. Auto DevOps provides pre-configured pipelines. Built-in container registry, review apps, and Kubernetes integration. Free tier includes 400 CI/CD minutes monthly.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Complete DevOps platform in one tool</li>
+                <li>Auto DevOps reduces configuration</li>
+                <li>Built-in container registry</li>
+                <li>Review apps simplify testing</li>
+                <li>Self-hosted option</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>Limited free tier minutes (400/month)</li>
+                <li>Requires GitLab for Git hosting</li>
+                <li>Self-hosted version resource-intensive</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== CircleCI ===== -->
+      <article class="ess-tool" id="circleci">
+        <div class="ess-tool__header">
+          <div class="ess-tool__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+          </div>
+          <div class="ess-tool__title-wrap">
+            <h3 class="ess-tool__name">CircleCI</h3>
+            <p class="ess-tool__tagline">Cloud-native CI/CD with Docker-first approach</p>
+          </div>
+        </div>
+        <div class="ess-tool__tags">
+          <span class="tag tag-free">Free Tier</span>
+          <span class="tag tag-paid">From $30/mo</span>
+          <span class="tag">Cloud SaaS</span>
+          <span class="tag">Self-hosted Option</span>
+        </div>
+        <div class="ess-tool__body">
+          <p>CircleCI pioneered the Docker-based CI/CD approach. Each build runs in a clean container for reproducible builds. Orbs provide reusable configuration packages. Free tier includes 6,000 build minutes monthly.</p>
+
+          <div class="ess-tool__pros-cons">
+            <div class="ess-tool__pros">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--pros">Pros</h4>
+              <ul>
+                <li>Fast builds with excellent caching</li>
+                <li>Docker-first approach</li>
+                <li>Orbs simplify configurations</li>
+                <li>Good free tier (6,000 minutes)</li>
+                <li>SSH debugging</li>
+              </ul>
+            </div>
+            <div class="ess-tool__cons">
+              <h4 class="ess-tool__subtitle ess-tool__subtitle--cons">Cons</h4>
+              <ul>
+                <li>YAML configuration can be complex</li>
+                <li>Steeper learning curve</li>
+                <li>Minutes cost adds up</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 15: QUICK COMPARISONS ========== -->
+  <section id="quick-comparison" class="ess-section" aria-label="Quick comparisons">
+    <div class="container">
+      <div class="ess-section__header">
+        <span class="ess-section__number">15</span>
+        <h2 class="ess-section__title">Quick Comparison: Popular Categories</h2>
+      </div>
+      <p class="ess-section__intro">Head-to-head comparisons in the most debated categories. These comparisons highlight key differences to help choose between similar tools.</p>
+
+      <!-- ===== Code Editors Comparison ===== -->
+      <div class="ess-comparison">
+        <h3 class="ess-comparison__title">Code Editors: VS Code vs Sublime Text vs Vim</h3>
+        <div class="ess-comparison__table-wrap">
+          <table class="ess-comparison__table" aria-label="Code editors comparison">
+            <thead>
+              <tr>
+                <th scope="col">Aspect</th>
+                <th scope="col">VS Code</th>
+                <th scope="col">Sublime Text</th>
+                <th scope="col">Vim/Neovim</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Price</strong></td>
+                <td>Free</td>
+                <td>$99 (unlimited trial)</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td><strong>Performance</strong></td>
+                <td>Good</td>
+                <td>Excellent</td>
+                <td>Excellent</td>
+              </tr>
+              <tr>
+                <td><strong>Learning Curve</strong></td>
+                <td>Gentle</td>
+                <td>Moderate</td>
+                <td>Steep</td>
+              </tr>
+              <tr>
+                <td><strong>Extensibility</strong></td>
+                <td>Excellent (40K+ extensions)</td>
+                <td>Good</td>
+                <td>Excellent (config required)</td>
+              </tr>
+              <tr>
+                <td><strong>Built-in Features</strong></td>
+                <td>Git, debugging, terminal</td>
+                <td>Minimal (by design)</td>
+                <td>Minimal (extensible)</td>
+              </tr>
+              <tr>
+                <td><strong>Best For</strong></td>
+                <td>Web dev, general purpose</td>
+                <td>Speed, large files</td>
+                <td>Terminal lovers, remote work</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== Design Tools Comparison ===== -->
+      <div class="ess-comparison">
+        <h3 class="ess-comparison__title">Design Tools: Figma vs Sketch vs Adobe XD</h3>
+        <div class="ess-comparison__table-wrap">
+          <table class="ess-comparison__table" aria-label="Design tools comparison">
+            <thead>
+              <tr>
+                <th scope="col">Aspect</th>
+                <th scope="col">Figma</th>
+                <th scope="col">Sketch</th>
+                <th scope="col">Adobe XD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Platform</strong></td>
+                <td>Web, Windows, Mac</td>
+                <td>Mac only</td>
+                <td>Windows, Mac</td>
+              </tr>
+              <tr>
+                <td><strong>Collaboration</strong></td>
+                <td>Excellent (real-time)</td>
+                <td>Good (via Cloud)</td>
+                <td>Good</td>
+              </tr>
+              <tr>
+                <td><strong>Pricing</strong></td>
+                <td>Free tier, $12-45/editor</td>
+                <td>$99/year</td>
+                <td>Free tier, $9.99/mo</td>
+              </tr>
+              <tr>
+                <td><strong>Developer Handoff</strong></td>
+                <td>Excellent</td>
+                <td>Good</td>
+                <td>Good</td>
+              </tr>
+              <tr>
+                <td><strong>Performance</strong></td>
+                <td>Good (requires internet)</td>
+                <td>Excellent</td>
+                <td>Good</td>
+              </tr>
+              <tr>
+                <td><strong>Best For</strong></td>
+                <td>Teams, remote collaboration</td>
+                <td>Mac users, established workflows</td>
+                <td>Adobe ecosystem users</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: leaderboard -->
+
+  <!-- ========== CTA SECTION ========== -->
+  <section class="ess-cta" aria-label="Build your developer toolkit">
+    <div class="container">
+      <div class="ess-cta__content">
+        <h2 class="ess-cta__title">Build Your Developer Toolkit</h2>
+        <p class="ess-cta__desc">The right tools amplify your capabilities. Start with the essentials that match your work, then expand as needs emerge. Every developer's toolkit evolves. What matters is understanding what each tool does well and where it fits your workflow.</p>
+        <div class="ess-cta__actions">
+          <a href="/resources" class="btn btn-primary btn-lg">Explore More Resources</a>
+          <a href="/tools" class="btn btn-secondary btn-lg">Try Our Free Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED RESOURCES ========== -->
+  <section class="ess-related" aria-label="Related resources">
+    <div class="container">
+      <h2 class="ess-related__title">Related Resources</h2>
+      <div class="ess-related__grid">
+        <a href="/resources/learning-platforms" class="ess-related__card">
+          <span class="ess-related__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          </span>
+          <h3>Learning Platforms</h3>
+          <p>Best platforms to learn programming and development skills.</p>
+        </a>
+        <a href="/resources/developer-communities" class="ess-related__card">
+          <span class="ess-related__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </span>
+          <h3>Developer Communities</h3>
+          <p>Connect with other developers and grow your network.</p>
+        </a>
+        <a href="/resources/open-source-guides" class="ess-related__card">
+          <span class="ess-related__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </span>
+          <h3>Open Source Guides</h3>
+          <p>How to contribute to open source projects effectively.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>

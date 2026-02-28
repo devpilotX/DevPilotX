@@ -1,0 +1,1542 @@
+<main id="main-content">
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li class="breadcrumb-separator" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </li>
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/resources" itemprop="item"><span itemprop="name">Resources</span></a>
+          <meta itemprop="position" content="2">
+        </li>
+        <li class="breadcrumb-separator" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </li>
+        <li class="breadcrumb-item breadcrumb-current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+          <span itemprop="name">Best Practices</span>
+          <meta itemprop="position" content="3">
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bp-hero" aria-label="Best Practices overview">
+    <div class="container">
+      <div class="bp-hero-inner">
+        <div class="bp-hero-content">
+          <div class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span>Developer Resource</span>
+          </div>
+          <h1>Best <span class="accent">Practices</span></h1>
+          <p class="bp-hero-lead">Industry-proven coding standards, design patterns, testing strategies, and development workflows. Write better, more maintainable code — backed by decades of engineering wisdom.</p>
+          <div class="bp-hero-stats">
+            <div class="bp-stat">
+              <span class="bp-stat-number">8</span>
+              <span class="bp-stat-label">Categories</span>
+            </div>
+            <div class="bp-stat-divider" aria-hidden="true"></div>
+            <div class="bp-stat">
+              <span class="bp-stat-number">60+</span>
+              <span class="bp-stat-label">Practices</span>
+            </div>
+            <div class="bp-stat-divider" aria-hidden="true"></div>
+            <div class="bp-stat">
+              <span class="bp-stat-number">100%</span>
+              <span class="bp-stat-label">Free</span>
+            </div>
+          </div>
+          <div class="bp-hero-actions">
+            <a href="#coding-standards" class="btn btn-primary">Start Reading</a>
+            <a href="/resources" class="btn btn-secondary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              All Resources
+            </a>
+          </div>
+        </div>
+        <div class="bp-hero-visual" aria-hidden="true">
+          <div class="bp-visual-card">
+            <div class="bp-visual-header">
+              <span class="bp-visual-dot bp-visual-dot--red"></span>
+              <span class="bp-visual-dot bp-visual-dot--yellow"></span>
+              <span class="bp-visual-dot bp-visual-dot--green"></span>
+              <span class="bp-visual-label">best-practices.config</span>
+            </div>
+            <div class="bp-visual-body">
+              <span class="bp-visual-line"><span class="c-comment">// Write code that lasts</span></span>
+              <span class="bp-visual-line"></span>
+              <span class="bp-visual-line"><span class="c-keyword">const</span> practices = {</span>
+              <span class="bp-visual-line">  cleanCode:     <span class="c-string">"always"</span>,</span>
+              <span class="bp-visual-line">  testing:       <span class="c-string">"mandatory"</span>,</span>
+              <span class="bp-visual-line">  codeReview:    <span class="c-string">"every PR"</span>,</span>
+              <span class="bp-visual-line">  security:      <span class="c-string">"first"</span>,</span>
+              <span class="bp-visual-line">  documentation: <span class="c-string">"essential"</span>,</span>
+              <span class="bp-visual-line">  performance:   <span class="c-string">"measured"</span>,</span>
+              <span class="bp-visual-line">};</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE OF CONTENTS -->
+  <section class="bp-toc-section" aria-label="Table of contents">
+    <div class="container">
+      <div class="bp-toc">
+        <div class="bp-toc-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          <h2 class="bp-toc-title">Table of Contents</h2>
+        </div>
+        <ol class="bp-toc-list">
+          <li><a href="#coding-standards" class="bp-toc-link" data-toc="coding-standards"><span class="bp-toc-num">01</span>Coding Standards &amp; Style</a></li>
+          <li><a href="#design-patterns" class="bp-toc-link" data-toc="design-patterns"><span class="bp-toc-num">02</span>Design Patterns</a></li>
+          <li><a href="#testing-strategies" class="bp-toc-link" data-toc="testing-strategies"><span class="bp-toc-num">03</span>Testing Strategies</a></li>
+          <li><a href="#version-control" class="bp-toc-link" data-toc="version-control"><span class="bp-toc-num">04</span>Version Control &amp; Git</a></li>
+          <li><a href="#code-review" class="bp-toc-link" data-toc="code-review"><span class="bp-toc-num">05</span>Code Review</a></li>
+          <li><a href="#security" class="bp-toc-link" data-toc="security"><span class="bp-toc-num">06</span>Security Best Practices</a></li>
+          <li><a href="#performance" class="bp-toc-link" data-toc="performance"><span class="bp-toc-num">07</span>Performance Optimization</a></li>
+          <li><a href="#documentation" class="bp-toc-link" data-toc="documentation"><span class="bp-toc-num">08</span>Documentation &amp; Communication</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: leaderboard -->
+
+  <!-- ========== SECTION 1: CODING STANDARDS ========== -->
+  <section class="bp-section" id="coding-standards" aria-label="Coding Standards and Style">
+    <div class="container">
+      <div class="bp-section-header">
+        <span class="section-number">[01]</span>
+        <h2>Coding Standards &amp; Style</h2>
+      </div>
+      <p class="bp-section-desc">Consistent code is maintainable code. Establish style rules early and enforce them automatically.</p>
+
+      <div class="bp-grid">
+
+        <!-- Practice Card 1.1 -->
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">All Languages</span>
+              <span class="tag">Essential</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Use a Consistent Code Style</h3>
+          <p class="bp-card-desc">Pick a style guide (Airbnb, Google, StandardJS) and follow it across your entire codebase. Consistency reduces cognitive load and makes onboarding faster.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+            </div>
+            <pre><code>function getData( ){
+  var x=  getUser()
+    if(x){return x.name }
+}</code></pre>
+          </div>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+            </div>
+            <pre><code>function getData() {
+  const user = getUser();
+  if (user) {
+    return user.name;
+  }
+  return null;
+}</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Choose one style guide per language
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Configure ESLint / Prettier / EditorConfig
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Enforce in CI pipeline — fail builds on lint errors
+            </li>
+          </ul>
+        </article>
+
+        <!-- Practice Card 1.2 -->
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Naming</span>
+              <span class="tag">Readability</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Meaningful Naming Conventions</h3>
+          <p class="bp-card-desc">Names should reveal intent. A variable, function, or class name should tell you why it exists, what it does, and how it's used — without needing a comment.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+            </div>
+            <pre><code>const d = new Date();
+const arr = users.filter(u => u.a > 18);
+function proc(x) { /* ... */ }</code></pre>
+          </div>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+            </div>
+            <pre><code>const createdAt = new Date();
+const adultUsers = users.filter(
+  user => user.age > 18
+);
+function processPayment(order) { /* ... */ }</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Use descriptive, pronounceable names
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Booleans: prefix with is, has, can, should
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Functions: use verb + noun (getUserById, calculateTotal)
+            </li>
+          </ul>
+        </article>
+
+        <!-- Practice Card 1.3 -->
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Architecture</span>
+              <span class="tag">SOLID</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Single Responsibility Principle</h3>
+          <p class="bp-card-desc">Every function, class, and module should do one thing and do it well. If you can't describe what it does in one sentence, it's doing too much.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+            </div>
+            <pre><code>function handleUser(user) {
+  validate(user);
+  saveToDatabase(user);
+  sendWelcomeEmail(user);
+  logAnalytics('signup', user);
+  updateLeaderboard(user);
+}</code></pre>
+          </div>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+            </div>
+            <pre><code>function registerUser(user) {
+  const validated = validateUser(user);
+  const saved = userRepository.save(validated);
+  eventBus.emit('user:registered', saved);
+}
+// Listeners handle email, analytics, etc.</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              One reason to change per module
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Extract side effects into separate handlers
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Functions under 20 lines, files under 300 lines
+            </li>
+          </ul>
+        </article>
+
+        <!-- Practice Card 1.4 -->
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Clean Code</span>
+              <span class="tag">DRY</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Don't Repeat Yourself (DRY)</h3>
+          <p class="bp-card-desc">Every piece of knowledge should have a single, unambiguous, authoritative representation. Duplicate code means duplicate bugs and double maintenance effort.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+            </div>
+            <pre><code>// In checkout.js
+const tax = price * 0.18;
+const total = price + tax;
+
+// In invoice.js
+const invoiceTax = amount * 0.18;
+const invoiceTotal = amount + invoiceTax;</code></pre>
+          </div>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+            </div>
+            <pre><code>// tax.js
+const TAX_RATE = 0.18;
+function calculateTotal(price) {
+  const tax = price * TAX_RATE;
+  return { tax, total: price + tax };
+}
+// Used everywhere via import</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Extract shared logic into utility functions
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Use constants for magic numbers and strings
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              But avoid premature abstraction — rule of three
+            </li>
+          </ul>
+        </article>
+
+        <!-- Practice Card 1.5 -->
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Error Handling</span>
+              <span class="tag">Reliability</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Handle Errors Gracefully</h3>
+          <p class="bp-card-desc">Never swallow errors silently. Catch specific exceptions, provide meaningful messages, and fail gracefully. Unhandled errors in production destroy user trust.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+            </div>
+            <pre><code>try {
+  await saveUser(data);
+} catch (e) {
+  // TODO: handle later
+}</code></pre>
+          </div>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+            </div>
+            <pre><code>try {
+  await saveUser(data);
+} catch (error) {
+  if (error instanceof ValidationError) {
+    return res.status(400).json({
+      message: error.message,
+    });
+  }
+  logger.error('User save failed', { error });
+  return res.status(500).json({
+    message: 'Something went wrong.',
+  });
+}</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Catch specific error types, not generic catch-all
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Log errors with context for debugging
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Return user-friendly messages, never stack traces
+            </li>
+          </ul>
+        </article>
+
+        <!-- Practice Card 1.6 -->
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Comments</span>
+              <span class="tag">Readability</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Comment Why, Not What</h3>
+          <p class="bp-card-desc">Good code is self-documenting. Use comments to explain <em>why</em> something is done, not <em>what</em> the code does. If you need to explain what, the code needs refactoring.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+            </div>
+            <pre><code>// Loop through users
+for (const u of users) {
+  // Check if age is greater than 18
+  if (u.age > 18) {
+    // Add to results array
+    results.push(u);
+  }
+}</code></pre>
+          </div>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+            </div>
+            <pre><code>// Legal requirement: GDPR mandates age
+// verification before data processing
+const eligibleUsers = users.filter(
+  user => user.age > 18
+);</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Explain business rules and edge cases
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Delete commented-out code — Git remembers
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Use JSDoc/TSDoc for public API documentation
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== SECTION 2: DESIGN PATTERNS ========== -->
+  <section class="bp-section bp-section--alt" id="design-patterns" aria-label="Design Patterns">
+    <div class="container">
+      <div class="bp-section-header">
+        <span class="section-number">[02]</span>
+        <h2>Design Patterns</h2>
+      </div>
+      <p class="bp-section-desc">Proven solutions to recurring software design problems. Know when to use them — and when not to.</p>
+
+      <div class="bp-grid">
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Creational</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Factory Pattern</h3>
+          <p class="bp-card-desc">Create objects without exposing instantiation logic. Use factories when the type of object depends on runtime conditions or configuration.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Example</span>
+            </div>
+            <pre><code>function createNotifier(type) {
+  switch (type) {
+    case 'email': return new EmailNotifier();
+    case 'sms':   return new SmsNotifier();
+    case 'push':  return new PushNotifier();
+    default:
+      throw new Error(`Unknown: ${type}`);
+  }
+}
+const notifier = createNotifier('email');</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Decouples object creation from usage
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Easy to add new types without changing consumers
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Testable — mock the factory in unit tests
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Behavioral</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Observer / Event Emitter</h3>
+          <p class="bp-card-desc">Decouple components by using publish-subscribe. When something happens, emit an event — interested parties subscribe and react independently.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Example</span>
+            </div>
+            <pre><code>const EventEmitter = require('events');
+const bus = new EventEmitter();
+
+bus.on('order:placed', (order) => {
+  sendConfirmationEmail(order);
+});
+bus.on('order:placed', (order) => {
+  updateInventory(order);
+});
+
+bus.emit('order:placed', newOrder);</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Loose coupling between publisher and subscribers
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Add new behaviors without touching existing code
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Watch for memory leaks — always removeListener
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Structural</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Module Pattern &amp; Encapsulation</h3>
+          <p class="bp-card-desc">Encapsulate private state and expose only a public API. In JavaScript, use ES modules or IIFEs. Prevents namespace pollution and unintended access.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Example</span>
+            </div>
+            <pre><code>// counter.js
+let count = 0; // private
+
+export function increment() {
+  return ++count;
+}
+export function getCount() {
+  return count;
+}
+// count is not directly accessible</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Hide implementation details
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Expose minimal public surface area
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Use ES modules over global scripts
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Behavioral</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Strategy Pattern</h3>
+          <p class="bp-card-desc">Define a family of algorithms, encapsulate each one, and make them interchangeable. The strategy pattern lets the algorithm vary independently from clients.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Example</span>
+            </div>
+            <pre><code>const strategies = {
+  standard: (price) => price,
+  premium:  (price) => price * 0.9,
+  vip:      (price) => price * 0.8,
+};
+
+function getPrice(tier, basePrice) {
+  const apply = strategies[tier];
+  if (!apply) throw new Error('Unknown tier');
+  return apply(basePrice);
+}</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Eliminates long if/else or switch chains
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Open/closed principle — extend without modifying
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Each strategy is independently testable
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Structural</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Middleware / Chain of Responsibility</h3>
+          <p class="bp-card-desc">Pass a request through a chain of handlers. Each handler processes or passes it along. Express.js middleware is a textbook example of this pattern.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Example</span>
+            </div>
+            <pre><code>app.use(helmet());
+app.use(compression());
+app.use(rateLimit({ max: 100 }));
+app.use(authenticate);
+app.use(authorize('admin'));
+app.get('/dashboard', controller);
+// Each layer handles one concern</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Each middleware has a single responsibility
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Order matters — arrange from general to specific
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Always call next() or send a response
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Creational</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Singleton (Use Sparingly)</h3>
+          <p class="bp-card-desc">Ensure a class has only one instance. Common for database connections, loggers, and config. But overuse creates hidden coupling and testing nightmares.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Example</span>
+            </div>
+            <pre><code>// database.js (Node.js module = singleton)
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+});
+module.exports = pool;
+// Same pool instance everywhere</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Use for shared resources (DB pool, logger)
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Node.js modules are singletons by default
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Avoid for business logic — prefer dependency injection
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 3: TESTING STRATEGIES ========== -->
+  <section class="bp-section" id="testing-strategies" aria-label="Testing Strategies">
+    <div class="container">
+      <div class="bp-section-header">
+        <span class="section-number">[03]</span>
+        <h2>Testing Strategies</h2>
+      </div>
+      <p class="bp-section-desc">Untested code is broken code you haven't discovered yet. Build a testing culture that catches bugs before users do.</p>
+
+      <div class="bp-grid">
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Unit Tests</span>
+              <span class="tag">Foundation</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Write Unit Tests First</h3>
+          <p class="bp-card-desc">Unit tests are the foundation of your testing pyramid. Test individual functions and modules in isolation. Aim for fast execution and high coverage of business logic.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Example</span>
+            </div>
+            <pre><code>describe('calculateTotal', () => {
+  it('applies tax correctly', () => {
+    const result = calculateTotal(100);
+    expect(result.tax).toBe(18);
+    expect(result.total).toBe(118);
+  });
+
+  it('handles zero price', () => {
+    const result = calculateTotal(0);
+    expect(result.total).toBe(0);
+  });
+
+  it('throws on negative price', () => {
+    expect(() => calculateTotal(-1))
+      .toThrow('Price must be positive');
+  });
+});</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Test happy path, edge cases, and error cases
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Each test should be independent and deterministic
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Mock external dependencies (DB, API, filesystem)
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Integration</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">The Testing Pyramid</h3>
+          <p class="bp-card-desc">Many unit tests (fast, cheap), fewer integration tests (verify modules work together), and a handful of E2E tests (simulate real user flows). Invert this pyramid and you'll have slow, flaky CI.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Ratio Guide</span>
+            </div>
+            <pre><code>Testing Pyramid:
+
+     /  E2E  \\        ~10%  (Cypress, Playwright)
+    /----------\\
+   / Integration\\      ~20%  (Supertest, DB tests)
+  /--------------\\
+ /   Unit Tests   \\    ~70%  (Jest, Mocha, Vitest)
+/------------------\\</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              70% unit / 20% integration / 10% E2E
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Run unit tests on every commit, E2E on merge
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Track coverage but don't chase 100% blindly
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">TDD</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Test-Driven Development (TDD)</h3>
+          <p class="bp-card-desc">Red → Green → Refactor. Write a failing test first, write the minimum code to pass it, then refactor. TDD produces cleaner APIs and catches regressions immediately.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ TDD Cycle</span>
+            </div>
+            <pre><code>// 1. RED — Write failing test
+it('reverses a string', () => {
+  expect(reverse('hello')).toBe('olleh');
+}); // ✗ ReferenceError: reverse not defined
+
+// 2. GREEN — Minimum code to pass
+function reverse(str) {
+  return str.split('').reverse().join('');
+} // ✓ Test passes
+
+// 3. REFACTOR — Improve if needed
+function reverse(str) {
+  return [...str].reverse().join('');
+} // ✓ Still passes, cleaner</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Forces you to think about API design first
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Immediate feedback loop catches bugs early
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              100% coverage of tested features by design
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">CI/CD</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Automate Tests in CI</h3>
+          <p class="bp-card-desc">Tests that don't run automatically are tests that will be skipped. Wire every test suite into your CI pipeline. Block merges on test failure. No exceptions.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ GitHub Actions</span>
+            </div>
+            <pre><code>name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test -- --coverage
+      - run: npm run test:e2e</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Run lint + unit + integration on every push
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Require passing CI before merge to main
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Cache node_modules for faster builds
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- ========== SECTION 4: VERSION CONTROL ========== -->
+  <section class="bp-section bp-section--alt" id="version-control" aria-label="Version Control and Git">
+    <div class="container">
+      <div class="bp-section-header">
+        <span class="section-number">[04]</span>
+        <h2>Version Control &amp; Git</h2>
+      </div>
+      <p class="bp-section-desc">Git is your safety net and collaboration backbone. Use it with discipline and intention.</p>
+
+      <div class="bp-grid">
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Git</span>
+              <span class="tag">Commits</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Write Atomic Commits</h3>
+          <p class="bp-card-desc">Each commit should represent one logical change. Small, focused commits are easier to review, revert, bisect, and cherry-pick.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+            </div>
+            <pre><code>git commit -m "fixed stuff and added feature
+and updated deps"</code></pre>
+          </div>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+            </div>
+            <pre><code>git commit -m "fix: resolve null pointer in
+user validation (#142)"
+
+git commit -m "feat: add email notification
+on order placement"
+
+git commit -m "chore: update express to 4.19"</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Use Conventional Commits: feat, fix, chore, docs
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Reference issue numbers in commit messages
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              One concern per commit — never mix refactor + feature
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Branching</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Use a Branching Strategy</h3>
+          <p class="bp-card-desc">Adopt Git Flow, GitHub Flow, or Trunk-Based Development. Consistency in branching prevents merge chaos and deployment accidents.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ GitHub Flow</span>
+            </div>
+            <pre><code>main (always deployable)
+  └── feature/add-user-auth
+  └── fix/login-redirect-bug
+  └── chore/update-dependencies
+
+Workflow:
+1. Branch from main
+2. Make changes + commit
+3. Open Pull Request
+4. Code review + CI passes
+5. Merge to main → auto-deploy</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Never push directly to main / production
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Short-lived branches — merge within 1-2 days
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Delete branches after merge
+            </li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Security</span>
+              <span class="tag">.gitignore</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Never Commit Secrets</h3>
+          <p class="bp-card-desc">API keys, passwords, tokens, and .env files must never enter your repository. Once committed, they're in the history forever — even if you delete the file.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ .gitignore</span>
+            </div>
+            <pre><code># Environment
+.env
+.env.local
+.env.production
+
+# Dependencies
+node_modules/
+
+# Secrets
+*.pem
+*.key
+credentials.json</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Set up .gitignore before first commit
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Use git-secrets or pre-commit hooks to scan
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Rotate any key that was ever committed
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 5: CODE REVIEW ========== -->
+  <section class="bp-section" id="code-review" aria-label="Code Review">
+    <div class="container">
+      <div class="bp-section-header">
+        <span class="section-number">[05]</span>
+        <h2>Code Review</h2>
+      </div>
+      <p class="bp-section-desc">Code review is a team multiplier. It catches bugs, spreads knowledge, and raises the quality bar for everyone.</p>
+
+      <div class="bp-grid">
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Process</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Review Every Pull Request</h3>
+          <p class="bp-card-desc">No code reaches main without at least one peer review. Reviews catch bugs, enforce standards, and distribute knowledge across the team.</p>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Require at least 1 approval before merge</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Review within 24 hours — don't block teammates</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Check logic, security, tests, naming, edge cases</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Be constructive — critique the code, not the person</li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">PR Quality</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Write Good PR Descriptions</h3>
+          <p class="bp-card-desc">A good PR tells the reviewer what changed, why, and how to test it. Include screenshots for UI changes. Link the issue. Describe the approach.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ PR Template</span>
+            </div>
+            <pre><code>## What
+Added email verification on signup.
+
+## Why
+Reduces spam accounts by 80% (Issue #234).
+
+## How to test
+1. Register with a new email
+2. Check inbox for verification link
+3. Click link → account activated
+
+## Screenshots
+[before] → [after]</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Keep PRs under 400 lines — split large features</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use a PR template for consistency</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Self-review before requesting others</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 6: SECURITY ========== -->
+  <section class="bp-section bp-section--alt" id="security" aria-label="Security Best Practices">
+    <div class="container">
+      <div class="bp-section-header">
+        <span class="section-number">[06]</span>
+        <h2>Security Best Practices</h2>
+      </div>
+      <p class="bp-section-desc">Security is not a feature — it's a requirement. Think about security at every layer from day one.</p>
+
+      <div class="bp-grid">
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Input</span>
+              <span class="tag">Critical</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Validate &amp; Sanitize All Input</h3>
+          <p class="bp-card-desc">Never trust user input. Validate type, length, format, and range on the server. Sanitize to prevent XSS and SQL injection. Client-side validation is UX, not security.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ Express Validator</span>
+            </div>
+            <pre><code>const { body, validationResult } = require(
+  'express-validator'
+);
+
+app.post('/api/contact', [
+  body('email').isEmail().normalizeEmail(),
+  body('name').trim().isLength({ min: 1,
+    max: 100 }).escape(),
+  body('message').trim().isLength({ min: 10,
+    max: 2000 }).escape(),
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      errors: errors.array()
+    });
+  }
+  // Safe to process
+});</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Validate on server — never rely on client alone</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use parameterized queries — never concatenate SQL</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Escape HTML output to prevent XSS</li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Auth</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Secure Authentication</h3>
+          <p class="bp-card-desc">Hash passwords with bcrypt (cost factor ≥ 10). Use HTTPS everywhere. Implement rate limiting on login endpoints. Never store plaintext passwords.</p>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>bcrypt with salt rounds ≥ 10</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Rate limit login to 5 attempts per minute</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Set secure, httpOnly, sameSite on session cookies</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use helmet() for security headers</li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Dependencies</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Keep Dependencies Updated</h3>
+          <p class="bp-card-desc">Outdated packages are the #1 attack vector. Run npm audit regularly. Use Dependabot or Renovate for automated updates. Pin versions in production.</p>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Run npm audit weekly</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Enable Dependabot on GitHub</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use package-lock.json — commit it</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Review changelogs before major updates</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7: PERFORMANCE ========== -->
+  <section class="bp-section" id="performance" aria-label="Performance Optimization">
+    <div class="container">
+      <div class="bp-section-header">
+        <span class="section-number">[07]</span>
+        <h2>Performance Optimization</h2>
+      </div>
+      <p class="bp-section-desc">Fast software is good software. Measure first, optimize second, and never guess where the bottleneck is.</p>
+
+      <div class="bp-grid">
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Frontend</span>
+              <span class="tag">Core Web Vitals</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Optimize Core Web Vitals</h3>
+          <p class="bp-card-desc">LCP, FID, and CLS directly affect search rankings and user experience. Defer non-critical JS, lazy load images, use explicit dimensions, and minimize layout shifts.</p>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use defer on all script tags</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Set width and height on every image</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use loading="lazy" below the fold</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Enable gzip/brotli compression</li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Backend</span>
+              <span class="tag">Database</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Optimize Database Queries</h3>
+          <p class="bp-card-desc">Slow queries are the silent killer of application performance. Index frequently queried columns, avoid N+1 queries, use connection pooling, and monitor query times.</p>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Add indexes on columns used in WHERE and JOIN</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use EXPLAIN to analyze slow queries</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use connection pooling (mysql2 pool)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>SELECT only columns you need — never SELECT *</li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">Caching</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Cache Strategically</h3>
+          <p class="bp-card-desc">Cache static assets with long max-age headers. Cache API responses where appropriate. Use ETags. But always have a cache invalidation strategy.</p>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Static assets: Cache-Control max-age 7+ days</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use content hashing in filenames for cache busting</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>API: cache GET responses, invalidate on mutations</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 8: DOCUMENTATION ========== -->
+  <section class="bp-section bp-section--alt" id="documentation" aria-label="Documentation and Communication">
+    <div class="container">
+      <div class="bp-section-header">
+        <span class="section-number">[08]</span>
+        <h2>Documentation &amp; Communication</h2>
+      </div>
+      <p class="bp-section-desc">Great documentation is the difference between a project that scales and one that dies when the original author leaves.</p>
+
+      <div class="bp-grid">
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">README</span>
+              <span class="tag">Essential</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Write a Comprehensive README</h3>
+          <p class="bp-card-desc">Your README is your project's front door. Include what it does, how to install it, how to run it, how to contribute, and license information. A bad README kills adoption.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ README Structure</span>
+            </div>
+            <pre><code># Project Name
+One-line description.
+
+## Features
+- Feature 1
+- Feature 2
+
+## Quick Start
+$ git clone ...
+$ npm install
+$ npm run dev
+
+## Environment Variables
+Copy .env.example to .env
+
+## Contributing
+See CONTRIBUTING.md
+
+## License
+MIT</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Include badges (build status, coverage, license)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Keep it updated — stale docs are worse than none</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Add screenshots/GIFs for visual projects</li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">API Docs</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Document Your APIs</h3>
+          <p class="bp-card-desc">Every endpoint needs documentation: URL, method, parameters, request body, response format, status codes, and examples. Use OpenAPI/Swagger for auto-generated docs.</p>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Document every endpoint with request/response examples</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Include error responses and status codes</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use OpenAPI spec for auto-generated docs</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Version your API from day one</li>
+          </ul>
+        </article>
+
+        <article class="bp-card">
+          <div class="bp-card-top">
+            <span class="bp-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </span>
+            <div class="bp-card-tags">
+              <span class="tag">ADR</span>
+              <span class="tag">Team</span>
+            </div>
+          </div>
+          <h3 class="bp-card-title">Record Architecture Decisions</h3>
+          <p class="bp-card-desc">Use Architecture Decision Records (ADRs) to document why you chose a technology, pattern, or approach. Future you (and your team) will thank you.</p>
+          <div class="bp-card-example">
+            <div class="bp-card-example-header">
+              <span class="bp-example-label bp-example-good">✓ ADR Format</span>
+            </div>
+            <pre><code># ADR-001: Use MySQL over PostgreSQL
+
+## Status: Accepted
+## Date: 2026-02-27
+
+## Context
+Hosting provider includes MySQL free.
+
+## Decision
+Use MySQL with mysql2 driver.
+
+## Consequences
++ Zero additional cost
++ Native phpMyAdmin support
+- Fewer JSON features than Postgres</code></pre>
+          </div>
+          <ul class="bp-card-checklist">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Store ADRs in docs/adr/ in your repo</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Record context, decision, and consequences</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Never delete ADRs — supersede them</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK REFERENCE SUMMARY -->
+  <section class="bp-summary-section" aria-label="Quick reference summary">
+    <div class="container">
+      <div class="bp-summary">
+        <h2 class="bp-summary-title">Quick Reference Checklist</h2>
+        <p class="bp-summary-desc">The essential practices every developer should follow. Print this, bookmark it, live by it.</p>
+        <div class="bp-summary-grid">
+          <div class="bp-summary-col">
+            <h3 class="bp-summary-col-title">Before Every Commit</h3>
+            <ul class="bp-summary-list">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Code follows style guide
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                No hardcoded secrets or credentials
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                All tests pass
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Meaningful commit message
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                No console.log or debug code
+              </li>
+            </ul>
+          </div>
+          <div class="bp-summary-col">
+            <h3 class="bp-summary-col-title">Before Every Deploy</h3>
+            <ul class="bp-summary-list">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                CI pipeline passes (lint + test)
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Code reviewed and approved
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Environment variables configured
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Database migrations applied
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                npm audit — no critical vulnerabilities
+              </li>
+            </ul>
+          </div>
+          <div class="bp-summary-col">
+            <h3 class="bp-summary-col-title">Every Sprint</h3>
+            <ul class="bp-summary-list">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Update dependencies
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Review and pay down tech debt
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Check test coverage trends
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Monitor performance metrics
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                Update documentation
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: leaderboard -->
+
+  <!-- RELATED RESOURCES -->
+  <section class="bp-related" aria-label="Related resources">
+    <div class="container">
+      <h2 class="bp-related-title">Continue Learning</h2>
+      <div class="bp-related-grid">
+        <a href="/resources/developer-tools" class="resource-card">
+          <span class="resource-icon" aria-hidden="true">🛠️</span>
+          <div class="resource-body">
+            <h3>Developer Tools</h3>
+            <p>Essential tools and extensions every developer should know about.</p>
+          </div>
+        </a>
+        <a href="/resources/career-roadmaps" class="resource-card">
+          <span class="resource-icon" aria-hidden="true">🗺️</span>
+          <div class="resource-body">
+            <h3>Career Roadmaps</h3>
+            <p>Step-by-step guides for frontend, backend, DevOps, and more.</p>
+          </div>
+        </a>
+        <a href="/resources/documentation" class="resource-card">
+          <span class="resource-icon" aria-hidden="true">📄</span>
+          <div class="resource-body">
+            <h3>Documentation</h3>
+            <p>Links to official docs for popular languages, frameworks, and APIs.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bp-cta" aria-label="Call to action">
+    <div class="container">
+      <div class="bp-cta-inner">
+        <h2>Put these practices to <span class="accent">work</span></h2>
+        <p>Open any of our free developer tools and start writing better code today. Format, validate, test, and build — all in your browser.</p>
+        <div class="bp-cta-actions">
+          <a href="/tools" class="btn btn-primary">Explore All Tools</a>
+          <a href="/community" class="btn btn-secondary">Join Community</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

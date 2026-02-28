@@ -1,0 +1,229 @@
+/* ==========================================================================
+   JWT DECODER — Tool-Specific Styles
+   Value.Codes | public/css/tools/jwt-decoder.css
+   ========================================================================== */
+
+/* Input section */
+.jwt-input-section {
+  margin-bottom: 1rem;
+}
+
+.jwt-input-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .625rem;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.jwt-label {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.jwt-input-actions {
+  display: flex;
+  align-items: center;
+  gap: .375rem;
+}
+
+.jwt-textarea {
+  width: 100%;
+  font-size: .875rem;
+  font-family: monospace;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .875rem 1rem;
+  outline: none;
+  resize: vertical;
+  line-height: 1.55;
+  transition: border-color var(--transition);
+  word-break: break-all;
+}
+.jwt-textarea:focus { border-color: var(--accent); }
+
+/* Token visual */
+.jwt-token-visual {
+  margin-top: .5rem;
+  font-size: .8125rem;
+  font-family: monospace;
+  line-height: 1.6;
+  word-break: break-all;
+  padding: .625rem .875rem;
+  background: var(--code-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: none;
+}
+.jwt-token-visual.visible { display: block; }
+.jwt-part-h { color: #e76f51; }
+.jwt-part-p { color: #2a9d8f; }
+.jwt-part-s { color: #e9c46a; }
+.jwt-dot { color: var(--subtle); }
+
+/* Status bar */
+.jwt-status-bar {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8125rem;
+  color: var(--muted);
+  padding: .5rem 0;
+  margin-bottom: 1rem;
+}
+
+.jwt-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.jwt-status-idle { background: var(--border); }
+.jwt-status-ok { background: var(--success); }
+.jwt-status-error { background: var(--error); }
+.jwt-status-warn { background: var(--warning); }
+
+/* Output grid */
+.jwt-output-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* JWT panel */
+.jwt-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.jwt-panel-title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .875rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.jwt-part-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.jwt-part-header { background: #e76f51; }
+.jwt-part-payload { background: #2a9d8f; }
+.jwt-part-sig { background: #e9c46a; }
+
+.jwt-copy-section {
+  margin-left: auto;
+  font-size: .6875rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .1875rem .5rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.jwt-copy-section:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.jwt-panel-desc {
+  font-size: .75rem;
+  color: var(--subtle);
+}
+
+.jwt-json-output {
+  font-size: .8125rem;
+  font-family: monospace;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .75rem;
+  overflow-x: auto;
+  flex: 1;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Signature */
+.jwt-sig-value {
+  font-size: .75rem;
+  font-family: monospace;
+  color: var(--muted);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .75rem;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* Claims */
+.jwt-claims-section { margin-top: .75rem; }
+.jwt-claims-title {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--subtle);
+  margin-bottom: .5rem;
+}
+
+.jwt-claims-list {
+  display: flex;
+  flex-direction: column;
+  gap: .375rem;
+}
+
+.jwt-claim-row {
+  display: flex;
+  flex-direction: column;
+  gap: .125rem;
+  padding: .375rem .5rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.jwt-claim-key {
+  font-size: .6875rem;
+  font-weight: 700;
+  color: var(--subtle);
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.jwt-claim-value {
+  font-size: .8125rem;
+  font-family: monospace;
+  color: var(--ink);
+  word-break: break-all;
+}
+
+.jwt-claim-hint {
+  font-size: .6875rem;
+  color: var(--subtle);
+}
+
+.jwt-claim-expired { border-color: var(--error); }
+.jwt-claim-expired .jwt-claim-value { color: var(--error); }
+.jwt-claim-valid { border-color: var(--success); }
+.jwt-claim-valid .jwt-claim-value { color: var(--success); }
+
+@media (max-width: 900px) {
+  .jwt-output-grid { grid-template-columns: 1fr; }
+}

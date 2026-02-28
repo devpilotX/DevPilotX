@@ -1,0 +1,507 @@
+<%# ================================================================
+    views/compiler.ejs
+    Value.Codes — Online Compiler Page (Final Production Build)
+
+    Sections:
+    [01] Hero — breadcrumb, badge, h1, desc, stat pills
+    [02] AdSense — leaderboard
+    [03] Compiler Workspace — toolbar, CodeMirror editor + output
+    [04] AdSense — in-article
+    [05] Supported Languages Grid
+    [06] Features
+    [07] FAQ (SEO + FAQ schema via route)
+    [08] Related Tools
+
+    Zero inline CSS. Zero inline JS (except AdSense push).
+    CodeMirror 5 loaded via CDN (pageCSS/pageJS in route) for syntax highlighting.
+    ================================================================ %>
+
+<%# ================================================================
+    [01] HERO
+    ================================================================ %>
+<section class="comp-hero" aria-label="Online Compiler">
+  <div class="container">
+    <nav class="comp-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Online Compiler</li>
+      </ol>
+    </nav>
+
+    <div class="comp-hero-content">
+      <div class="badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span>Free &amp; No Signup Required</span>
+      </div>
+
+      <h1>Online Compiler &amp; Code Runner</h1>
+
+      <p class="comp-hero-desc">
+        Write, compile, and run code in <strong>19 programming languages</strong> directly in your browser.
+        Powered by sandboxed execution — your code runs securely with no setup required.
+      </p>
+
+      <div class="comp-stat-pills">
+        <span class="badge-pill">19 Languages</span>
+        <span class="badge-pill">STDIN Support</span>
+        <span class="badge-pill">Syntax Highlighting</span>
+        <span class="badge-pill">Ctrl+Enter to Run</span>
+        <span class="badge-pill">Cache ⚡</span>
+        <span class="badge-pill">Auto-Save</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ================================================================
+    [02] ADSENSE — Leaderboard
+    ================================================================ %>
+<div class="comp-ad-wrap" aria-label="Advertisement">
+  <div class="container">
+    <ins class="adsbygoogle comp-ad-unit"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot=""
+         data-ad-format="auto"
+         data-full-width-responsive="true"
+         aria-hidden="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+<%# ================================================================
+    [03] COMPILER WORKSPACE
+    ================================================================ %>
+<section class="compiler" aria-label="Online Compiler workspace">
+  <div class="compiler__inner">
+
+    <%# ========== Toolbar ========== %>
+    <div class="compiler__toolbar">
+      <div class="compiler__toolbar-left">
+        <div class="comp-title-row">
+          <svg class="comp-title-icon" width="18" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          <span class="comp-title-text">Code Editor</span>
+        </div>
+      </div>
+
+      <div class="compiler__toolbar-right">
+        <%# --- Theme Toggle --- %>
+        <button type="button" class="compiler__icon-btn" id="theme-toggle"
+                aria-label="Toggle dark/light theme" title="Toggle Theme">
+          <svg class="theme-icon-sun" width="15" height="15" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="15" height="15" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <%# --- Language Selector --- %>
+        <div class="compiler__lang-group">
+          <label for="lang-select" class="sr-only">Select Language</label>
+          <select id="lang-select" class="compiler__lang-select"
+                  aria-label="Select programming language">
+            <option value="python"     data-version="3.10.0" selected>Python</option>
+            <option value="javascript" data-version="18.15.0">JavaScript</option>
+            <option value="typescript" data-version="5.0.3">TypeScript</option>
+            <option value="c++"        data-version="10.2.0">C++</option>
+            <option value="c"          data-version="10.2.0">C</option>
+            <option value="java"       data-version="15.0.2">Java</option>
+            <option value="csharp"     data-version="6.12.0">C#</option>
+            <option value="go"         data-version="1.16.2">Go</option>
+            <option value="rust"       data-version="1.68.2">Rust</option>
+            <option value="ruby"       data-version="3.0.1">Ruby</option>
+            <option value="php"        data-version="8.2.3">PHP</option>
+            <option value="swift"      data-version="5.3.3">Swift</option>
+            <option value="kotlin"     data-version="1.8.20">Kotlin</option>
+            <option value="scala"      data-version="3.2.2">Scala</option>
+            <option value="r"          data-version="4.1.1">R</option>
+            <option value="perl"       data-version="5.36.0">Perl</option>
+            <option value="lua"        data-version="5.4.4">Lua</option>
+            <option value="bash"       data-version="5.2.0">Bash</option>
+            <option value="sql"        data-version="3.36.0">SQL</option>
+          </select>
+          <span class="compiler__lang-version" id="lang-version" aria-live="polite">v3.10.0</span>
+        </div>
+
+        <%# --- Run Button --- %>
+        <button type="button" class="btn btn-primary compiler__run-btn" id="run-btn"
+                aria-label="Run code (Ctrl+Enter)">
+          <svg class="compiler__run-icon" width="15" height="15" viewBox="0 0 24 24"
+               fill="currentColor" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span class="compiler__run-text">Run</span>
+          <span class="compiler__run-spinner" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <%# ========== Split-Pane Body ========== %>
+    <div class="compiler__body">
+
+      <%# --- Left: Code Editor Panel --- %>
+      <div class="compiler__editor-panel">
+        <div class="compiler__panel-header">
+          <span class="compiler__panel-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            Code
+          </span>
+          <div class="compiler__panel-actions">
+            <button type="button" class="compiler__icon-btn" id="stdin-toggle"
+                    aria-label="Toggle standard input" aria-expanded="false" title="STDIN Input">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </button>
+            <button type="button" class="compiler__icon-btn" id="download-btn"
+                    aria-label="Download code" title="Download Code">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </button>
+            <button type="button" class="compiler__icon-btn" id="reset-btn"
+                    aria-label="Reset to default code" title="Reset code">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+            </button>
+            <button type="button" class="compiler__icon-btn" id="copy-code-btn"
+                    aria-label="Copy code" title="Copy Code">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <%# --- STDIN Panel (hidden by default) --- %>
+        <div class="compiler__stdin" id="stdin-panel" aria-hidden="true">
+          <label for="stdin-input" class="compiler__stdin-label">Standard Input (STDIN)</label>
+          <textarea id="stdin-input" class="compiler__stdin-textarea"
+                    placeholder="Enter input for your program..." rows="3"
+                    spellcheck="false" aria-label="Standard input"></textarea>
+        </div>
+
+        <%# --- CodeMirror Editor Mount Point --- %>
+        <div class="compiler__editor-wrap" id="editor-mount"></div>
+      </div>
+
+      <%# --- Right: Output Panel --- %>
+      <div class="compiler__output-panel">
+        <div class="compiler__panel-header">
+          <span class="compiler__panel-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            Output
+          </span>
+          <div class="compiler__panel-actions">
+            <span class="compiler__exec-info" id="exec-info" aria-live="polite"></span>
+            <button type="button" class="compiler__icon-btn" id="copy-output-btn"
+                    aria-label="Copy output" title="Copy Output">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+            <button type="button" class="compiler__icon-btn" id="clear-output-btn"
+                    aria-label="Clear output" title="Clear">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <pre class="compiler__output" id="output-area" aria-live="polite"
+             aria-label="Program output"><span class="compiler__output-placeholder">Press Run or Ctrl+Enter to execute your code...</span></pre>
+      </div>
+    </div>
+
+    <%# ========== Footer ========== %>
+    <div class="compiler__footer">
+      <span class="compiler__shortcut">
+        <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to Run &nbsp;·&nbsp;
+        <kbd>Tab</kbd> to indent &nbsp;·&nbsp;
+        Auto-saved locally
+      </span>
+      <span class="compiler__powered">
+        Powered by <a href="https://pyodide.org" target="_blank" rel="noopener noreferrer">Pyodide</a>,
+        <a href="https://github.com/nicowillis/JSCPP" target="_blank" rel="noopener noreferrer">JSCPP</a>
+        &amp; <a href="https://sql.js.org" target="_blank" rel="noopener noreferrer">SQL.js</a>
+        — 100% in-browser
+      </span>
+    </div>
+  </div>
+</section>
+
+<%# ================================================================
+    [04] ADSENSE — In-Article
+    ================================================================ %>
+<div class="comp-ad-wrap" aria-label="Advertisement">
+  <div class="container">
+    <ins class="adsbygoogle comp-ad-unit"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot=""
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         aria-hidden="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+<%# ================================================================
+    [05] SUPPORTED LANGUAGES GRID
+    ================================================================ %>
+<section class="comp-languages section-padding" aria-label="Supported languages">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">19 Languages</span>
+      <h2>Code in Any Language</h2>
+      <p class="section-desc">
+        From Python to Rust, we support the most popular programming languages — all with
+        real sandboxed execution and proper version pinning.
+      </p>
+    </div>
+
+    <div class="comp-lang-grid">
+      <div class="comp-lang-card"><span class="comp-lang-icon">🐍</span><span class="comp-lang-name">Python</span><span class="comp-lang-ver">3.10.0</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">⚡</span><span class="comp-lang-name">JavaScript</span><span class="comp-lang-ver">Node 18</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">📘</span><span class="comp-lang-name">TypeScript</span><span class="comp-lang-ver">5.0.3</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">☕</span><span class="comp-lang-name">Java</span><span class="comp-lang-ver">15.0.2</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">⚙️</span><span class="comp-lang-name">C++</span><span class="comp-lang-ver">GCC 10.2</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🔧</span><span class="comp-lang-name">C</span><span class="comp-lang-ver">GCC 10.2</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🔷</span><span class="comp-lang-name">C#</span><span class="comp-lang-ver">6.12.0</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🐹</span><span class="comp-lang-name">Go</span><span class="comp-lang-ver">1.16.2</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🦀</span><span class="comp-lang-name">Rust</span><span class="comp-lang-ver">1.68.2</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">💎</span><span class="comp-lang-name">Ruby</span><span class="comp-lang-ver">3.0.1</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🐘</span><span class="comp-lang-name">PHP</span><span class="comp-lang-ver">8.2.3</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🍎</span><span class="comp-lang-name">Swift</span><span class="comp-lang-ver">5.3.3</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🎯</span><span class="comp-lang-name">Kotlin</span><span class="comp-lang-ver">1.8.20</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🔴</span><span class="comp-lang-name">Scala</span><span class="comp-lang-ver">3.2.2</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">📊</span><span class="comp-lang-name">R</span><span class="comp-lang-ver">4.1.1</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🐪</span><span class="comp-lang-name">Perl</span><span class="comp-lang-ver">5.36.0</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🌙</span><span class="comp-lang-name">Lua</span><span class="comp-lang-ver">5.4.4</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">💻</span><span class="comp-lang-name">Bash</span><span class="comp-lang-ver">5.2.0</span></div>
+      <div class="comp-lang-card"><span class="comp-lang-icon">🗃️</span><span class="comp-lang-name">SQL</span><span class="comp-lang-ver">SQLite 3</span></div>
+    </div>
+  </div>
+</section>
+
+<%# ================================================================
+    [06] FEATURES
+    ================================================================ %>
+<section class="comp-features section-padding" aria-label="Compiler features">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[02]</span>
+      <h2>Built for Developers</h2>
+      <p class="section-desc">Everything you need to write, run, and debug code — without leaving your browser.</p>
+    </div>
+
+    <div class="comp-features-grid">
+      <div class="card comp-feature-card">
+        <div class="comp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Sandboxed Execution</h3>
+        <p>Your code runs in an isolated container via the Piston execution engine. No risk to our servers, no risk to your data.</p>
+      </div>
+
+      <div class="card comp-feature-card">
+        <div class="comp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Lightning Fast</h3>
+        <p>Results in seconds. LRU caching means repeated executions return instantly (⚡ cached). Smart auto-retry on transient errors.</p>
+      </div>
+
+      <div class="card comp-feature-card">
+        <div class="comp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        </div>
+        <h3>STDIN Support</h3>
+        <p>Provide standard input for programs that read from stdin — perfect for competitive programming and interactive programs.</p>
+      </div>
+
+      <div class="card comp-feature-card">
+        <div class="comp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Syntax Highlighting</h3>
+        <p>Full CodeMirror 5 integration with language-aware syntax highlighting, bracket matching, auto-indent, and code folding.</p>
+      </div>
+
+      <div class="card comp-feature-card">
+        <div class="comp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Rich Error Output</h3>
+        <p>Compile errors, runtime errors, and stderr are all displayed clearly with color coding — helping you debug faster.</p>
+      </div>
+
+      <div class="card comp-feature-card">
+        <div class="comp-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <h3>Download &amp; Auto-Save</h3>
+        <p>Download your code as a properly-named file. Your code auto-saves to localStorage — never lose your work on refresh.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ================================================================
+    [07] FAQ
+    ================================================================ %>
+<section class="comp-faq section-padding" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[03]</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="comp-faq-list">
+      <details class="comp-faq-item" open>
+        <summary class="comp-faq-q">Is the online compiler free to use?</summary>
+        <div class="comp-faq-a">
+          <p>Yes, Value.Codes Online Compiler is completely free. No signup, no subscription, no hidden costs. You can run code in all 19 supported languages without creating an account.</p>
+        </div>
+      </details>
+
+      <details class="comp-faq-item">
+        <summary class="comp-faq-q">How does the online compiler execute code?</summary>
+        <div class="comp-faq-a">
+          <p>We use <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener noreferrer">Piston</a>, an open-source code execution engine that runs your code in isolated containers. Your code never runs on our main server — it executes in a sandboxed environment.</p>
+        </div>
+      </details>
+
+      <details class="comp-faq-item">
+        <summary class="comp-faq-q">Which programming languages are supported?</summary>
+        <div class="comp-faq-a">
+          <p>We support 19 languages: Python, JavaScript, TypeScript, Java, C++, C, C#, Go, Rust, Ruby, PHP, Swift, Kotlin, Scala, R, Perl, Lua, Bash, and SQL (SQLite). Each language runs a specific pinned version for consistency.</p>
+        </div>
+      </details>
+
+      <details class="comp-faq-item">
+        <summary class="comp-faq-q">Is there a time limit on code execution?</summary>
+        <div class="comp-faq-a">
+          <p>Yes, each execution has a 30-second timeout. This prevents infinite loops from blocking resources. If your code exceeds this limit, you will receive a timeout error.</p>
+        </div>
+      </details>
+
+      <details class="comp-faq-item">
+        <summary class="comp-faq-q">Can I provide input to my program?</summary>
+        <div class="comp-faq-a">
+          <p>Yes! Click the STDIN button (book icon) in the editor toolbar to open the standard input panel. Type your input there and it will be passed to your program when it runs.</p>
+        </div>
+      </details>
+
+      <details class="comp-faq-item">
+        <summary class="comp-faq-q">Is my code stored or shared anywhere?</summary>
+        <div class="comp-faq-a">
+          <p>No. Your code is sent to the execution engine to run and the output is returned to you. We do not store, log, or share your code. Code is auto-saved to your browser's localStorage only.</p>
+        </div>
+      </details>
+
+      <details class="comp-faq-item">
+        <summary class="comp-faq-q">Does the editor support syntax highlighting?</summary>
+        <div class="comp-faq-a">
+          <p>Yes! We use CodeMirror 5 with full syntax highlighting for all 19 languages, including bracket matching, auto-indent, code folding, and dark/light theme support.</p>
+        </div>
+      </details>
+
+      <details class="comp-faq-item">
+        <summary class="comp-faq-q">What is the maximum code size I can run?</summary>
+        <div class="comp-faq-a">
+          <p>The maximum code size is 64 KB (65,536 characters) and standard input is limited to 16 KB. Output is limited to 100 KB.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<%# ================================================================
+    [08] RELATED TOOLS
+    ================================================================ %>
+<section class="comp-related section-padding" aria-label="Related developer tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[04]</span>
+      <h2>More Developer Tools</h2>
+      <p class="section-desc">Everything you need to write better code — all free, all browser-based.</p>
+    </div>
+
+    <div class="comp-related-grid">
+      <a href="/tools/json-formatter" class="comp-related-card">
+        <span class="comp-related-icon" aria-hidden="true">{ }</span>
+        <div>
+          <h3>JSON Formatter</h3>
+          <p>Format, validate, and minify JSON with syntax highlighting and tree view.</p>
+        </div>
+        <span class="comp-related-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="/tools/code-formatter" class="comp-related-card">
+        <span class="comp-related-icon" aria-hidden="true">&lt;/&gt;</span>
+        <div>
+          <h3>Code Formatter</h3>
+          <p>Beautify and minify HTML, CSS, JavaScript, SQL, and more.</p>
+        </div>
+        <span class="comp-related-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="/tools/regex-builder" class="comp-related-card">
+        <span class="comp-related-icon" aria-hidden="true">.*</span>
+        <div>
+          <h3>Regex Builder</h3>
+          <p>Build and test regular expressions with live match highlighting.</p>
+        </div>
+        <span class="comp-related-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="/tools/hash-generator" class="comp-related-card">
+        <span class="comp-related-icon" aria-hidden="true">#</span>
+        <div>
+          <h3>Hash Generator</h3>
+          <p>Generate MD5, SHA-256, SHA-512 hashes instantly in your browser.</p>
+        </div>
+        <span class="comp-related-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<%# CodeMirror + compiler.js are loaded via pageCSS / pageJS in the route — no inline CDN scripts needed here %>

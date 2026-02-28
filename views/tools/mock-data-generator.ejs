@@ -1,0 +1,171 @@
+<!-- ========================================================================
+     MOCK DATA GENERATOR v1 — views/tools/mock-data-generator.ejs
+     Generate realistic fake data for testing. 100% browser-based.
+     Value.Codes — Free Developer Tools
+     ======================================================================== -->
+
+<!-- TOOL HERO -->
+<section class="tool-hero" aria-label="Mock Data Generator tool">
+  <div class="container">
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools">Tools</a></li>
+        <li aria-current="page">Mock Data Generator</li>
+      </ol>
+    </nav>
+    <div class="tool-hero-content">
+      <div class="tool-hero-text">
+        <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free Tool</span></div>
+        <h1>Mock Data Generator</h1>
+        <p class="tool-hero-desc">Generate realistic fake data for testing and development — names, emails, addresses, phone numbers, dates, UUIDs, and more. Export as JSON, CSV, or SQL.</p>
+      </div>
+      <div class="tool-hero-meta">
+        <span class="badge-pill">JSON / CSV / SQL</span>
+        <span class="badge-pill">100% Private</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL WORKSPACE -->
+<section class="tool-workspace" aria-label="Mock Data Generator workspace">
+  <div class="container">
+    <div class="mock-layout">
+
+      <!-- LEFT: Configuration -->
+      <div class="mock-config-panel">
+        <h2 class="mock-panel-title">Configuration</h2>
+
+        <!-- Row count -->
+        <div class="mock-config-row">
+          <label class="mock-config-label" for="mock-count">Number of rows</label>
+          <input type="number" id="mock-count" class="mock-number-input" value="10" min="1" max="1000" aria-label="Number of rows to generate" />
+        </div>
+
+        <!-- Format -->
+        <div class="mock-config-row">
+          <label class="mock-config-label" for="mock-format">Output format</label>
+          <select id="mock-format" class="mock-select" aria-label="Output format">
+            <option value="json">JSON</option>
+            <option value="json-array">JSON Array</option>
+            <option value="csv">CSV</option>
+            <option value="sql">SQL INSERT</option>
+          </select>
+        </div>
+
+        <!-- Table name (for SQL) -->
+        <div class="mock-config-row mock-sql-only mock-hidden" id="mock-table-row">
+          <label class="mock-config-label" for="mock-table">Table name</label>
+          <input type="text" id="mock-table" class="mock-text-input" value="users" aria-label="SQL table name" />
+        </div>
+
+        <!-- Fields -->
+        <div class="mock-fields-section">
+          <div class="mock-fields-header">
+            <h3 class="mock-config-label">Fields</h3>
+            <button class="btn btn-secondary btn-sm" id="mock-add-field" type="button">+ Add Field</button>
+          </div>
+          <div class="mock-fields-list" id="mock-fields-list" role="list">
+            <!-- Default fields added by JS -->
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="mock-config-actions">
+          <button class="btn btn-primary" id="mock-generate-btn" type="button">Generate Data</button>
+          <button class="btn btn-secondary btn-sm" id="mock-reset-btn" type="button">Reset Fields</button>
+        </div>
+      </div>
+
+      <!-- RIGHT: Output -->
+      <div class="mock-output-panel">
+        <div class="mock-output-header">
+          <h2 class="mock-panel-title">Generated Data</h2>
+          <div class="mock-output-actions">
+            <span class="mock-output-count" id="mock-output-count" aria-live="polite"></span>
+            <button class="btn btn-secondary btn-sm" id="mock-copy-btn" type="button" disabled>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+            <button class="btn btn-secondary btn-sm" id="mock-download-btn" type="button" disabled>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </button>
+          </div>
+        </div>
+        <div class="mock-output-wrap">
+          <textarea class="mock-output-textarea" id="mock-output" readonly spellcheck="false" aria-label="Generated data output" placeholder="Click 'Generate Data' to create mock data..."></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Toast -->
+    <div class="cp-toast" id="mock-toast" role="status" aria-live="polite">Copied!</div>
+  </div>
+</section>
+
+<!-- INFO SECTION -->
+<section class="tool-info-section" aria-label="About Mock Data Generator">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[01]</span>
+      <h2>Why Use Mock Data?</h2>
+    </div>
+    <p class="section-desc">Real data should never be used in development or testing environments. Mock data lets you build and test safely while respecting user privacy.</p>
+
+    <div class="tool-usecases-grid">
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🧪</span>
+        <h3>Unit &amp; Integration Testing</h3>
+        <p>Feed realistic data into test suites to catch edge cases and validate data processing logic.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🎨</span>
+        <h3>UI Prototyping</h3>
+        <p>Populate Figma designs, storybooks, and UI previews with realistic names, emails, and addresses.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🗄️</span>
+        <h3>Database Seeding</h3>
+        <p>Use SQL INSERT output to seed development databases with consistent, repeatable test data.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🔒</span>
+        <h3>GDPR Compliance</h3>
+        <p>Avoid exposing real PII in dev environments. Replace real data with realistic mock data to stay compliant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED TOOLS -->
+<section class="tool-related-section" aria-label="Related tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[02]</span>
+      <h2>Related Tools</h2>
+    </div>
+    <div class="tool-related-grid">
+      <a href="/tools/json-formatter" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">{ }</span>
+        <h3 class="tool-card-name">JSON Formatter</h3>
+        <p class="tool-card-desc">Format and validate generated JSON data.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/hash-generator" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">#</span>
+        <h3 class="tool-card-name">Hash Generator</h3>
+        <p class="tool-card-desc">Generate hashes for mock password fields.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/base64-encoder" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">64</span>
+        <h3 class="tool-card-name">Base64 Encoder</h3>
+        <p class="tool-card-desc">Encode mock data for API testing.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+<%# ============================================================ %>
+<%# Value.Codes — Base HTML Layout                               %>
+<%# ============================================================ %>
+<%# Master layout template that wraps every page. Provides:      %>
+<%# - HTML5 doctype and lang attribute                           %>
+<%# - <head> with meta tags, SEO block, CSS links                %>
+<%# - <body> with header, main content, footer, JS links         %>
+<%# All page-specific data is passed via route render() calls.   %>
+<%# ============================================================ %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ========== CHARACTER SET & VIEWPORT ========== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ========== GOOGLE ADSENSE ========== -->
+  <meta name="google-adsense-account" content="<%= adsensePubId %>">
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= adsensePubId %>" crossorigin="anonymous"></script>
+  <% } %>
+
+  <!-- ========== SEO META BLOCK ========== -->
+  <%- include('../partials/seo-head') %>
+
+  <!-- ========== FAVICON ========== -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- ========== GLOBAL CSS ========== -->
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
+  <!-- ========== PAGE-SPECIFIC CSS ========== -->
+  <% if (typeof pageCSS !== 'undefined' && Array.isArray(pageCSS)) { %>
+    <% pageCSS.forEach(function(cssFile) { %>
+  <link rel="stylesheet" href="<%= cssFile %>">
+    <% }); %>
+  <% } %>
+</head>
+<body>
+  <!-- ========== SITE HEADER ========== -->
+  <%- include('../partials/header') %>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content" role="main">
+    <%- body %>
+  </main>
+
+  <!-- ========== SITE FOOTER ========== -->
+  <%- include('../partials/footer') %>
+
+  <!-- ========== STRUCTURED DATA (JSON-LD) ========== -->
+  <% if (typeof schema !== 'undefined' && schema) { %>
+    <% if (Array.isArray(schema)) { %>
+      <% schema.forEach(function(schemaItem) { %>
+  <script type="application/ld+json"><%- JSON.stringify(schemaItem) %></script>
+      <% }); %>
+    <% } else { %>
+  <script type="application/ld+json"><%- JSON.stringify(schema) %></script>
+    <% } %>
+  <% } %>
+
+  <!-- ========== GLOBAL JS ========== -->
+  <script src="/js/global.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- ========== PAGE-SPECIFIC JS ========== -->
+  <% if (typeof pageJS !== 'undefined' && Array.isArray(pageJS)) { %>
+    <% pageJS.forEach(function(jsFile) { %>
+  <script src="<%= jsFile %>" defer></script>
+    <% }); %>
+  <% } %>
+</body>
+</html>

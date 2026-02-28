@@ -1,0 +1,286 @@
+<!-- ========================================================================
+     CRON BUILDER v1 — views/tools/cron-builder.ejs
+     Build and explain cron expressions visually.
+     100% browser-based — no server calls.
+     Value.Codes — Free Developer Tools
+     ======================================================================== -->
+
+<!-- TOOL HERO -->
+<section class="tool-hero" aria-label="Cron Expression Builder">
+  <div class="container">
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools">Tools</a></li>
+        <li aria-current="page">Cron Builder</li>
+      </ol>
+    </nav>
+    <div class="tool-hero-content">
+      <div class="tool-hero-text">
+        <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free Tool</span></div>
+        <h1>Cron Expression Builder</h1>
+        <p class="tool-hero-desc">Create, validate, and understand cron expressions with a visual interface. See a human-readable description and the next 5 execution times instantly.</p>
+      </div>
+      <div class="tool-hero-meta">
+        <span class="badge-pill">Visual Editor</span>
+        <span class="badge-pill">Next Run Times</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL WORKSPACE -->
+<section class="tool-workspace" aria-label="Cron builder workspace">
+  <div class="container">
+
+    <!-- Expression display -->
+    <div class="cron-expression-bar">
+      <label for="cron-expr" class="cron-expr-label">Cron Expression</label>
+      <div class="cron-expr-wrap">
+        <input type="text" id="cron-expr" class="cron-expr-input" value="* * * * *" spellcheck="false" autocomplete="off" aria-label="Cron expression" />
+        <button class="btn btn-secondary btn-sm" id="cron-copy-btn" type="button" aria-label="Copy expression">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+      <p class="cron-expr-desc" id="cron-desc">Every minute</p>
+      <p class="cron-expr-error cron-expr-error-hidden" id="cron-error" role="alert"></p>
+    </div>
+
+    <!-- Visual builder tabs -->
+    <div class="cron-tabs" role="tablist" aria-label="Builder mode">
+      <button class="cron-tab cron-tab-active" role="tab" id="tab-visual" aria-selected="true" type="button">Visual</button>
+      <button class="cron-tab" role="tab" id="tab-presets" aria-selected="false" type="button">Presets</button>
+    </div>
+
+    <!-- Visual builder -->
+    <div class="cron-panel" id="panel-visual" role="tabpanel" aria-labelledby="tab-visual">
+      <div class="cron-fields-grid">
+
+        <!-- Minute -->
+        <div class="cron-field">
+          <label class="cron-field-label" for="cron-minute-type">Minute</label>
+          <select class="cron-select" id="cron-minute-type" aria-label="Minute type">
+            <option value="every">Every minute</option>
+            <option value="specific">Specific minute(s)</option>
+            <option value="range">Range</option>
+            <option value="every-n">Every N minutes</option>
+          </select>
+          <div class="cron-field-input cron-field-hidden" id="cron-minute-input">
+            <input type="text" class="cron-text-input" id="cron-minute-val" placeholder="e.g. 0,15,30,45" aria-label="Minute values" />
+            <span class="cron-field-hint">Comma-separated, 0–59</span>
+          </div>
+        </div>
+
+        <!-- Hour -->
+        <div class="cron-field">
+          <label class="cron-field-label" for="cron-hour-type">Hour</label>
+          <select class="cron-select" id="cron-hour-type" aria-label="Hour type">
+            <option value="every">Every hour</option>
+            <option value="specific">Specific hour(s)</option>
+            <option value="range">Range</option>
+            <option value="every-n">Every N hours</option>
+          </select>
+          <div class="cron-field-input cron-field-hidden" id="cron-hour-input">
+            <input type="text" class="cron-text-input" id="cron-hour-val" placeholder="e.g. 0,6,12,18" aria-label="Hour values" />
+            <span class="cron-field-hint">Comma-separated, 0–23</span>
+          </div>
+        </div>
+
+        <!-- Day of month -->
+        <div class="cron-field">
+          <label class="cron-field-label" for="cron-dom-type">Day of Month</label>
+          <select class="cron-select" id="cron-dom-type" aria-label="Day of month type">
+            <option value="every">Every day</option>
+            <option value="specific">Specific day(s)</option>
+            <option value="last">Last day</option>
+          </select>
+          <div class="cron-field-input cron-field-hidden" id="cron-dom-input">
+            <input type="text" class="cron-text-input" id="cron-dom-val" placeholder="e.g. 1,15" aria-label="Day of month values" />
+            <span class="cron-field-hint">Comma-separated, 1–31</span>
+          </div>
+        </div>
+
+        <!-- Month -->
+        <div class="cron-field">
+          <label class="cron-field-label" for="cron-month-type">Month</label>
+          <select class="cron-select" id="cron-month-type" aria-label="Month type">
+            <option value="every">Every month</option>
+            <option value="specific">Specific month(s)</option>
+          </select>
+          <div class="cron-field-input cron-field-hidden" id="cron-month-input">
+            <select class="cron-select" id="cron-month-val" multiple size="4" aria-label="Select months">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Day of week -->
+        <div class="cron-field">
+          <label class="cron-field-label" for="cron-dow-type">Day of Week</label>
+          <select class="cron-select" id="cron-dow-type" aria-label="Day of week type">
+            <option value="every">Every day</option>
+            <option value="specific">Specific day(s)</option>
+            <option value="weekdays">Weekdays only</option>
+            <option value="weekends">Weekends only</option>
+          </select>
+          <div class="cron-field-input cron-field-hidden" id="cron-dow-input">
+            <div class="cron-dow-checkboxes" role="group" aria-label="Select days of week">
+              <label><input type="checkbox" value="0" /> Sun</label>
+              <label><input type="checkbox" value="1" /> Mon</label>
+              <label><input type="checkbox" value="2" /> Tue</label>
+              <label><input type="checkbox" value="3" /> Wed</label>
+              <label><input type="checkbox" value="4" /> Thu</label>
+              <label><input type="checkbox" value="5" /> Fri</label>
+              <label><input type="checkbox" value="6" /> Sat</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Presets -->
+    <div class="cron-panel cron-panel-hidden" id="panel-presets" role="tabpanel" aria-labelledby="tab-presets">
+      <div class="cron-presets-grid">
+        <button class="cron-preset-btn" data-cron="* * * * *" type="button">
+          <span class="cron-preset-name">Every minute</span>
+          <code class="cron-preset-expr">* * * * *</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="0 * * * *" type="button">
+          <span class="cron-preset-name">Every hour</span>
+          <code class="cron-preset-expr">0 * * * *</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="0 0 * * *" type="button">
+          <span class="cron-preset-name">Daily at midnight</span>
+          <code class="cron-preset-expr">0 0 * * *</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="0 9 * * *" type="button">
+          <span class="cron-preset-name">Daily at 9 AM</span>
+          <code class="cron-preset-expr">0 9 * * *</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="0 0 * * 0" type="button">
+          <span class="cron-preset-name">Weekly (Sunday midnight)</span>
+          <code class="cron-preset-expr">0 0 * * 0</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="0 0 1 * *" type="button">
+          <span class="cron-preset-name">Monthly (1st day)</span>
+          <code class="cron-preset-expr">0 0 1 * *</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="0 0 1 1 *" type="button">
+          <span class="cron-preset-name">Yearly (Jan 1st)</span>
+          <code class="cron-preset-expr">0 0 1 1 *</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="0 9-17 * * 1-5" type="button">
+          <span class="cron-preset-name">Business hours</span>
+          <code class="cron-preset-expr">0 9-17 * * 1-5</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="*/15 * * * *" type="button">
+          <span class="cron-preset-name">Every 15 minutes</span>
+          <code class="cron-preset-expr">*/15 * * * *</code>
+        </button>
+        <button class="cron-preset-btn" data-cron="0 */6 * * *" type="button">
+          <span class="cron-preset-name">Every 6 hours</span>
+          <code class="cron-preset-expr">0 */6 * * *</code>
+        </button>
+      </div>
+    </div>
+
+    <!-- Next run times -->
+    <div class="cron-next-section">
+      <h3 class="cron-section-label">Next 5 Execution Times</h3>
+      <div class="cron-next-list" id="cron-next-list" aria-live="polite" aria-label="Next scheduled execution times"></div>
+    </div>
+
+    <!-- Cron syntax reference -->
+    <div class="cron-reference">
+      <h3 class="cron-section-label">Cron Syntax Reference</h3>
+      <div class="cron-ref-table">
+        <div class="cron-ref-row cron-ref-header">
+          <span>Field</span><span>Required</span><span>Values</span><span>Special chars</span>
+        </div>
+        <div class="cron-ref-row"><span>Minute</span><span>Yes</span><span>0–59</span><span>* , - /</span></div>
+        <div class="cron-ref-row"><span>Hour</span><span>Yes</span><span>0–23</span><span>* , - /</span></div>
+        <div class="cron-ref-row"><span>Day of month</span><span>Yes</span><span>1–31</span><span>* , - / L</span></div>
+        <div class="cron-ref-row"><span>Month</span><span>Yes</span><span>1–12</span><span>* , -</span></div>
+        <div class="cron-ref-row"><span>Day of week</span><span>Yes</span><span>0–6 (Sun=0)</span><span>* , - /</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INFO SECTION -->
+<section class="tool-info-section" aria-label="About Cron Builder">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[01]</span>
+      <h2>What is a Cron Expression?</h2>
+    </div>
+    <p class="section-desc">Cron is a Unix-based job scheduler. A cron expression is a string with five fields separated by spaces that define a schedule. Cron runs in servers, CI/CD pipelines, cloud functions, and databases.</p>
+
+    <div class="tool-usecases-grid">
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🗄️</span>
+        <h3>Database Backups</h3>
+        <p>Schedule nightly database dumps: <code>0 2 * * *</code> runs at 2 AM every day.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">📧</span>
+        <h3>Email Digests</h3>
+        <p>Send weekly newsletters: <code>0 9 * * 1</code> runs every Monday at 9 AM.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🧹</span>
+        <h3>Log Cleanup</h3>
+        <p>Clear old files monthly: <code>0 0 1 * *</code> runs on the 1st of every month.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">☁️</span>
+        <h3>Cloud Functions</h3>
+        <p>Trigger AWS Lambda, Google Cloud Functions, and Azure Functions using cron syntax.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED TOOLS -->
+<section class="tool-related-section" aria-label="Related tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[02]</span>
+      <h2>Related Tools</h2>
+    </div>
+    <div class="tool-related-grid">
+      <a href="/tools/jwt-decoder" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">🔑</span>
+        <h3 class="tool-card-name">JWT Decoder</h3>
+        <p class="tool-card-desc">Decode and inspect JSON Web Tokens.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/hash-generator" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">#</span>
+        <h3 class="tool-card-name">Hash Generator</h3>
+        <p class="tool-card-desc">Generate MD5, SHA-256 and other hashes.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/regex-builder" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">.*</span>
+        <h3 class="tool-card-name">Regex Builder</h3>
+        <p class="tool-card-desc">Build and test regular expressions.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>

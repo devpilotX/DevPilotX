@@ -1,0 +1,148 @@
+<%# ============================================================ %>
+<%# Value.Codes — Tools Listing Page                           %>
+<%# GET /tools → renders this view                             %>
+<%# Variables: tools (object), toolSlugs (array)              %>
+<%# ============================================================ %>
+
+<%
+/* Map each tool slug to a display icon (text-based, no external deps) */
+var toolIcons = {
+  'json-formatter':      '{ }',
+  'regex-builder':       '.*',
+  'diff-checker':        '⇄',
+  'base64-encoder':      '64',
+  'color-picker':        '◐',
+  'cron-builder':        '⏱',
+  'jwt-decoder':         '🔑',
+  'hash-generator':      '#',
+  'mock-data-generator': '⚡',
+  'code-formatter':      '✦'
+};
+var categoryColors = {
+  'Data':     'data',
+  'Text':     'text',
+  'Encoding': 'encoding',
+  'Design':   'design',
+  'DevOps':   'devops',
+  'Security': 'security',
+  'Code':     'code'
+};
+%>
+
+<!-- ========== TOOLS HERO ========== -->
+<section class="tools-hero" aria-label="Developer Tools">
+  <div class="container">
+    <nav aria-label="Breadcrumb">
+      <ol class="tools-hero-breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Tools</li>
+      </ol>
+    </nav>
+
+    <div class="badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      <span>Free &amp; Browser-Based</span>
+    </div>
+
+    <h1 class="tools-hero-title">
+      Free Developer <span class="accent">Tools</span>
+    </h1>
+    <p class="tools-hero-desc">
+      <%= toolSlugs.length %> browser-based tools for developers. Format JSON, build regex, decode JWTs, generate hashes, compare code, and more — no signup, no data collection.
+    </p>
+
+    <div class="tools-hero-meta">
+      <span class="badge-pill"><%= toolSlugs.length %> Tools</span>
+      <span class="badge-pill">100% Private</span>
+      <span class="badge-pill">No Signup</span>
+      <span class="badge-pill">Works Offline</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FILTER BAR ========== -->
+<div class="tools-filter-bar" role="navigation" aria-label="Filter tools by category">
+  <div class="container">
+    <button class="filter-btn active" data-filter="all" type="button">All Tools</button>
+    <button class="filter-btn" data-filter="Data" type="button">Data</button>
+    <button class="filter-btn" data-filter="Text" type="button">Text</button>
+    <button class="filter-btn" data-filter="Encoding" type="button">Encoding</button>
+    <button class="filter-btn" data-filter="Design" type="button">Design</button>
+    <button class="filter-btn" data-filter="DevOps" type="button">DevOps</button>
+    <button class="filter-btn" data-filter="Security" type="button">Security</button>
+    <button class="filter-btn" data-filter="Code" type="button">Code</button>
+  </div>
+</div>
+
+<!-- ========== TOOLS GRID ========== -->
+<section class="tools-grid-section" aria-label="All developer tools">
+  <div class="container">
+
+    <div class="tools-grid-header">
+      <p class="tools-grid-count" id="tools-count" aria-live="polite">
+        Showing <strong><%= toolSlugs.length %></strong> tools
+      </p>
+      <a href="/compiler" class="btn btn-secondary btn-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Online Compiler
+      </a>
+    </div>
+
+    <div class="tools-grid" id="tools-grid" role="list">
+      <% toolSlugs.forEach(function(slug) { %>
+        <% var tool = tools[slug]; %>
+        <a
+          href="/tools/<%= slug %>"
+          class="tool-card"
+          role="listitem"
+          data-category="<%= tool.category %>"
+          aria-label="<%= tool.name %> — <%= tool.category %>"
+        >
+          <div class="tool-card-header">
+            <div class="tool-card-icon-wrap">
+              <span class="tool-card-icon" aria-hidden="true"><%= toolIcons[slug] || '⚙' %></span>
+            </div>
+            <span class="tool-card-category"><%= tool.category %></span>
+          </div>
+
+          <h2 class="tool-card-name"><%= tool.name %></h2>
+          <p class="tool-card-desc"><%= tool.description %></p>
+
+          <div class="tool-card-footer">
+            <span class="tool-card-badge">Free</span>
+            <span class="tool-card-arrow">
+              Open
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
+      <% }); %>
+    </div>
+
+    <div class="tools-empty" id="tools-empty" aria-live="polite" role="status">
+      <p>No tools found for this category.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== CTA: COMPILER ========== -->
+<section class="tools-compiler-cta" aria-label="Online Compiler">
+  <div class="container">
+    <div class="compiler-cta-card">
+      <div class="compiler-cta-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="compiler-cta-body">
+        <h2 class="compiler-cta-title">Online Compiler</h2>
+        <p class="compiler-cta-desc">Write and run code in 19 languages — Python, JavaScript, Java, C++, Go, Rust, and more. Monaco editor (VS Code engine), stdin support, share links.</p>
+        <div class="compiler-cta-langs" aria-label="Supported languages">
+          <span>Python</span><span>JavaScript</span><span>Java</span><span>C++</span>
+          <span>Go</span><span>Rust</span><span>Ruby</span><span>PHP</span>
+          <span class="lang-more">+11 more</span>
+        </div>
+      </div>
+      <a href="/compiler/" class="btn btn-primary">Launch Compiler</a>
+    </div>
+  </div>
+</section>

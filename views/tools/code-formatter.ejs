@@ -1,0 +1,204 @@
+<!-- ========================================================================
+     CODE FORMATTER v1 — views/tools/code-formatter.ejs
+     Format and beautify code online. 100% browser-based.
+     Value.Codes — Free Developer Tools
+     ======================================================================== -->
+
+<!-- TOOL HERO -->
+<section class="tool-hero" aria-label="Code Formatter tool">
+  <div class="container">
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools">Tools</a></li>
+        <li aria-current="page">Code Formatter</li>
+      </ol>
+    </nav>
+    <div class="tool-hero-content">
+      <div class="tool-hero-text">
+        <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free Tool</span></div>
+        <h1>Code Formatter</h1>
+        <p class="tool-hero-desc">Beautify and format JavaScript, JSON, HTML, CSS, SQL, and more. Configurable indentation, real-time output, copy and download. 100% browser-based.</p>
+      </div>
+      <div class="tool-hero-actions">
+        <button class="btn btn-primary btn-sm" id="cf-format-btn" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="7" y2="18"/></svg>
+          Format
+        </button>
+        <button class="btn btn-secondary btn-sm" id="cf-minify-btn" type="button">Minify</button>
+        <button class="btn btn-secondary btn-sm" id="cf-clear-btn" type="button">Clear</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL WORKSPACE -->
+<section class="tool-workspace" aria-label="Code Formatter workspace">
+  <div class="container">
+
+    <!-- Toolbar -->
+    <div class="cf-toolbar">
+      <div class="cf-toolbar-left">
+        <!-- Language selector -->
+        <div class="cf-lang-wrap">
+          <label for="cf-lang" class="sr-only">Language</label>
+          <select id="cf-lang" class="cf-lang-select" aria-label="Select language">
+            <option value="json">JSON</option>
+            <option value="javascript">JavaScript</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="sql">SQL</option>
+            <option value="xml">XML</option>
+          </select>
+        </div>
+
+        <div class="cf-separator" aria-hidden="true"></div>
+
+        <!-- Indent size -->
+        <label class="cf-indent-label" for="cf-indent">
+          <span class="sr-only">Indentation</span>
+          <select id="cf-indent" class="cf-indent-select" aria-label="Indentation size">
+            <option value="2" selected>2 spaces</option>
+            <option value="4">4 spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="cf-toolbar-right">
+        <button class="cf-icon-btn" id="cf-copy-btn" type="button" aria-label="Copy output" title="Copy output" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+        <button class="cf-icon-btn" id="cf-download-btn" type="button" aria-label="Download formatted file" title="Download" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+        <button class="cf-icon-btn" id="cf-sample-btn" type="button" aria-label="Load sample code" title="Sample">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Status bar -->
+    <div class="cf-status" id="cf-status" role="status" aria-live="polite">
+      <span class="cf-status-dot cf-status-idle" id="cf-status-dot" aria-hidden="true"></span>
+      <span id="cf-status-text">Select a language and paste your code to format it</span>
+    </div>
+
+    <!-- Panels -->
+    <div class="cf-panels" id="cf-panels">
+      <!-- Input Panel -->
+      <div class="cf-panel cf-panel-input">
+        <div class="cf-panel-header">
+          <span class="cf-panel-title">Input</span>
+          <button class="cf-panel-action" id="cf-paste-btn" type="button" aria-label="Paste from clipboard">Paste</button>
+        </div>
+        <div class="cf-editor-wrap">
+          <textarea
+            class="cf-textarea"
+            id="cf-input"
+            spellcheck="false"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            aria-label="Code input"
+            placeholder="Paste your code here..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Resize handle -->
+      <div class="cf-resize-handle" id="cf-resize-handle" role="separator" aria-orientation="vertical" aria-label="Resize panels" tabindex="0">
+        <span class="cf-resize-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="cf-panel cf-panel-output">
+        <div class="cf-panel-header">
+          <span class="cf-panel-title">Output</span>
+          <button class="cf-panel-action" id="cf-copy-output-btn" type="button" aria-label="Copy output" disabled>Copy</button>
+        </div>
+        <div class="cf-editor-wrap">
+          <textarea
+            class="cf-textarea cf-textarea-output"
+            id="cf-output"
+            spellcheck="false"
+            readonly
+            aria-label="Formatted code output"
+            placeholder="Formatted output will appear here..."
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error panel -->
+    <div class="cf-error-panel cf-error-hidden" id="cf-error-panel" role="alert">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+      <span id="cf-error-text"></span>
+    </div>
+
+    <!-- Toast -->
+    <div class="cp-toast" id="cf-toast" role="status" aria-live="polite">Copied!</div>
+
+  </div>
+</section>
+
+<!-- INFO SECTION -->
+<section class="tool-info" aria-label="About Code Formatter">
+  <div class="container">
+    <div class="tool-info-grid">
+      <div class="tool-info-main">
+        <h2>How to Use the Code Formatter</h2>
+        <p>Select your language from the dropdown, paste your code into the input panel, then click <strong>Format</strong>. The formatted output appears in the right panel instantly. Use <strong>Minify</strong> to compress code for production.</p>
+
+        <h3>Supported Languages</h3>
+        <ul class="tool-feature-list">
+          <li><strong>JSON</strong> — Pretty-print with configurable indentation, validates syntax</li>
+          <li><strong>JavaScript</strong> — Basic formatting with proper indentation and spacing</li>
+          <li><strong>HTML</strong> — Indent nested tags, format attributes</li>
+          <li><strong>CSS</strong> — Format rules, properties, and selectors</li>
+          <li><strong>SQL</strong> — Uppercase keywords, align clauses</li>
+          <li><strong>XML</strong> — Indent elements and attributes</li>
+        </ul>
+
+        <h3>Features</h3>
+        <ul class="tool-feature-list">
+          <li>Configurable indentation: 2 spaces, 4 spaces, or tab</li>
+          <li>Minify mode for production-ready compact output</li>
+          <li>Copy and download output with one click</li>
+          <li>Resizable split-panel layout</li>
+          <li>100% browser-based — your code never leaves your device</li>
+        </ul>
+
+        <h3>Keyboard Shortcuts</h3>
+        <div class="tool-shortcuts-inline">
+          <dl class="tool-shortcut-list">
+            <dt><kbd>Ctrl</kbd> + <kbd>Enter</kbd></dt>
+            <dd>Format code</dd>
+            <dt><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd></dt>
+            <dd>Copy output</dd>
+          </dl>
+        </div>
+      </div>
+      <aside class="tool-info-sidebar">
+        <div class="tool-related">
+          <h3>Related Tools</h3>
+          <ul class="tool-related-list">
+            <li><a href="/tools/json-formatter">JSON Formatter</a><span class="text-muted"> — Full-featured JSON tool</span></li>
+            <li><a href="/tools/diff-checker">Diff Checker</a><span class="text-muted"> — Compare code changes</span></li>
+            <li><a href="/compiler">Online Compiler</a><span class="text-muted"> — Run code in 19 languages</span></li>
+          </ul>
+        </div>
+        <div class="tool-shortcuts">
+          <h3>Quick Tips</h3>
+          <ul class="tool-tips-list">
+            <li>Use JSON formatter for advanced JSON features</li>
+            <li>Formatted output is auto-selected for easy copying</li>
+            <li>Drag the resize handle to adjust panel widths</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

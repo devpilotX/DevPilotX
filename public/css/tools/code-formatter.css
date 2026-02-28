@@ -1,0 +1,205 @@
+/* ==========================================================================
+   CODE FORMATTER — Tool-Specific Styles
+   Value.Codes | public/css/tools/code-formatter.css
+   ========================================================================== */
+
+/* Toolbar */
+.cf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .625rem .875rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: .5rem;
+  flex-wrap: wrap;
+}
+
+.cf-toolbar-left,
+.cf-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: .375rem;
+}
+
+.cf-separator {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  margin: 0 .25rem;
+}
+
+.cf-lang-select,
+.cf-indent-select {
+  font-size: .8125rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .3125rem .625rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+.cf-lang-select:focus,
+.cf-indent-select:focus { border-color: var(--accent); }
+
+.cf-icon-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--muted);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.cf-icon-btn:hover:not([disabled]) { background: var(--surface); color: var(--ink); }
+.cf-icon-btn[disabled] { opacity: .4; cursor: not-allowed; }
+
+/* Status */
+.cf-status {
+  display: flex;
+  align-items: center;
+  gap: .375rem;
+  font-size: .8125rem;
+  color: var(--muted);
+  padding: .375rem 0;
+  margin-bottom: .5rem;
+}
+
+.cf-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.cf-status-idle { background: var(--border); }
+.cf-status-ok { background: var(--success); }
+.cf-status-error { background: var(--error); }
+
+/* Panels */
+.cf-panels {
+  display: flex;
+  gap: 0;
+  height: 440px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.cf-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cf-panel-input { border-right: 1px solid var(--border); }
+
+.cf-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem .75rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.cf-panel-title {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--subtle);
+}
+
+.cf-panel-action {
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .1875rem .5rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.cf-panel-action:hover:not([disabled]) { background: var(--accent); color: #fff; border-color: var(--accent); }
+.cf-panel-action[disabled] { opacity: .4; cursor: not-allowed; }
+
+.cf-editor-wrap { flex: 1; overflow: hidden; }
+
+.cf-textarea {
+  width: 100%;
+  height: 100%;
+  font-size: .875rem;
+  font-family: monospace;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  border: none;
+  outline: none;
+  resize: none;
+  padding: .875rem 1rem;
+  tab-size: 2;
+}
+.cf-textarea-output { background: var(--surface); color: var(--muted); }
+.cf-textarea:focus { background: #fefefe; }
+
+/* Resize handle */
+.cf-resize-handle {
+  width: 6px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+.cf-resize-handle:hover { background: var(--border); }
+.cf-resize-handle:focus { outline: 2px solid var(--accent); }
+
+.cf-resize-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.cf-resize-dots span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--subtle);
+}
+
+/* Error panel */
+.cf-error-panel {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .625rem .875rem;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: var(--radius);
+  font-size: .875rem;
+  color: var(--error);
+  margin-top: .5rem;
+}
+.cf-error-hidden { display: none; }
+
+@media (max-width: 640px) {
+  .cf-panels { flex-direction: column; height: auto; }
+  .cf-panel { height: 220px; }
+  .cf-panel-input { border-right: none; border-bottom: 1px solid var(--border); }
+  .cf-resize-handle { width: 100%; height: 6px; cursor: row-resize; }
+  .cf-resize-dots { flex-direction: row; }
+}

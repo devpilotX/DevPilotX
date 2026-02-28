@@ -1,0 +1,414 @@
+<%- include('../partials/seo-head') %>
+
+<main id="main-content">
+
+  <!-- ADSENSE: leaderboard -->
+
+  <!-- TOOL HERO -->
+  <section class="tool-hero" aria-label="Base64 Encoder Decoder">
+    <div class="container">
+      <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools">Tools</a></li>
+          <li aria-current="page">Base64 Encoder</li>
+        </ol>
+      </nav>
+      <div class="tool-hero-header">
+        <span class="tool-hero-icon" aria-hidden="true">🔤</span>
+        <div class="tool-hero-text">
+          <h1>Base64 Encoder <span class="accent">&amp; Decoder</span></h1>
+          <p class="tool-hero-desc">Encode text or files to Base64 and decode Base64 strings back to plain text — instantly, privately, 100% in your browser.</p>
+        </div>
+      </div>
+      <div class="tool-hero-badges">
+        <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Free Forever</span>
+        <span class="badge-pill">No Data Sent to Server</span>
+        <span class="badge-pill">Supports UTF-8</span>
+        <span class="badge-pill">File Upload</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL WORKSPACE -->
+  <section class="tool-workspace" aria-label="Base64 encoder decoder workspace">
+    <div class="container">
+
+      <!-- MODE SWITCHER -->
+      <div class="b64-mode-bar" role="tablist" aria-label="Encoding mode">
+        <button class="b64-mode-tab b64-mode-tab-active" role="tab" id="tab-text" aria-selected="true" aria-controls="panel-text" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Text
+        </button>
+        <button class="b64-mode-tab" role="tab" id="tab-file" aria-selected="false" aria-controls="panel-file" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          File Upload
+        </button>
+      </div>
+
+      <!-- TEXT PANEL -->
+      <div class="b64-panel" id="panel-text" role="tabpanel" aria-labelledby="tab-text">
+
+        <!-- DIRECTION TOGGLE -->
+        <div class="b64-direction-bar">
+          <div class="b64-direction-toggle" role="radiogroup" aria-label="Conversion direction">
+            <button class="b64-dir-btn b64-dir-btn-active" role="radio" aria-checked="true" type="button" data-direction="encode">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/></svg>
+              Encode
+            </button>
+            <button class="b64-dir-btn" role="radio" aria-checked="false" type="button" data-direction="decode">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+              Decode
+            </button>
+          </div>
+          <div class="b64-options">
+            <label class="b64-checkbox-label">
+              <input type="checkbox" class="b64-checkbox" id="b64-url-safe" />
+              <span class="b64-checkbox-custom" aria-hidden="true"></span>
+              URL-safe
+            </label>
+            <label class="b64-checkbox-label">
+              <input type="checkbox" class="b64-checkbox" id="b64-line-break" />
+              <span class="b64-checkbox-custom" aria-hidden="true"></span>
+              Line breaks (76 chars)
+            </label>
+          </div>
+        </div>
+
+        <!-- EDITOR GRID -->
+        <div class="b64-grid">
+          <!-- INPUT -->
+          <div class="b64-editor-col">
+            <div class="b64-editor-header">
+              <label for="b64-input" class="b64-editor-label" id="b64-input-label">Plain Text</label>
+              <div class="b64-editor-meta">
+                <span class="b64-char-count" id="b64-input-count">0 chars</span>
+                <span class="b64-byte-count" id="b64-input-bytes">0 bytes</span>
+              </div>
+            </div>
+            <div class="b64-editor-wrap">
+              <textarea class="b64-textarea" id="b64-input" aria-labelledby="b64-input-label" placeholder="Enter text to encode..." spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+              <div class="b64-editor-actions">
+                <button class="b64-action-btn" id="b64-paste-btn" type="button" aria-label="Paste from clipboard">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                  Paste
+                </button>
+                <button class="b64-action-btn" id="b64-clear-btn" type="button" aria-label="Clear input">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  Clear
+                </button>
+                <button class="b64-action-btn" id="b64-sample-btn" type="button" aria-label="Load sample text">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  Sample
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SWAP BUTTON -->
+          <div class="b64-swap-col">
+            <button class="b64-swap-btn" id="b64-swap-btn" type="button" aria-label="Swap input and output">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            </button>
+          </div>
+
+          <!-- OUTPUT -->
+          <div class="b64-editor-col">
+            <div class="b64-editor-header">
+              <label for="b64-output" class="b64-editor-label" id="b64-output-label">Base64 Encoded</label>
+              <div class="b64-editor-meta">
+                <span class="b64-char-count" id="b64-output-count">0 chars</span>
+                <span class="b64-byte-count" id="b64-output-bytes">0 bytes</span>
+              </div>
+            </div>
+            <div class="b64-editor-wrap">
+              <textarea class="b64-textarea b64-textarea-output" id="b64-output" aria-labelledby="b64-output-label" placeholder="Encoded result will appear here..." readonly spellcheck="false"></textarea>
+              <div class="b64-editor-actions">
+                <button class="b64-action-btn b64-action-btn-primary" id="b64-copy-btn" type="button" aria-label="Copy to clipboard">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy
+                </button>
+                <button class="b64-action-btn" id="b64-download-btn" type="button" aria-label="Download result">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATUS BAR -->
+        <div class="b64-status-bar" id="b64-status-bar" aria-live="polite" aria-atomic="true">
+          <span class="b64-status-icon" id="b64-status-icon" aria-hidden="true"></span>
+          <span class="b64-status-text" id="b64-status-text">Ready — enter text above to encode or decode.</span>
+        </div>
+
+      </div>
+
+      <!-- FILE PANEL -->
+      <div class="b64-panel b64-panel-hidden" id="panel-file" role="tabpanel" aria-labelledby="tab-file">
+        <div class="b64-file-zone" id="b64-file-zone">
+          <div class="b64-file-zone-inner">
+            <svg class="b64-file-zone-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <p class="b64-file-zone-title">Drop a file here or click to browse</p>
+            <p class="b64-file-zone-hint">Max 5 MB · Images, text, PDFs, or any file</p>
+            <input type="file" class="b64-file-input" id="b64-file-input" aria-label="Choose a file to encode to Base64" />
+          </div>
+        </div>
+
+        <!-- FILE INFO -->
+        <div class="b64-file-info b64-file-info-hidden" id="b64-file-info">
+          <div class="b64-file-info-header">
+            <div class="b64-file-info-details">
+              <span class="b64-file-name" id="b64-file-name">—</span>
+              <span class="b64-file-meta" id="b64-file-meta">— · —</span>
+            </div>
+            <button class="b64-action-btn" id="b64-file-remove-btn" type="button" aria-label="Remove file">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Remove
+            </button>
+          </div>
+        </div>
+
+        <!-- FILE OUTPUT -->
+        <div class="b64-file-output b64-file-output-hidden" id="b64-file-output-wrap">
+          <div class="b64-editor-header">
+            <span class="b64-editor-label">Base64 Output</span>
+            <div class="b64-editor-meta">
+              <span class="b64-char-count" id="b64-file-output-count">0 chars</span>
+            </div>
+          </div>
+          <div class="b64-editor-wrap">
+            <textarea class="b64-textarea b64-textarea-output" id="b64-file-output" aria-label="File Base64 output" readonly spellcheck="false" placeholder="Base64 encoded file will appear here..."></textarea>
+            <div class="b64-editor-actions">
+              <label class="b64-checkbox-label b64-file-data-uri-label">
+                <input type="checkbox" class="b64-checkbox" id="b64-data-uri" checked />
+                <span class="b64-checkbox-custom" aria-hidden="true"></span>
+                Data URI
+              </label>
+              <button class="b64-action-btn b64-action-btn-primary" id="b64-file-copy-btn" type="button" aria-label="Copy file Base64 to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+              </button>
+              <button class="b64-action-btn" id="b64-file-download-btn" type="button" aria-label="Download Base64 as text file">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FILE PREVIEW -->
+        <div class="b64-file-preview b64-file-preview-hidden" id="b64-file-preview">
+          <div class="b64-editor-header">
+            <span class="b64-editor-label">Preview</span>
+          </div>
+          <div class="b64-preview-container" id="b64-preview-container"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- HOW IT WORKS -->
+  <section class="tool-info-section" aria-label="How Base64 encoding works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">[01]</span>
+        <h2>How Base64 Encoding Works</h2>
+      </div>
+      <p class="section-desc">Base64 converts binary data into a <strong>safe ASCII string</strong> using 64 printable characters (A–Z, a–z, 0–9, +, /).</p>
+
+      <div class="tool-info-grid">
+        <div class="tool-info-card">
+          <span class="tool-info-card-number" aria-hidden="true">1</span>
+          <h3>Input Bytes</h3>
+          <p>Your text is first converted to raw bytes using UTF-8 encoding. Each character becomes 1–4 bytes.</p>
+        </div>
+        <div class="tool-info-card">
+          <span class="tool-info-card-number" aria-hidden="true">2</span>
+          <h3>Split Into Groups</h3>
+          <p>Bytes are grouped into sets of 3 (24 bits), then split into four 6-bit values. Padding (<code>=</code>) fills any remainder.</p>
+        </div>
+        <div class="tool-info-card">
+          <span class="tool-info-card-number" aria-hidden="true">3</span>
+          <h3>Map to Characters</h3>
+          <p>Each 6-bit value maps to one of 64 characters. The result is ~33% larger than the original but entirely ASCII-safe.</p>
+        </div>
+      </div>
+
+      <!-- VISUAL EXAMPLE -->
+      <div class="b64-example">
+        <div class="b64-example-header">
+          <h3>Example</h3>
+        </div>
+        <div class="b64-example-body">
+          <div class="b64-example-row">
+            <span class="b64-example-label">Input:</span>
+            <code class="b64-example-value">Hello</code>
+          </div>
+          <div class="b64-example-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </div>
+          <div class="b64-example-row">
+            <span class="b64-example-label">ASCII bytes:</span>
+            <code class="b64-example-value">72 101 108 108 111</code>
+          </div>
+          <div class="b64-example-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </div>
+          <div class="b64-example-row">
+            <span class="b64-example-label">Base64:</span>
+            <code class="b64-example-value b64-example-value-accent">SGVsbG8=</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="tool-usecases-section" aria-label="Base64 use cases">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">[02]</span>
+        <h2>Common Use Cases</h2>
+      </div>
+      <p class="section-desc">Base64 is used across the web and in <strong>almost every modern stack.</strong></p>
+      <div class="tool-usecases-grid">
+        <div class="tool-usecase-card">
+          <span class="tool-usecase-icon" aria-hidden="true">🖼️</span>
+          <h3>Embedding Images in HTML/CSS</h3>
+          <p>Convert small images to Data URIs (<code>data:image/png;base64,...</code>) to reduce HTTP requests and speed up rendering.</p>
+        </div>
+        <div class="tool-usecase-card">
+          <span class="tool-usecase-icon" aria-hidden="true">📧</span>
+          <h3>Email Attachments (MIME)</h3>
+          <p>Email protocols (SMTP) use Base64 to encode binary attachments so they can travel through text-only channels.</p>
+        </div>
+        <div class="tool-usecase-card">
+          <span class="tool-usecase-icon" aria-hidden="true">🔑</span>
+          <h3>API Authentication</h3>
+          <p>HTTP Basic Auth encodes <code>username:password</code> as Base64 in the <code>Authorization</code> header. Used in REST APIs worldwide.</p>
+        </div>
+        <div class="tool-usecase-card">
+          <span class="tool-usecase-icon" aria-hidden="true">🪙</span>
+          <h3>JWT Tokens</h3>
+          <p>JSON Web Tokens use Base64url encoding for the header and payload segments. Every JWT you see is Base64 encoded.</p>
+        </div>
+        <div class="tool-usecase-card">
+          <span class="tool-usecase-icon" aria-hidden="true">💾</span>
+          <h3>Data Storage in JSON/XML</h3>
+          <p>When you need to embed binary data inside text formats like JSON or XML, Base64 is the standard approach.</p>
+        </div>
+        <div class="tool-usecase-card">
+          <span class="tool-usecase-icon" aria-hidden="true">🔐</span>
+          <h3>Cryptographic Operations</h3>
+          <p>Hashes, keys, and certificates are often represented as Base64 strings for safe transport and storage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: in-article -->
+
+  <!-- FAQ -->
+  <section class="tool-faq-section" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">[03]</span>
+        <h2>FAQ</h2>
+      </div>
+      <div class="tool-faq-list">
+        <div class="tool-faq-item">
+          <button class="tool-faq-question" type="button" aria-expanded="false">
+            <span>Is Base64 encryption?</span>
+            <svg class="tool-faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="tool-faq-answer" aria-hidden="true">
+            <p><strong>No.</strong> Base64 is an encoding scheme, not encryption. It doesn't provide security — anyone can decode it. It's designed to safely represent binary data as ASCII text, not to hide information.</p>
+          </div>
+        </div>
+        <div class="tool-faq-item">
+          <button class="tool-faq-question" type="button" aria-expanded="false">
+            <span>Why is Base64 output larger than the input?</span>
+            <svg class="tool-faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="tool-faq-answer" aria-hidden="true">
+            <p>Base64 represents every 3 bytes of input as 4 ASCII characters. This means the output is approximately <strong>33% larger</strong> than the original data. The trade-off is universal ASCII compatibility.</p>
+          </div>
+        </div>
+        <div class="tool-faq-item">
+          <button class="tool-faq-question" type="button" aria-expanded="false">
+            <span>What is URL-safe Base64?</span>
+            <svg class="tool-faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="tool-faq-answer" aria-hidden="true">
+            <p>Standard Base64 uses <code>+</code> and <code>/</code> which have special meaning in URLs. URL-safe Base64 replaces them with <code>-</code> and <code>_</code>, and often omits padding <code>=</code> characters. It's used in JWTs, OAuth tokens, and query parameters.</p>
+          </div>
+        </div>
+        <div class="tool-faq-item">
+          <button class="tool-faq-question" type="button" aria-expanded="false">
+            <span>Is my data safe? Does this tool send data to a server?</span>
+            <svg class="tool-faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="tool-faq-answer" aria-hidden="true">
+            <p><strong>Your data never leaves your browser.</strong> All encoding and decoding is performed client-side using JavaScript's built-in <code>btoa()</code>, <code>atob()</code>, and <code>TextEncoder</code>/<code>TextDecoder</code> APIs. Nothing is sent to any server.</p>
+          </div>
+        </div>
+        <div class="tool-faq-item">
+          <button class="tool-faq-question" type="button" aria-expanded="false">
+            <span>Can I encode files and images?</span>
+            <svg class="tool-faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="tool-faq-answer" aria-hidden="true">
+            <p>Yes. Switch to the "File Upload" tab to drag and drop any file up to 5 MB. The tool will output the Base64 string and optionally wrap it in a Data URI for direct embedding in HTML or CSS.</p>
+          </div>
+        </div>
+        <div class="tool-faq-item">
+          <button class="tool-faq-question" type="button" aria-expanded="false">
+            <span>What character encoding does this tool use?</span>
+            <svg class="tool-faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="tool-faq-answer" aria-hidden="true">
+            <p>This tool uses <strong>UTF-8</strong> encoding by default. Unlike the browser's native <code>btoa()</code> which only supports Latin-1, this tool correctly handles all Unicode characters including emoji and CJK characters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED TOOLS -->
+  <section class="tool-related-section" aria-label="Related tools">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">[04]</span>
+        <h2>Related Tools</h2>
+      </div>
+      <div class="tool-related-grid">
+        <a href="/tools/hash-generator" class="tool-card">
+          <span class="tool-card-icon" aria-hidden="true">#</span>
+          <h3 class="tool-card-name">Hash Generator</h3>
+          <p class="tool-card-desc">Generate MD5, SHA-1, SHA-256, SHA-512 hashes from any text.</p>
+          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        </a>
+        <a href="/tools/jwt-decoder" class="tool-card">
+          <span class="tool-card-icon" aria-hidden="true">🔑</span>
+          <h3 class="tool-card-name">JWT Decoder</h3>
+          <p class="tool-card-desc">Decode and inspect JSON Web Tokens. Check expiry and claims.</p>
+          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        </a>
+        <a href="/tools/json-formatter" class="tool-card">
+          <span class="tool-card-icon" aria-hidden="true">{ }</span>
+          <h3 class="tool-card-name">JSON Formatter</h3>
+          <p class="tool-card-desc">Format, validate, and minify JSON data instantly.</p>
+          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE: leaderboard -->
+
+</main>

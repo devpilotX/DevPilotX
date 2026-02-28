@@ -1,0 +1,557 @@
+<%# ============================================================ %>
+<%# Value.Codes — Contribute / Open Source Page               %>
+<%# ============================================================ %>
+<%# Sections: Hero (live stats), Why, How-To Steps,           %>
+<%# Areas, Good First Issues (live), Guidelines,              %>
+<%# Code of Conduct, CTA                                      %>
+<%# ============================================================ %>
+
+
+  <!-- ================================================================
+       [01] HERO
+       ================================================================ -->
+  <section class="contribute-hero" aria-label="Contribute hero">
+    <div class="container">
+
+      <div class="contribute-hero__badge">
+        <span class="badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Open Source &amp; Community-Driven
+        </span>
+      </div>
+
+      <h1 class="contribute-hero__title">Help build the tools<br>developers love.</h1>
+
+      <p class="contribute-hero__desc">
+        Value.Codes is open source. Whether you fix a bug, improve docs,
+        or suggest a feature — every contribution ships to thousands of
+        developers and gets you credited in the project.
+      </p>
+
+      <div class="contribute-hero__actions">
+        <a href="https://github.com/Value-Codes/value-codes-platform"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24"
+               fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839
+              9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.604
+              -3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62
+              .069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341
+              1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11
+              -4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098
+              -2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59
+              0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202
+              2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687
+              -4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744
+              0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477
+              -10-10-10z"/>
+          </svg>
+          View on GitHub
+        </a>
+        <a href="#how-to-contribute" class="btn btn-secondary">How to Contribute</a>
+      </div>
+
+      <div class="contribute-hero__stats" aria-label="Repository statistics">
+        <div class="contribute-stat">
+          <span class="contribute-stat__number" id="stat-stars">—</span>
+          <span class="contribute-stat__label">GitHub Stars</span>
+        </div>
+        <div class="contribute-stat">
+          <span class="contribute-stat__number" id="stat-forks">—</span>
+          <span class="contribute-stat__label">Forks</span>
+        </div>
+        <div class="contribute-stat">
+          <span class="contribute-stat__number">85+</span>
+          <span class="contribute-stat__label">Contributors</span>
+        </div>
+        <div class="contribute-stat">
+          <span class="contribute-stat__number">MIT</span>
+          <span class="contribute-stat__label">License</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       [02] WHY CONTRIBUTE
+       ================================================================ -->
+  <section class="content-section" aria-labelledby="why-heading">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 id="why-heading">Why Contribute?</h2>
+    </div>
+    <p class="section-desc">
+      Join a growing community of developers building tools that make a
+      real difference every day.
+    </p>
+
+    <div class="contribute-why__grid">
+
+      <div class="contribute-why__card">
+        <div class="contribute-why__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Real-World Impact</h3>
+        <p>Your code runs for thousands of developers every day. Every
+        improvement ships to production and helps real people get their
+        work done faster.</p>
+      </div>
+
+      <div class="contribute-why__card">
+        <div class="contribute-why__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3>Grow Your Skills</h3>
+        <p>Work with Node.js, Express, EJS, and modern frontend patterns.
+        Build portfolio-worthy contributions with structured code review
+        and genuine feedback from maintainers.</p>
+      </div>
+
+      <div class="contribute-why__card">
+        <div class="contribute-why__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="7"/>
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+          </svg>
+        </div>
+        <h3>Get Recognised</h3>
+        <p>All contributors are credited in our GitHub README and on this
+        page. Consistent contributors are invited to join the core
+        maintainer team.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       [03] HOW TO CONTRIBUTE — STEPS
+       ================================================================ -->
+  <section class="content-section" id="how-to-contribute"
+           aria-labelledby="how-heading">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 id="how-heading">How to Contribute</h2>
+    </div>
+    <p class="section-desc">
+      Get your first pull request merged in minutes with these four steps.
+    </p>
+
+    <div class="contribute-steps">
+
+      <div class="contribute-step">
+        <div class="contribute-step__number" aria-hidden="true">1</div>
+        <div class="contribute-step__content">
+          <h3>Fork &amp; Clone the Repository</h3>
+          <p>Start by forking the repo on GitHub, then clone your fork locally.</p>
+          <div class="contribute-step__code">
+            <code>git clone https://github.com/YOUR-USERNAME/value-codes-platform.git
+cd value-codes-platform</code>
+            <button class="contribute-copy-btn"
+                    data-copy="git clone https://github.com/YOUR-USERNAME/value-codes-platform.git&#10;cd value-codes-platform"
+                    aria-label="Copy code" type="button">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contribute-step">
+        <div class="contribute-step__number" aria-hidden="true">2</div>
+        <div class="contribute-step__content">
+          <h3>Install Dependencies</h3>
+          <p>Install all required packages with npm.</p>
+          <div class="contribute-step__code">
+            <code>npm install</code>
+            <button class="contribute-copy-btn"
+                    data-copy="npm install"
+                    aria-label="Copy code" type="button">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contribute-step">
+        <div class="contribute-step__number" aria-hidden="true">3</div>
+        <div class="contribute-step__content">
+          <h3>Create a Feature Branch</h3>
+          <p>Always work on a new branch — never commit directly to <code>main</code>.</p>
+          <div class="contribute-step__code">
+            <code>git checkout -b feature/your-feature-name</code>
+            <button class="contribute-copy-btn"
+                    data-copy="git checkout -b feature/your-feature-name"
+                    aria-label="Copy code" type="button">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contribute-step">
+        <div class="contribute-step__number" aria-hidden="true">4</div>
+        <div class="contribute-step__content">
+          <h3>Commit &amp; Open a Pull Request</h3>
+          <p>Push your branch and open a PR on GitHub. Reference the related
+          issue with <code>#issue-number</code> in your PR description.</p>
+          <div class="contribute-step__code">
+            <code>git add .
+git commit -m "feat: describe your change"
+git push origin feature/your-feature-name</code>
+            <button class="contribute-copy-btn"
+                    data-copy="git add .&#10;git commit -m &quot;feat: describe your change&quot;&#10;git push origin feature/your-feature-name"
+                    aria-label="Copy code" type="button">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       [04] CONTRIBUTION AREAS
+       ================================================================ -->
+  <section class="content-section" aria-labelledby="areas-heading">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 id="areas-heading">Ways to Contribute</h2>
+    </div>
+    <p class="section-desc">
+      Not sure where to start? Pick the area that best matches your skills.
+    </p>
+
+    <div class="contribute-areas__grid">
+
+      <div class="contribute-area">
+        <div class="contribute-area__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <h3>Bug Reports &amp; Fixes</h3>
+        <p>Found something broken? Open an issue with steps to reproduce,
+        or dive in and fix it yourself.</p>
+        <span class="tag tag--orange">Beginner Friendly</span>
+      </div>
+
+      <div class="contribute-area">
+        <div class="contribute-area__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3>New Features</h3>
+        <p>Have an idea for a new tool or improvement? Open a feature
+        request issue first so we can align on scope and approach.</p>
+        <span class="tag tag--blue">JavaScript</span>
+        <span class="tag tag--purple">Node.js</span>
+      </div>
+
+      <div class="contribute-area">
+        <div class="contribute-area__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0
+              2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <h3>Documentation</h3>
+        <p>Improve the README, add inline comments, or write guides.
+        Good docs are just as valuable as code — often more so.</p>
+        <span class="tag tag--green">Good First Issue</span>
+      </div>
+
+      <div class="contribute-area">
+        <div class="contribute-area__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9"/>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <h3>UI &amp; Design</h3>
+        <p>Help improve the visual design, accessibility, and overall
+        user experience of existing tools and pages.</p>
+        <span class="tag tag--purple">CSS</span>
+        <span class="tag tag--yellow">UX</span>
+      </div>
+
+      <div class="contribute-area">
+        <div class="contribute-area__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h3>Performance</h3>
+        <p>Profile slow pages, optimise queries, reduce bundle sizes,
+        and improve Core Web Vitals scores for all users.</p>
+        <span class="tag tag--blue">Advanced</span>
+      </div>
+
+      <div class="contribute-area">
+        <div class="contribute-area__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Community Support</h3>
+        <p>Answer questions in GitHub Discussions, triage issues, and
+        help welcome new contributors to the project.</p>
+        <span class="tag tag--green">No Code Required</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       [05] GOOD FIRST ISSUES — live via /api/github-issues
+       ================================================================ -->
+  <section class="content-section" aria-labelledby="issues-heading">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 id="issues-heading">Good First Issues</h2>
+    </div>
+    <p class="section-desc">
+      New to the project? These open issues are tagged as great starting points.
+    </p>
+
+    <div class="contribute-issues__list" id="issues-list">
+      <%# Fallback content — replaced by contribute.js if GitHub API responds %>
+      <div class="contribute-issue">
+        <div class="contribute-issue__status contribute-issue__status--open">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+        </div>
+        <div class="contribute-issue__body">
+          <h3>
+            <a href="https://github.com/Value-Codes/value-codes-platform/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+               target="_blank" rel="noopener">
+              Browse good first issues on GitHub
+            </a>
+          </h3>
+          <div class="contribute-issue__meta">
+            <span class="tag tag--green">good first issue</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contribute-issues__cta">
+      <a href="https://github.com/Value-Codes/value-codes-platform/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+         target="_blank" rel="noopener" class="btn btn-secondary">
+        View All Issues on GitHub
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       [06] CONTRIBUTION GUIDELINES
+       ================================================================ -->
+  <section class="content-section" aria-labelledby="guidelines-heading">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 id="guidelines-heading">Contribution Guidelines</h2>
+    </div>
+    <p class="section-desc">
+      Follow these guidelines to keep the codebase clean and pull requests
+      easy to review.
+    </p>
+
+    <div class="contribute-guidelines__grid">
+
+      <div class="contribute-guideline">
+        <h3>Code Style</h3>
+        <ul class="contribute-guideline__list">
+          <li>Use <code>'use strict'</code> in all Node.js files</li>
+          <li>Use <code>var</code> in route files, consistent with the codebase</li>
+          <li>Keep functions small and single-purpose</li>
+          <li>No trailing whitespace, 2-space indentation</li>
+          <li>Validate all user input at API boundaries</li>
+        </ul>
+      </div>
+
+      <div class="contribute-guideline">
+        <h3>Commit Messages</h3>
+        <ul class="contribute-guideline__list">
+          <li>Use conventional commits: <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>refactor:</code></li>
+          <li>Keep the subject line under 72 characters</li>
+          <li>Reference issues with <code>closes #123</code> in the body</li>
+          <li>Write in the imperative mood ("add feature" not "added")</li>
+        </ul>
+      </div>
+
+      <div class="contribute-guideline">
+        <h3>Pull Requests</h3>
+        <ul class="contribute-guideline__list">
+          <li>One PR per feature or fix — keep the scope small</li>
+          <li>Describe what changed and why in the PR description</li>
+          <li>Include screenshots for any visual changes</li>
+          <li>Ensure there are no console errors before submitting</li>
+          <li>Be responsive to reviewer feedback within a week</li>
+        </ul>
+      </div>
+
+      <div class="contribute-guideline">
+        <h3>Issues &amp; Discussions</h3>
+        <ul class="contribute-guideline__list">
+          <li>Search existing issues before opening a new one</li>
+          <li>Use the provided issue templates where available</li>
+          <li>For bugs, include browser, OS, and reproduction steps</li>
+          <li>Feature requests should explain the use case clearly</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       [07] CODE OF CONDUCT
+       ================================================================ -->
+  <section class="content-section" aria-labelledby="conduct-heading">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <h2 id="conduct-heading">Code of Conduct</h2>
+    </div>
+
+    <div class="contribute-conduct__card">
+      <h2>Our Community Standards</h2>
+      <p>
+        We are committed to making participation in the Value.Codes project
+        a welcoming and harassment-free experience for everyone, regardless
+        of experience level, background, or identity.
+      </p>
+
+      <div class="contribute-conduct__principles">
+        <div class="contribute-conduct__principle">
+          <strong>Be Respectful</strong>
+          <p>Treat all community members with respect. Disagreement is
+          normal — disrespect is not.</p>
+        </div>
+        <div class="contribute-conduct__principle">
+          <strong>Be Constructive</strong>
+          <p>Offer helpful criticism. Focus on the code and ideas, not
+          the person who wrote them.</p>
+        </div>
+        <div class="contribute-conduct__principle">
+          <strong>Be Inclusive</strong>
+          <p>Welcome contributors of all skill levels. Everyone was a
+          beginner once — including the maintainers.</p>
+        </div>
+        <div class="contribute-conduct__principle">
+          <strong>Be Patient</strong>
+          <p>Maintainers are volunteers. Reviews may take time — follow
+          up politely if a week has passed.</p>
+        </div>
+      </div>
+
+      <p class="contribute-conduct__report">
+        Violations of this code of conduct may be reported via
+        <a href="/contact">our contact page</a>. All reports are reviewed
+        and investigated promptly and in confidence.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       [08] CTA
+       ================================================================ -->
+  <section class="contribute-cta section-padding" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="contribute-cta__card">
+
+        <h2 id="cta-heading">Ready to make your first contribution?</h2>
+        <p>
+          The best first step is to browse the open issues, pick one tagged
+          "good first issue", and leave a comment saying you'd like to work
+          on it. A maintainer will guide you from there.
+        </p>
+
+        <div class="contribute-cta__actions">
+          <a href="https://github.com/Value-Codes/value-codes-platform"
+             target="_blank" rel="noopener" class="btn btn-primary">
+            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24"
+                 fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839
+                9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.604
+                -3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62
+                .069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341
+                1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11
+                -4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098
+                -2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59
+                0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202
+                2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687
+                -4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744
+                0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477
+                -10-10-10z"/>
+            </svg>
+            View on GitHub
+          </a>
+          <a href="https://github.com/Value-Codes/value-codes-platform/issues?q=is%3Aopen+label%3A%22good+first+issue%22"
+             target="_blank" rel="noopener" class="btn btn-secondary">
+            Browse Issues
+          </a>
+        </div>
+
+        <div class="contribute-cta__links">
+          <a href="https://github.com/Value-Codes/value-codes-platform/blob/main/CONTRIBUTING.md"
+             target="_blank" rel="noopener">CONTRIBUTING.md</a>
+          <a href="https://github.com/Value-Codes/value-codes-platform/blob/main/LICENSE"
+             target="_blank" rel="noopener">MIT License</a>
+          <a href="/contact">Contact the Team</a>
+        </div>
+
+      </div>
+    </div>
+  </section>

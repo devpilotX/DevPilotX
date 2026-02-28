@@ -1,0 +1,195 @@
+<!-- ========================================================================
+     JWT DECODER v1 — views/tools/jwt-decoder.ejs
+     Decode and inspect JSON Web Tokens. 100% browser-based.
+     Value.Codes — Free Developer Tools
+     ======================================================================== -->
+
+<!-- TOOL HERO -->
+<section class="tool-hero" aria-label="JWT Decoder tool">
+  <div class="container">
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools">Tools</a></li>
+        <li aria-current="page">JWT Decoder</li>
+      </ol>
+    </nav>
+    <div class="tool-hero-content">
+      <div class="tool-hero-text">
+        <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free Tool</span></div>
+        <h1>JWT Decoder</h1>
+        <p class="tool-hero-desc">Decode, inspect, and analyze JSON Web Tokens instantly. View the header, payload, claims, and expiration details. All decoding happens in your browser — nothing is sent to any server.</p>
+      </div>
+      <div class="tool-hero-meta">
+        <span class="badge-pill">100% Private</span>
+        <span class="badge-pill">No Data Sent</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL WORKSPACE -->
+<section class="tool-workspace" aria-label="JWT Decoder workspace">
+  <div class="container">
+
+    <!-- Input -->
+    <div class="jwt-input-section">
+      <div class="jwt-input-header">
+        <label for="jwt-input" class="jwt-label">Paste your JWT token</label>
+        <div class="jwt-input-actions">
+          <button class="btn btn-secondary btn-sm" id="jwt-paste-btn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            Paste
+          </button>
+          <button class="btn btn-secondary btn-sm" id="jwt-sample-btn" type="button">Sample</button>
+          <button class="btn btn-secondary btn-sm" id="jwt-clear-btn" type="button">Clear</button>
+        </div>
+      </div>
+      <textarea
+        class="jwt-textarea"
+        id="jwt-input"
+        placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+        rows="4"
+        spellcheck="false"
+        autocomplete="off"
+        autocapitalize="off"
+        aria-label="JWT token input"
+      ></textarea>
+      <div class="jwt-token-visual" id="jwt-token-visual" aria-hidden="true"></div>
+    </div>
+
+    <!-- Status bar -->
+    <div class="jwt-status-bar" id="jwt-status" role="status" aria-live="polite">
+      <span class="jwt-status-dot jwt-status-idle" id="jwt-status-dot" aria-hidden="true"></span>
+      <span id="jwt-status-text">Paste a JWT token above to decode it</span>
+    </div>
+
+    <!-- Output panels -->
+    <div class="jwt-output-grid" id="jwt-output-grid">
+
+      <!-- Header -->
+      <div class="jwt-panel jwt-panel-header-col">
+        <div class="jwt-panel-title">
+          <span class="jwt-part-dot jwt-part-header" aria-hidden="true"></span>
+          Header
+          <button class="jwt-copy-section" data-section="header" type="button" aria-label="Copy header JSON">Copy</button>
+        </div>
+        <div class="jwt-panel-desc">Algorithm &amp; token type</div>
+        <pre class="jwt-json-output" id="jwt-header-out" aria-label="JWT header JSON"></pre>
+      </div>
+
+      <!-- Payload -->
+      <div class="jwt-panel jwt-panel-payload-col">
+        <div class="jwt-panel-title">
+          <span class="jwt-part-dot jwt-part-payload" aria-hidden="true"></span>
+          Payload
+          <button class="jwt-copy-section" data-section="payload" type="button" aria-label="Copy payload JSON">Copy</button>
+        </div>
+        <div class="jwt-panel-desc">Claims &amp; data</div>
+        <pre class="jwt-json-output" id="jwt-payload-out" aria-label="JWT payload JSON"></pre>
+      </div>
+
+      <!-- Signature + Claims -->
+      <div class="jwt-panel jwt-panel-sig-col">
+        <div class="jwt-panel-title">
+          <span class="jwt-part-dot jwt-part-sig" aria-hidden="true"></span>
+          Signature
+        </div>
+        <div class="jwt-panel-desc">Verification hash (not verified without secret)</div>
+        <div class="jwt-sig-value" id="jwt-sig-out"></div>
+
+        <!-- Claims summary -->
+        <div class="jwt-claims-section" id="jwt-claims-section">
+          <h3 class="jwt-claims-title">Claims</h3>
+          <div class="jwt-claims-list" id="jwt-claims-list" aria-label="JWT claims"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Toast -->
+    <div class="cp-toast" id="jwt-toast" role="status" aria-live="polite">Copied!</div>
+
+  </div>
+</section>
+
+<!-- INFO SECTION -->
+<section class="tool-info-section" aria-label="About JWT Decoder">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[01]</span>
+      <h2>What is a JSON Web Token?</h2>
+    </div>
+    <p class="section-desc">A JWT (JSON Web Token) is a compact, URL-safe way to represent claims between two parties. JWTs are widely used for authentication and authorization in web applications.</p>
+
+    <div class="tool-usecases-grid">
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🔐</span>
+        <h3>Authentication</h3>
+        <p>After login, servers issue a JWT. The client sends it with every request to prove identity without re-querying the database.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🔄</span>
+        <h3>Authorization</h3>
+        <p>JWTs carry roles and permissions in the payload, letting APIs grant or deny access without a session lookup.</p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">🌐</span>
+        <h3>API Security</h3>
+        <p>REST APIs use Bearer tokens (JWTs) in the Authorization header: <code>Authorization: Bearer &lt;token&gt;</code></p>
+      </div>
+      <div class="tool-usecase-card">
+        <span class="tool-usecase-icon" aria-hidden="true">⚠️</span>
+        <h3>Security Note</h3>
+        <p>JWT payload is Base64-encoded, not encrypted. Never store sensitive data in a JWT unless you use JWE (JSON Web Encryption).</p>
+      </div>
+    </div>
+
+    <div class="tool-example">
+      <h3>JWT Structure</h3>
+      <p style="font-size:.875rem;color:var(--muted);margin-bottom:.75rem;">A JWT has three parts separated by dots (<code>.</code>):</p>
+      <div style="font-family:monospace;font-size:.875rem;line-height:1.7;">
+        <span style="color:#e76f51;">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><!-- header -->
+        <span style="color:var(--muted);">.</span>
+        <span style="color:#2a9d8f;">eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIn0</span><!-- payload -->
+        <span style="color:var(--muted);">.</span>
+        <span style="color:#e9c46a;">SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span><!-- signature -->
+      </div>
+      <div style="display:flex;gap:1.5rem;margin-top:.75rem;font-size:.8125rem;flex-wrap:wrap;">
+        <span style="color:#e76f51;">■ Header — algorithm &amp; type</span>
+        <span style="color:#2a9d8f;">■ Payload — claims &amp; data</span>
+        <span style="color:#e9c46a;">■ Signature — verification</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED TOOLS -->
+<section class="tool-related-section" aria-label="Related tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number" aria-hidden="true">[02]</span>
+      <h2>Related Tools</h2>
+    </div>
+    <div class="tool-related-grid">
+      <a href="/tools/base64-encoder" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">64</span>
+        <h3 class="tool-card-name">Base64 Encoder</h3>
+        <p class="tool-card-desc">Encode and decode Base64 strings.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/hash-generator" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">#</span>
+        <h3 class="tool-card-name">Hash Generator</h3>
+        <p class="tool-card-desc">Generate SHA-256, MD5, and more.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+      <a href="/tools/json-formatter" class="tool-card">
+        <span class="tool-card-icon" aria-hidden="true">{ }</span>
+        <h3 class="tool-card-name">JSON Formatter</h3>
+        <p class="tool-card-desc">Format and validate JSON data.</p>
+        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>

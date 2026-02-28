@@ -1,0 +1,339 @@
+<!-- views/tools/json-formatter.ejs -->
+<!-- ========== JSON FORMATTER TOOL PAGE — v2.0 ========== -->
+<!-- Production tool page for Value.Codes JSON Formatter -->
+<!-- Rating target: 9.5+ -->
+
+<section class="tool-hero" aria-label="JSON Formatter">
+  <div class="container">
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools">Tools</a></li>
+        <li aria-current="page">JSON Formatter</li>
+      </ol>
+    </nav>
+
+    <div class="tool-hero-content">
+      <div class="tool-hero-text">
+        <div class="badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>Free Tool</span>
+        </div>
+        <h1>JSON Formatter</h1>
+        <p class="tool-hero-desc">Format, validate, minify, and fix JSON instantly. Syntax highlighted, dark mode, tree view with JSON path — 100% browser-based, your data never leaves your device.</p>
+      </div>
+      <div class="tool-hero-actions">
+        <button class="btn btn-primary btn-sm" id="btn-format" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          Format
+        </button>
+        <button class="btn btn-secondary btn-sm" id="btn-minify" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 9 2 12 5 15"/><polyline points="19 9 22 12 19 15"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          Minify
+        </button>
+        <button class="btn btn-secondary btn-sm" id="btn-validate" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Validate
+        </button>
+        <button class="btn btn-secondary btn-sm" id="btn-fix" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Fix JSON
+        </button>
+        <button class="btn btn-secondary btn-sm" id="btn-diff" type="button" title="Show diff between original and fixed/formatted">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Diff
+        </button>
+        <div class="jf-theme-toggle-wrap">
+          <button class="jf-theme-toggle" id="btn-theme" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg class="jf-theme-icon-light" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="jf-theme-icon-dark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tool-workspace" aria-label="JSON Formatter workspace">
+  <div class="container">
+
+    <!-- Toolbar -->
+    <div class="jf-toolbar" role="toolbar" aria-label="Formatter controls">
+      <div class="jf-toolbar-left">
+        <div class="jf-tab-group" role="tablist" aria-label="View mode">
+          <button class="jf-tab jf-tab-active" id="tab-editor" role="tab" aria-selected="true" aria-controls="panel-editor" type="button">Editor</button>
+          <button class="jf-tab" id="tab-tree" role="tab" aria-selected="false" aria-controls="panel-tree" type="button">Tree View</button>
+          <button class="jf-tab" id="tab-diff" role="tab" aria-selected="false" aria-controls="panel-diff" type="button">Diff</button>
+        </div>
+        <div class="jf-separator" aria-hidden="true"></div>
+        <label class="jf-indent-label" for="indent-select">
+          <span class="sr-only">Indentation</span>
+          <select class="jf-indent-select" id="indent-select">
+            <option value="2" selected>2 spaces</option>
+            <option value="4">4 spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+        </label>
+        <div class="jf-separator" aria-hidden="true"></div>
+        <div class="jf-undo-group">
+          <button class="jf-icon-btn" id="btn-undo" type="button" aria-label="Undo" title="Undo (Ctrl+Z)" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          </button>
+          <button class="jf-icon-btn" id="btn-redo" type="button" aria-label="Redo" title="Redo (Ctrl+Y)" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.13-9.36L23 10"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="jf-toolbar-right">
+        <div class="jf-stats" id="jf-stats" aria-live="polite">
+          <span class="jf-stat" id="stat-lines">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg>
+            <span>0 lines</span>
+          </span>
+          <span class="jf-stat" id="stat-size">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>0 B</span>
+          </span>
+          <span class="jf-stat" id="stat-keys">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>0 keys</span>
+          </span>
+          <span class="jf-stat" id="stat-depth">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><line x1="6" y1="18" x2="6" y2="22"/><line x1="18" y1="18" x2="18" y2="22"/><line x1="2" y1="18" x2="22" y2="18"/><line x1="2" y1="9" x2="22" y2="9"/></svg>
+            <span>Depth: 0</span>
+          </span>
+        </div>
+        <div class="jf-separator jf-separator-stats" aria-hidden="true"></div>
+        <button class="jf-icon-btn" id="btn-copy" type="button" aria-label="Copy output" title="Copy output (Ctrl+Shift+C)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+        <button class="jf-icon-btn" id="btn-download" type="button" aria-label="Download JSON file" title="Download .json">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+        <button class="jf-icon-btn" id="btn-upload" type="button" aria-label="Upload JSON file" title="Upload .json file">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </button>
+        <input type="file" id="file-input" class="sr-only" accept=".json,.txt,application/json" aria-label="Upload JSON file">
+        <button class="jf-icon-btn jf-icon-btn-danger" id="btn-clear" type="button" aria-label="Clear editor" title="Clear (Ctrl+Shift+X)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Status bar -->
+    <div class="jf-status" id="jf-status" role="status" aria-live="polite">
+      <div class="jf-status-indicator" id="jf-status-indicator">
+        <span class="jf-status-dot jf-status-dot-idle" id="jf-status-dot" aria-hidden="true"></span>
+        <span class="jf-status-text" id="jf-status-text">Paste or type JSON to get started</span>
+      </div>
+      <div class="jf-status-right">
+        <span class="jf-status-path" id="jf-status-path" title="Click to copy JSON path"></span>
+        <span class="jf-status-perf" id="jf-status-perf"></span>
+      </div>
+    </div>
+
+    <!-- Performance warning -->
+    <div class="jf-perf-warning jf-perf-warning-hidden" id="jf-perf-warning" role="alert">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span id="jf-perf-text">Large file detected. Some features may be slower.</span>
+      <button class="jf-perf-dismiss" id="jf-perf-dismiss" type="button" aria-label="Dismiss warning">✕</button>
+    </div>
+
+    <!-- Main editor panels -->
+    <div class="jf-panels" id="jf-panels">
+      <!-- Input Panel -->
+      <div class="jf-panel jf-panel-input" id="panel-editor">
+        <div class="jf-panel-header">
+          <span class="jf-panel-title">Input</span>
+          <button class="jf-panel-action" id="btn-paste" type="button" aria-label="Paste from clipboard">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            Paste
+          </button>
+          <button class="jf-panel-action" id="btn-sample" type="button" aria-label="Load sample JSON">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Sample
+          </button>
+        </div>
+        <div class="jf-editor-wrap" id="jf-input-wrap">
+          <div class="jf-line-numbers" id="jf-line-numbers-input" aria-hidden="true"></div>
+          <div class="jf-highlight-layer" id="jf-highlight-input" aria-hidden="true"></div>
+          <textarea class="jf-textarea" id="jf-input" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="JSON input editor" placeholder='{"paste": "your JSON here"}'></textarea>
+        </div>
+      </div>
+
+      <!-- Resize handle -->
+      <div class="jf-resize-handle" id="jf-resize-handle" role="separator" aria-orientation="vertical" aria-label="Resize panels" tabindex="0">
+        <span class="jf-resize-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="jf-panel jf-panel-output">
+        <div class="jf-panel-header">
+          <span class="jf-panel-title">Output</span>
+          <button class="jf-panel-action" id="btn-copy-output" type="button" aria-label="Copy output">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+          <button class="jf-panel-action" id="btn-wrap-toggle" type="button" aria-label="Toggle word wrap" aria-pressed="false">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><polyline points="16 16 14 18 16 20"/><path d="M3 18h7"/></svg>
+            Wrap
+          </button>
+        </div>
+        <div class="jf-editor-wrap" id="jf-output-wrap">
+          <div class="jf-line-numbers" id="jf-line-numbers-output" aria-hidden="true"></div>
+          <div class="jf-highlight-layer" id="jf-highlight-output" aria-hidden="true"></div>
+          <textarea class="jf-textarea jf-textarea-output" id="jf-output" spellcheck="false" readonly aria-label="Formatted JSON output" placeholder="Formatted output will appear here"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tree View Panel (hidden by default) -->
+    <div class="jf-tree-panel jf-tree-panel-hidden" id="panel-tree" role="tabpanel" aria-labelledby="tab-tree">
+      <div class="jf-panel-header">
+        <span class="jf-panel-title">Tree View</span>
+        <button class="jf-panel-action" id="btn-expand-all" type="button" aria-label="Expand all nodes">Expand All</button>
+        <button class="jf-panel-action" id="btn-collapse-all" type="button" aria-label="Collapse all nodes">Collapse All</button>
+        <div class="jf-tree-search-wrap">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" class="jf-tree-search" id="jf-tree-search" placeholder="Search keys or values..." aria-label="Search JSON tree">
+        </div>
+      </div>
+      <div class="jf-tree-viewport" id="jf-tree-viewport">
+        <div class="jf-tree-container" id="jf-tree-container" role="tree" aria-label="JSON tree structure"></div>
+      </div>
+      <div class="jf-tree-path-bar" id="jf-tree-path-bar">
+        <span class="jf-tree-path-label">Path:</span>
+        <code class="jf-tree-path-value" id="jf-tree-path-value">$</code>
+        <button class="jf-panel-action jf-tree-path-copy" id="btn-copy-path" type="button" aria-label="Copy JSON path">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+    </div>
+
+    <!-- Diff View Panel (hidden by default) -->
+    <div class="jf-diff-panel jf-diff-panel-hidden" id="panel-diff" role="tabpanel" aria-labelledby="tab-diff">
+      <div class="jf-panel-header">
+        <span class="jf-panel-title">Diff View</span>
+        <span class="jf-diff-stats" id="jf-diff-stats"></span>
+        <button class="jf-panel-action" id="btn-diff-close" type="button" aria-label="Close diff view">Close</button>
+      </div>
+      <div class="jf-diff-container" id="jf-diff-container"></div>
+    </div>
+
+    <!-- Error detail panel -->
+    <div class="jf-error-panel jf-error-panel-hidden" id="jf-error-panel" role="alert">
+      <div class="jf-error-header">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        <span class="jf-error-title" id="jf-error-title">JSON Parse Error</span>
+        <button class="jf-error-close" id="jf-error-close" type="button" aria-label="Close error panel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <p class="jf-error-message" id="jf-error-message"></p>
+      <div class="jf-error-location" id="jf-error-location"></div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="jf-toast jf-toast-hidden" id="jf-toast" role="status" aria-live="polite">
+      <span class="jf-toast-icon" id="jf-toast-icon" aria-hidden="true"></span>
+      <span class="jf-toast-text" id="jf-toast-text"></span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Content section for SEO -->
+<section class="tool-info" aria-label="About JSON Formatter">
+  <div class="container">
+    <div class="tool-info-grid">
+      <div class="tool-info-main">
+        <h2>How to Use the JSON Formatter</h2>
+        <p>Paste your raw JSON into the input panel. Click <strong>Format</strong> to pretty-print with proper indentation, <strong>Minify</strong> to compress, or <strong>Validate</strong> to check for syntax errors. The <strong>Fix JSON</strong> button attempts to repair common issues like trailing commas, unquoted keys, and single quotes. Use <strong>Diff</strong> to see exactly what changed.</p>
+
+        <h3>Features</h3>
+        <ul class="tool-feature-list">
+          <li><strong>Syntax highlighting</strong> — Color-coded JSON in both input and output panels</li>
+          <li><strong>Dark mode</strong> — System-aware with manual toggle, persisted across sessions</li>
+          <li>Instant formatting with 2-space, 4-space, or tab indentation</li>
+          <li>One-click minification for compact JSON output</li>
+          <li>Real-time validation with detailed error messages and line numbers</li>
+          <li>Auto-fix for trailing commas, single quotes, unquoted keys, and comments</li>
+          <li><strong>Diff view</strong> — See exactly what changed between original and fixed/formatted JSON</li>
+          <li><strong>Interactive tree view</strong> with expand/collapse, search, and JSON path display</li>
+          <li><strong>JSON path</strong> — Click any tree node to see and copy its full path (e.g., <code>$.store.books[0].title</code>)</li>
+          <li><strong>Undo/Redo</strong> — Full history stack for all operations</li>
+          <li>File upload and download support (.json) with drag-and-drop</li>
+          <li>Copy to clipboard with one click</li>
+          <li>Resizable split panels with keyboard support</li>
+          <li>Live stats: lines, size, key count, nesting depth</li>
+          <li><strong>Tab key support</strong> — Insert tabs/spaces directly in the editor</li>
+          <li><strong>localStorage persistence</strong> — Your last input is saved automatically</li>
+          <li><strong>Performance guard</strong> — Warnings for large files (>1MB), graceful handling up to 5MB</li>
+        </ul>
+
+        <h3>What is JSON?</h3>
+        <p>JSON (JavaScript Object Notation) is a lightweight data interchange format. It's easy for humans to read and write, and easy for machines to parse and generate. JSON is used extensively in web APIs, configuration files, and data storage.</p>
+
+        <h3>Common JSON Errors</h3>
+        <ul class="tool-feature-list">
+          <li><strong>Trailing commas</strong> — JSON does not allow a comma after the last element in an object or array.</li>
+          <li><strong>Single quotes</strong> — JSON requires double quotes for strings.</li>
+          <li><strong>Unquoted keys</strong> — All object keys must be double-quoted strings.</li>
+          <li><strong>Comments</strong> — JSON does not support comments (// or /* */).</li>
+          <li><strong>Missing commas</strong> — Between key-value pairs or array elements.</li>
+        </ul>
+
+        <h3>Keyboard Shortcuts</h3>
+        <div class="tool-shortcuts-inline">
+          <dl class="tool-shortcut-list">
+            <dt><kbd>Ctrl</kbd> + <kbd>Enter</kbd></dt>
+            <dd>Format JSON</dd>
+            <dt><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></dt>
+            <dd>Minify JSON</dd>
+            <dt><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd></dt>
+            <dd>Validate JSON</dd>
+            <dt><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd></dt>
+            <dd>Copy output</dd>
+            <dt><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd></dt>
+            <dd>Clear editor</dd>
+            <dt><kbd>Ctrl</kbd> + <kbd>Z</kbd></dt>
+            <dd>Undo</dd>
+            <dt><kbd>Ctrl</kbd> + <kbd>Y</kbd></dt>
+            <dd>Redo</dd>
+            <dt><kbd>Tab</kbd></dt>
+            <dd>Insert indent (in editor)</dd>
+            <dt><kbd>Shift</kbd> + <kbd>Tab</kbd></dt>
+            <dd>Remove indent (in editor)</dd>
+          </dl>
+        </div>
+      </div>
+
+      <aside class="tool-info-sidebar">
+        <div class="tool-related">
+          <h3>Related Tools</h3>
+          <ul class="tool-related-list">
+            <li><a href="/tools/diff-checker">Diff Checker</a><span class="text-muted"> — Compare JSON outputs</span></li>
+            <li><a href="/tools/jwt-decoder">JWT Decoder</a><span class="text-muted"> — Decode JSON Web Tokens</span></li>
+            <li><a href="/tools/base64-encoder">Base64 Encoder</a><span class="text-muted"> — Encode/decode data</span></li>
+            <li><a href="/tools/mock-data-generator">Mock Data Generator</a><span class="text-muted"> — Generate test JSON</span></li>
+            <li><a href="/tools/code-formatter">Code Formatter</a><span class="text-muted"> — Beautify other formats</span></li>
+          </ul>
+        </div>
+        <div class="tool-shortcuts">
+          <h3>Quick Tips</h3>
+          <ul class="tool-tips-list">
+            <li>Drag and drop a <code>.json</code> file directly onto the input panel</li>
+            <li>Your input is auto-saved — refresh and it's still there</li>
+            <li>Click any path in Tree View to copy it</li>
+            <li>Use Diff view after Fix JSON to see all corrections</li>
+            <li>The formatter handles files up to 5MB</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,178 @@
+<%# ============================================================ %>
+<%# Value.Codes — Resources Landing Page                       %>
+<%# GET /resources — Lists all 6 curated resource sections     %>
+<%# Zero inline CSS. Zero inline JS.                          %>
+<%# ============================================================ %>
+
+
+<!-- ================================================================
+     [01] HERO
+     ================================================================ -->
+<section class="res-hero" aria-label="Resources overview">
+  <div class="container">
+
+    <nav aria-label="Breadcrumb">
+      <ol class="res-breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Resources</li>
+      </ol>
+    </nav>
+
+    <div class="badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      <span>Curated for Developers</span>
+    </div>
+
+    <h1 class="res-hero-title">
+      Developer <span class="accent">Resources.</span>
+    </h1>
+    <p class="res-hero-desc">
+      Curated guides, references, and roadmaps built for real developers.
+      From career paths to coding standards to official docs — everything in one place.
+    </p>
+
+    <div class="res-hero-meta">
+      <span class="badge-pill">6 Resource Guides</span>
+      <span class="badge-pill">250+ Glossary Terms</span>
+      <span class="badge-pill">Free Forever</span>
+      <span class="badge-pill">Updated 2026</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================================================================
+     [02] ALL RESOURCES — 6 Resource Cards
+     ================================================================ -->
+<section class="res-grid-section" id="all-resources" aria-label="All resources">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-number">[01]</span>
+      <h2>All Resources</h2>
+    </div>
+    <p class="section-desc">
+      Pick a category and dive in. Every guide is <strong>free and updated for 2026.</strong>
+    </p>
+
+    <div class="res-cards-grid">
+
+      <a href="/resources/developer-tools/" class="res-card">
+        <div class="res-card-icon-wrap" aria-hidden="true">
+          <span class="res-card-icon">🛠️</span>
+        </div>
+        <div class="res-card-body">
+          <h3 class="res-card-title">Developer Tools</h3>
+          <p class="res-card-desc">Code editors, version control, terminals, API testing, and database tools — with real reviews and honest comparisons.</p>
+          <span class="res-card-cta">
+            Explore Guide
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="/resources/best-practices/" class="res-card">
+        <div class="res-card-icon-wrap" aria-hidden="true">
+          <span class="res-card-icon">✅</span>
+        </div>
+        <div class="res-card-body">
+          <h3 class="res-card-title">Best Practices</h3>
+          <p class="res-card-desc">Industry-proven coding standards, design patterns, testing strategies, and workflows. 8 categories, 60+ practices.</p>
+          <span class="res-card-cta">
+            Explore Guide
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="/resources/career-roadmaps/" class="res-card">
+        <div class="res-card-icon-wrap" aria-hidden="true">
+          <span class="res-card-icon">🗺️</span>
+        </div>
+        <div class="res-card-body">
+          <h3 class="res-card-title">Career Roadmaps</h3>
+          <p class="res-card-desc">Structured paths for frontend, backend, DevOps, and full-stack roles. Skills, timelines, salaries, and job strategies.</p>
+          <span class="res-card-cta">
+            Explore Guide
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="/resources/documentation/" class="res-card">
+        <div class="res-card-icon-wrap" aria-hidden="true">
+          <span class="res-card-icon">📄</span>
+        </div>
+        <div class="res-card-body">
+          <h3 class="res-card-title">Documentation</h3>
+          <p class="res-card-desc">Direct links to official docs for popular languages, frameworks, databases, and APIs. No tutorials — just the real sources.</p>
+          <span class="res-card-cta">
+            Explore Guide
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="/resources/essential-software/" class="res-card">
+        <div class="res-card-icon-wrap" aria-hidden="true">
+          <span class="res-card-icon">💻</span>
+        </div>
+        <div class="res-card-body">
+          <h3 class="res-card-title">Essential Software</h3>
+          <p class="res-card-desc">IDEs, terminals, Git clients, and productivity apps worth your disk space. Platform availability and setup guides included.</p>
+          <span class="res-card-cta">
+            Explore Guide
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="/resources/glossary/" class="res-card">
+        <div class="res-card-icon-wrap" aria-hidden="true">
+          <span class="res-card-icon">📖</span>
+        </div>
+        <div class="res-card-body">
+          <h3 class="res-card-title">Glossary</h3>
+          <p class="res-card-desc">No-jargon definitions for 250+ technical terms, acronyms, and concepts. Clear explanations for developers at every level.</p>
+          <span class="res-card-cta">
+            Explore Guide
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     [03] TOOLS CTA
+     ================================================================ -->
+<section class="res-tools-cta" aria-label="Try our developer tools">
+  <div class="container">
+    <div class="res-tools-cta-card">
+      <div class="res-tools-cta-icon" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="res-tools-cta-body">
+        <h2 class="res-tools-cta-title">Need a Tool?</h2>
+        <p class="res-tools-cta-desc">
+          10+ free browser-based developer tools. Format JSON, build regex,
+          generate hashes, decode JWTs, compare code, and more. Nothing stored, nothing tracked.
+        </p>
+        <div class="res-tools-cta-pills" aria-hidden="true">
+          <span>{ } JSON Formatter</span>
+          <span>.* Regex Builder</span>
+          <span>⇄ Diff Checker</span>
+          <span># Hash Generator</span>
+          <span>🔑 JWT Decoder</span>
+          <span>◐ Color Picker</span>
+          <span class="pill-more">+4 more</span>
+        </div>
+      </div>
+      <a href="/tools/" class="btn btn-primary">Explore All Tools</a>
+    </div>
+  </div>
+</section>

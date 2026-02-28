@@ -1,0 +1,285 @@
+/* ==========================================================================
+   RESOURCES — Landing Page Styles
+   Value.Codes | /resources
+   ========================================================================== */
+
+
+/* ========== [01] HERO ========== */
+
+.res-hero {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.res-hero .container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+/* Breadcrumb */
+.res-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: .375rem;
+  list-style: none;
+  font-size: .8125rem;
+  color: var(--subtle);
+  margin-bottom: 1.5rem;
+}
+
+.res-breadcrumb li + li::before {
+  content: '/';
+  margin-right: .375rem;
+  color: var(--border);
+}
+
+.res-breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.res-breadcrumb a:hover { color: var(--accent); }
+
+/* Hero headline */
+.res-hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--ink);
+  margin: .75rem 0 .875rem;
+  line-height: 1.15;
+}
+
+.res-hero-title .accent { color: var(--accent); }
+
+.res-hero-desc {
+  font-size: 1.0625rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 580px;
+  margin-bottom: 1.25rem;
+}
+
+.res-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+
+/* ========== [02] RESOURCES GRID ========== */
+
+.res-grid-section {
+  padding: 3rem 0 4rem;
+}
+
+.res-grid-section .container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.res-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.res-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.res-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.res-card-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.res-card-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.res-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.res-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.res-card-desc {
+  font-size: .875rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.res-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: .375rem;
+  transition: gap var(--transition);
+}
+
+.res-card:hover .res-card-cta {
+  gap: .5rem;
+}
+
+
+/* ========== [03] TOOLS CTA ========== */
+
+.res-tools-cta {
+  padding: 2rem 0 4rem;
+  background: var(--paper);
+}
+
+.res-tools-cta .container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.res-tools-cta-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fff5f0 0%, #fef2f0 100%);
+  border: 1px solid rgba(201, 40, 26, 0.15);
+  border-radius: var(--radius-lg);
+  flex-wrap: wrap;
+}
+
+.res-tools-cta-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.res-tools-cta-body {
+  flex: 1;
+  min-width: 220px;
+}
+
+.res-tools-cta-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .375rem;
+}
+
+.res-tools-cta-desc {
+  font-size: .875rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: .75rem;
+}
+
+.res-tools-cta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .375rem;
+}
+
+.res-tools-cta-pills span {
+  font-size: .75rem;
+  color: var(--muted);
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: .125rem .5rem;
+  border-radius: 100px;
+}
+
+.res-tools-cta-pills .pill-more {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+  .res-hero {
+    padding: 2.5rem 0 1.75rem;
+  }
+
+  .res-hero-title {
+    font-size: 1.875rem;
+  }
+
+  .res-grid-section {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .res-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .res-hero .container,
+  .res-grid-section .container,
+  .res-tools-cta .container {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .res-hero {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .res-hero-title {
+    font-size: 1.625rem;
+  }
+
+  .res-tools-cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

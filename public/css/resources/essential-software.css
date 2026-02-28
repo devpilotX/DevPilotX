@@ -1,0 +1,654 @@
+/* ==========================================================================
+   ESSENTIAL SOFTWARE PAGE STYLES
+   Comprehensive guide to must-have developer software
+   ========================================================================== */
+
+/* ========== HERO SECTION ========== */
+.ess-hero {
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.ess-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.ess-hero__breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.ess-hero__breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.ess-hero__breadcrumb span[aria-hidden] {
+  color: var(--border);
+}
+
+.ess-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.ess-hero__title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  max-width: 800px;
+}
+
+.ess-hero__desc {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 750px;
+}
+
+/* ========== TABLE OF CONTENTS ========== */
+.ess-toc {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.ess-toc__title {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+.ess-toc__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.ess-toc__card {
+  display: block;
+  padding: 1.25rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.ess-toc__card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.ess-toc__number {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
+  color: var(--accent);
+  background-color: var(--accent-light);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.ess-toc__card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.ess-toc__card-desc {
+  font-size: 0.8rem;
+  color: var(--subtle);
+}
+
+/* ========== SECTION LAYOUT ========== */
+.ess-section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-top: 1px solid var(--border);
+}
+
+.ess-section:nth-child(even) {
+  background-color: var(--surface);
+}
+
+.ess-section__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ess-section__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
+  color: var(--accent);
+  background-color: var(--accent-light);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.ess-section__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.ess-section__intro {
+  font-size: 1.0625rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 750px;
+  margin-bottom: 2.5rem;
+}
+
+/* ========== TOOL CARD ========== */
+.ess-tool {
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 2rem;
+  transition: box-shadow var(--transition);
+}
+
+.ess-tool:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.ess-tool__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ess-tool__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.ess-tool__title-wrap {
+  flex: 1;
+}
+
+.ess-tool__name {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.ess-tool__tagline {
+  font-size: 0.9rem;
+  color: var(--subtle);
+}
+
+/* ========== TOOL TAGS ========== */
+.ess-tool__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: 100px;
+  background-color: var(--surface);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.tag-free {
+  background-color: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+
+.tag-oss {
+  background-color: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+
+.tag-paid {
+  background-color: #fef3c7;
+  color: #d97706;
+  border-color: #fde68a;
+}
+
+/* ========== TOOL BODY ========== */
+.ess-tool__body p {
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.ess-tool__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== FEATURES LIST ========== */
+.ess-tool__features {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ess-tool__subtitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ess-tool__subtitle--pros {
+  color: var(--success);
+}
+
+.ess-tool__subtitle--cons {
+  color: var(--error);
+}
+
+.ess-tool__feature-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.5rem;
+}
+
+.ess-tool__feature-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.ess-tool__feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent);
+  border-radius: 50%;
+}
+
+/* ========== PROS/CONS ========== */
+.ess-tool__pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ess-tool__pros,
+.ess-tool__cons {
+  padding: 1.25rem;
+  border-radius: var(--radius);
+}
+
+.ess-tool__pros {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.ess-tool__cons {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.ess-tool__pros ul,
+.ess-tool__cons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ess-tool__pros li,
+.ess-tool__cons li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 0.35rem;
+}
+
+.ess-tool__pros li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.ess-tool__cons li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: var(--error);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* ========== SETUP LIST ========== */
+.ess-tool__setup {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.ess-tool__setup-list {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.ess-tool__setup-list li {
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.ess-tool__setup-list li:last-child {
+  margin-bottom: 0;
+}
+
+.ess-tool__setup-list code,
+.ess-tool__body code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
+  font-size: 0.85em;
+  background-color: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+.ess-tool__learning-curve {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* ========== ALTERNATIVES ========== */
+.ess-tool__alternatives {
+  margin-top: 1.5rem;
+}
+
+.ess-tool__alt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.ess-tool__alt-card {
+  padding: 1rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.ess-tool__alt-card strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.ess-tool__alt-card p {
+  font-size: 0.825rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ========== COMPARISON TABLES ========== */
+.ess-comparison {
+  margin-bottom: 2.5rem;
+}
+
+.ess-comparison__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.ess-comparison__table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.ess-comparison__table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.ess-comparison__table thead {
+  background-color: var(--surface);
+}
+
+.ess-comparison__table th {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 2px solid var(--border);
+}
+
+.ess-comparison__table td {
+  padding: 0.75rem 1rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.ess-comparison__table tr:last-child td {
+  border-bottom: none;
+}
+
+.ess-comparison__table tbody tr:hover {
+  background-color: var(--surface);
+}
+
+.ess-comparison__table td strong {
+  color: var(--ink);
+}
+
+/* ========== CTA SECTION ========== */
+.ess-cta {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+.ess-cta__content {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ess-cta__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--paper);
+  margin-bottom: 1rem;
+}
+
+.ess-cta__desc {
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.ess-cta__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========== RELATED RESOURCES ========== */
+.ess-related {
+  padding: clamp(3rem, 6vw, 4rem) 0;
+  border-top: 1px solid var(--border);
+}
+
+.ess-related__title {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.ess-related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.ess-related__card {
+  display: block;
+  padding: 1.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.ess-related__card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.ess-related__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+}
+
+.ess-related__card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.ess-related__card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .ess-tool__pros-cons {
+    grid-template-columns: 1fr;
+  }
+
+  .ess-tool__feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .ess-tool__header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ess-section__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .ess-toc__grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .ess-toc__card {
+    padding: 1rem;
+  }
+
+  .ess-tool {
+    padding: 1.25rem;
+  }
+
+  .ess-cta__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ess-comparison__table {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ess-toc__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ess-related__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ess-tool__alt-grid {
+    grid-template-columns: 1fr;
+  }
+}

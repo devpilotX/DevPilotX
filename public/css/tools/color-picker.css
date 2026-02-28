@@ -1,0 +1,321 @@
+/* ==========================================================================
+   COLOR PICKER — Tool-Specific Styles
+   Value.Codes | public/css/tools/color-picker.css
+   ========================================================================== */
+
+.cp-workspace .container {
+  max-width: 1100px;
+}
+
+/* Layout */
+.cp-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Picker panel */
+.cp-picker-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cp-canvas-wrap {
+  position: relative;
+  width: 100%;
+  cursor: crosshair;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+#cp-canvas { display: block; width: 100%; height: auto; }
+
+.cp-canvas-cursor {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.4);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+/* Sliders */
+.cp-slider-wrap { padding: .25rem 0; }
+
+.cp-hue-slider,
+.cp-alpha-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 14px;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.cp-hue-slider {
+  background: linear-gradient(to right,
+    hsl(0,100%,50%), hsl(30,100%,50%), hsl(60,100%,50%), hsl(90,100%,50%),
+    hsl(120,100%,50%), hsl(150,100%,50%), hsl(180,100%,50%), hsl(210,100%,50%),
+    hsl(240,100%,50%), hsl(270,100%,50%), hsl(300,100%,50%), hsl(330,100%,50%),
+    hsl(360,100%,50%));
+}
+
+.cp-hue-slider::-webkit-slider-thumb,
+.cp-alpha-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+/* Input row */
+.cp-input-row {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .875rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.cp-native-input {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 2px;
+  background: none;
+}
+
+.cp-preview-swatch {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.cp-preview-info { flex: 1; }
+.cp-preview-hex {
+  display: block;
+  font-size: .9375rem;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--ink);
+}
+.cp-preview-name { font-size: .75rem; color: var(--subtle); }
+
+/* Values panel */
+.cp-values-panel {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.cp-values-title,
+.cp-palette-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .25rem;
+}
+
+.cp-value-row {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+}
+
+.cp-value-label {
+  width: 46px;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--subtle);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+
+.cp-value-input {
+  flex: 1;
+  font-size: .875rem;
+  font-family: monospace;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .4375rem .625rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.cp-value-input:focus { border-color: var(--accent); }
+
+.cp-copy-btn {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .375rem .625rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+.cp-copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* Contrast section */
+.cp-contrast-section {
+  margin-top: .5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.cp-section-label {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--subtle);
+  margin-bottom: .625rem;
+}
+
+.cp-contrast-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cp-contrast-preview {
+  width: 80px;
+  height: 50px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  padding: .5rem;
+}
+
+.cp-contrast-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.cp-contrast-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+}
+
+.cp-contrast-ratio {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: monospace;
+}
+
+.cp-contrast-label {
+  font-size: .6875rem;
+  color: var(--subtle);
+}
+
+/* Palette */
+.cp-palette-section {
+  grid-column: 1 / -1;
+  margin-bottom: 1.5rem;
+}
+
+.cp-palette-grid {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-top: .75rem;
+}
+
+.cp-palette-swatch {
+  width: 60px;
+  height: 48px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,.08);
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--transition);
+}
+.cp-palette-swatch:hover { transform: scale(1.08); }
+.cp-palette-swatch span {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: .5625rem;
+  font-family: monospace;
+  color: rgba(255,255,255,.9);
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+
+/* Recent */
+.cp-recent-section { margin-bottom: 1.5rem; }
+.cp-recent-grid {
+  display: flex;
+  gap: .375rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+}
+.cp-recent-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+.cp-recent-swatch:hover { transform: scale(1.1); }
+
+/* Toast */
+.cp-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: .875rem;
+  font-weight: 500;
+  padding: .625rem 1.125rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+}
+.cp-toast.cp-toast-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+  .cp-layout { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,231 @@
+/* ==========================================================================
+   FOOTER — MAIN CONTAINER
+   ==========================================================================
+   Four-column grid: Brand, Tools, Community, Company.
+   Contribute links placed inside Community column.
+   ========================================================================== */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--paper);
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 4rem var(--pad-x) 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* ==========================================================================
+   FOOTER — BRAND COLUMN
+   ========================================================================== */
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.footer-logo:hover {
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+.footer-logo-text {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+}
+
+.footer-logo-dot {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.footer-tagline {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   FOOTER — SOCIAL ICONS
+   ========================================================================== */
+
+.footer-social {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--subtle);
+  text-decoration: none;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.social-icon:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   FOOTER — LINK COLUMNS
+   ========================================================================== */
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: var(--subtle);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.footer-col-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-links li + li {
+  margin-top: 0.1rem;
+}
+
+.footer-col-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  padding: 0.28rem 0;
+  display: inline-block;
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+
+.footer-col-links a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   FOOTER — BOTTOM BAR
+   ========================================================================== */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-legal a {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-legal a:hover {
+  color: #374151;
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   FOOTER — RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .footer-legal {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}

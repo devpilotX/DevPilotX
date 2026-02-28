@@ -1,0 +1,2074 @@
+<!-- ========== RESOURCE PAGE: DEVELOPER TOOLS ========== -->
+<section class="res-hero" aria-label="Developer Tools Guide Hero">
+  <div class="container">
+    <div class="res-hero-inner">
+      <div class="res-hero-content">
+        <nav class="res-breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb-list" role="list">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/resources">Resources</a></li>
+            <li class="breadcrumb-item breadcrumb-current" aria-current="page">Developer Tools</li>
+          </ol>
+        </nav>
+        <div class="res-hero-badges">
+          <span class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Comprehensive Guide</span></span>
+          <span class="badge-pill">2026 Edition</span>
+          <span class="badge-pill">Updated Regularly</span>
+        </div>
+        <h1>Complete Developer Tools Guide: Build Your Perfect Workflow</h1>
+        <p class="res-hero-lead">The right tools don't just make you faster — they make you <strong>better.</strong> This comprehensive guide covers every category of developer tools you need: from code editors and version control to API testing, database management, design software, and collaboration platforms. Whether you're just starting out or optimizing an established workflow, you'll find detailed reviews, honest comparisons, and practical setup advice to help you make informed decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADSENSE: leaderboard -->
+
+<!-- ========== QUICK NAVIGATION ========== -->
+<section class="res-quicknav" id="quick-nav" aria-label="Quick Navigation">
+  <div class="container">
+    <h2 class="sr-only">Quick Navigation</h2>
+    <div class="quicknav-grid">
+      <a href="#code-editors" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[01]</span>
+        <h3 class="quicknav-title">Code Editors & IDEs</h3>
+        <p class="quicknav-desc">VS Code, IntelliJ, PyCharm, Sublime, Vim</p>
+      </a>
+      <a href="#version-control" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[02]</span>
+        <h3 class="quicknav-title">Version Control</h3>
+        <p class="quicknav-desc">Git, GitHub, GitLab, Bitbucket</p>
+      </a>
+      <a href="#terminal-tools" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[03]</span>
+        <h3 class="quicknav-title">Terminal Tools</h3>
+        <p class="quicknav-desc">iTerm2, Windows Terminal, Oh My Zsh</p>
+      </a>
+      <a href="#api-testing" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[04]</span>
+        <h3 class="quicknav-title">API Testing</h3>
+        <p class="quicknav-desc">Postman, Insomnia, Thunder Client</p>
+      </a>
+      <a href="#database-tools" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[05]</span>
+        <h3 class="quicknav-title">Database Tools</h3>
+        <p class="quicknav-desc">DBeaver, pgAdmin, MongoDB Compass</p>
+      </a>
+      <a href="#browser-devtools" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[06]</span>
+        <h3 class="quicknav-title">Browser DevTools</h3>
+        <p class="quicknav-desc">Chrome, Firefox, Safari Developer Tools</p>
+      </a>
+      <a href="#design-tools" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[07]</span>
+        <h3 class="quicknav-title">Design Tools</h3>
+        <p class="quicknav-desc">Figma, Adobe XD, Sketch</p>
+      </a>
+      <a href="#collaboration" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[08]</span>
+        <h3 class="quicknav-title">Collaboration</h3>
+        <p class="quicknav-desc">Slack, Discord, Microsoft Teams</p>
+      </a>
+      <a href="#project-management" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[09]</span>
+        <h3 class="quicknav-title">Project Management</h3>
+        <p class="quicknav-desc">Jira, Trello, Asana, GitHub Projects</p>
+      </a>
+      <a href="#performance-tools" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[10]</span>
+        <h3 class="quicknav-title">Performance Tools</h3>
+        <p class="quicknav-desc">Lighthouse, WebPageTest, GTmetrix</p>
+      </a>
+      <a href="#security-tools" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[11]</span>
+        <h3 class="quicknav-title">Security Tools</h3>
+        <p class="quicknav-desc">OWASP ZAP, Burp Suite, Snyk</p>
+      </a>
+      <a href="#container-tools" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[12]</span>
+        <h3 class="quicknav-title">Container Tools</h3>
+        <p class="quicknav-desc">Docker Desktop, Kubernetes</p>
+      </a>
+      <a href="#cloud-clis" class="quicknav-card">
+        <span class="quicknav-number" aria-hidden="true">[13]</span>
+        <h3 class="quicknav-title">Cloud CLIs</h3>
+        <p class="quicknav-desc">AWS CLI, Azure CLI, Google Cloud SDK</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 01: CODE EDITORS & IDEs ========== -->
+<section class="res-section" id="code-editors" aria-label="Code Editors and IDEs">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[01]</span>
+      <h2>Code Editors & IDEs</h2>
+    </div>
+    <p class="section-desc">Your code editor is where you'll spend most of your development time. The difference between a good editor and a great one isn't just features — it's how well those features integrate into your workflow, how quickly you can navigate large codebases, and how effectively it helps you catch mistakes before they become bugs.</p>
+
+    <!-- ADSENSE: in-article -->
+
+    <!-- VS Code -->
+    <article class="tool-review" id="vscode" aria-label="Visual Studio Code Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Visual Studio Code (VS Code)</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Microsoft's open-source, lightweight code editor that has become the de facto standard for web development and increasingly for other languages. It's technically an editor, not a full IDE, but with extensions it can match or exceed IDE functionality.</p>
+          <p><strong>Why it matters:</strong> VS Code strikes the perfect balance between simplicity and power. It starts fast, stays responsive with large projects, and has an extension marketplace that covers virtually every language, framework, and workflow imaginable.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>IntelliSense:</strong> Context-aware code completion that understands your project's types and APIs</li>
+            <li><strong>Integrated debugging:</strong> Set breakpoints, step through code, inspect variables — all without leaving the editor</li>
+            <li><strong>Built-in Git integration:</strong> Commit, push, pull, resolve merge conflicts visually</li>
+            <li><strong>Extensions ecosystem:</strong> Over 30,000 extensions covering languages, themes, debuggers, and tools</li>
+            <li><strong>Live Share:</strong> Real-time collaborative editing and debugging with teammates</li>
+            <li><strong>Remote development:</strong> Edit code on remote servers, WSL, or containers as if it were local</li>
+            <li><strong>Terminal integration:</strong> Multiple terminals, split views, tasks automation</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-usecases">
+          <h3>Best Use Cases</h3>
+          <ul class="usecase-list">
+            <li>Web development (JavaScript, TypeScript, React, Vue, Angular)</li>
+            <li>Python development with strong extension support</li>
+            <li>Multi-language projects where you switch contexts frequently</li>
+            <li>Teams that need consistent, shareable development environments</li>
+            <li>Remote work and cloud development scenarios</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Completely free and open source</li>
+              <li>Fast startup and excellent performance</li>
+              <li>Massive extension ecosystem</li>
+              <li>Great out-of-box experience for web development</li>
+              <li>Active development and monthly updates</li>
+              <li>Excellent documentation and community</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Can become slow with too many extensions</li>
+              <li>Extension quality varies significantly</li>
+              <li>Less polished than paid IDEs for certain languages (Java, C#)</li>
+              <li>Some advanced refactoring features require extensions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-meta">
+          <div class="tool-meta-item">
+            <span class="tool-meta-label">Learning Curve</span>
+            <div class="learning-curve-bar" aria-label="Learning curve: Easy to start, grows with you">
+              <div class="learning-curve-fill learning-curve-easy"></div>
+            </div>
+            <span class="tool-meta-value">Easy to start, grows with you</span>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://code.visualstudio.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download VS Code
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Pro tip:</strong> Start with these essential extensions: ESLint/Pylint for linting, Prettier for formatting, GitLens for enhanced Git features, and the language-specific extension pack for your primary language. Install only what you need — you can always add more later.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- IntelliJ IDEA -->
+    <article class="tool-review" id="intellij" aria-label="IntelliJ IDEA Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">JetBrains IntelliJ IDEA</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A full-featured IDE primarily designed for Java development, but the Ultimate edition supports virtually every major language and framework. Known for intelligent code assistance and powerful refactoring tools.</p>
+          <p><strong>Why it matters:</strong> IntelliJ represents the gold standard for IDE intelligence. Its code analysis, refactoring capabilities, and framework integration are unmatched, particularly for JVM languages and enterprise development.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Smart code completion:</strong> Deep understanding of your codebase enables highly accurate suggestions</li>
+            <li><strong>Advanced refactoring:</strong> Rename, extract, inline, and restructure code safely across entire projects</li>
+            <li><strong>Framework support:</strong> First-class integration for Spring, Jakarta EE, Micronaut, and more</li>
+            <li><strong>Database tools:</strong> Built-in database client with query console and schema management</li>
+            <li><strong>Version control:</strong> Superior Git integration with visual merge tools and local history</li>
+            <li><strong>Debugger:</strong> Powerful debugging with expression evaluation and memory view</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-usecases">
+          <h3>Best Use Cases</h3>
+          <ul class="usecase-list">
+            <li>Java and Kotlin development (Android, backend, enterprise)</li>
+            <li>Large enterprise codebases requiring sophisticated refactoring</li>
+            <li>Projects using Spring, Jakarta EE, or other complex frameworks</li>
+            <li>Full-stack development with Ultimate edition (Java + JavaScript frameworks)</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Best-in-class Java support and refactoring</li>
+              <li>Community edition is free for Java/Kotlin/Scala</li>
+              <li>Excellent code analysis catches bugs early</li>
+              <li>Deeply integrated frameworks and tools</li>
+              <li>Built-in tools reduce need for separate apps</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Ultimate edition is expensive ($149/year for individuals)</li>
+              <li>Resource-heavy, requires 8GB+ RAM for comfort</li>
+              <li>Slower startup compared to lightweight editors</li>
+              <li>Steeper learning curve to leverage advanced features</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-meta">
+          <div class="tool-meta-item">
+            <span class="tool-meta-label">Learning Curve</span>
+            <div class="learning-curve-bar" aria-label="Learning curve: Moderate">
+              <div class="learning-curve-fill learning-curve-moderate"></div>
+            </div>
+            <span class="tool-meta-value">Moderate, power features take time</span>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://www.jetbrains.com/idea/>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download IntelliJ
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- PyCharm -->
+    <article class="tool-review" id="pycharm" aria-label="PyCharm Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">PyCharm</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> JetBrains' dedicated Python IDE, built on the same platform as IntelliJ but optimized specifically for Python development, including scientific computing, web frameworks, and data science.</p>
+          <p><strong>Why it matters:</strong> If you work primarily in Python, PyCharm offers the most comprehensive Python-specific features available, from Django template debugging to Jupyter notebook integration.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Intelligent Python code completion and analysis</strong></li>
+            <li><strong>Django, Flask, FastAPI framework support</strong> with template debugging</li>
+            <li><strong>Scientific tools:</strong> Jupyter, NumPy array viewer, matplotlib integration</li>
+            <li><strong>Remote development and Docker integration</strong></li>
+            <li><strong>Database tools built-in</strong> (Ultimate edition)</li>
+            <li><strong>Testing frameworks:</strong> pytest, unittest, nose</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Best Python IDE available</li>
+              <li>Community edition free for pure Python</li>
+              <li>Excellent data science support</li>
+              <li>Strong web framework integration</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Overkill for simple Python scripts</li>
+              <li>Ultimate edition required for web development ($89/year)</li>
+              <li>Heavy resource usage</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://www.jetbrains.com/pycharm/>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download PyCharm
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Sublime Text -->
+    <article class="tool-review" id="sublime" aria-label="Sublime Text Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Sublime Text</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-paid">Paid ($99)</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A sophisticated text editor known for its speed, responsiveness, and powerful multi-cursor editing. Popular among developers who want something lighter than an IDE but more powerful than basic editors.</p>
+          <p><strong>Why it matters:</strong> Sublime Text is phenomenally fast. It can open and search massive files instantly, and its multiple selections and command palette set the standard that other editors later adopted.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Incredibly fast,</strong> even with large files (100MB+)</li>
+            <li><strong>Goto Anything:</strong> Jump to files, symbols, or lines instantly</li>
+            <li><strong>Multiple selections:</strong> Edit many lines simultaneously</li>
+            <li><strong>Command palette</strong> for keyboard-driven workflows</li>
+            <li><strong>Distraction-free mode</strong> for focused writing</li>
+            <li><strong>Package ecosystem</strong> for extensibility</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Extremely fast and responsive</li>
+              <li>Minimal resource usage</li>
+              <li>Excellent for editing config files or logs</li>
+              <li>One-time purchase, lifetime license</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>No built-in debugging or Git integration</li>
+              <li>Smaller extension ecosystem than VS Code</li>
+              <li>Development pace slower than competitors</li>
+              <li>$99 feels expensive compared to free alternatives</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://www.sublimetext.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download Sublime Text
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Vim / Neovim -->
+    <article class="tool-review" id="vim" aria-label="Vim and Neovim Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Vim / Neovim</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Unix/Linux/Mac</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A highly configurable terminal-based text editor focused on efficiency and keyboard-driven editing. Neovim is a modern fork with better extensibility and plugin support.</p>
+          <p><strong>Why it matters:</strong> Vim's modal editing paradigm is incredibly efficient once mastered. It's available on virtually every system, works over SSH, and never requires a mouse. Many developers who invest time learning Vim never go back.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Modal editing:</strong> Separate modes for navigation, insertion, and visual selection</li>
+            <li><strong>Powerful text manipulation</strong> with composable commands</li>
+            <li><strong>Extremely lightweight and fast</strong></li>
+            <li><strong>Works in terminal,</strong> perfect for remote development</li>
+            <li><strong>Highly customizable</strong> with vimscript or Lua (Neovim)</li>
+            <li><strong>Rich plugin ecosystem</strong> (especially Neovim)</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-meta">
+          <div class="tool-meta-item">
+            <span class="tool-meta-label">Learning Curve</span>
+            <div class="learning-curve-bar" aria-label="Learning curve: Steep">
+              <div class="learning-curve-fill learning-curve-steep"></div>
+            </div>
+            <span class="tool-meta-value">Steep, but incredibly rewarding</span>
+          </div>
+        </div>
+
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Getting started:</strong> Run <code>vimtutor</code> in your terminal for a 30-minute interactive tutorial. Resist the urge to install too many plugins initially — learn the basics first, add plugins as you discover specific needs.</p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 02: VERSION CONTROL ========== -->
+<section class="res-section res-section-alt" id="version-control" aria-label="Version Control Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[02]</span>
+      <h2>Version Control Tools</h2>
+    </div>
+    <p class="section-desc">Version control is non-negotiable in modern development. It's your safety net, your collaboration tool, and your project history all in one. Understanding version control well will save you from disasters and make you a better team member.</p>
+
+    <!-- Git -->
+    <article class="tool-review" id="git" aria-label="Git Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Git</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> The distributed version control system that has become the industry standard. Created by Linus Torvalds for Linux kernel development, now used by virtually every software project.</p>
+          <p><strong>Why it matters:</strong> Git is the foundation of modern collaborative development. Whether you work alone or on a team of thousands, Git tracks every change, enables parallel work through branching, and makes it safe to experiment.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Core Capabilities</h3>
+          <ul class="feature-list">
+            <li><strong>Commits:</strong> Snapshots of your project at specific points in time</li>
+            <li><strong>Branches:</strong> Isolated development lines for features, fixes, or experiments</li>
+            <li><strong>Merging:</strong> Combining changes from different branches</li>
+            <li><strong>Rebasing:</strong> Rewriting history for cleaner project timelines</li>
+            <li><strong>Distributed:</strong> Every developer has the full project history</li>
+            <li><strong>Staging area:</strong> Review and organize changes before committing</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-commands">
+          <h3>Essential Commands to Master</h3>
+          <div class="commands-grid">
+            <div class="command-item">
+              <code>git status</code>
+              <span>See what's changed and what's staged</span>
+            </div>
+            <div class="command-item">
+              <code>git diff</code>
+              <span>Review changes before committing</span>
+            </div>
+            <div class="command-item">
+              <code>git log</code>
+              <span>Explore project history</span>
+            </div>
+            <div class="command-item">
+              <code>git branch</code>
+              <span>Manage development branches</span>
+            </div>
+            <div class="command-item">
+              <code>git checkout</code> / <code>git switch</code>
+              <span>Navigate between branches</span>
+            </div>
+            <div class="command-item">
+              <code>git merge</code>
+              <span>Integrate changes from other branches</span>
+            </div>
+            <div class="command-item">
+              <code>git rebase</code>
+              <span>Maintain clean, linear history</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Best practice:</strong> Commit early, commit often. Write clear commit messages that explain WHY, not just what changed. Use branches liberally — they're cheap and make it safe to experiment. Always review your diff before committing to avoid accidentally committing debug code or secrets.</p>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://git-scm.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get Git
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- GitHub -->
+    <article class="tool-review" id="github" aria-label="GitHub Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">GitHub</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Web-based</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> The world's largest Git hosting platform and developer collaboration hub, owned by Microsoft. Home to millions of open-source projects and the de facto portfolio for developers.</p>
+          <p><strong>Why it matters:</strong> GitHub transformed Git from a command-line tool into a collaborative platform. Pull requests, code review, issue tracking, and CI/CD automation all in one place. It's also where hiring managers look to see your code.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Pull Requests:</strong> Propose changes, request reviews, discuss implementation</li>
+            <li><strong>Issues:</strong> Track bugs, plan features, organize work</li>
+            <li><strong>GitHub Actions:</strong> Built-in CI/CD with generous free tier</li>
+            <li><strong>Projects:</strong> Kanban boards integrated with issues and PRs</li>
+            <li><strong>Code review:</strong> Line-by-line comments, suggested changes</li>
+            <li><strong>GitHub Pages:</strong> Free static site hosting</li>
+            <li><strong>Discussions:</strong> Community forum for your project</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Free unlimited public and private repos</li>
+              <li>Largest developer community</li>
+              <li>Excellent documentation and learning resources</li>
+              <li>Generous free CI/CD minutes</li>
+              <li>Great for portfolios and open source</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Some advanced features require paid tiers</li>
+              <li>Can be overwhelming for beginners</li>
+              <li>Self-hosted option limited compared to GitLab</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://github.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit GitHub
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- GitLab -->
+    <article class="tool-review" id="gitlab" aria-label="GitLab Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">GitLab</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Web + Self-hosted</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A complete DevOps platform combining Git hosting, CI/CD, container registry, security scanning, and project management. Available both as a cloud service and self-hosted.</p>
+          <p><strong>Why it matters:</strong> GitLab provides the entire DevOps toolchain in one application. If you want to own your infrastructure or need more advanced CI/CD than GitHub offers, GitLab is the strongest option.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Complete CI/CD pipelines</strong> built-in</li>
+            <li><strong>Container registry</strong> included</li>
+            <li><strong>Security scanning</strong> (SAST, DAST, dependency scanning)</li>
+            <li><strong>Issue boards</strong> with epic/milestone hierarchy</li>
+            <li><strong>Wiki and requirements management</strong></li>
+            <li><strong>Self-hosted Community Edition</strong> is free</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>All-in-one DevOps platform</li>
+              <li>Excellent self-hosted option</li>
+              <li>More generous CI/CD minutes than GitHub</li>
+              <li>Strong enterprise features</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Smaller community than GitHub</li>
+              <li>Can feel complex for simple projects</li>
+              <li>Self-hosting requires maintenance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://gitlab.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit GitLab
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Bitbucket -->
+    <article class="tool-review tool-review-compact" id="bitbucket" aria-label="Bitbucket Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Bitbucket</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Web-based</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Atlassian's Git hosting service, deeply integrated with Jira and other Atlassian products. Popular in enterprise environments already using Atlassian tools.</p>
+          <p><strong>Best for:</strong> Teams already using Jira, Confluence, and other Atlassian products. The integration is the main selling point.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://bitbucket.org>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Bitbucket
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 03: TERMINAL TOOLS ========== -->
+<section class="res-section" id="terminal-tools" aria-label="Terminal and Command Line Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[03]</span>
+      <h2>Terminal & Command Line Tools</h2>
+    </div>
+    <p class="section-desc">The terminal is one of the most powerful interfaces you have to your computer. Modern terminal emulators make working at the command line faster, more pleasant, and more productive.</p>
+
+    <!-- ADSENSE: in-article -->
+
+    <!-- Windows Terminal -->
+    <article class="tool-review" id="windows-terminal" aria-label="Windows Terminal Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Windows Terminal</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Windows</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Microsoft's modern terminal application that supports Command Prompt, PowerShell, WSL, and SSH, all in a single interface with tabs and customizable themes.</p>
+          <p><strong>Why it matters:</strong> Windows Terminal finally gives Windows developers a first-class terminal experience. GPU-accelerated rendering, ligatures, transparency, themes, and profiles make it comparable to the best terminals on macOS or Linux.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Multiple tabs and panes</strong> (split screen)</li>
+            <li><strong>Support for any shell</strong> (PowerShell, Command Prompt, WSL, SSH)</li>
+            <li><strong>GPU-accelerated text rendering</strong></li>
+            <li><strong>Custom themes and color schemes</strong></li>
+            <li><strong>Configurable profiles</strong> for different environments</li>
+            <li><strong>Ligature and emoji support</strong></li>
+          </ul>
+        </div>
+
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Setup tip:</strong> Set PowerShell 7 or WSL as your default profile. Install a modern font like Cascadia Code (included) or JetBrains Mono that supports ligatures. Customize your color scheme to reduce eye strain during long sessions.</p>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://github.com/microsoft/terminal>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get Windows Terminal
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- iTerm2 -->
+    <article class="tool-review" id="iterm2" aria-label="iTerm2 Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">iTerm2</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">macOS</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A replacement for macOS's default Terminal app, offering advanced features like split panes, search, autocomplete, and extensive customization.</p>
+          <p><strong>Why it matters:</strong> iTerm2 has been the gold standard terminal on macOS for years. Features like instant replay (scroll back through your terminal history visually), shell integration, and triggers make it indispensable for serious terminal users.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Split panes</strong> horizontally and vertically</li>
+            <li><strong>Autocomplete</strong> from command history</li>
+            <li><strong>Instant replay</strong> of terminal output</li>
+            <li><strong>Shell integration</strong> for semantic history</li>
+            <li><strong>Triggers:</strong> automatic actions based on terminal output</li>
+            <li><strong>Extensive theme and profile customization</strong></li>
+          </ul>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://iterm2.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download iTerm2
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Oh My Zsh -->
+    <article class="tool-review" id="ohmyzsh" aria-label="Oh My Zsh Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Oh My Zsh</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Unix/Linux/Mac</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A framework for managing Zsh configuration, with themes, plugins, and quality-of-life improvements that make the shell more powerful and pleasant to use.</p>
+          <p><strong>Why it matters:</strong> Oh My Zsh transforms Zsh from a basic shell into a productivity powerhouse. Auto-suggestions, syntax highlighting, Git integration, and hundreds of plugins significantly improve your command-line experience.</p>
+        </div>
+
+        <div class="tool-review-commands">
+          <h3>Popular Plugins</h3>
+          <div class="commands-grid">
+            <div class="command-item">
+              <code>git</code>
+              <span>Aliases and completion for Git commands</span>
+            </div>
+            <div class="command-item">
+              <code>zsh-autosuggestions</code>
+              <span>Fish-like suggestions based on history</span>
+            </div>
+            <div class="command-item">
+              <code>zsh-syntax-highlighting</code>
+              <span>Real-time syntax highlighting</span>
+            </div>
+            <div class="command-item">
+              <code>autojump</code>
+              <span>Jump to frequently used directories</span>
+            </div>
+            <div class="command-item">
+              <code>docker</code>
+              <span>Docker command completion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Recommendation:</strong> Start with the Powerlevel10k theme for a beautiful, informative prompt. Add plugins gradually — don't install everything at once or you'll slow down your shell startup.</p>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://ohmyz.sh>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get Oh My Zsh
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 04: API TESTING ========== -->
+<section class="res-section res-section-alt" id="api-testing" aria-label="API Testing Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[04]</span>
+      <h2>API Testing Tools</h2>
+    </div>
+    <p class="section-desc">Whether you're building or consuming APIs, you need tools to send requests, inspect responses, test authentication, and debug issues. These tools save time and help you understand how APIs behave before integrating them into your application.</p>
+
+    <!-- Postman -->
+    <article class="tool-review" id="postman" aria-label="Postman Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Postman</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> The most popular API development and testing platform, offering request builders, collections, environments, automated testing, and team collaboration features.</p>
+          <p><strong>Why it matters:</strong> Postman makes API testing accessible to everyone, from beginners to advanced users. Its collections let you save and organize requests, environments manage different configurations (dev/staging/prod), and tests can be automated in CI/CD pipelines.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Visual request builder</strong> for all HTTP methods</li>
+            <li><strong>Collections</strong> to organize and share API requests</li>
+            <li><strong>Environments</strong> for managing variables (API keys, endpoints)</li>
+            <li><strong>Pre-request scripts and tests</strong> in JavaScript</li>
+            <li><strong>Mock servers</strong> for API prototyping</li>
+            <li><strong>Automated testing and monitoring</strong></li>
+            <li><strong>Team workspaces</strong> for collaboration</li>
+            <li><strong>API documentation generation</strong></li>
+          </ul>
+        </div>
+
+        <div class="tool-review-usecases">
+          <h3>Best Use Cases</h3>
+          <ul class="usecase-list">
+            <li>Testing REST APIs during development</li>
+            <li>Creating comprehensive API documentation</li>
+            <li>Team collaboration on API specifications</li>
+            <li>Automated API testing in CI/CD</li>
+            <li>Exploring third-party APIs</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Free tier is generous and fully functional</li>
+              <li>Intuitive interface for beginners</li>
+              <li>Powerful scripting capabilities</li>
+              <li>Large community and extensive documentation</li>
+              <li>Collections can be version controlled</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Requires account for full features</li>
+              <li>Heavy application, uses significant resources</li>
+              <li>Some advanced features locked behind paid tiers</li>
+              <li>Can feel overwhelming with many features</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-meta">
+          <div class="tool-meta-item">
+            <span class="tool-meta-label">Learning Curve</span>
+            <div class="learning-curve-bar" aria-label="Learning curve: Easy for basics, moderate for advanced">
+              <div class="learning-curve-fill learning-curve-easy"></div>
+            </div>
+            <span class="tool-meta-value">Easy for basics, moderate for advanced features</span>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://www.postman.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download Postman
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Insomnia -->
+    <article class="tool-review" id="insomnia" aria-label="Insomnia Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Insomnia</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A lightweight, open-source API client focused on REST and GraphQL. Known for its clean interface and efficient workflow.</p>
+          <p><strong>Why it matters:</strong> Insomnia offers a cleaner, less cluttered alternative to Postman. It's particularly strong with GraphQL, offering schema validation, autocomplete, and query building. The free version has no feature limits, just collaboration restrictions.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Streamlined interface</strong> with less clutter</li>
+            <li><strong>Excellent GraphQL support</strong> with schema introspection</li>
+            <li><strong>Environment variables and templating</strong></li>
+            <li><strong>Plugin system</strong> for extensibility</li>
+            <li><strong>Code generation</strong> for multiple languages</li>
+            <li><strong>Request chaining and response filtering</strong></li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Clean, focused interface</li>
+              <li>Best GraphQL experience</li>
+              <li>Lightweight and fast</li>
+              <li>All features free for individual use</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Smaller community than Postman</li>
+              <li>Fewer integrations and plugins</li>
+              <li>Team collaboration requires paid plan</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://insomnia.rest>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download Insomnia
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Thunder Client -->
+    <article class="tool-review tool-review-compact" id="thunder-client" aria-label="Thunder Client Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Thunder Client (VS Code Extension)</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">VS Code</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A lightweight REST API client built directly into VS Code, eliminating the need for a separate application.</p>
+          <p><strong>Why it matters:</strong> If you're already in VS Code, Thunder Client means one less app to switch to. It's fast, simple, and integrates naturally into your existing workflow.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li>Built into VS Code sidebar</li>
+            <li>Collections and environments</li>
+            <li>Scriptless testing with GUI</li>
+            <li>Import from Postman/Insomnia</li>
+            <li>Git-friendly (JSON files)</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>No separate app needed</li>
+              <li>Extremely lightweight</li>
+              <li>Collections stored as JSON (version control friendly)</li>
+              <li>Free version very capable</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Less feature-rich than dedicated apps</li>
+              <li>Limited scripting capabilities</li>
+              <li>Only works within VS Code</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 05: DATABASE TOOLS ========== -->
+<section class="res-section" id="database-tools" aria-label="Database Management Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[05]</span>
+      <h2>Database Management Tools</h2>
+    </div>
+    <p class="section-desc">Database tools help you visualize schemas, write queries, inspect data, and manage migrations. Whether you're debugging production issues or designing a new schema, these tools make database work faster and less error-prone.</p>
+
+    <!-- DBeaver -->
+    <article class="tool-review" id="dbeaver" aria-label="DBeaver Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">DBeaver</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A universal database tool supporting PostgreSQL, MySQL, SQLite, Oracle, SQL Server, MongoDB, and dozens of other databases. The Swiss Army knife of database clients.</p>
+          <p><strong>Why it matters:</strong> Instead of learning a different tool for each database, DBeaver provides a consistent interface across all of them. It's powerful enough for professionals yet approachable for beginners.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Support for 100+ databases</strong></li>
+            <li><strong>SQL editor</strong> with autocomplete and syntax highlighting</li>
+            <li><strong>Visual query builder</strong></li>
+            <li><strong>ER diagrams</strong> and schema visualization</li>
+            <li><strong>Data export/import</strong> in multiple formats</li>
+            <li><strong>Database comparison and synchronization</strong></li>
+            <li><strong>SSH tunneling and SSL support</strong></li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>One tool for all databases</li>
+              <li>Community edition is fully featured</li>
+              <li>Active development and updates</li>
+              <li>Excellent documentation</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Can be resource-heavy (Java-based)</li>
+              <li>Interface can feel cluttered</li>
+              <li>Slower than database-specific tools</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://dbeaver.io>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download DBeaver
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- pgAdmin -->
+    <article class="tool-review tool-review-compact" id="pgadmin" aria-label="pgAdmin Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">pgAdmin</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> The official graphical management tool for PostgreSQL, offering comprehensive administration features.</p>
+          <p><strong>Why it matters:</strong> If you work primarily with PostgreSQL, pgAdmin provides the deepest integration and most complete feature set. It's designed specifically for PostgreSQL, so it understands all the PostgreSQL-specific features that generic tools miss.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li>Complete PostgreSQL administration</li>
+            <li>Query tool with explain/analyze visualization</li>
+            <li>Backup and restore management</li>
+            <li>User and role management</li>
+            <li>Monitoring and statistics</li>
+            <li>PL/pgSQL debugger</li>
+          </ul>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://www.pgadmin.org>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download pgAdmin
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- MongoDB Compass -->
+    <article class="tool-review tool-review-compact" id="mongodb-compass" aria-label="MongoDB Compass Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">MongoDB Compass</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> The official GUI for MongoDB, providing visual exploration, query building, and performance analysis.</p>
+          <p><strong>Why it matters:</strong> MongoDB's document structure can be hard to navigate with just the shell. Compass makes it visual, showing you document structure, helping build queries, and explaining performance issues.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li>Visual document exploration</li>
+            <li>Aggregation pipeline builder</li>
+            <li>Query performance analysis</li>
+            <li>Index management and recommendations</li>
+            <li>Schema analysis and validation</li>
+            <li>Real-time server stats</li>
+          </ul>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://www.mongodb.com/products/compass>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download Compass
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- MySQL Workbench -->
+    <article class="tool-review tool-review-compact" id="mysql-workbench" aria-label="MySQL Workbench Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">MySQL Workbench</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Oracle's official tool for MySQL, combining database design, SQL development, and server administration.</p>
+          <p><strong>Why it matters:</strong> MySQL Workbench excels at database modeling with its ER diagram designer. You can design your schema visually, then generate the SQL to create it. It's also the most comprehensive tool for MySQL administration.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://www.mysql.com/products/workbench/>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download MySQL Workbench
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ADSENSE: in-article -->
+
+<!-- ========== SECTION 06: BROWSER DEVTOOLS ========== -->
+<section class="res-section res-section-alt" id="browser-devtools" aria-label="Browser Developer Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[06]</span>
+      <h2>Browser Developer Tools</h2>
+    </div>
+    <p class="section-desc">Modern browsers come with incredibly powerful development tools built-in. Learning to use them effectively is essential for web development, debugging, and performance optimization.</p>
+
+    <!-- Chrome DevTools -->
+    <article class="tool-review" id="chrome-devtools" aria-label="Chrome DevTools Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Chrome DevTools</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Built-in</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A comprehensive suite of web development and debugging tools built into Google Chrome and Chromium-based browsers (Edge, Brave, Opera).</p>
+          <p><strong>Why it matters:</strong> Chrome DevTools is the most widely used and documented browser developer tool. It sets the standard for features like debugging, network inspection, and performance profiling.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Essential Features</h3>
+          <ul class="feature-list">
+            <li><strong>Elements panel:</strong> Inspect and modify HTML/CSS in real-time, see box model visualization</li>
+            <li><strong>Console:</strong> JavaScript REPL, log messages, error tracking</li>
+            <li><strong>Sources:</strong> Debug JavaScript with breakpoints, step through code, watch expressions</li>
+            <li><strong>Network:</strong> Inspect all HTTP requests, timing waterfalls, payload inspection</li>
+            <li><strong>Performance:</strong> Record and analyze runtime performance, find bottlenecks</li>
+            <li><strong>Application:</strong> Inspect localStorage, cookies, service workers, manifests</li>
+            <li><strong>Lighthouse:</strong> Automated audits for performance, accessibility, SEO</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Pro Tips:</strong> Use <code>Cmd/Ctrl + Shift + P</code> for command palette — access any feature quickly. Enable "Disable cache" while DevTools is open. Use device emulation to test responsive designs. The Coverage tab shows unused JavaScript and CSS. Network throttling helps test on slow connections.</p>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://developer.chrome.com/docs/devtools>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">DevTools Documentation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Firefox DevTools -->
+    <article class="tool-review tool-review-compact" id="firefox-devtools" aria-label="Firefox Developer Tools Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Firefox Developer Tools</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Built-in</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Mozilla Firefox's built-in development and debugging tools, known for excellent CSS Grid/Flexbox visualization and privacy-focused features.</p>
+          <p><strong>Why it matters:</strong> Firefox DevTools excel at CSS debugging with the best Grid and Flexbox inspectors available. Firefox also respects privacy better than Chrome, making it useful for testing privacy-conscious features.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>Standout Features</h3>
+          <ul class="feature-list">
+            <li><strong>CSS Grid Inspector:</strong> Best-in-class visualization of Grid layouts</li>
+            <li><strong>Flexbox Inspector:</strong> Visualize flex containers and items</li>
+            <li><strong>Accessibility Inspector:</strong> Check ARIA attributes and keyboard navigation</li>
+            <li><strong>Font Inspector:</strong> See all fonts used on a page</li>
+            <li><strong>Screenshot tool:</strong> Capture full page or specific elements</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 07: DESIGN TOOLS ========== -->
+<section class="res-section" id="design-tools" aria-label="Design and Prototyping Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[07]</span>
+      <h2>Design & Prototyping Tools</h2>
+    </div>
+    <p class="section-desc">Design tools are no longer just for designers. Modern developers often create mockups, understand design systems, and collaborate with designers. These tools bridge the gap between design and code.</p>
+
+    <!-- Figma -->
+    <article class="tool-review" id="figma" aria-label="Figma Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Figma</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Web-based</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A collaborative interface design tool that runs entirely in the browser. The industry standard for UI/UX design, prototyping, and design systems.</p>
+          <p><strong>Why developers should care:</strong> Figma revolutionized designer-developer collaboration. You can inspect designs, copy CSS, download assets, and see live updates to designs — all in your browser without special software.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Real-time collaboration:</strong> Multiple people can work on the same file simultaneously</li>
+            <li><strong>Component system:</strong> Create reusable design components with variants</li>
+            <li><strong>Auto Layout:</strong> Flexbox-like system for responsive designs</li>
+            <li><strong>Prototyping:</strong> Create interactive prototypes with transitions</li>
+            <li><strong>Developer handoff:</strong> Inspect designs, copy code, export assets</li>
+            <li><strong>Design systems:</strong> Shared libraries across projects and teams</li>
+            <li><strong>Plugins:</strong> Extend functionality (accessibility checkers, content generators, etc.)</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>For Developers</h3>
+          <ul class="feature-list">
+            <li>Copy CSS code directly from designs</li>
+            <li>Inspect mode shows measurements, colors, and spacing</li>
+            <li>Export assets in multiple formats (SVG, PNG, JPG)</li>
+            <li>View version history to see design evolution</li>
+            <li>Comment directly on designs to ask questions</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Free tier is generous (3 projects, unlimited files)</li>
+              <li>No software to install, works everywhere</li>
+              <li>Industry standard — most designers use it</li>
+              <li>Excellent performance despite being browser-based</li>
+              <li>Strong community and plugin ecosystem</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Requires internet connection</li>
+              <li>Free tier limited for team collaboration</li>
+              <li>Can be slow with very large files</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-meta">
+          <div class="tool-meta-item">
+            <span class="tool-meta-label">Learning Curve</span>
+            <div class="learning-curve-bar" aria-label="Learning curve: Easy for viewing, moderate for designing">
+              <div class="learning-curve-fill learning-curve-easy"></div>
+            </div>
+            <span class="tool-meta-value">Easy for viewing, moderate for designing</span>
+          </div>
+        </div>
+
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Developer tip:</strong> Even if you don't design, create a free Figma account to view and inspect designs from your team. Learn the inspect panel shortcuts — they'll save you hours of measuring and guessing CSS values.</p>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://www.figma.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Open Figma
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Adobe XD -->
+    <article class="tool-review tool-review-compact" id="adobe-xd" aria-label="Adobe XD Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Adobe XD</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+            <span class="tag tag-warning">Discontinued</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Adobe's UI/UX design and prototyping tool, part of Creative Cloud.</p>
+          <p><strong>Note:</strong> Adobe announced XD will be discontinued, with features moving to Figma (which Adobe acquired). Consider this when choosing tools for new projects.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Sketch -->
+    <article class="tool-review tool-review-compact" id="sketch" aria-label="Sketch Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Sketch</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-paid">Paid ($99/year)</span>
+            <span class="tag">macOS only</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A vector-based design tool for macOS, once the industry standard before Figma. Still widely used, especially in established design teams.</p>
+          <p><strong>Best for:</strong> macOS-only teams with existing Sketch workflows, or designers who prefer native apps over web-based tools.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://www.sketch.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Sketch
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 08: COLLABORATION ========== -->
+<section class="res-section res-section-alt" id="collaboration" aria-label="Collaboration and Communication Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[08]</span>
+      <h2>Collaboration & Communication</h2>
+    </div>
+    <p class="section-desc">Development is a team sport. These communication tools keep teams aligned, enable quick questions, and preserve knowledge through searchable history.</p>
+
+    <!-- Slack -->
+    <article class="tool-review" id="slack" aria-label="Slack Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Slack</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> The leading team messaging platform, organizing conversations into channels with robust integrations for development tools.</p>
+          <p><strong>Why it matters:</strong> Slack replaced email for many development teams. Channels organize conversations by topic, integrations bring alerts into your workflow, and searchable history preserves tribal knowledge.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features for Dev Teams</h3>
+          <ul class="feature-list">
+            <li>Channels for projects, teams, or topics</li>
+            <li>Direct messages and group conversations</li>
+            <li><strong>Integrations:</strong> GitHub, Jira, CI/CD notifications, error monitoring</li>
+            <li>Code snippets with syntax highlighting</li>
+            <li>Searchable message history</li>
+            <li>Audio/video calls and screen sharing</li>
+            <li>Workflow automation with Slack Workflow Builder</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-grid">
+          <div class="tool-review-pros">
+            <h3>Pros</h3>
+            <ul class="pros-list">
+              <li>Industry standard, most teams use it</li>
+              <li>Excellent integration ecosystem</li>
+              <li>Powerful search functionality</li>
+              <li>Good mobile apps</li>
+            </ul>
+          </div>
+          <div class="tool-review-cons">
+            <h3>Cons</h3>
+            <ul class="cons-list">
+              <li>Free tier limits message history (90 days)</li>
+              <li>Can be distracting without discipline</li>
+              <li>Paid tiers expensive for large teams</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://slack.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Slack
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Discord -->
+    <article class="tool-review tool-review-compact" id="discord" aria-label="Discord Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Discord</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Originally built for gaming communities, Discord has become popular for open-source projects, developer communities, and remote teams seeking a free Slack alternative.</p>
+          <p><strong>Best for:</strong> Open-source communities, developer communities, teams wanting free unlimited history and voice/video.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://discord.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Discord
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Microsoft Teams -->
+    <article class="tool-review tool-review-compact" id="ms-teams" aria-label="Microsoft Teams Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Microsoft Teams</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Microsoft's collaboration platform integrating chat, video meetings, file storage, and Office 365 apps.</p>
+          <p><strong>Best for:</strong> Enterprise teams already using Microsoft 365, organizations requiring strong compliance features.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://www.microsoft.com/en/microsoft-teams>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Teams
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 09: PROJECT MANAGEMENT ========== -->
+<section class="res-section" id="project-management" aria-label="Project Management Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[09]</span>
+      <h2>Project Management Tools</h2>
+    </div>
+    <p class="section-desc">Project management tools help teams track work, plan sprints, manage backlogs, and maintain visibility into what everyone is working on.</p>
+
+    <!-- Jira -->
+    <article class="tool-review" id="jira" aria-label="Jira Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Jira</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Web-based</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Atlassian's project tracking and agile management tool, the industry standard for software teams practicing Scrum or Kanban.</p>
+          <p><strong>Why it matters:</strong> Jira is ubiquitous in enterprise software development. Its customizable workflows, sprint planning, and reporting make it powerful, though sometimes at the cost of complexity.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li>Scrum and Kanban boards</li>
+            <li>Sprint planning and backlog management</li>
+            <li>Custom workflows for different teams</li>
+            <li>Detailed reporting and burndown charts</li>
+            <li>Integration with Bitbucket, Confluence, Slack</li>
+            <li>Automation rules to reduce manual work</li>
+          </ul>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://www.atlassian.com/software/jira>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Jira
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Trello -->
+    <article class="tool-review tool-review-compact" id="trello" aria-label="Trello Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Trello</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Web-based</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A simple, visual project management tool based on the Kanban methodology. Uses boards, lists, and cards to organize work.</p>
+          <p><strong>Best for:</strong> Small teams, simple workflows, teams wanting minimal setup, non-technical stakeholders.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://trello.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Trello
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- GitHub Projects -->
+    <article class="tool-review tool-review-compact" id="github-projects" aria-label="GitHub Projects Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">GitHub Projects</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">GitHub</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> GitHub's built-in project management tool that integrates directly with issues and pull requests.</p>
+          <p><strong>Best for:</strong> Teams already on GitHub, open-source projects, keeping project management close to code.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Asana -->
+    <article class="tool-review tool-review-compact" id="asana" aria-label="Asana Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Asana</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Web-based</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A flexible work management platform supporting multiple project views (list, board, timeline, calendar).</p>
+          <p><strong>Best for:</strong> Mixed teams (developers + designers + marketing), organizations needing flexibility, timeline/Gantt chart requirements.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://asana.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Asana
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 10: PERFORMANCE TOOLS ========== -->
+<section class="res-section res-section-alt" id="performance-tools" aria-label="Performance Testing Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[10]</span>
+      <h2>Performance Testing Tools</h2>
+    </div>
+    <p class="section-desc">Performance matters. These tools help you measure, understand, and optimize how fast your web applications load and run.</p>
+
+    <!-- Lighthouse -->
+    <article class="tool-review" id="lighthouse" aria-label="Lighthouse Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Lighthouse</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Built-in Chrome</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> An automated tool from Google that audits web pages for performance, accessibility, SEO, and best practices. Built into Chrome DevTools.</p>
+          <p><strong>Why it matters:</strong> Lighthouse provides actionable insights into what's slowing down your site. It's the foundation of Google's web performance recommendations and influences search rankings.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>What it Tests</h3>
+          <ul class="feature-list">
+            <li><strong>Performance:</strong> Load time, Time to Interactive, Largest Contentful Paint</li>
+            <li><strong>Accessibility:</strong> ARIA attributes, color contrast, keyboard navigation</li>
+            <li><strong>Best Practices:</strong> HTTPS, console errors, deprecated APIs</li>
+            <li><strong>SEO:</strong> Meta tags, mobile-friendliness, structured data</li>
+            <li><strong>PWA:</strong> Service workers, offline capability, installability</li>
+          </ul>
+        </div>
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Pro tip:</strong> Run Lighthouse in Incognito mode to avoid browser extension interference. Test on a simulated mobile device with throttled network to see real-world performance.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- WebPageTest -->
+    <article class="tool-review tool-review-compact" id="webpagetest" aria-label="WebPageTest Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">WebPageTest</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Web-based</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> An advanced web performance testing tool that runs tests from multiple locations worldwide using real browsers.</p>
+          <p><strong>Why it matters:</strong> WebPageTest provides deeper analysis than Lighthouse, including waterfall charts showing exactly when each resource loads, filmstrip views of page rendering, and testing from different geographic locations.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>Advanced Features</h3>
+          <ul class="feature-list">
+            <li>Test from 40+ locations worldwide</li>
+            <li>Multiple browsers and devices</li>
+            <li>Network throttling (3G, 4G, LTE)</li>
+            <li>Detailed waterfall charts</li>
+            <li>Filmstrip view of page loading</li>
+            <li>Content blocking to test impact</li>
+          </ul>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://www.webpagetest.org>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit WebPageTest
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- GTmetrix -->
+    <article class="tool-review tool-review-compact" id="gtmetrix" aria-label="GTmetrix Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">GTmetrix</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Web-based</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A comprehensive performance testing tool combining Lighthouse with additional metrics and historical tracking.</p>
+          <p><strong>Why it matters:</strong> GTmetrix is excellent for monitoring performance over time. The free tier allows tracking and alerts when performance degrades.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://gtmetrix.com>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit GTmetrix
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 11: SECURITY TOOLS ========== -->
+<section class="res-section" id="security-tools" aria-label="Security Testing Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[11]</span>
+      <h2>Security Testing Tools</h2>
+    </div>
+    <p class="section-desc">Security testing helps identify vulnerabilities before attackers do. These tools scan for common security issues and help you build more secure applications.</p>
+
+    <!-- ADSENSE: in-article -->
+
+    <!-- OWASP ZAP -->
+    <article class="tool-review" id="owasp-zap" aria-label="OWASP ZAP Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">OWASP ZAP (Zed Attack Proxy)</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A free, open-source web application security scanner maintained by OWASP. It helps find security vulnerabilities in web applications.</p>
+          <p><strong>Why it matters:</strong> ZAP is the most popular free security testing tool. It can automatically scan for common vulnerabilities like SQL injection, XSS, and insecure configurations, or you can use it for manual penetration testing.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li>Automated vulnerability scanning</li>
+            <li>Passive and active scanning modes</li>
+            <li>Web proxy for manual testing</li>
+            <li>Spider to discover all pages/endpoints</li>
+            <li>API scanning support</li>
+            <li>Integration with CI/CD pipelines</li>
+          </ul>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://www.zaproxy.org>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download ZAP
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Burp Suite -->
+    <article class="tool-review tool-review-compact" id="burp-suite" aria-label="Burp Suite Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Burp Suite</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-freemium">Free + Paid</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A comprehensive platform for web application security testing, combining automated scanning with manual testing tools.</p>
+          <p><strong>Why it matters:</strong> Burp Suite is the industry standard for professional security testing. The Community Edition is free and suitable for manual testing; Professional Edition adds powerful automated scanning.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li>Intercepting proxy to modify requests/responses</li>
+            <li>Web application crawler</li>
+            <li>Automated vulnerability scanner (Pro only)</li>
+            <li>Intruder for fuzzing and brute force</li>
+            <li>Repeater for manual request modification</li>
+            <li>Extensive plugin ecosystem</li>
+          </ul>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://portswigger.net/burp>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit Burp Suite
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 12: CONTAINER TOOLS ========== -->
+<section class="res-section res-section-alt" id="container-tools" aria-label="Container and Orchestration Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[12]</span>
+      <h2>Container & Orchestration Tools</h2>
+    </div>
+    <p class="section-desc">Containers package applications with their dependencies, ensuring consistency across development, testing, and production environments.</p>
+
+    <!-- Docker Desktop -->
+    <article class="tool-review" id="docker" aria-label="Docker Desktop Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Docker Desktop</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free for individuals</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> The easiest way to build and run Docker containers on Windows and macOS. Includes Docker Engine, Docker CLI, Docker Compose, and Kubernetes.</p>
+          <p><strong>Why it matters:</strong> Docker Desktop makes containerization accessible on development machines. It handles the complexity of running Linux containers on Windows/Mac, provides a GUI for managing containers, and includes essential tools in one package.</p>
+        </div>
+
+        <div class="tool-review-features">
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li>Run Linux containers on Windows/Mac</li>
+            <li>Docker Compose for multi-container applications</li>
+            <li>Built-in Kubernetes cluster for testing</li>
+            <li>GUI for container and image management</li>
+            <li>Volume and network management</li>
+            <li>Resource limits configuration</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-usecases">
+          <h3>Common Use Cases</h3>
+          <ul class="usecase-list">
+            <li>Creating reproducible development environments</li>
+            <li>Running databases locally without installing them</li>
+            <li>Building and testing containers before deployment</li>
+            <li>Testing multi-service architectures locally</li>
+          </ul>
+        </div>
+
+        <div class="tool-review-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Getting started:</strong> Use Docker Compose to define your development environment. A single <code>docker-compose.yml</code> file can spin up your database, cache, queue, and any other services your app needs. Teammates get the exact same environment with one command.</p>
+        </div>
+
+        <div class="tool-review-cta">
+          <a href="<https://www.docker.com/products/docker-desktop/>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download Docker Desktop
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kubernetes -->
+    <article class="tool-review tool-review-compact" id="kubernetes" aria-label="Kubernetes Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Kubernetes (kubectl, minikube)</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> An open-source container orchestration platform for automating deployment, scaling, and management of containerized applications.</p>
+          <p><strong>Why it matters:</strong> Kubernetes (K8s) is the standard for running containers in production. Understanding Kubernetes is increasingly important for backend and DevOps-focused developers.</p>
+        </div>
+        <div class="tool-review-commands">
+          <h3>Key Concepts</h3>
+          <div class="commands-grid">
+            <div class="command-item">
+              <code>Pods</code>
+              <span>Smallest deployable units containing one or more containers</span>
+            </div>
+            <div class="command-item">
+              <code>Services</code>
+              <span>Expose pods to network traffic</span>
+            </div>
+            <div class="command-item">
+              <code>Deployments</code>
+              <span>Manage desired state and updates</span>
+            </div>
+            <div class="command-item">
+              <code>ConfigMaps/Secrets</code>
+              <span>Manage configuration and sensitive data</span>
+            </div>
+            <div class="command-item">
+              <code>kubectl</code>
+              <span>Command-line tool for managing clusters</span>
+            </div>
+          </div>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://kubernetes.io>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Learn Kubernetes
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 13: CLOUD CLIs ========== -->
+<section class="res-section" id="cloud-clis" aria-label="Cloud Platform CLI Tools">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">[13]</span>
+      <h2>Cloud Platform CLI Tools</h2>
+    </div>
+    <p class="section-desc">Command-line interfaces for cloud platforms let you automate deployments, manage infrastructure, and interact with cloud services from your terminal or CI/CD pipelines.</p>
+
+    <!-- AWS CLI -->
+    <article class="tool-review" id="aws-cli" aria-label="AWS CLI Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">AWS CLI</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> The official command-line tool for Amazon Web Services, providing direct access to AWS services from the terminal.</p>
+          <p><strong>Why it matters:</strong> AWS CLI is essential for automating AWS tasks, managing infrastructure as code, and integrating AWS into development workflows. Most AWS automation and CI/CD pipelines use the CLI.</p>
+        </div>
+        <div class="tool-review-features">
+          <h3>Common Uses</h3>
+          <ul class="feature-list">
+            <li>Managing S3 buckets and objects</li>
+            <li>Deploying applications to EC2, ECS, or Lambda</li>
+            <li>Querying CloudWatch logs and metrics</li>
+            <li>Managing IAM users and permissions</li>
+            <li>Automating infrastructure with scripts</li>
+          </ul>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://aws.amazon.com/cli/>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get AWS CLI
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Azure CLI -->
+    <article class="tool-review tool-review-compact" id="azure-cli" aria-label="Azure CLI Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Azure CLI</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> Microsoft's cross-platform command-line tool for managing Azure resources and services.</p>
+          <p><strong>Why it matters:</strong> Azure CLI provides a consistent way to manage Azure resources across Windows, macOS, and Linux. It's particularly well-integrated with Azure DevOps and GitHub Actions.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://learn.microsoft.com/en-us/cli/azure/>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get Azure CLI
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Google Cloud SDK -->
+    <article class="tool-review tool-review-compact" id="gcloud" aria-label="Google Cloud SDK Review">
+      <div class="tool-review-header">
+        <div class="tool-review-title-row">
+          <h3 class="tool-review-name">Google Cloud SDK (gcloud)</h3>
+          <div class="tool-review-tags">
+            <span class="tag tag-free">Free</span>
+            <span class="tag">Cross-platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-review-body">
+        <div class="tool-review-about">
+          <p><strong>What it is:</strong> A set of command-line tools for Google Cloud Platform, including gcloud, gsutil, and bq for managing GCP resources.</p>
+          <p><strong>Why it matters:</strong> The gcloud CLI is the primary way to interact with GCP services, deploy applications to App Engine or Cloud Run, and manage Google Cloud infrastructure.</p>
+        </div>
+        <div class="tool-review-cta">
+          <a href="<https://cloud.google.com/sdk>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get Cloud SDK
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== CONTINUE LEARNING CTA ========== -->
+<section class="res-cta-section" aria-label="Continue your learning journey">
+  <div class="container">
+    <div class="res-cta-inner">
+      <h2>Continue Your Learning Journey</h2>
+      <p class="res-cta-desc">Now that you understand the essential developer tools, explore related resources to deepen your knowledge and build complete development skills.</p>
+      <div class="res-cta-grid">
+        <a href="/resources/essential-software" class="res-cta-card">
+          <span class="res-cta-card-icon" aria-hidden="true">💻</span>
+          <h3>Essential Software Guide</h3>
+          <p>IDEs, terminals, Git clients, and productivity apps.</p>
+        </a>
+        <a href="/resources/documentation" class="res-cta-card">
+          <span class="res-cta-card-icon" aria-hidden="true">📄</span>
+          <h3>Documentation Resources</h3>
+          <p>Official docs for popular languages and frameworks.</p>
+        </a>
+        <a href="/resources/best-practices" class="res-cta-card">
+          <span class="res-cta-card-icon" aria-hidden="true">✅</span>
+          <h3>Development Best Practices</h3>
+          <p>Code quality, testing, security, and patterns.</p>
+        </a>
+        <a href="/resources/career-roadmaps" class="res-cta-card">
+          <span class="res-cta-card-icon" aria-hidden="true">🗺️</span>
+          <h3>Career Roadmaps</h3>
+          <p>Step-by-step guides for frontend, backend, DevOps.</p>
+        </a>
+      </div>
+      <div class="res-cta-actions">
+        <a href="/resources" class="btn btn-primary">Browse All Resources</a>
+        <a href="/tools" class="btn btn-secondary">Explore Our Tools</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADSENSE: leaderboard -->

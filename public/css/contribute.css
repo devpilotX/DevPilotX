@@ -1,0 +1,753 @@
+/**
+ * contribute.css — Styles for the Contribute / Open Source page
+ * Page: /contribute
+ * Value.Codes
+ */
+
+/* ========== HERO SECTION ========== */
+.contribute-hero {
+  padding: 6rem 0 4rem;
+  text-align: center;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.contribute-hero__badge {
+  margin-bottom: 1.25rem;
+}
+
+.contribute-hero__title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 auto 1.25rem;
+  max-width: 720px;
+}
+
+.contribute-hero__desc {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto 2rem;
+}
+
+.contribute-hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.btn-icon {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* ========== HERO STATS ========== */
+.contribute-hero__stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.contribute-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contribute-stat__number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.contribute-stat__label {
+  font-size: 0.85rem;
+  color: var(--subtle);
+  margin-top: 0.25rem;
+}
+
+/* ========== WHY CONTRIBUTE ========== */
+.contribute-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.contribute-why__card {
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.contribute-why__card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+.contribute-why__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-light);
+  border-radius: var(--radius);
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.contribute-why__card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.contribute-why__card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ========== HOW TO CONTRIBUTE — STEPS ========== */
+.contribute-steps {
+  max-width: 720px;
+  margin: 3rem auto 0;
+  position: relative;
+}
+
+.contribute-steps::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border);
+}
+
+.contribute-step {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.contribute-step:last-child {
+  padding-bottom: 0;
+}
+
+.contribute-step__number {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent);
+  color: var(--paper);
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.contribute-step__content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  padding-top: 0.6rem;
+}
+
+.contribute-step__content p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.contribute-step__content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contribute-step__content a:hover {
+  color: var(--accent-dark);
+}
+
+/* ========== CODE BLOCKS IN STEPS ========== */
+.contribute-step__code {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  position: relative;
+  overflow-x: auto;
+}
+
+.contribute-step__code code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.7;
+  white-space: pre;
+  display: block;
+}
+
+.contribute-copy-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--subtle);
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background-color var(--transition);
+}
+
+.contribute-copy-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.contribute-copy-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.contribute-copy-btn.is-copied {
+  color: var(--success);
+  border-color: var(--success);
+  background-color: #f0fdf4;
+}
+
+/* ========== CONTRIBUTION AREAS ========== */
+.contribute-areas__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.contribute-area {
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.contribute-area:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.contribute-area__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.contribute-area h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.contribute-area p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.contribute-area .tag {
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ========== TAG VARIANTS ========== */
+.tag--green {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.tag--blue {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.tag--purple {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.tag--orange {
+  background-color: #ffedd5;
+  color: #9a3412;
+}
+
+.tag--yellow {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+/* ========== GUIDELINES ========== */
+.contribute-guidelines__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.contribute-guideline {
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.contribute-guideline h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.contribute-guideline__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contribute-guideline__list li {
+  position: relative;
+  padding-left: 1.5rem;
+  padding-bottom: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.contribute-guideline__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent);
+  border-radius: 50%;
+}
+
+.contribute-guideline__list li:last-child {
+  padding-bottom: 0;
+}
+
+.contribute-guideline__list code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
+  font-size: 0.8rem;
+  background-color: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+/* ========== GOOD FIRST ISSUES ========== */
+.contribute-issues__list {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contribute-issue {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  background-color: var(--paper);
+  transition: background-color var(--transition);
+}
+
+.contribute-issue:first-child {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.contribute-issue:last-child {
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.contribute-issue:hover {
+  background-color: var(--surface);
+}
+
+.contribute-issue__status {
+  padding-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.contribute-issue__status--open {
+  color: var(--success);
+}
+
+.contribute-issue__body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.contribute-issue__body h3 a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.contribute-issue__body h3 a:hover {
+  color: var(--accent);
+}
+
+.contribute-issue__body > p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.contribute-issue__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.contribute-issue__difficulty {
+  font-size: 0.8rem;
+  color: var(--subtle);
+  margin-left: 0.25rem;
+}
+
+.contribute-issues__cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ========== TOP CONTRIBUTORS ========== */
+.contribute-top__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.contribute-contributor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.contribute-contributor:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.contribute-contributor__avatar {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent);
+  color: var(--paper);
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+}
+
+.contribute-contributor__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.contribute-contributor__count {
+  font-size: 0.8rem;
+  color: var(--subtle);
+}
+
+.contribute-top__note {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.contribute-top__note a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contribute-top__note a:hover {
+  color: var(--accent-dark);
+}
+
+/* ========== CODE OF CONDUCT ========== */
+.contribute-conduct__card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contribute-conduct__card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.contribute-conduct__card > p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contribute-conduct__principles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contribute-conduct__principle strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.contribute-conduct__principle p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contribute-conduct__report {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin: 0;
+}
+
+.contribute-conduct__report a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ========== CTA SECTION ========== */
+.contribute-cta {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.contribute-cta__card {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.contribute-cta__card h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.contribute-cta__card > p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contribute-cta__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.contribute-cta__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contribute-cta__links a {
+  font-size: 0.9rem;
+  color: var(--subtle);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.contribute-cta__links a:hover {
+  color: var(--accent);
+}
+
+/* ========== RESPONSIVE — TABLET ========== */
+@media (max-width: 1024px) {
+  .contribute-why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contribute-areas__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contribute-top__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========== RESPONSIVE — MOBILE ========== */
+@media (max-width: 768px) {
+  .contribute-hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .contribute-hero__stats {
+    gap: 2rem;
+  }
+
+  .contribute-why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contribute-areas__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contribute-guidelines__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contribute-top__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contribute-conduct__principles {
+    grid-template-columns: 1fr;
+  }
+
+  .contribute-conduct__card {
+    padding: 2rem 1.5rem;
+  }
+
+  .contribute-issue {
+    padding: 1rem;
+  }
+
+  .contribute-step__code {
+    padding: 0.75rem 1rem;
+  }
+
+  .contribute-copy-btn {
+    position: static;
+    margin-top: 0.75rem;
+    width: 100%;
+    height: 36px;
+    justify-content: center;
+  }
+
+  .contribute-step__code {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .contribute-hero__stats {
+    gap: 1.5rem;
+  }
+
+  .contribute-stat__number {
+    font-size: 1.4rem;
+  }
+
+  .contribute-top__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contribute-hero__actions {
+    flex-direction: column;
+  }
+
+  .contribute-hero__actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contribute-cta__actions {
+    flex-direction: column;
+  }
+
+  .contribute-cta__actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

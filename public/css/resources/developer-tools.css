@@ -1,0 +1,712 @@
+/* ==========================================================================
+   DEVELOPER TOOLS RESOURCE PAGE — STYLES
+   Page: /resources/developer-tools
+   Complete guide to essential development tools
+   ========================================================================== */
+
+/* ========== RESOURCE HERO ========== */
+.res-hero {
+  padding: 3.5rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.res-hero-inner {
+  max-width: 800px;
+}
+
+.res-hero-badges {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.res-hero-content h1 {
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.75rem, 4vw, 2.625rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.res-hero-lead {
+  font-size: 1.0625rem;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+.res-hero-lead strong {
+  color: var(--ink);
+}
+
+/* ========== BREADCRUMB ========== */
+.res-breadcrumb {
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: .8125rem;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  color: var(--muted);
+}
+
+.breadcrumb-item a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  color: var(--border);
+  font-size: .75rem;
+}
+
+.breadcrumb-current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ========== QUICK NAVIGATION ========== */
+.res-quicknav {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.quicknav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+}
+
+.quicknav-card {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: 1rem 1.125rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.quicknav-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.quicknav-number {
+  font-family: monospace;
+  font-size: .75rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.quicknav-title {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.quicknav-desc {
+  font-size: .75rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ========== RESOURCE SECTIONS ========== */
+.res-section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.res-section-alt {
+  background: var(--surface);
+}
+
+/* ========== TOOL REVIEW CARDS ========== */
+.tool-review {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.res-section-alt .tool-review {
+  border-color: var(--border);
+}
+
+.tool-review:last-child {
+  margin-bottom: 0;
+}
+
+.tool-review:hover {
+  border-color: rgba(201, 40, 26, .25);
+}
+
+.tool-review-header {
+  padding: 1.5rem 1.75rem 0;
+}
+
+.tool-review-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tool-review-name {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.tool-review-tags {
+  display: flex;
+  align-items: center;
+  gap: .375rem;
+  flex-wrap: wrap;
+}
+
+.tag-free {
+  background: #f0fdf4;
+  color: var(--success);
+  border-color: rgba(22, 163, 74, .2);
+}
+
+.tag-freemium {
+  background: #fffbeb;
+  color: var(--warning);
+  border-color: rgba(217, 119, 6, .2);
+}
+
+.tag-paid {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: rgba(201, 40, 26, .15);
+}
+
+.tag-warning {
+  background: #fef2f2;
+  color: var(--error);
+  border-color: rgba(220, 38, 38, .2);
+}
+
+.tool-review-body {
+  padding: 1.25rem 1.75rem 1.75rem;
+}
+
+.tool-review-compact .tool-review-body {
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+/* ========== REVIEW ABOUT ========== */
+.tool-review-about {
+  margin-bottom: 1.5rem;
+}
+
+.tool-review-about p {
+  font-size: .9375rem;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 .75rem;
+}
+
+.tool-review-about p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== REVIEW FEATURES ========== */
+.tool-review-features {
+  margin-bottom: 1.5rem;
+}
+
+.tool-review-features h3 {
+  font-size: .9375rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 .75rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.feature-list li {
+  font-size: .875rem;
+  line-height: 1.65;
+  color: var(--ink);
+  padding-left: 1.25rem;
+  position: relative;
+  margin: 0;
+}
+
+.feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.feature-list li strong {
+  color: var(--ink);
+}
+
+/* ========== USE CASES ========== */
+.tool-review-usecases {
+  margin-bottom: 1.5rem;
+}
+
+.tool-review-usecases h3 {
+  font-size: .9375rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 .75rem;
+}
+
+.usecase-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.usecase-list li {
+  font-size: .875rem;
+  line-height: 1.65;
+  color: var(--muted);
+  padding-left: 1.25rem;
+  position: relative;
+  margin: 0;
+}
+
+.usecase-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+/* ========== PROS / CONS GRID ========== */
+.tool-review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tool-review-pros h3,
+.tool-review-cons h3 {
+  font-size: .875rem;
+  font-weight: 700;
+  margin: 0 0 .625rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.tool-review-pros h3 {
+  color: var(--success);
+}
+
+.tool-review-cons h3 {
+  color: var(--error);
+}
+
+.pros-list,
+.cons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .375rem;
+}
+
+.pros-list li,
+.cons-list li {
+  font-size: .8125rem;
+  line-height: 1.6;
+  color: var(--ink);
+  padding-left: 1.25rem;
+  position: relative;
+  margin: 0;
+}
+
+.pros-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+  font-size: .75rem;
+}
+
+.cons-list li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: var(--error);
+  font-weight: 700;
+  font-size: .75rem;
+}
+
+/* ========== COMMANDS GRID ========== */
+.tool-review-commands {
+  margin-bottom: 1.5rem;
+}
+
+.tool-review-commands h3 {
+  font-size: .9375rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 .75rem;
+}
+
+.commands-grid {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.command-item {
+  display: flex;
+  align-items: baseline;
+  gap: .75rem;
+  padding: .6rem .875rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.command-item code {
+  font-size: .8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.command-item span {
+  font-size: .8125rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ========== LEARNING CURVE BAR ========== */
+.tool-review-meta {
+  margin-bottom: 1.5rem;
+}
+
+.tool-meta-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+.tool-meta-label {
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.learning-curve-bar {
+  width: 120px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.learning-curve-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width .3s var(--ease);
+}
+
+.learning-curve-easy {
+  width: 33%;
+  background: var(--success);
+}
+
+.learning-curve-moderate {
+  width: 60%;
+  background: var(--warning);
+}
+
+.learning-curve-steep {
+  width: 90%;
+  background: var(--accent);
+}
+
+.tool-meta-value {
+  font-size: .8125rem;
+  color: var(--muted);
+}
+
+/* ========== CTA BUTTON ========== */
+.tool-review-cta {
+  margin-bottom: .5rem;
+}
+
+.tool-review-cta .btn {
+  gap: .375rem;
+}
+
+.tool-review-cta .btn svg {
+  flex-shrink: 0;
+}
+
+/* ========== TIP BOX ========== */
+.tool-review-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: 1rem 1.125rem;
+  background: var(--accent-light);
+  border: 1px solid rgba(201, 40, 26, .12);
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+
+.tool-review-tip svg {
+  flex-shrink: 0;
+  color: var(--accent);
+  margin-top: .1rem;
+}
+
+.tool-review-tip p {
+  font-size: .8125rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0;
+}
+
+.tool-review-tip p strong {
+  color: var(--accent);
+}
+
+.tool-review-tip p code {
+  font-size: .775rem;
+}
+
+/* ========== CONTINUE LEARNING CTA ========== */
+.res-cta-section {
+  padding: 4rem 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.res-cta-inner {
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.res-cta-inner h2 {
+  color: var(--paper);
+  margin-bottom: .75rem;
+}
+
+.res-cta-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, .6);
+  line-height: 1.75;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.res-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.res-cta-card {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.res-cta-card:hover {
+  border-color: rgba(255, 255, 255, .2);
+  background: rgba(255, 255, 255, .07);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.res-cta-card-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.res-cta-card h3 {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--paper);
+  margin: 0;
+}
+
+.res-cta-card p {
+  font-size: .775rem;
+  color: rgba(255, 255, 255, .5);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.res-cta-actions {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.res-cta-actions .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.res-cta-actions .btn-secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, .25);
+  color: var(--paper);
+}
+
+.res-cta-actions .btn-secondary:hover {
+  border-color: rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, .05);
+  color: var(--paper);
+}
+
+/* ========== RESPONSIVE: TABLET ========== */
+@media (max-width: 1024px) {
+  .quicknav-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .res-cta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========== RESPONSIVE: MOBILE ========== */
+@media (max-width: 768px) {
+  .res-hero {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .quicknav-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+  }
+
+  .quicknav-card {
+    padding: .875rem;
+  }
+
+  .res-section {
+    padding: 3rem 0;
+  }
+
+  .tool-review-header {
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  .tool-review-body {
+    padding: 1rem 1.25rem 1.5rem;
+  }
+
+  .tool-review-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tool-review-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+  }
+
+  .command-item {
+    flex-direction: column;
+    gap: .25rem;
+  }
+
+  .res-cta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-meta-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quicknav-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .res-cta-actions {
+    flex-direction: column;
+  }
+
+  .res-cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

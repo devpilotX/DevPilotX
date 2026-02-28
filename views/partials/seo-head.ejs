@@ -1,0 +1,65 @@
+<%# ============================================================ %>
+<%# Value.Codes — SEO Meta Block                               %>
+<%# ============================================================ %>
+<%# Outputs: title, description, keywords, canonical, OG, etc. %>
+<%# All variables passed from route render() calls.            %>
+<%# ============================================================ %>
+
+<!-- ========== PRIMARY META TAGS ========== -->
+<title><%= typeof title !== 'undefined' ? title : 'Value.Codes' %></title>
+<meta name="title" content="<%= typeof title !== 'undefined' ? title : 'Value.Codes' %>">
+<meta name="description" content="<%= typeof description !== 'undefined' ? description : '' %>">
+<% if (typeof keywords !== 'undefined' && keywords) { %>
+<meta name="keywords" content="<%= keywords %>">
+<% } %>
+<meta name="author" content="Value.Codes">
+<meta name="robots" content="<%= typeof robots !== 'undefined' ? robots : 'index, follow' %>, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="language" content="English">
+<meta name="revisit-after" content="3 days">
+<meta name="rating" content="general">
+<meta name="distribution" content="global">
+<% if (typeof canonical !== 'undefined' && canonical) { %>
+<link rel="canonical" href="<%= canonical %>">
+<% } %>
+
+<!-- ========== OPEN GRAPH / FACEBOOK ========== -->
+<meta property="og:type" content="<%= typeof ogType !== 'undefined' ? ogType : 'website' %>">
+<% if (typeof canonical !== 'undefined' && canonical) { %>
+<meta property="og:url" content="<%= canonical %>">
+<% } %>
+<meta property="og:title" content="<%= typeof ogTitle !== 'undefined' ? ogTitle : (typeof title !== 'undefined' ? title : 'Value.Codes') %>">
+<meta property="og:description" content="<%= typeof ogDescription !== 'undefined' ? ogDescription : (typeof description !== 'undefined' ? description : '') %>">
+<% if (typeof ogImage !== 'undefined' && ogImage) { %>
+<meta property="og:image" content="<%= ogImage %>">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Value.Codes — Free Developer Tools Platform">
+<% } %>
+<meta property="og:site_name" content="Value.Codes">
+<meta property="og:locale" content="en_US">
+
+<!-- ========== TWITTER CARD ========== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@value_codes">
+<meta name="twitter:creator" content="@value_codes">
+<% if (typeof canonical !== 'undefined' && canonical) { %>
+<meta name="twitter:url" content="<%= canonical %>">
+<% } %>
+<meta name="twitter:title" content="<%= typeof title !== 'undefined' ? title : 'Value.Codes' %>">
+<meta name="twitter:description" content="<%= typeof twitterDescription !== 'undefined' ? twitterDescription : (typeof description !== 'undefined' ? description : '') %>">
+<% if (typeof twitterImage !== 'undefined' && twitterImage) { %>
+<meta name="twitter:image" content="<%= twitterImage %>">
+<% } else if (typeof ogImage !== 'undefined' && ogImage) { %>
+<meta name="twitter:image" content="<%= ogImage %>">
+<% } %>
+<meta name="twitter:image:alt" content="Value.Codes — Free Developer Tools Platform">
+
+<!-- ========== APP META — PWA / Mobile ========== -->
+<meta name="application-name" content="Value.Codes">
+<meta name="apple-mobile-web-app-title" content="Value.Codes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#ffffff">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
