@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
 
     /* Twitter */
     twitterDescription: 'JSON Formatter, Regex Builder, Diff Checker, Online Compiler, Developer Chat — all free, no sign-up.',
-    twitterImage: `${siteUrl}/images/twitter-card.jpg`,
+    twitterImage: `${siteUrl}/images/og-image.svg`,
 
     /* Structured data */
     schema: [
@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
         'name': 'Value.Codes',
         'alternateName': ['Value Codes', 'ValueCodes'],
         'url': siteUrl,
-        'logo': `${siteUrl}/favicon.png`,
+        'logo': `${siteUrl}/favicon.svg`,
         'description': 'Free online developer tools platform with community features.',
         'sameAs': [
           'https://github.com/Value-Codes',
@@ -70,7 +70,7 @@ router.get('/', (req, res) => {
           'name': 'Value.Codes',
           'logo': {
             '@type': 'ImageObject',
-            'url': `${siteUrl}/favicon.png`
+            'url': `${siteUrl}/favicon.svg`
           }
         },
         'potentialAction': {

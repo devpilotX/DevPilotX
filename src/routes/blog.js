@@ -296,7 +296,7 @@ router.get('/:slug', async (req, res, next) => {
           "@type": "Organization",
           "name": "Value.Codes",
           "url": SITE_URL,
-          "logo": { "@type": "ImageObject", "url": `${SITE_URL}/favicon.png` }
+          "logo": { "@type": "ImageObject", "url": `${SITE_URL}/favicon.svg` }
         },
         "datePublished": article.published_at,
         "dateModified": article.updated_at || article.published_at,

@@ -29,6 +29,7 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   waitForConnections: true,
   queueLimit: 0,
+  connectTimeout: 5000,   /* fail fast (5s) if DB host is unreachable */
   timezone: '+00:00',
   charset: 'utf8mb4'
 });

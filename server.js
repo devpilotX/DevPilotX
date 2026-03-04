@@ -344,24 +344,40 @@ app.use((err, req, res, _next) => {
  * Graceful shutdown on SIGTERM to close DB pool.
  */
 async function startServer() {
-  try {
-    /* Test database connectivity */
-    const connection = await db.getConnection();
-    connection.release();
-
+  const startListen = () => {
     app.listen(PORT, () => {
       process.stdout.write(`[Value.Codes] Server running on port ${PORT}\n`);
       process.stdout.write(`[Value.Codes] Environment: ${process.env.NODE_ENV || 'development'}\n`);
     });
-  } catch (err) {
-    process.stderr.write(`[Value.Codes] Failed to connect to database: ${err.message}\n`);
-    process.stderr.write('[Value.Codes] Starting server without database...\n');
+  };
 
-    app.listen(PORT, () => {
-      process.stdout.write(`[Value.Codes] Server running on port ${PORT} (no DB)\n`);
-    });
+  try {
+    /* Test database connectivity with a hard 8-second timeout */
+    const dbCheck = db.getConnection().then(conn => { conn.release(); });
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('DB connection timed out after 8s')), 8000)
+    );
+    await Promise.race([dbCheck, timeout]);
+    startListen();
+  } catch (err) {
+    process.stderr.write(`[Value.Codes] DB unavailable: ${err.message}\n`);
+    process.stderr.write('[Value.Codes] Starting without database — set DB_* env vars in hosting panel.\n');
+    startListen();
   }
 }
+
+/* ========== CRASH PROTECTION ========== */
+/**
+ * Prevent unhandled promise rejections from silently crashing the server
+ * in Node 18+ where they are fatal by default.
+ */
+process.on('unhandledRejection', (reason) => {
+  process.stderr.write(`[Value.Codes] Unhandled rejection: ${reason}\n`);
+});
+
+process.on('uncaughtException', (err) => {
+  process.stderr.write(`[Value.Codes] Uncaught exception: ${err.stack || err.message}\n`);
+});
 
 /* Graceful shutdown */
 process.on('SIGTERM', async () => {
