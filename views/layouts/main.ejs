@@ -32,7 +32,6 @@
   <!-- ========== GLOBAL CSS (Critical — above the fold) ========== -->
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css">
 
   <!-- ========== PAGE-SPECIFIC CSS ========== -->
   <% if (typeof pageCSS !== 'undefined' && Array.isArray(pageCSS)) { %>
@@ -40,6 +39,10 @@
   <link rel="stylesheet" href="<%= cssFile %>">
     <% }); %>
   <% } %>
+
+  <!-- ========== NON-CRITICAL CSS (async — below the fold) ========== -->
+  <link rel="preload" href="/css/footer.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/footer.css"></noscript>
 
   <!-- ========== GOOGLE ADSENSE ========== -->
   <meta name="google-adsense-account" content="<%= adsensePubId %>">

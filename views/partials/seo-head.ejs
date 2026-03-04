@@ -12,17 +12,12 @@
 
 <!-- ========== PRIMARY META TAGS ========== -->
 <title><%= typeof title !== 'undefined' ? title : 'Value.Codes' %></title>
-<meta name="title" content="<%= typeof title !== 'undefined' ? title : 'Value.Codes' %>">
 <meta name="description" content="<%= typeof description !== 'undefined' ? description : '' %>">
 <% if (typeof keywords !== 'undefined' && keywords) { %>
 <meta name="keywords" content="<%= keywords %>">
 <% } %>
 <meta name="author" content="Value.Codes">
 <meta name="robots" content="<%= typeof robots !== 'undefined' ? robots : 'index, follow' %>, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="language" content="English">
-<meta name="revisit-after" content="3 days">
-<meta name="rating" content="general">
-<meta name="distribution" content="global">
 <% if (typeof canonical !== 'undefined' && canonical) { %>
 <link rel="canonical" href="<%= canonical %>">
 <% } %>
@@ -62,9 +57,5 @@
 <!-- ========== APP META — PWA / Mobile ========== -->
 <meta name="application-name" content="Value.Codes">
 <meta name="apple-mobile-web-app-title" content="Value.Codes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#ffffff">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta name="referrer" content="strict-origin-when-cross-origin">

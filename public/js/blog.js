@@ -170,6 +170,21 @@
     }
   }
 
+  /* ========== BLOG POST: READING PROGRESS BAR ========== */
+  var progressBar = document.getElementById('blogProgressBar');
+  if (progressBar) {
+    function updateProgress() {
+      var doc = document.documentElement;
+      var scrollTop = window.pageYOffset || doc.scrollTop;
+      var total = doc.scrollHeight - doc.clientHeight;
+      var pct = total > 0 ? Math.min(100, (scrollTop / total) * 100) : 0;
+      progressBar.style.setProperty('--progress', pct.toFixed(1) + '%');
+      progressBar.setAttribute('aria-valuenow', Math.round(pct));
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
   /* ========== BLOG POST: SHARE BUTTONS ========== */
   $$('[data-share]').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -194,17 +209,7 @@
               btn.textContent = originalText;
               btn.setAttribute('aria-label', originalLabel);
             }, 2000);
-          }).catch(fallbackCopy);
-        } else {
-          fallbackCopy();
-        }
-        function fallbackCopy() {
-          var tmp = document.createElement('input');
-          tmp.value = window.location.href;
-          document.body.appendChild(tmp);
-          tmp.select();
-          document.execCommand('copy');
-          document.body.removeChild(tmp);
+          }).catch(function () { /* clipboard unavailable — silent fail */ });
         }
       }
     });
