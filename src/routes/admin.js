@@ -171,7 +171,7 @@ router.post('/articles/new', requireAdmin, async (req, res, next) => {
   try {
     let {
       title, summary, content, author, category_id,
-      tags, status, thumbnail, meta_title, meta_description, published_at
+      tags, status, thumbnail, meta_title, meta_description, focus_keyword, published_at
     } = req.body;
 
     title = sanitizeInput(title);
@@ -194,8 +194,8 @@ router.post('/articles/new', requireAdmin, async (req, res, next) => {
     await db.query(
       `INSERT INTO articles
          (title, slug, thumbnail, summary, content, author, category_id,
-          tags, status, meta_title, meta_description, published_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          tags, status, meta_title, meta_description, focus_keyword, published_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         title,
         slug,
@@ -208,6 +208,7 @@ router.post('/articles/new', requireAdmin, async (req, res, next) => {
         status === 'published' ? 'published' : 'draft',
         sanitizeInput(meta_title) || null,
         sanitizeInput(meta_description) || null,
+        sanitizeInput(focus_keyword) || null,
         publishedAt
       ]
     );
@@ -250,7 +251,7 @@ router.post('/articles/edit/:id', requireAdmin, async (req, res, next) => {
     const id = req.params.id;
     let {
       title, summary, content, author, category_id,
-      tags, status, thumbnail, meta_title, meta_description, published_at
+      tags, status, thumbnail, meta_title, meta_description, focus_keyword, published_at
     } = req.body;
 
     title = sanitizeInput(title);
@@ -289,6 +290,7 @@ router.post('/articles/edit/:id', requireAdmin, async (req, res, next) => {
       status === 'published' ? 'published' : 'draft',
       sanitizeInput(meta_title) || null,
       sanitizeInput(meta_description) || null,
+      sanitizeInput(focus_keyword) || null,
     ];
     if (publishedAtValue) queryParams.push(publishedAtValue);
     queryParams.push(id);
@@ -296,7 +298,8 @@ router.post('/articles/edit/:id', requireAdmin, async (req, res, next) => {
     await db.query(
       `UPDATE articles SET
          title = ?, thumbnail = ?, summary = ?, content = ?, author = ?,
-         category_id = ?, tags = ?, status = ?, meta_title = ?, meta_description = ?
+         category_id = ?, tags = ?, status = ?, meta_title = ?, meta_description = ?,
+         focus_keyword = ?
          ${publishedAtQuery}
        WHERE id = ?`,
       queryParams

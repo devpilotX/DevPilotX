@@ -54,6 +54,11 @@
 <meta name="twitter:image" content="<%= (typeof twitterImage !== 'undefined' && twitterImage) ? twitterImage : _ogImage %>">
 <meta name="twitter:image:alt" content="Value.Codes — Free Developer Tools Platform">
 
+<!-- ========== LCP PRELOAD — blog post hero image ========== -->
+<% if (typeof preloadImage !== 'undefined' && preloadImage) { %>
+<link rel="preload" as="image" href="<%= preloadImage %>" fetchpriority="high">
+<% } %>
+
 <!-- ========== APP META — PWA / Mobile ========== -->
 <meta name="application-name" content="Value.Codes">
 <meta name="apple-mobile-web-app-title" content="Value.Codes">

@@ -20,14 +20,21 @@
     <div>
       <h1 class="admin-page-title"><%= pageHeading %></h1>
       <% if (isEdit) { %>
-        <p class="admin-page-subtitle">Editing: <span class="admin-page-slug">/blog/<%= article.slug %></span></p>
+        <p class="admin-page-subtitle">Editing: <span class="admin-page-slug">/blog/<%= article.slug %>/</span></p>
       <% } else { %>
         <p class="admin-page-subtitle">Slug will be auto-generated from the title</p>
       <% } %>
     </div>
-    <a href="/admin/articles" class="admin-btn admin-btn--ghost">
-      &larr; Back to Articles
-    </a>
+    <div style="display:flex;gap:0.75rem;align-items:center;">
+      <% if (isEdit) { %>
+        <a href="/blog/<%= article.slug %>/" target="_blank" class="admin-btn admin-btn--ghost" rel="noopener">
+          View Live &rarr;
+        </a>
+      <% } %>
+      <a href="/admin/articles" class="admin-btn admin-btn--ghost">
+        &larr; Back
+      </a>
+    </div>
   </div>
 
   <!-- ========== FLASH ========== -->
@@ -60,13 +67,13 @@
 
         <!-- Summary -->
         <div class="admin-form-group">
-          <label for="summary" class="admin-form-label">Summary <span class="admin-form-hint">(shown in blog listings and used for meta description)</span></label>
+          <label for="summary" class="admin-form-label">Summary <span class="admin-form-hint">(shown in listings, used as meta description)</span></label>
           <textarea
             id="summary"
             name="summary"
             class="admin-form-textarea"
             rows="3"
-            placeholder="A short summary of the article (120–160 characters recommended for SEO)..."
+            placeholder="A short summary of the article (120–160 characters recommended)..."
             maxlength="500"
           ><%= isEdit ? (article.summary || '') : '' %></textarea>
         </div>
@@ -92,8 +99,8 @@
           </div>
 
           <p class="admin-form-hint admin-form-hint--block">
-            Use the toolbar above to format your article. HTML is saved directly to the database.
-            Paste code snippets using the <strong>&lt;/&gt;</strong> code block button.
+            Use the toolbar to format your article. For images, click the <strong>image icon</strong> and paste a URL.
+            Headings (H2/H3) will get anchor IDs automatically for the Table of Contents.
           </p>
         </div>
 
@@ -169,11 +176,15 @@
               id="thumbnail"
               name="thumbnail"
               class="admin-form-input"
-              placeholder="/images/blog/my-image.jpg"
+              placeholder="https://... or /images/blog/my-image.jpg"
               value="<%= isEdit ? (article.thumbnail || '') : '' %>"
               maxlength="500"
             >
-            <p class="admin-form-hint">Relative path or full URL</p>
+            <p class="admin-form-hint">Full URL or relative path (e.g. /images/blog/post.jpg)</p>
+          </div>
+          <!-- Live thumbnail preview -->
+          <div id="thumbPreviewWrap" style="display:none;margin-top:0.75rem;">
+            <img id="thumbPreview" src="" alt="thumbnail preview" style="width:100%;border-radius:8px;border:1px solid var(--border);object-fit:cover;max-height:160px;">
           </div>
         </div>
 
@@ -205,8 +216,10 @@
               name="focus_keyword"
               class="admin-form-input"
               placeholder="e.g. javascript performance"
+              value="<%= isEdit ? (article.focus_keyword || '') : '' %>"
               maxlength="100"
             >
+            <p class="admin-form-hint">Primary keyword this article targets</p>
           </div>
 
           <!-- Meta Title with counter -->
@@ -280,14 +293,15 @@
 
 </div>
 
-<!-- Quill CSS (snow theme) — from cdn.jsdelivr.net (already in CSP) -->
+<!-- Quill CSS (snow theme) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css">
 
-<!-- Quill JS — from cdn.jsdelivr.net (already in CSP, no API key needed) -->
+<!-- Quill JS -->
 <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
 
 <script>
 (function () {
+
   /* ── Quill setup ── */
   const toolbarOptions = [
     [{ header: [1, 2, 3, 4, false] }],
@@ -304,7 +318,22 @@
   const quill = new Quill('#quill-editor', {
     theme: 'snow',
     placeholder: 'Write your article content here...',
-    modules: { toolbar: toolbarOptions }
+    modules: {
+      toolbar: {
+        container: toolbarOptions,
+        handlers: {
+          /* Override default image handler — insert via URL instead of base64 */
+          image: function () {
+            const url = window.prompt('Image URL (paste a full https:// URL):');
+            if (url && url.trim()) {
+              const range = quill.getSelection(true);
+              quill.insertEmbed(range.index, 'image', url.trim());
+              quill.setSelection(range.index + 1);
+            }
+          }
+        }
+      }
+    }
   });
 
   /* ── Pre-fill existing content when editing ── */
@@ -331,6 +360,25 @@
   quill.on('text-change', updateWordCount);
   updateWordCount();
 
+  /* ── Thumbnail preview ── */
+  const thumbInput = document.getElementById('thumbnail');
+  const thumbWrap  = document.getElementById('thumbPreviewWrap');
+  const thumbImg   = document.getElementById('thumbPreview');
+
+  function updateThumbPreview() {
+    const val = thumbInput.value.trim();
+    if (val) {
+      thumbImg.src = val;
+      thumbWrap.style.display = 'block';
+      thumbImg.onerror = function() { thumbWrap.style.display = 'none'; };
+      thumbImg.onload  = function() { thumbWrap.style.display = 'block'; };
+    } else {
+      thumbWrap.style.display = 'none';
+    }
+  }
+  thumbInput.addEventListener('input', updateThumbPreview);
+  updateThumbPreview(); /* Show preview on load when editing */
+
   /* ── SERP Preview helpers ── */
   const titleEl   = document.getElementById('title');
   const metaTitle = document.getElementById('meta_title');
@@ -354,16 +402,16 @@
     document.getElementById('socialTitle').textContent = titleVal;
     document.getElementById('socialDesc').textContent  = descVal.slice(0, 125) + (descVal.length > 125 ? '…' : '');
 
-    const thumb = document.getElementById('thumbnail').value.trim();
+    const thumb = thumbInput.value.trim();
     const socialImg = document.getElementById('socialImage');
     if (thumb) {
-      socialImg.innerHTML = '<img src="' + thumb + '" alt="thumbnail" style="width:100%;height:100%;object-fit:cover;">';
+      socialImg.innerHTML = '<img src="' + thumb + '" alt="thumbnail" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentNode.innerHTML=\'<span>Image not found</span>\'">';
     } else {
       socialImg.innerHTML = '<span>No thumbnail set</span>';
     }
   }
 
-  [titleEl, metaTitle, metaDesc, document.getElementById('summary'), document.getElementById('thumbnail')].forEach(function(el) {
+  [titleEl, metaTitle, metaDesc, document.getElementById('summary'), thumbInput].forEach(function(el) {
     if (el) el.addEventListener('input', updateSerp);
   });
   updateSerp();
@@ -376,7 +424,6 @@
 
     counter.textContent = len + '/' + max;
 
-    /* Color logic */
     let status;
     if (len >= greenMin && len <= greenMax) {
       status = 'good';
@@ -387,7 +434,6 @@
     }
     counter.className = 'admin-char-counter' + (status ? ' admin-char-counter--' + status : '');
 
-    /* Progress bar */
     const pct = Math.min(100, Math.round((len / max) * 100));
     bar.style.width = pct + '%';
     bar.className = 'admin-char-bar__fill' + (status ? ' admin-char-bar__fill--' + status : '');
@@ -414,5 +460,6 @@
     panel.hidden = expanded;
     updateSerp();
   });
+
 })();
 </script>

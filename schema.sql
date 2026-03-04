@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS articles (
   status           ENUM('draft','published') NOT NULL DEFAULT 'draft',
   meta_title       VARCHAR(255)    DEFAULT NULL,
   meta_description TEXT            DEFAULT NULL,
+  focus_keyword    VARCHAR(100)    DEFAULT NULL,
   views            INT UNSIGNED    NOT NULL DEFAULT 0,
   published_at     DATETIME        DEFAULT NULL,
   created_at       TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,

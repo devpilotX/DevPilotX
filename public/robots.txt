@@ -1,30 +1,34 @@
 # ============================================================
 # Value.Codes — Robots.txt
 # ============================================================
-# Controls which pages search engine crawlers can access.
-# References the XML sitemap for efficient discovery.
-# ============================================================
 
 User-agent: *
 
-# Allow all public pages
+# Allow all public content
 Allow: /
+Allow: /blog/
+Allow: /tools/
+Allow: /snippets/
+Allow: /apis/
+Allow: /resources/
 
-# Block authentication and private user pages
+# Block private / low-value pages
 Disallow: /login
 Disallow: /register
 Disallow: /logout
-Disallow: /profile
-Disallow: /settings
-
-# Block internal API endpoints
+Disallow: /profile/
+Disallow: /settings/
 Disallow: /api/
-
-# Block admin panel
 Disallow: /admin/
-
-# Block low-value utility pages
 Disallow: /search
+Disallow: /pricing/
+Disallow: /community/
+
+# Block pagination from being indexed separately (use canonical instead)
+Disallow: /*?page=
+
+# Crawl-delay for politeness
+Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://value.codes/sitemap.xml

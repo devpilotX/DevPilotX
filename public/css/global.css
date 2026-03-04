@@ -623,3 +623,61 @@ img {
     font-size: 15px;
   }
 }
+
+
+/* ==========================================================================
+   GLOBAL — PERFORMANCE / CORE WEB VITALS
+   ========================================================================== */
+
+/* Prevent CLS from AdSense ad containers loading in */
+.ad-leaderboard {
+  min-height: 90px;
+  overflow: hidden;
+  contain: layout style;
+}
+
+.ad-in-article {
+  min-height: 200px;
+  overflow: hidden;
+  contain: layout style;
+}
+
+/* Prevent CLS from images without intrinsic dimensions */
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Improve paint performance on scroll-heavy sections */
+.blog-sidebar,
+.blog-toc-bar {
+  will-change: transform;
+}
+
+/* Ensure images don't cause layout shift */
+.blog-card__image-wrap {
+  contain: layout;
+}
+
+/* content-visibility for below-fold sections (improves LCP + TTI) */
+@supports (content-visibility: auto) {
+  .blog-newsletter-cta,
+  .blog-post-nav,
+  .blog-post__footer-tags {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 200px;
+  }
+}
+
+/* touch targets on mobile */
+@media (max-width: 768px) {
+  .btn,
+  .blog-share-btn,
+  .blog-toc-bar__toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .ad-leaderboard {
+    min-height: 50px;
+  }
+}

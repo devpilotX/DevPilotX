@@ -38,13 +38,40 @@ function parseTags(tagStr) {
   return tagStr.split(',').map(t => t.trim()).filter(Boolean);
 }
 
+/** Ensure thumbnail is a usable URL — full URLs pass through, relative paths get SITE_URL prefix */
+function normalizeThumbnail(thumb) {
+  if (!thumb) return null;
+  const t = thumb.trim();
+  if (t.startsWith('http://') || t.startsWith('https://')) return t;
+  return t.startsWith('/') ? `${SITE_URL}${t}` : `${SITE_URL}/${t}`;
+}
+
+/** Add id="..." attributes to bare h2/h3 tags so the TOC can reference them */
+function addHeadingIds(html) {
+  if (!html) return html;
+  const used = {};
+  return html.replace(/<(h[23])([^>]*)>([\s\S]*?)<\/\1>/gi, (match, tag, attrs, inner) => {
+    if (/\bid=/.test(attrs)) return match;          /* already has an id */
+    const text = inner.replace(/<[^>]*>/g, '').trim();
+    let base = text.toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/, '') || tag;
+    used[base] = (used[base] || 0) + 1;
+    const id = used[base] > 1 ? `${base}-${used[base]}` : base;
+    return `<${tag}${attrs} id="${id}">${inner}</${tag}>`;
+  });
+}
+
 function formatArticle(a) {
   return {
     ...a,
     formattedDate: formatDate(a.published_at || a.created_at),
     readTime: estimateReadTime(a.content),
     tags: parseTags(a.tags),
-    effectiveDate: a.published_at || a.created_at
+    effectiveDate: a.published_at || a.created_at,
+    content: addHeadingIds(a.content)
   };
 }
 
@@ -290,7 +317,7 @@ router.get('/:slug', async (req, res, next) => {
         "@type": "Article",
         "headline": article.title,
         "description": article.meta_description || article.summary,
-        "image": article.thumbnail ? `${SITE_URL}${article.thumbnail}` : `${SITE_URL}/images/og-image.svg`,
+        "image": normalizeThumbnail(article.thumbnail) || `${SITE_URL}/images/og-image.svg`,
         "author": { "@type": "Person", "name": article.author },
         "publisher": {
           "@type": "Organization",
@@ -305,6 +332,8 @@ router.get('/:slug', async (req, res, next) => {
       }
     ];
 
+    const heroImage = normalizeThumbnail(article.thumbnail) || '/images/blog/placeholder.svg';
+
     res.render('blog/post', {
       title: article.meta_title || `${article.title} — Value.Codes Blog`,
       description: article.meta_description || article.summary || '',
@@ -312,7 +341,8 @@ router.get('/:slug', async (req, res, next) => {
       canonical: `${SITE_URL}/blog/${slug}/`,
       robots: 'index, follow',
       ogType: 'article',
-      ogImage: article.thumbnail ? `${SITE_URL}${article.thumbnail}` : `${SITE_URL}/images/og-image.svg`,
+      ogImage: normalizeThumbnail(article.thumbnail) || `${SITE_URL}/images/og-image.svg`,
+      preloadImage: heroImage,
       schema,
       pageCSS: ['/css/blog.css'],
       pageJS: ['/js/blog.js'],

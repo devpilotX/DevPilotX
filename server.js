@@ -95,6 +95,7 @@ app.use(helmet({
       imgSrc: [
         "'self'",
         "data:",
+        "https:",                                /* allow all HTTPS thumbnail URLs */
         "https://pagead2.googlesyndication.com",
         "https://cdn.jsdelivr.net"
       ],
@@ -139,7 +140,19 @@ app.use(express.urlencoded({ extended: true, limit: '1mb' }));
  */
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '7d',
-  etag: true
+  etag: true,
+  setHeaders: (res, filePath) => {
+    /* Immutable cache for CSS/JS (fingerprinted in production builds) */
+    if (/\.(css|js)$/.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=604800');   /* 7 days */
+    }
+    /* Longer cache for images and fonts */
+    if (/\.(svg|png|jpg|jpeg|webp|woff2|woff)$/.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=2592000');  /* 30 days */
+    }
+    /* Add vary header for proper caching with compression */
+    res.setHeader('Vary', 'Accept-Encoding');
+  }
 }));
 
 /* ========== SESSION CONFIGURATION ========== */

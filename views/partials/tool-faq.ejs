@@ -1,0 +1,14 @@
+<%# Tool FAQ section — include at the end of every tool page %>
+<% if (typeof toolFaqs !== 'undefined' && toolFaqs.length > 0) { %>
+<div class="tool-faq-section">
+  <h2 class="tool-faq__title">Frequently Asked Questions</h2>
+  <div class="tool-faq__list">
+    <% toolFaqs.forEach(function(faq) { %>
+    <details class="tool-faq__item">
+      <summary class="tool-faq__question"><%= faq.q %></summary>
+      <div class="tool-faq__answer"><p><%= faq.a %></p></div>
+    </details>
+    <% }); %>
+  </div>
+</div>
+<% } %>
