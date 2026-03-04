@@ -16,7 +16,7 @@
 
 var express = require('express');
 var router = express.Router();
-var Api = require('../../models/Api');
+var Api = require('../../models/api');
 var { requireAdmin } = require('../../middleware/adminAuth');
 
 /** Admin render helper — uses admin layout, dedupes admin.css */

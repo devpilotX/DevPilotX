@@ -13,7 +13,7 @@
 
 var express = require('express');
 var router = express.Router();
-var Snippet = require('../models/Snippet');
+var Snippet = require('../models/snippet');
 
 var SITE = process.env.SITE_URL || 'https://value.codes';
 

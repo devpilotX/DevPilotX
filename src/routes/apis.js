@@ -13,7 +13,7 @@
 
 var express = require('express');
 var router = express.Router();
-var Api = require('../models/Api');
+var Api = require('../models/api');
 
 var SITE = process.env.SITE_URL || 'https://value.codes';
 

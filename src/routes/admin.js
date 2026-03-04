@@ -158,7 +158,7 @@ router.get('/articles/new', requireAdmin, async (req, res, next) => {
       title: 'New Article — Admin — Value.Codes',
       article: null,
       categories,
-      pageJS: ['/js/admin-editor.js'],
+      pageJS: [],
       flash: null,
       schema: null
     });
@@ -235,7 +235,7 @@ router.get('/articles/edit/:id', requireAdmin, async (req, res, next) => {
       title: `Edit: ${article.title} — Admin — Value.Codes`,
       article,
       categories,
-      pageJS: ['/js/admin-editor.js'],
+      pageJS: [],
       flash: req.session.flash || null,
       schema: null
     });

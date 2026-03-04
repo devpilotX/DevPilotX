@@ -16,7 +16,7 @@
 
 var express = require('express');
 var router = express.Router();
-var Snippet = require('../../models/Snippet');
+var Snippet = require('../../models/snippet');
 var { requireAdmin } = require('../../middleware/adminAuth');
 
 /** Admin render helper for snippets — uses the admin layout */
