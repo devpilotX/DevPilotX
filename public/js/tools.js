@@ -33,7 +33,7 @@
       cards.forEach(function (card) {
         var cat = card.getAttribute('data-category');
         var show = filter === 'all' || cat === filter;
-        card.style.display = show ? '' : 'none';
+        card.classList.toggle('is-hidden', !show);
         if (show) visible++;
       });
 

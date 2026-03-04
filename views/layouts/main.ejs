@@ -13,21 +13,21 @@
   <!-- ========== CHARACTER SET & VIEWPORT ========== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <!-- ========== GOOGLE ADSENSE ========== -->
-  <meta name="google-adsense-account" content="<%= adsensePubId %>">
-  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= adsensePubId %>" crossorigin="anonymous"></script>
-  <% } %>
 
   <!-- ========== SEO META BLOCK ========== -->
   <%- include('../partials/seo-head') %>
 
   <!-- ========== FAVICON ========== -->
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
 
-  <!-- ========== GLOBAL CSS ========== -->
+  <!-- ========== RESOURCE HINTS (Performance) ========== -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://adservice.google.com">
+  <link rel="dns-prefetch" href="https://ui-avatars.com">
+
+  <!-- ========== GLOBAL CSS (Critical — above the fold) ========== -->
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/footer.css">
@@ -37,6 +37,12 @@
     <% pageCSS.forEach(function(cssFile) { %>
   <link rel="stylesheet" href="<%= cssFile %>">
     <% }); %>
+  <% } %>
+
+  <!-- ========== GOOGLE ADSENSE ========== -->
+  <meta name="google-adsense-account" content="<%= adsensePubId %>">
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= adsensePubId %>" crossorigin="anonymous"></script>
   <% } %>
 </head>
 <body>

@@ -1,0 +1,117 @@
+##############################################################
+# Diagram: 2025 Cybersecurity Threat Landscape for Developers
+# Article: Top Cybersecurity Threats of 2025 — Developer's Guide
+# Author: Dipanshu Kumar
+# Compile: d2 cybersecurity-threats-2025.d2 --out cybersecurity-threats-2025.svg
+##############################################################
+
+direction: down
+
+# ─── Attacker ─────────────────────────────────────────────
+attacker: "Attacker" {
+  shape: person
+  style.fill: "#fef2f2"
+  style.stroke: "#ef4444"
+}
+
+# ─── Threat Vectors ───────────────────────────────────────
+threats: "Attack Vectors in 2025" {
+  style.fill: "#fff1f2"
+  style.stroke: "#fca5a5"
+  style.border-radius: 8
+
+  t1: "AI-Powered Phishing\n(LLM-crafted, no grammar errors\nMedian click time: < 60 sec)" {
+    shape: rectangle
+    style.fill: "#fee2e2"
+    style.stroke: "#f87171"
+  }
+
+  t2: "Supply Chain Attacks\n(npm typosquatting\nmalicious postinstall scripts\ndependency confusion)" {
+    shape: rectangle
+    style.fill: "#fee2e2"
+    style.stroke: "#f87171"
+  }
+
+  t3: "LLM Prompt Injection\n(Direct injection\nIndirect injection via content\ntraining data extraction)" {
+    shape: rectangle
+    style.fill: "#fee2e2"
+    style.stroke: "#f87171"
+  }
+
+  t4: "API Security Gaps\n(BOLA · Excessive Data Exposure\nMass Assignment · No Rate Limiting)" {
+    shape: rectangle
+    style.fill: "#fee2e2"
+    style.stroke: "#f87171"
+  }
+
+  t5: "Zero-Day & One-Day Exploits\n(Patch-to-exploit gap: hours\nOrg patch lag: weeks–months)" {
+    shape: rectangle
+    style.fill: "#fee2e2"
+    style.stroke: "#f87171"
+  }
+}
+
+# ─── Your Application ─────────────────────────────────────
+app: "Your Application" {
+  shape: rectangle
+  style.fill: "#eff6ff"
+  style.stroke: "#3b82f6"
+  style.border-radius: 8
+
+  auth: "Auth Layer"
+  api: "API Endpoints"
+  deps: "Dependencies"
+  llm_layer: "LLM Integration"
+  infra: "Infrastructure"
+}
+
+# ─── Defenses ─────────────────────────────────────────────
+defenses: "Developer Defenses" {
+  style.fill: "#f0fdf4"
+  style.stroke: "#22c55e"
+  style.border-radius: 8
+
+  d1: "Passkeys / WebAuthn\n(Phishing-resistant auth)" {
+    style.fill: "#dcfce7"
+    style.stroke: "#86efac"
+  }
+
+  d2: "Locked Dependencies\npackage-lock.json · Renovate/Dependabot\nSubresource Integrity" {
+    style.fill: "#dcfce7"
+    style.stroke: "#86efac"
+  }
+
+  d3: "Input Validation + Output Sandboxing\nSeparate user input from system prompt\nMinimum LLM permissions" {
+    style.fill: "#dcfce7"
+    style.stroke: "#86efac"
+  }
+
+  d4: "Ownership Checks on Every Endpoint\nAllowlist for updatable fields\nRate limiting · Pagination limits" {
+    style.fill: "#dcfce7"
+    style.stroke: "#86efac"
+  }
+
+  d5: "SAST · npm audit in CI/CD\nContainer image scanning\nAutomated patch PRs" {
+    style.fill: "#dcfce7"
+    style.stroke: "#86efac"
+  }
+}
+
+# ─── Connections ──────────────────────────────────────────
+attacker -> threats.t1: "phishing attack"
+attacker -> threats.t2: "supply chain"
+attacker -> threats.t3: "prompt injection"
+attacker -> threats.t4: "API abuse"
+attacker -> threats.t5: "exploit"
+
+threats.t1 -> app.auth: "credential theft" { style.stroke: "#ef4444" }
+threats.t2 -> app.deps: "malicious code" { style.stroke: "#ef4444" }
+threats.t3 -> app.llm_layer: "instruction override" { style.stroke: "#ef4444" }
+threats.t4 -> app.api: "data exfiltration" { style.stroke: "#ef4444" }
+threats.t5 -> app.infra: "system compromise" { style.stroke: "#ef4444" }
+
+defenses.d1 -> app.auth: "hardens" { style.stroke: "#22c55e" }
+defenses.d2 -> app.deps: "secures" { style.stroke: "#22c55e" }
+defenses.d3 -> app.llm_layer: "protects" { style.stroke: "#22c55e" }
+defenses.d4 -> app.api: "enforces" { style.stroke: "#22c55e" }
+defenses.d5 -> app.infra: "monitors" { style.stroke: "#22c55e" }

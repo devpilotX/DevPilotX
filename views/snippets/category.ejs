@@ -1,0 +1,74 @@
+<!-- ================================================================
+     FILE: views/snippets/category.ejs
+     PURPOSE: List all snippets in a category — /snippets/:category
+     ================================================================ -->
+
+<div aria-label="<%= category.name %> Snippets">
+
+  <!-- ========== CATEGORY HEADER ========== -->
+  <section class="snippet-hero" aria-label="Category introduction">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/snippets/">Snippets</a>
+        <span aria-hidden="true">›</span>
+        <span><%= category.name %></span>
+      </nav>
+      <h1><span aria-hidden="true"><%= category.emoji %></span> <%= category.name %></h1>
+      <p class="section-desc"><%= category.description %></p>
+    </div>
+  </section>
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
+
+  <!-- ========== SNIPPETS LIST ========== -->
+  <section class="snippet-list-section" aria-label="Snippets in this category">
+    <div class="container">
+      <% if (snippets.length === 0) { %>
+        <div class="snippet-empty">
+          <p>No snippets in this category yet. Check back soon!</p>
+        </div>
+      <% } else { %>
+        <div class="snippet-list">
+          <% snippets.forEach(function(snippet, idx) { %>
+            <a href="/snippets/<%= snippet.category_slug %>/<%= snippet.slug %>/" class="snippet-list-item" aria-label="<%= snippet.title %>">
+              <div class="snippet-list-number" aria-hidden="true"><%= String(idx + 1).padStart(2, '0') %></div>
+              <div class="snippet-list-content">
+                <h2 class="snippet-list-title"><%= snippet.title %></h2>
+                <p class="snippet-list-desc"><%= snippet.description %></p>
+                <div class="snippet-list-tags">
+                  <% snippet.tags.slice(0, 4).forEach(function(tag) { %>
+                    <span class="tag"><%= tag.name %></span>
+                  <% }); %>
+                  <span class="badge badge-pill"><%= snippet.difficulty %></span>
+                </div>
+              </div>
+              <span class="snippet-list-arrow" aria-hidden="true">→</span>
+            </a>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- ========== INTERNAL LINKS ========== -->
+  <section class="snippet-internal-links" aria-label="Related pages">
+    <div class="container">
+      <h2>Explore More</h2>
+      <ul>
+        <li><a href="/snippets/">All Snippet Categories</a></li>
+        <li><a href="/tools/">Free Developer Tools</a></li>
+        <li><a href="/blog/">Developer Blog</a></li>
+      </ul>
+    </div>
+  </section>
+
+</div>

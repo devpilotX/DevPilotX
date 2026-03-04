@@ -1,0 +1,101 @@
+<%# ============================================================ %>
+<%# newsletter.ejs — Newsletter Signup Page                     %>
+<%# ============================================================ %>
+
+<div class="newsletter-page">
+  <section class="newsletter-hero section-padding">
+    <div class="container">
+      <div class="newsletter-hero__inner">
+        <span class="section-number" aria-hidden="true">NEWSLETTER</span>
+        <h1 class="newsletter-hero__title">Developer Insights, Weekly</h1>
+        <p class="newsletter-hero__desc section-desc">
+          The Value.Codes newsletter delivers curated developer tips, tool updates, deep-dive articles, and career insights every week — no spam, unsubscribe any time.
+        </p>
+
+        <% if (typeof success !== 'undefined' && success) { %>
+        <div class="newsletter-success" role="alert">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>You're subscribed! Check your inbox for a confirmation email.</span>
+        </div>
+        <% } else { %>
+
+        <form class="newsletter-form" action="/newsletter" method="POST" novalidate>
+          <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+          <div class="form-errors" role="alert">
+            <% errors.forEach(function(err) { %><p class="form-error-msg"><%= err.msg %></p><% }); %>
+          </div>
+          <% } %>
+
+          <div class="newsletter-form__row">
+            <div class="form-group">
+              <label for="nl-name" class="form-label">Your Name</label>
+              <input type="text" id="nl-name" name="name" class="form-input" placeholder="Alex Chen" autocomplete="given-name" required>
+            </div>
+            <div class="form-group">
+              <label for="nl-email" class="form-label">Email Address <span class="form-required" aria-label="required">*</span></label>
+              <input type="email" id="nl-email" name="email" class="form-input" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <!-- Honeypot -->
+          <div class="form-honeypot" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn btn-primary newsletter-form__btn">Subscribe — It's Free</button>
+          <p class="newsletter-form__note">No spam. Unsubscribe with one click at any time.</p>
+        </form>
+
+        <% } %>
+      </div>
+    </div>
+  </section>
+<!-- ========== ADSENSE: LEADERBOARD ========== -->
+<% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+<div class="ad-leaderboard" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="<%= adsensePubId %>"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<% } %>
+
+
+  <section class="newsletter-features section-padding">
+    <div class="container">
+      <div class="newsletter-features__grid">
+        <div class="newsletter-feature">
+          <div class="newsletter-feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Deep-Dive Articles</h3>
+          <p>Long-form technical articles on architecture, performance, and the tools shaping modern development.</p>
+        </div>
+        <div class="newsletter-feature">
+          <div class="newsletter-feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Tool Updates</h3>
+          <p>First to know when new tools launch on Value.Codes, with tutorials on getting the most out of them.</p>
+        </div>
+        <div class="newsletter-feature">
+          <div class="newsletter-feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Curated Links</h3>
+          <p>Hand-picked resources, libraries, and threads from the developer community worth reading each week.</p>
+        </div>
+        <div class="newsletter-feature">
+          <div class="newsletter-feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Career Tips</h3>
+          <p>Actionable career advice for developers at every stage — interviews, promotions, freelancing, and beyond.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

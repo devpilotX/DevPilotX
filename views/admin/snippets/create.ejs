@@ -1,0 +1,187 @@
+<!-- ================================================================
+     FILE: views/admin/snippets/create.ejs
+     PURPOSE: Admin — Create new snippet with tabs
+     ================================================================ -->
+
+<div aria-label="Create Snippet">
+  <section class="admin-section" aria-label="Snippet form">
+    <div class="container">
+
+      <div class="admin-header-row">
+        <h1>Create New Snippet</h1>
+        <a href="/admin/snippets" class="btn btn-ghost">← Back to List</a>
+      </div>
+
+      <% if (error) { %>
+        <div class="alert alert-error" role="alert"><%= error %></div>
+      <% } %>
+
+      <form action="/admin/snippets/create" method="POST" class="admin-form" id="snippet-form">
+
+        <!-- ========== BASIC INFO ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Basic Information</legend>
+
+          <div class="admin-field">
+            <label for="title">Title *</label>
+            <input type="text" id="title" name="title" required placeholder="e.g., Center a Div Perfectly">
+          </div>
+
+          <div class="admin-field">
+            <label for="slug">Slug *</label>
+            <input type="text" id="slug" name="slug" required placeholder="e.g., center-a-div" pattern="[a-z0-9\\-]+">
+            <small>Lowercase, hyphens only. This becomes the URL.</small>
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="category_id">Category *</label>
+              <select id="category_id" name="category_id" required>
+                <option value="">Select category...</option>
+                <% categories.forEach(function(cat) { %>
+                  <option value="<%= cat.id %>"><%= cat.emoji %> <%= cat.name %></option>
+                <% }); %>
+              </select>
+            </div>
+
+            <div class="admin-field">
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty" name="difficulty">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+
+            <div class="admin-field">
+              <label for="sort_order">Sort Order</label>
+              <input type="number" id="sort_order" name="sort_order" value="0" min="0">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label for="description">Description *</label>
+            <textarea id="description" name="description" rows="3" required placeholder="Brief description of what this snippet does..."></textarea>
+          </div>
+
+          <div class="admin-field">
+            <label for="browser_support">Browser Support</label>
+            <input type="text" id="browser_support" name="browser_support" placeholder="e.g., Flexbox: 98%+ | Grid: 96%+">
+          </div>
+        </fieldset>
+
+        <!-- ========== CODE TABS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Code Tabs</legend>
+          <p class="admin-help-text">Add one or more code tabs. Each tab shows a different variation or file.</p>
+
+          <div id="tabs-container">
+            <!-- Tab 0 (default first tab) -->
+            <div class="admin-tab-block" data-tab-index="0">
+              <div class="admin-tab-header">
+                <strong>Tab 1</strong>
+                <button type="button" class="btn btn-sm btn-ghost admin-remove-tab-btn" data-tab-index="0" aria-label="Remove this tab">✕</button>
+              </div>
+              <div class="admin-field-row">
+                <div class="admin-field">
+                  <label for="tab_label_0">Tab Label *</label>
+                  <input type="text" id="tab_label_0" name="tab_label_0" required placeholder="e.g., Flexbox Method">
+                </div>
+                <div class="admin-field">
+                  <label for="tab_language_0">Language *</label>
+                  <select id="tab_language_0" name="tab_language_0" required>
+                    <option value="css">CSS</option>
+                    <option value="html">HTML</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="jsx">JSX</option>
+                    <option value="json">JSON</option>
+                    <option value="bash">Bash</option>
+                    <option value="yaml">YAML</option>
+                    <option value="dockerfile">Dockerfile</option>
+                    <option value="nginx">Nginx</option>
+                    <option value="sql">SQL</option>
+                  </select>
+                </div>
+                <div class="admin-field">
+                  <label for="tab_file_name_0">File Name</label>
+                  <input type="text" id="tab_file_name_0" name="tab_file_name_0" placeholder="e.g., style.css">
+                </div>
+              </div>
+              <div class="admin-field">
+                <label for="tab_code_0">Code *</label>
+                <textarea id="tab_code_0" name="tab_code_0" rows="12" required class="admin-code-textarea" placeholder="Paste your code here..." spellcheck="false"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-sm" id="add-tab-btn">+ Add Another Tab</button>
+        </fieldset>
+
+        <!-- ========== NOTES ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Notes</legend>
+          <div class="admin-field">
+            <label for="notes">Notes (one per line)</label>
+            <textarea id="notes" name="notes" rows="6" placeholder="First note&#10;Second note&#10;Third note"></textarea>
+            <small>Each line becomes a bullet point. HTML like &lt;code&gt; is supported.</small>
+          </div>
+        </fieldset>
+
+        <!-- ========== TAGS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Tags</legend>
+          <div class="admin-tags-grid">
+            <% tags.forEach(function(tag) { %>
+              <label class="admin-tag-checkbox">
+                <input type="checkbox" name="tag_ids" value="<%= tag.id %>">
+                <span><%= tag.name %></span>
+              </label>
+            <% }); %>
+          </div>
+        </fieldset>
+
+        <!-- ========== RELATED & SEO ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Related Snippets & SEO</legend>
+
+          <div class="admin-field">
+            <label for="related_slugs">Related Snippet Slugs (comma-separated)</label>
+            <input type="text" id="related_slugs" name="related_slugs" placeholder="e.g., custom-scrollbar-styling, css-glassmorphism-effect">
+          </div>
+
+          <div class="admin-field">
+            <label for="seo_title">SEO Title</label>
+            <input type="text" id="seo_title" name="seo_title" placeholder="Leave blank to auto-generate" maxlength="255">
+            <small>Max 60 chars recommended. Leave blank to use: Title — Value.Codes Snippets</small>
+          </div>
+
+          <div class="admin-field">
+            <label for="seo_description">SEO Description</label>
+            <textarea id="seo_description" name="seo_description" rows="2" placeholder="Leave blank to use first 160 chars of description" maxlength="300"></textarea>
+            <small>Max 155 chars recommended.</small>
+          </div>
+
+          <div class="admin-field">
+            <label for="seo_keywords">SEO Keywords</label>
+            <input type="text" id="seo_keywords" name="seo_keywords" placeholder="Leave blank to auto-generate from tags">
+          </div>
+        </fieldset>
+
+        <!-- ========== PUBLISH ========== -->
+        <div class="admin-form-actions">
+          <div class="admin-field">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="draft">Draft</option>
+              <option value="published">Published</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Create Snippet</button>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+</div>

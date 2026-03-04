@@ -1,0 +1,102 @@
+<!-- ================================================================
+     FILE: views/apis/index.ejs
+     PURPOSE: API Hub page — /apis — Search + Browse all
+     ================================================================ -->
+
+<div class="apis-page" aria-label="Public API Directory">
+
+  <!-- ========== HERO ========== -->
+  <section class="api-hero" aria-label="API Directory introduction">
+    <div class="container">
+      <span class="section-number">APIs</span>
+      <h1>Free Public API Directory</h1>
+      <p class="section-desc">
+        Discover <%= totalCount %> free APIs for your next project. Auth details, CORS support,
+        endpoint examples, and live JSON previews — everything you need before writing a single line of code.
+      </p>
+
+      <!-- ========== SEARCH BAR ========== -->
+      <div class="api-search-wrapper">
+        <input
+          type="search"
+          id="api-search-input"
+          class="api-search-input"
+          placeholder="Search APIs... (e.g., weather, crypto, mock data)"
+          aria-label="Search APIs"
+          autocomplete="off"
+        >
+        <span class="api-search-icon" aria-hidden="true">🔍</span>
+      </div>
+    </div>
+  </section>
+
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
+
+  <!-- ========== FEATURED APIs ========== -->
+  <% if (featuredApis && featuredApis.length > 0) { %>
+    <section class="api-featured-section" aria-label="Featured APIs">
+      <div class="container">
+        <h2>⭐ Featured APIs</h2>
+        <div class="api-card-grid">
+          <% featuredApis.forEach(function(api) { %>
+            <%- include('../partials/api-card', { api: api }) %>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== CATEGORY FILTERS ========== -->
+  <section class="api-categories-section" aria-label="Filter by category">
+    <div class="container">
+      <div class="api-category-filters" role="tablist" aria-label="API categories">
+        <button type="button" class="api-filter-btn api-filter-active" data-category="all" role="tab" aria-selected="true">
+          All (<%= totalCount %>)
+        </button>
+        <% categories.forEach(function(cat) { %>
+          <a href="/apis/<%= cat.slug %>/" class="api-filter-btn" role="tab" aria-selected="false">
+            <%= cat.emoji %> <%= cat.name %> (<%= cat.api_count %>)
+          </a>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ALL APIs GRID (searchable) ========== -->
+  <section class="api-all-section" aria-label="All APIs" id="api-results">
+    <div class="container">
+      <div class="api-card-grid" id="api-grid">
+        <% allApis.forEach(function(api) { %>
+          <%- include('../partials/api-card', { api: api }) %>
+        <% }); %>
+      </div>
+
+      <div class="api-no-results" id="api-no-results" hidden>
+        <p>No APIs found matching your search. Try different keywords.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INTERNAL LINKS ========== -->
+  <section class="api-internal-links" aria-label="Related pages">
+    <div class="container">
+      <h2>More Developer Resources</h2>
+      <ul>
+        <li><a href="/snippets/">Code Snippets</a> — Copy-paste ready code for CSS, JS, React, Node.js</li>
+        <li><a href="/tools/">Free Developer Tools</a> — JSON Formatter, Regex Builder, and more</li>
+        <li><a href="/compiler/">Online Compiler</a> — Run code in 19 languages</li>
+      </ul>
+    </div>
+  </section>
+
+</div>

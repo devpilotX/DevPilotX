@@ -1,0 +1,39 @@
+.search-hero {
+  padding-top: 3rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.search-hero__title { text-align: center; margin: 0 0 1.5rem; }
+.search-form { max-width: 680px; margin: 0 auto; }
+.search-form__wrap { display: flex; align-items: center; gap: 0; position: relative; }
+.search-form__icon { position: absolute; left: 14px; color: var(--subtle); pointer-events: none; }
+.search-form__input {
+  flex: 1; padding: 14px 16px 14px 46px;
+  border: 1px solid var(--border); border-right: none;
+  border-radius: var(--radius) 0 0 var(--radius);
+  font-size: 1rem; font-family: inherit; color: var(--ink); background: var(--paper);
+}
+.search-form__input:focus { outline: none; border-color: var(--accent); }
+.search-form__btn { border-radius: 0 var(--radius) var(--radius) 0; }
+.search-results { background: var(--paper); }
+.search-results__query { font-size: 1rem; color: var(--muted); margin-bottom: 1.5rem; }
+.search-results__empty { color: var(--muted); }
+.search-suggestions h2 { font-size: 1.1rem; margin: 0 0 1rem; }
+.search-suggestions__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+.search-suggestions__tags a { text-decoration: none; }
+.search-quick-links h3 { font-size: 1rem; margin: 0 0 1rem; }
+.search-quick-links__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.search-quick-link {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  padding: 1.25rem 1rem; border: 1px solid var(--border); border-radius: var(--radius);
+  text-decoration: none; color: var(--ink); font-size: 0.88rem; font-weight: 500;
+  background: var(--paper); text-align: center; transition: all var(--transition);
+}
+.search-quick-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+.search-quick-link svg { color: var(--accent); }
+@media (max-width: 768px) {
+  .search-form__wrap { flex-direction: column; }
+  .search-form__input { border-right: 1px solid var(--border); border-radius: var(--radius); border-bottom: none; border-radius: var(--radius) var(--radius) 0 0; }
+  .search-form__btn { width: 100%; border-radius: 0 0 var(--radius) var(--radius); }
+  .search-quick-links__grid { grid-template-columns: repeat(2, 1fr); }
+}

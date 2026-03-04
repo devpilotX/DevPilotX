@@ -1,0 +1,242 @@
+<!-- ================================================================
+     FILE: views/apis/single.ejs
+     PURPOSE: Single API detail — /apis/:category/:slug
+              This is the programmatic SEO page that captures long-tail.
+     ================================================================ -->
+
+<div aria-label="<%= api.name %> API Details">
+
+  <!-- ========== HEADER ========== -->
+  <section class="api-single-hero" aria-label="API overview">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/apis/">APIs</a>
+        <span aria-hidden="true">›</span>
+        <a href="/apis/<%= api.category_slug %>/"><%= api.category_name %></a>
+        <span aria-hidden="true">›</span>
+        <span><%= api.name %></span>
+      </nav>
+
+      <div class="api-single-header">
+        <% if (api.logo_url) { %>
+          <img src="<%= api.logo_url %>" alt="<%= api.name %> logo" class="api-single-logo" width="64" height="64" loading="lazy" decoding="async">
+        <% } %>
+        <div>
+          <h1><%= api.name %> API</h1>
+          <p class="api-single-desc"><%= api.description %></p>
+        </div>
+      </div>
+
+      <!-- ========== BADGES ROW ========== -->
+      <div class="api-single-badges">
+        <% if (api.auth_type === 'none') { %>
+          <span class="api-badge api-badge-green api-badge-lg">🔓 No Auth Required</span>
+        <% } else if (api.auth_type === 'api_key') { %>
+          <span class="api-badge api-badge-yellow api-badge-lg">🔑 API Key Required</span>
+        <% } else if (api.auth_type === 'oauth') { %>
+          <span class="api-badge api-badge-orange api-badge-lg">🔐 OAuth Required</span>
+        <% } else if (api.auth_type === 'bearer_token') { %>
+          <span class="api-badge api-badge-orange api-badge-lg">🎫 Bearer Token Required</span>
+        <% } %>
+
+        <% if (api.cors_support === 'yes') { %>
+          <span class="api-badge api-badge-green api-badge-lg">✅ CORS Supported</span>
+        <% } else if (api.cors_support === 'no') { %>
+          <span class="api-badge api-badge-red api-badge-lg">❌ No CORS</span>
+        <% } %>
+
+        <% if (api.https_support) { %>
+          <span class="api-badge api-badge-blue api-badge-lg">🔒 HTTPS</span>
+        <% } %>
+
+        <% if (api.pricing === 'free') { %>
+          <span class="api-badge api-badge-green api-badge-lg">💚 100% Free</span>
+        <% } else if (api.pricing === 'freemium') { %>
+          <span class="api-badge api-badge-yellow api-badge-lg">💛 Freemium</span>
+        <% } %>
+
+        <% if (api.rate_limit) { %>
+          <span class="api-badge api-badge-subtle api-badge-lg">⏱️ <%= api.rate_limit %></span>
+        <% } %>
+      </div>
+
+      <!-- ========== ACTION LINKS ========== -->
+      <div class="api-single-actions">
+        <a href="<%= api.website_url %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Visit Website ↗
+        </a>
+        <% if (api.docs_url) { %>
+          <a href="<%= api.docs_url %>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Read Docs ↗
+          </a>
+        <% } %>
+      </div>
+    </div>
+  </section>
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
+
+  <!-- ========== BASE URL ========== -->
+  <% if (api.base_url) { %>
+    <section class="api-single-section" aria-label="Base URL">
+      <div class="container">
+        <h2>Base URL</h2>
+        <div class="api-base-url-block">
+          <code class="api-base-url"><%= api.base_url %></code>
+          <button type="button" class="btn btn-sm btn-ghost api-copy-btn" data-copy-text="<%= api.base_url %>" aria-label="Copy base URL">
+            📋 Copy
+          </button>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== ENDPOINTS ========== -->
+  <% if (api.endpoints && api.endpoints.length > 0) { %>
+    <section class="api-single-section" aria-label="Endpoint examples">
+      <div class="container">
+        <h2>Endpoint Examples</h2>
+        <div class="api-endpoints-list">
+          <% api.endpoints.forEach(function(ep) { %>
+            <div class="api-endpoint-item">
+              <div class="api-endpoint-row">
+                <span class="api-endpoint-method api-method-<%= ep.method.toLowerCase() %>"><%= ep.method %></span>
+                <code class="api-endpoint-path"><%= api.base_url %><%= ep.path %></code>
+                <button type="button" class="btn btn-sm btn-ghost api-copy-btn" data-copy-text="<%= api.base_url %><%= ep.path %>" aria-label="Copy endpoint URL">
+                  📋
+                </button>
+              </div>
+              <% if (ep.description) { %>
+                <p class="api-endpoint-desc"><%= ep.description %></p>
+              <% } %>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== LIVE JSON PREVIEW — THE KILLER FEATURE ========== -->
+  <% if (api.sample_response) { %>
+    <section class="api-single-section" aria-label="Sample JSON response">
+      <div class="container">
+        <h2>Sample Response</h2>
+        <p class="api-section-hint">This is what the JSON response looks like. Know the data structure before you code.</p>
+        <div class="api-code-block-wrapper">
+          <div class="api-code-header">
+            <span class="snippet-lang-badge"><%= api.sample_response_language || 'json' %></span>
+            <button type="button" class="btn btn-sm btn-ghost api-copy-btn" data-copy-target="api-sample-code" aria-label="Copy sample response">
+              📋 Copy
+            </button>
+          </div>
+          <pre class="api-code-block"><code id="api-sample-code" class="language-<%= api.sample_response_language || 'json' %>"><%= api.sample_response %></code></pre>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== FEATURES ========== -->
+  <% if (api.features && api.features.length > 0) { %>
+    <section class="api-single-section" aria-label="Features">
+      <div class="container">
+        <h2>Key Features</h2>
+        <ul class="api-features-list">
+          <% api.features.forEach(function(feature) { %>
+            <li><%- feature %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== USE CASES ========== -->
+  <% if (api.use_cases && api.use_cases.length > 0) { %>
+    <section class="api-single-section" aria-label="Use cases">
+      <div class="container">
+        <h2>Perfect For</h2>
+        <div class="api-use-cases-grid">
+          <% api.use_cases.forEach(function(useCase) { %>
+            <div class="api-use-case-item"><%- useCase %></div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== NOTES ========== -->
+  <% if (api.notes && api.notes.length > 0) { %>
+    <section class="api-single-section" aria-label="Notes">
+      <div class="container">
+        <h2>Developer Notes</h2>
+        <ul class="api-notes-list">
+          <% api.notes.forEach(function(note) { %>
+            <li><%- note %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== TAGS ========== -->
+  <% if (api.tags && api.tags.length > 0) { %>
+    <section class="api-single-section" aria-label="Tags">
+      <div class="container">
+        <div class="api-single-tags">
+          <% api.tags.forEach(function(tag) { %>
+            <span class="tag"><%= tag.name %></span>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== RELATED APIs ========== -->
+  <% if (relatedApis && relatedApis.length > 0) { %>
+    <section class="api-single-section" aria-label="Related APIs">
+      <div class="container">
+        <h2>Similar APIs</h2>
+        <div class="api-card-grid">
+          <% relatedApis.forEach(function(rel) { %>
+            <a href="/apis/<%= rel.category_slug %>/<%= rel.slug %>/" class="api-card api-card-compact" aria-label="<%= rel.name %>">
+              <h3 class="api-card-title"><%= rel.name %></h3>
+              <p class="api-card-desc"><%= rel.description.substring(0, 100) %>...</p>
+              <div class="api-card-badges">
+                <% if (rel.auth_type === 'none') { %>
+                  <span class="api-badge api-badge-green">No Auth</span>
+                <% } else { %>
+                  <span class="api-badge api-badge-yellow"><%= rel.auth_type.replace('_', ' ') %></span>
+                <% } %>
+                <% if (rel.pricing === 'free') { %>
+                  <span class="api-badge api-badge-green">Free</span>
+                <% } %>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== INTERNAL LINKS ========== -->
+  <section class="api-internal-links" aria-label="Explore more">
+    <div class="container">
+      <h2>Keep Exploring</h2>
+      <ul>
+        <li><a href="/apis/<%= api.category_slug %>/">All <%= api.category_name %> APIs</a></li>
+        <li><a href="/apis/">All API Categories</a></li>
+        <li><a href="/snippets/">Code Snippets</a></li>
+        <li><a href="/tools/">Free Developer Tools</a></li>
+      </ul>
+    </div>
+  </section>
+
+</div>

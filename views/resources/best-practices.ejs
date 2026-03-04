@@ -1,4 +1,4 @@
-<main id="main-content">
+<div class="page-content">
 
   <!-- BREADCRUMB -->
   <nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -12,7 +12,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </li>
         <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/resources" itemprop="item"><span itemprop="name">Resources</span></a>
+          <a href="/resources/" itemprop="item"><span itemprop="name">Resources</span></a>
           <meta itemprop="position" content="2">
         </li>
         <li class="breadcrumb-separator" aria-hidden="true">
@@ -55,7 +55,7 @@
           </div>
           <div class="bp-hero-actions">
             <a href="#coding-standards" class="btn btn-primary">Start Reading</a>
-            <a href="/resources" class="btn btn-secondary">
+            <a href="/resources/" class="btn btn-secondary">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
               All Resources
             </a>
@@ -108,8 +108,17 @@
       </div>
     </div>
   </section>
-
-  <!-- ADSENSE: leaderboard -->
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
 
   <!-- ========== SECTION 1: CODING STANDARDS ========== -->
   <section class="bp-section" id="coding-standards" aria-label="Coding Standards and Style">
@@ -436,8 +445,6 @@ const eligibleUsers = users.filter(
       </div>
     </div>
   </section>
-
-  <!-- ADSENSE: in-article -->
 
   <!-- ========== SECTION 2: DESIGN PATTERNS ========== -->
   <section class="bp-section bp-section--alt" id="design-patterns" aria-label="Design Patterns">
@@ -897,8 +904,6 @@ jobs:
       </div>
     </div>
   </section>
-
-  <!-- ADSENSE: in-article -->
 
   <!-- ========== SECTION 4: VERSION CONTROL ========== -->
   <section class="bp-section bp-section--alt" id="version-control" aria-label="Version Control and Git">
@@ -1492,8 +1497,17 @@ Use MySQL with mysql2 driver.
       </div>
     </div>
   </section>
-
-  <!-- ADSENSE: leaderboard -->
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
 
   <!-- RELATED RESOURCES -->
   <section class="bp-related" aria-label="Related resources">
@@ -1532,11 +1546,11 @@ Use MySQL with mysql2 driver.
         <h2>Put these practices to <span class="accent">work</span></h2>
         <p>Open any of our free developer tools and start writing better code today. Format, validate, test, and build — all in your browser.</p>
         <div class="bp-cta-actions">
-          <a href="/tools" class="btn btn-primary">Explore All Tools</a>
+          <a href="/tools/" class="btn btn-primary">Explore All Tools</a>
           <a href="/community" class="btn btn-secondary">Join Community</a>
         </div>
       </div>
     </div>
   </section>
 
-</main>
+</div>

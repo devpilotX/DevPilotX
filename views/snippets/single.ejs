@@ -1,0 +1,163 @@
+<!-- ================================================================
+     FILE: views/snippets/single.ejs
+     PURPOSE: Single snippet page — /snippets/:category/:slug
+     ================================================================ -->
+
+<div aria-label="<%= snippet.title %> Code Snippet">
+
+  <!-- ========== SNIPPET HEADER ========== -->
+  <section class="snippet-single-hero" aria-label="Snippet overview">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/snippets/">Snippets</a>
+        <span aria-hidden="true">›</span>
+        <a href="/snippets/<%= snippet.category_slug %>/"><%= snippet.category_name %></a>
+        <span aria-hidden="true">›</span>
+        <span><%= snippet.title %></span>
+      </nav>
+
+      <div class="snippet-single-header">
+        <h1><%= snippet.title %></h1>
+        <div class="snippet-single-meta">
+          <span class="badge badge-pill"><%= snippet.difficulty %></span>
+          <% if (snippet.browser_support) { %>
+            <span class="snippet-single-browser" aria-label="Browser support"><%= snippet.browser_support %></span>
+          <% } %>
+          <span class="snippet-single-views"><%= snippet.views %> views</span>
+        </div>
+        <p class="snippet-single-desc"><%= snippet.description %></p>
+        <% if (snippet.tags && snippet.tags.length > 0) { %>
+          <div class="snippet-single-tags">
+            <% snippet.tags.forEach(function(tag) { %>
+              <span class="tag"><%= tag.name %></span>
+            <% }); %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
+
+  <!-- ========== CODE TABS ========== -->
+  <% if (snippet.tabs && snippet.tabs.length > 0) { %>
+    <section class="snippet-code-section" aria-label="Code snippets">
+      <div class="container">
+        <% if (snippet.tabs.length > 1) { %>
+          <div class="snippet-tabs" role="tablist" aria-label="Code variations">
+            <% snippet.tabs.forEach(function(tab, idx) { %>
+              <button
+                type="button"
+                role="tab"
+                class="snippet-tab-btn<%= idx === 0 ? ' snippet-tab-active' : '' %>"
+                aria-selected="<%= idx === 0 ? 'true' : 'false' %>"
+                aria-controls="snippet-panel-<%= idx %>"
+                id="snippet-tab-<%= idx %>"
+                data-tab-index="<%= idx %>"
+              >
+                <%= tab.label %>
+              </button>
+            <% }); %>
+          </div>
+        <% } %>
+
+        <% snippet.tabs.forEach(function(tab, idx) { %>
+          <div
+            role="tabpanel"
+            id="snippet-panel-<%= idx %>"
+            class="snippet-tab-panel<%= idx === 0 ? ' snippet-panel-active' : '' %>"
+            aria-labelledby="snippet-tab-<%= idx %>"
+            <% if (idx !== 0) { %>hidden<% } %>
+          >
+            <div class="snippet-code-header">
+              <% if (tab.file_name) { %>
+                <span class="snippet-file-name"><%= tab.file_name %></span>
+              <% } %>
+              <span class="snippet-lang-badge"><%= tab.language %></span>
+              <button type="button" class="btn btn-sm btn-ghost snippet-copy-btn" data-copy-target="snippet-code-<%= idx %>" aria-label="Copy code to clipboard">
+                <span class="snippet-copy-icon" aria-hidden="true">📋</span>
+                <span class="snippet-copy-text">Copy</span>
+              </button>
+            </div>
+            <pre class="snippet-code-block"><code id="snippet-code-<%= idx %>" class="language-<%= tab.language %>"><%= tab.code %></code></pre>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== NOTES ========== -->
+  <% if (snippet.notes && snippet.notes.length > 0) { %>
+    <section class="snippet-notes-section" aria-label="Usage notes">
+      <div class="container">
+        <h2>Notes</h2>
+        <ul class="snippet-notes-list">
+          <% snippet.notes.forEach(function(note) { %>
+            <li><%- note %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== PREV / NEXT NAVIGATION ========== -->
+  <section class="snippet-prev-next" aria-label="Navigate snippets">
+    <div class="container">
+      <div class="snippet-nav-row">
+        <% if (prevSnippet) { %>
+          <a href="/snippets/<%= snippet.category_slug %>/<%= prevSnippet.slug %>/" class="snippet-nav-link snippet-nav-prev" aria-label="Previous: <%= prevSnippet.title %>">
+            <span class="snippet-nav-direction">← Previous</span>
+            <span class="snippet-nav-title"><%= prevSnippet.title %></span>
+          </a>
+        <% } else { %>
+          <div></div>
+        <% } %>
+        <% if (nextSnippet) { %>
+          <a href="/snippets/<%= snippet.category_slug %>/<%= nextSnippet.slug %>/" class="snippet-nav-link snippet-nav-next" aria-label="Next: <%= nextSnippet.title %>">
+            <span class="snippet-nav-direction">Next →</span>
+            <span class="snippet-nav-title"><%= nextSnippet.title %></span>
+          </a>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SNIPPETS ========== -->
+  <% if (relatedSnippets && relatedSnippets.length > 0) { %>
+    <section class="snippet-related-section" aria-label="Related snippets">
+      <div class="container">
+        <h2>Related Snippets</h2>
+        <div class="snippet-related-grid">
+          <% relatedSnippets.forEach(function(rel) { %>
+            <a href="/snippets/<%= rel.category_slug %>/<%= rel.slug %>/" class="snippet-related-card">
+              <h3><%= rel.title %></h3>
+              <p><%= rel.description.substring(0, 120) %>...</p>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ========== INTERNAL LINKS ========== -->
+  <section class="snippet-internal-links" aria-label="Explore more">
+    <div class="container">
+      <h2>Keep Exploring</h2>
+      <ul>
+        <li><a href="/snippets/<%= snippet.category_slug %>/">All <%= snippet.category_name %> Snippets</a></li>
+        <li><a href="/snippets/">All Snippet Categories</a></li>
+        <li><a href="/tools/">Free Developer Tools</a></li>
+      </ul>
+    </div>
+  </section>
+
+</div>

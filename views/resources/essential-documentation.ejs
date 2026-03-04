@@ -1,7 +1,7 @@
 <!-- views/resources/index.ejs — Developer Documentation Directory page -->
 <% layout('layouts/main') %>
 
-<main id="main-content" class="resources-page">
+<div class="resources-page">
 
   <!-- ========== HERO SECTION ========== -->
   <section class="resources-hero" aria-label="Documentation directory hero">
@@ -47,8 +47,17 @@
       </ul>
     </div>
   </nav>
-
-  <!-- ADSENSE: leaderboard -->
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
 
   <!-- ========== 01 — PROGRAMMING LANGUAGES ========== -->
   <section id="languages" class="resources-category section-padding" aria-label="Programming languages documentation">
@@ -298,8 +307,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ADSENSE: in-article -->
 
   <!-- ========== 02 — FRONTEND FRAMEWORKS ========== -->
   <section id="frontend" class="resources-category section-padding" aria-label="Frontend frameworks documentation">
@@ -612,8 +619,6 @@
     </div>
   </section>
 
-  <!-- ADSENSE: in-article -->
-
   <!-- ========== 04 — DATABASES ========== -->
   <section id="databases" class="resources-category section-padding" aria-label="Databases documentation">
     <div class="container">
@@ -914,8 +919,6 @@
     </div>
   </section>
 
-  <!-- ADSENSE: in-article -->
-
   <!-- ========== 06 — MOBILE DEVELOPMENT ========== -->
   <section id="mobile" class="resources-category section-padding" aria-label="Mobile development documentation">
     <div class="container">
@@ -1174,8 +1177,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ADSENSE: in-article -->
 
   <!-- ========== 09 — MOST REFERENCED ========== -->
   <section class="resources-referenced section-padding" aria-label="Most referenced documentation">
@@ -1460,8 +1461,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ADSENSE: in-article -->
 
   <!-- ========== 11 — VIDEO LEARNING ========== -->
   <section class="resources-category section-padding" aria-label="Video learning resources">
@@ -1976,8 +1975,6 @@
     </div>
   </section>
 
-  <!-- ADSENSE: in-article -->
-
   <!-- ========== 13 — COMMUNITY ========== -->
   <section class="resources-category section-padding" aria-label="Community resources and forums">
     <div class="container">
@@ -2404,8 +2401,6 @@
     </div>
   </section>
 
-  <!-- ADSENSE: in-article -->
-
   <!-- ========== 16 — HOW TO USE DOCUMENTATION ========== -->
   <section class="resources-tips section-padding" aria-label="Tips for using documentation effectively">
     <div class="container">
@@ -2508,7 +2503,7 @@
       </div>
 
       <div class="resources-related-grid">
-        <a href="/blog" class="resources-related-card">
+        <a href="/blog/" class="resources-related-card">
           <h3 class="resources-related-card__title">Programming Fundamentals</h3>
           <p class="resources-related-card__desc">
             Learn core programming concepts that appear across all languages and frameworks. Understanding fundamentals makes
@@ -2516,7 +2511,7 @@
           </p>
           <span class="resources-related-card__action">View Course <span aria-hidden="true">&rarr;</span></span>
         </a>
-        <a href="/blog" class="resources-related-card">
+        <a href="/blog/" class="resources-related-card">
           <h3 class="resources-related-card__title">Data Structures &amp; Algorithms</h3>
           <p class="resources-related-card__desc">
             Deep explanations of data structures and algorithms help you understand the implementations behind standard
@@ -2524,7 +2519,7 @@
           </p>
           <span class="resources-related-card__action">View Course <span aria-hidden="true">&rarr;</span></span>
         </a>
-        <a href="/blog" class="resources-related-card">
+        <a href="/blog/" class="resources-related-card">
           <h3 class="resources-related-card__title">How Computers Work</h3>
           <p class="resources-related-card__desc">
             Understanding computer architecture, operating systems, and networking provides context for system-level
@@ -2535,8 +2530,17 @@
       </div>
     </div>
   </section>
-
-  <!-- ADSENSE: leaderboard -->
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
 
   <!-- ========== NO RESULTS MESSAGE ========== -->
   <div class="resources-no-results" aria-live="polite" hidden>
@@ -2547,4 +2551,4 @@
     </div>
   </div>
 
-</main>
+</div>

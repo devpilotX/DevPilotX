@@ -1,0 +1,112 @@
+##############################################################
+# Diagram: Web Development Architecture Layers 2025
+# Article: Web Development Trends 2025
+# Author: Dipanshu Kumar
+# Compile: d2 web-dev-trends-2025.d2 --out web-dev-trends-2025.svg
+##############################################################
+
+direction: right
+
+# ─── Edge Layer ───────────────────────────────────────────
+edge: "Edge Layer\n(Cloudflare Workers · Vercel Edge · Deno Deploy)" {
+  style.fill: "#eff6ff"
+  style.stroke: "#3b82f6"
+  style.border-radius: 10
+
+  auth_edge: "Auth at Edge\n(JWT / session cookie\nvalidation without origin hit)" {
+    shape: rectangle
+    style.fill: "#dbeafe"
+  }
+
+  rate_limit: "Rate Limiting\n(block abuse at network layer\nbefore app server)" {
+    shape: rectangle
+    style.fill: "#dbeafe"
+  }
+
+  personalization: "Personalization & A/B Testing\n(geolocation · cookies · feature flags\nno origin round-trip needed)" {
+    shape: rectangle
+    style.fill: "#dbeafe"
+  }
+
+  routing: "Request Routing\n(path-based · header-based\ntraffic splitting)" {
+    shape: rectangle
+    style.fill: "#dbeafe"
+  }
+}
+
+# ─── Server Layer ─────────────────────────────────────────
+server: "Server Layer\n(Node.js · Bun · Deno)" {
+  style.fill: "#fdf4ff"
+  style.stroke: "#a855f7"
+  style.border-radius: 10
+
+  rsc: "React Server Components\n(stream HTML to client\neliminate waterfall fetches)" {
+    shape: rectangle
+    style.fill: "#f3e8ff"
+  }
+
+  llm_orch: "LLM Orchestration\n(LangChain · LlamaIndex\nRAG · structured outputs)" {
+    shape: rectangle
+    style.fill: "#f3e8ff"
+  }
+
+  wasm_mod: "WebAssembly Modules\n(Rust / C++ / Go logic\nrunning at the edge or server)" {
+    shape: rectangle
+    style.fill: "#f3e8ff"
+  }
+
+  streaming: "Streaming & Real-Time\n(SSE · WebSockets\nlive AI output · live market data)" {
+    shape: rectangle
+    style.fill: "#f3e8ff"
+  }
+
+  vector_db: "Vector Databases\n(pgvector · Pinecone · Weaviate\nsemantic search over app data)" {
+    shape: rectangle
+    style.fill: "#f3e8ff"
+  }
+}
+
+# ─── Client Layer ─────────────────────────────────────────
+client: "Client Layer\n(Browser)" {
+  style.fill: "#f0fdf4"
+  style.stroke: "#22c55e"
+  style.border-radius: 10
+
+  signals: "Signals & Fine-Grained Reactivity\n(SolidJS · Preact Signals · Angular 17\nTC39 Signals proposal)" {
+    shape: rectangle
+    style.fill: "#dcfce7"
+  }
+
+  modern_css: "Modern CSS\n(Container Queries · :has() selector\nCSS Nesting · @scope · Layers)" {
+    shape: rectangle
+    style.fill: "#dcfce7"
+  }
+
+  view_transitions: "View Transitions API\n(smooth page transitions\nzero JS animation library needed)" {
+    shape: rectangle
+    style.fill: "#dcfce7"
+  }
+
+  pwa: "Progressive Web Apps\n(offline-first · service workers\nIndexedDB · installable)" {
+    shape: rectangle
+    style.fill: "#dcfce7"
+  }
+}
+
+# ─── Connections ──────────────────────────────────────────
+edge -> server: "proxies origin requests\n(cache miss or auth required)" {
+  style.stroke: "#6366f1"
+}
+
+server -> client: "streams RSC HTML\n+ JSON payloads" {
+  style.stroke: "#8b5cf6"
+}
+
+client -> server: "API calls\n(fetch · WebSocket · SSE)" {
+  style.stroke: "#22c55e"
+}
+
+server.streaming -> client: "real-time push\n(SSE / WebSocket)" {
+  style.stroke: "#a855f7"
+  style.stroke-dash: 3
+}

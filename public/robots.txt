@@ -10,14 +10,21 @@ User-agent: *
 # Allow all public pages
 Allow: /
 
-# Block authentication and private pages
+# Block authentication and private user pages
 Disallow: /login
 Disallow: /register
 Disallow: /logout
 Disallow: /profile
 Disallow: /settings
-Disallow: /search
+
+# Block internal API endpoints
 Disallow: /api/
+
+# Block admin panel
+Disallow: /admin/
+
+# Block low-value utility pages
+Disallow: /search
 
 # Sitemap location
 Sitemap: https://value.codes/sitemap.xml

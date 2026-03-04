@@ -1,0 +1,70 @@
+<!-- ================================================================
+     FILE: views/admin/snippets/index.ejs
+     PURPOSE: Admin — List all snippets with status, edit, delete
+     ================================================================ -->
+
+<div aria-label="Manage Snippets">
+  <section class="admin-section" aria-label="Snippet management">
+    <div class="container">
+
+      <div class="admin-header-row">
+        <h1>Manage Snippets</h1>
+        <a href="/admin/snippets/create" class="btn btn-primary">+ New Snippet</a>
+      </div>
+
+      <% if (success) { %>
+        <div class="alert alert-success" role="alert"><%= success %></div>
+      <% } %>
+      <% if (error) { %>
+        <div class="alert alert-error" role="alert"><%= error %></div>
+      <% } %>
+
+      <div class="admin-table-wrapper">
+        <table class="admin-table" aria-label="All snippets">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Difficulty</th>
+              <th>Views</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (snippets.length === 0) { %>
+              <tr>
+                <td colspan="7" class="admin-empty-row">No snippets yet. Create your first one!</td>
+              </tr>
+            <% } else { %>
+              <% snippets.forEach(function(s) { %>
+                <tr>
+                  <td><%= s.sort_order %></td>
+                  <td>
+                    <strong><%= s.title %></strong>
+                    <br>
+                    <small class="admin-slug">/<%= s.slug %></small>
+                  </td>
+                  <td><%= s.category_emoji %> <%= s.category_name %></td>
+                  <td>
+                    <span class="admin-status admin-status-<%= s.status %>"><%= s.status %></span>
+                  </td>
+                  <td><%= s.difficulty %></td>
+                  <td><%= s.views %></td>
+                  <td class="admin-actions">
+                    <a href="/admin/snippets/edit/<%= s.id %>" class="btn btn-sm btn-ghost">Edit</a>
+                    <form action="/admin/snippets/delete/<%= s.id %>" method="POST" class="admin-delete-form">
+                      <button type="submit" class="btn btn-sm btn-ghost admin-delete-btn">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% }); %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+</div>

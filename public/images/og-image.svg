@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="6" fill="#c9281a"/>
+  <text x="600" y="240" font-family="system-ui,-apple-system,sans-serif" font-weight="800" font-size="80" text-anchor="middle" fill="#c9281a" letter-spacing="-2">Value.Codes</text>
+  <text x="600" y="320" font-family="system-ui,-apple-system,sans-serif" font-weight="400" font-size="32" text-anchor="middle" fill="#595959">Free Developer Tools &amp; Online Compiler</text>
+  <text x="600" y="390" font-family="system-ui,-apple-system,sans-serif" font-weight="400" font-size="24" text-anchor="middle" fill="#767676">JSON Formatter · Regex Builder · Diff Checker · Hash Generator · JWT Decoder</text>
+  <text x="600" y="560" font-family="system-ui,-apple-system,sans-serif" font-weight="600" font-size="22" text-anchor="middle" fill="#c9281a">value.codes</text>
+</svg>

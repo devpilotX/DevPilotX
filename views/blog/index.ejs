@@ -1,0 +1,168 @@
+<%# ============================================================ %>
+<%# blog/index.ejs — Blog Home / Listing Page                    %>
+<%# ============================================================ %>
+
+<div class="blog-page" aria-label="Blog articles listing">
+
+  <%# ========== BLOG HERO ========== %>
+  <section class="blog-hero" aria-label="Blog introduction">
+    <div class="container">
+      <div class="blog-hero__content">
+        <h1 class="blog-hero__title">Developer Insights &amp; Tech Trends</h1>
+        <p class="blog-hero__desc">
+          In-depth articles on programming, developer tools, AI, web development, and cybersecurity.
+          Written by developers, for developers.
+        </p>
+      </div>
+
+      <%# ========== SEARCH + CATEGORY FILTER ========== %>
+      <div class="blog-filter-bar" aria-label="Blog filters">
+        <div class="blog-filter-row">
+          <div class="blog-search-wrap">
+            <svg class="blog-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="search"
+              class="blog-search-input"
+              placeholder="Search articles..."
+              aria-label="Search blog articles"
+              data-blog-search
+            >
+          </div>
+          <div class="blog-category-select-wrap">
+            <svg class="blog-category-select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6h16M7 12h10M10 18h4"/>
+            </svg>
+            <select
+              class="blog-category-select"
+              aria-label="Filter by category"
+              id="blog-category-filter"
+            >
+              <option value="/blog" <%= !currentCategory ? 'selected' : '' %>>All Categories</option>
+              <% categories.forEach(function(cat) { %>
+                <option value="/blog/category/<%= cat.slug %>" <%= currentCategory === cat.slug ? 'selected' : '' %>>
+                  <%= cat.name %>
+                </option>
+              <% }); %>
+            </select>
+            <svg class="blog-category-select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
+
+  <%# ========== ARTICLE GRID ========== %>
+  <section class="blog-listing section-padding" aria-label="All blog articles">
+    <div class="container">
+
+      <h2 class="blog-section-title">
+        <% if (currentCategory) { %>
+          <% const activeCat = categories.find(function(c) { return c.slug === currentCategory; }); %>
+          <%= activeCat ? activeCat.name : currentCategory %> Articles
+        <% } else { %>
+          All Articles
+        <% } %>
+      </h2>
+
+      <div class="blog-grid" data-blog-grid>
+        <% blogs.forEach(function(post) { %>
+          <article class="blog-card" data-category="<%= post.category_name || '' %>" data-tags="<%= (post.tags || []).join(',') %>" data-title="<%= post.title.toLowerCase() %>">
+            <a href="/blog/<%= post.slug %>/" class="blog-card__link" aria-label="Read: <%= post.title %>">
+              <div class="blog-card__image-wrap">
+                <img
+                  src="<%= post.thumbnail || '/images/blog/placeholder.svg' %>"
+                  alt="<%= post.title %>"
+                  class="blog-card__image"
+                  width="400"
+                  height="225"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.src='/images/blog/placeholder.svg'"
+                >
+                <% if (post.category_name) { %><span class="blog-card__category badge"><%= post.category_name %></span><% } %>
+              </div>
+              <div class="blog-card__body">
+                <div class="blog-card__meta">
+                  <time datetime="<%= post.published_at || '' %>"><%= post.formattedDate %></time>
+                  <span class="blog-card__dot" aria-hidden="true">&middot;</span>
+                  <span><%= post.readTime %></span>
+                </div>
+                <h3 class="blog-card__title"><%= post.title %></h3>
+                <p class="blog-card__excerpt"><%= post.summary || '' %></p>
+                <div class="blog-card__tags">
+                  <% post.tags.slice(0, 3).forEach(function(tag) { %>
+                    <span class="tag"><%= tag %></span>
+                  <% }); %>
+                </div>
+              </div>
+            </a>
+          </article>
+        <% }); %>
+      </div>
+
+      <%# ========== EMPTY STATE ========== %>
+      <div class="blog-empty<%= blogs.length === 0 ? '' : ' is-hidden' %>" data-blog-empty aria-live="polite">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+        <% if (currentCategory) { %>
+          <h3>No articles in this category</h3>
+          <p>Try <a href="/blog/">viewing all articles</a> or check back soon.</p>
+        <% } else { %>
+          <h3>No articles yet</h3>
+          <p>Check back soon — new articles are on the way.</p>
+        <% } %>
+      </div>
+
+      <%# ========== PAGINATION ========== %>
+      <% if (typeof totalPages !== 'undefined' && totalPages > 1) { %>
+      <nav class="blog-pagination" aria-label="Blog page navigation">
+        <% if (currentPage > 1) { %>
+          <a href="<%= currentCategory ? '/blog/category/' + currentCategory : '/blog' %>?page=<%= currentPage - 1 %>" class="blog-pagination__btn" aria-label="Previous page">
+            &larr; Newer
+          </a>
+        <% } %>
+        <span class="blog-pagination__info">Page <%= currentPage %> of <%= totalPages %></span>
+        <% if (currentPage < totalPages) { %>
+          <a href="<%= currentCategory ? '/blog/category/' + currentCategory : '/blog' %>?page=<%= currentPage + 1 %>" class="blog-pagination__btn blog-pagination__btn--next" aria-label="Next page">
+            Older &rarr;
+          </a>
+        <% } %>
+      </nav>
+      <% } %>
+
+    </div>
+  </section>
+
+  <%# ========== NEWSLETTER CTA — BOTTOM ========== %>
+  <section class="blog-newsletter-cta" aria-label="Newsletter signup">
+    <div class="container">
+      <div class="blog-newsletter-cta__inner">
+        <div class="blog-newsletter-cta__text">
+          <h2 class="blog-newsletter-cta__title">Stay in the Loop</h2>
+          <p class="blog-newsletter-cta__desc">Get the latest developer articles, tools, and tech insights delivered straight to your inbox. No spam, unsubscribe anytime.</p>
+        </div>
+        <a href="/newsletter/" class="btn btn-primary btn-lg">Subscribe to Newsletter</a>
+      </div>
+    </div>
+  </section>
+
+</div>

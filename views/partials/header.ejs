@@ -27,16 +27,16 @@
 
         <!-- Nav Links -->
         <ul class="nav-links" id="nav-links" role="list">
-          <li><a href="/tools/" class="nav-link">Tools</a></li>
-          <li><a href="/resources/" class="nav-link">Resources</a></li>
-          <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/tools/" class="nav-link<%= currentPath && currentPath.startsWith('/tools') ? ' active' : '' %>">Tools</a></li>
+          <li><a href="/resources/" class="nav-link<%= currentPath && currentPath.startsWith('/resources') ? ' active' : '' %>">Resources</a></li>
+          <li><a href="/blog/" class="nav-link<%= currentPath && currentPath.startsWith('/blog') ? ' active' : '' %>">Blog</a></li>
         </ul>
 
         <!-- Action Buttons -->
         <div class="nav-actions">
 
           <!-- Search -->
-          <a href="/search" class="nav-search-btn" aria-label="Search" title="Search tools and resources">
+          <a href="/search/" class="nav-search-btn" aria-label="Search" title="Search tools and resources">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
             <span>Search</span>
           </a>
@@ -47,27 +47,41 @@
             <span>Compiler</span>
           </a>
 
+          <% if (!isLoggedIn) { %>
+
           <!-- Login (visible when logged out) -->
-          <a href="/login/" class="nav-btn-login" id="nav-login-btn" title="Login to your account">
+          <a href="/login" class="nav-btn-login" id="nav-login-btn" title="Login to your account">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
             <span>Login</span>
           </a>
 
-          <!-- Profile Dropdown (hidden by default — shown via JS when authenticated) -->
-          <div id="nav-profile-item" class="nav-profile-item nav-profile-hidden">
+          <% } else { %>
+
+          <!-- Profile Dropdown (visible when logged in) -->
+          <div id="nav-profile-item" class="nav-profile-item">
             <div class="nav-profile-wrapper">
-              <button class="nav-profile-btn" id="nav-profile-toggle" type="button" aria-label="Profile menu" aria-expanded="false" aria-haspopup="true">
-                <img class="nav-avatar" id="nav-avatar" src="https://ui-avatars.com/api/?name=U&amp;background=c9281a&amp;color=fff&amp;size=52" alt="User avatar" width="28" height="28" loading="lazy">
-                <span id="nav-user-name" class="nav-username">Profile</span>
-                <span class="nav-pro-badge nav-pro-badge-empty" id="nav-pro-badge"></span>
-                <svg class="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <button class="nav-profile-btn" id="nav-profile-toggle" type="button"
+                      aria-label="Profile menu" aria-expanded="false" aria-haspopup="true">
+                <img class="nav-avatar" id="nav-avatar"
+                     src="<%= currentUser.avatar || ('https://ui-avatars.com/api/?name=' + encodeURIComponent(currentUser.username.charAt(0).toUpperCase()) + '&background=c9281a&color=fff&size=52') %>"
+                     alt="<%= currentUser.username %> avatar" width="28" height="28" loading="lazy">
+                <span id="nav-user-name" class="nav-username"><%= currentUser.username %></span>
+                <% if (currentUser.isPro) { %>
+                <span class="nav-pro-badge">PRO</span>
+                <% } %>
+                <svg class="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </button>
+
               <div class="nav-dropdown" id="nav-profile-dropdown" role="menu" aria-hidden="true">
                 <div class="dropdown-header">
-                  <p class="dropdown-name" id="dropdown-name">User</p>
-                  <p class="dropdown-email" id="dropdown-email">email@example.com</p>
+                  <p class="dropdown-name" id="dropdown-name"><%= currentUser.username %></p>
+                  <p class="dropdown-email" id="dropdown-email"><%= currentUser.email %></p>
                 </div>
-                <div class="dropdown-pro-status dropdown-pro-status-empty" id="dropdown-pro-status"></div>
+                <% if (currentUser.isPro) { %>
+                <div class="dropdown-pro-status">PRO Member</div>
+                <% } %>
                 <a href="/profile/" class="dropdown-item" role="menuitem">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                   My Profile
@@ -77,13 +91,15 @@
                   Settings
                 </a>
                 <div class="dropdown-divider" role="separator"></div>
-                <button class="dropdown-item dropdown-logout" id="nav-logout-btn" type="button" role="menuitem">
+                <a href="/logout" class="dropdown-item dropdown-logout" id="nav-logout-btn" role="menuitem">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                   Log Out
-                </button>
+                </a>
               </div>
             </div>
           </div>
+
+          <% } %>
 
         </div>
       </div>
@@ -91,7 +107,8 @@
       <!-- ============================================================
            MOBILE TOGGLE — Hamburger Button
            ============================================================ -->
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <button class="menu-toggle" id="menu-toggle" type="button"
+              aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>

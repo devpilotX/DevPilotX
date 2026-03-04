@@ -1,0 +1,136 @@
+<%# Admin Articles Dashboard %>
+<div class="admin-page">
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="admin-page-header">
+    <div>
+      <h1 class="admin-page-title">Articles</h1>
+      <p class="admin-page-subtitle">Manage your blog posts</p>
+    </div>
+    <a href="/admin/articles/new" class="admin-btn admin-btn--primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      New Article
+    </a>
+  </div>
+
+  <!-- ========== FLASH MESSAGE ========== -->
+  <% if (typeof flash !== 'undefined' && flash) { %>
+  <div class="admin-alert admin-alert--<%= flash.type %>" role="alert">
+    <%= flash.message %>
+  </div>
+  <% } %>
+
+  <!-- ========== STATS ========== -->
+  <div class="admin-stats">
+    <div class="admin-stat-card">
+      <span class="admin-stat-value"><%= stats.total %></span>
+      <span class="admin-stat-label">Total Articles</span>
+    </div>
+    <div class="admin-stat-card admin-stat-card--green">
+      <span class="admin-stat-value"><%= stats.published %></span>
+      <span class="admin-stat-label">Published</span>
+    </div>
+    <div class="admin-stat-card admin-stat-card--orange">
+      <span class="admin-stat-value"><%= stats.draft %></span>
+      <span class="admin-stat-label">Drafts</span>
+    </div>
+  </div>
+
+  <!-- ========== FILTER BAR ========== -->
+  <div class="admin-filter-bar">
+    <form action="/admin/articles" method="GET" class="admin-search-form">
+      <div class="admin-search-wrap">
+        <svg class="admin-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input
+          type="search"
+          name="search"
+          class="admin-search-input"
+          placeholder="Search by title..."
+          value="<%= search %>"
+          aria-label="Search articles"
+        >
+      </div>
+      <select name="status" class="admin-select" aria-label="Filter by status">
+        <option value="all" <%= statusFilter === 'all' ? 'selected' : '' %>>All Status</option>
+        <option value="published" <%= statusFilter === 'published' ? 'selected' : '' %>>Published</option>
+        <option value="draft" <%= statusFilter === 'draft' ? 'selected' : '' %>>Draft</option>
+      </select>
+      <button type="submit" class="admin-btn admin-btn--secondary">Filter</button>
+      <% if (search || statusFilter !== 'all') { %>
+        <a href="/admin/articles" class="admin-btn admin-btn--ghost">Clear</a>
+      <% } %>
+    </form>
+  </div>
+
+  <!-- ========== ARTICLES TABLE ========== -->
+  <div class="admin-table-wrap">
+    <% if (articles.length === 0) { %>
+      <div class="admin-empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+        <h3>No articles found</h3>
+        <p>
+          <% if (search || statusFilter !== 'all') { %>
+            Try clearing your filters.
+          <% } else { %>
+            <a href="/admin/articles/new">Create your first article &rarr;</a>
+          <% } %>
+        </p>
+      </div>
+    <% } else { %>
+    <table class="admin-table" aria-label="Articles list">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Views</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% articles.forEach(function(article) { %>
+        <tr>
+          <td class="admin-table__title-cell">
+            <a href="/admin/articles/edit/<%= article.id %>" class="admin-table__title">
+              <%= article.title %>
+            </a>
+            <span class="admin-table__slug">/blog/<%= article.slug %></span>
+          </td>
+          <td>
+            <span class="admin-badge admin-badge--category">
+              <%= article.category_name || '—' %>
+            </span>
+          </td>
+          <td>
+            <span class="admin-badge admin-badge--<%= article.status %>">
+              <%= article.status %>
+            </span>
+          </td>
+          <td class="admin-table__views"><%= article.views.toLocaleString() %></td>
+          <td class="admin-table__date">
+            <%= article.published_at
+                ? new Date(article.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+                : new Date(article.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %>
+          </td>
+          <td class="admin-table__actions">
+            <a href="/blog/<%= article.slug %>/" target="_blank" class="admin-action-btn" title="View live" aria-label="View article">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </a>
+            <a href="/admin/articles/edit/<%= article.id %>" class="admin-action-btn" title="Edit article" aria-label="Edit article">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </a>
+            <form action="/admin/articles/delete/<%= article.id %>" method="POST" class="admin-delete-form" onsubmit="return confirm('Delete \'<%= article.title.replace(/'/g, '') %>\'? This cannot be undone.')">
+              <button type="submit" class="admin-action-btn admin-action-btn--danger" title="Delete article" aria-label="Delete article">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } %>
+  </div>
+
+</div>

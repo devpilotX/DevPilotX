@@ -1,0 +1,58 @@
+<!-- ================================================================
+     FILE: views/snippets/index.ejs
+     PURPOSE: Browse all snippet categories — /snippets
+     ================================================================ -->
+
+<div class="snippets-page" aria-label="Browse Code Snippets">
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="snippet-hero" aria-label="Snippets introduction">
+    <div class="container">
+      <span class="section-number">Snippets</span>
+      <h1>Code Snippets</h1>
+      <p class="section-desc">
+        <%= totalCount %> production-ready code snippets. Copy-paste into your projects.
+        No fluff, no tutorials — just clean, working code.
+      </p>
+    </div>
+  </section>
+
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
+
+  <!-- ========== CATEGORIES GRID ========== -->
+  <section class="snippet-categories" aria-label="Snippet categories">
+    <div class="container">
+      <% categories.forEach(function(cat) { %>
+        <a href="/snippets/<%= cat.slug %>/" class="snippet-category-card" aria-label="<%= cat.name %> — <%= cat.snippet_count %> snippets">
+          <span class="snippet-category-emoji" aria-hidden="true"><%= cat.emoji %></span>
+          <h2 class="snippet-category-title"><%= cat.name %></h2>
+          <p class="snippet-category-desc"><%= cat.description %></p>
+          <span class="snippet-category-count"><%= cat.snippet_count %> snippet<%= cat.snippet_count !== 1 ? 's' : '' %></span>
+        </a>
+      <% }); %>
+    </div>
+  </section>
+
+  <!-- ========== INTERNAL LINKS ========== -->
+  <section class="snippet-internal-links" aria-label="Related pages">
+    <div class="container">
+      <h2>More Developer Resources</h2>
+      <ul>
+        <li><a href="/tools/">Free Developer Tools</a> — JSON Formatter, Regex Builder, and more</li>
+        <li><a href="/compiler/">Online Compiler</a> — Run code in 19 languages</li>
+        <li><a href="/resources/">Curated Resources</a> — Handpicked links for developers</li>
+      </ul>
+    </div>
+  </section>
+
+</div>

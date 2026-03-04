@@ -1,0 +1,303 @@
+/**
+ * ================================================================
+ * FILE: public/css/admin/snippets.css
+ * PURPOSE: Admin panel styles for snippet management
+ * ================================================================
+ */
+
+/* ========== ADMIN LAYOUT ========== */
+.admin-section {
+  padding: 2rem 0 4rem;
+}
+
+.admin-section .container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.admin-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-header-row h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ========== ALERTS ========== */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.alert-success {
+  background: #f0fdf4;
+  color: var(--success);
+  border: 1px solid #bbf7d0;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: var(--error);
+  border: 1px solid #fecaca;
+}
+
+/* ========== TABLE ========== */
+.admin-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.admin-table thead {
+  background: var(--surface);
+}
+
+.admin-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-slug {
+  color: var(--subtle);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.admin-status {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.admin-status-published {
+  background: #f0fdf4;
+  color: var(--success);
+}
+
+.admin-status-draft {
+  background: #fefce8;
+  color: var(--warning);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.admin-delete-form {
+  display: inline;
+}
+
+.admin-delete-btn {
+  color: var(--error);
+}
+
+.admin-empty-row {
+  text-align: center;
+  color: var(--subtle);
+  padding: 3rem 1rem;
+}
+
+/* ========== FORM ========== */
+.admin-form {
+  max-width: 900px;
+}
+
+.admin-fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-fieldset legend {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0 0.5rem;
+}
+
+.admin-field {
+  margin-bottom: 1rem;
+}
+
+.admin-field:last-child {
+  margin-bottom: 0;
+}
+
+.admin-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.admin-field input[type="text"],
+.admin-field input[type="number"],
+.admin-field select,
+.admin-field textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  transition: border-color var(--transition);
+}
+
+.admin-field input:focus,
+.admin-field select:focus,
+.admin-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.admin-field small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  color: var(--subtle);
+}
+
+.admin-code-textarea {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  tab-size: 2;
+  resize: vertical;
+}
+
+.admin-field-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+.admin-help-text {
+  font-size: 0.85rem;
+  color: var(--subtle);
+  margin-bottom: 1rem;
+}
+
+/* ========== TABS BUILDER ========== */
+.admin-tab-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  background: var(--surface);
+}
+
+.admin-tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.admin-remove-tab-btn {
+  color: var(--error);
+}
+
+/* ========== TAGS GRID ========== */
+.admin-tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-tag-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+  user-select: none;
+}
+
+.admin-tag-checkbox:has(input:checked) {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.admin-tag-checkbox input {
+  width: 14px;
+  height: 14px;
+}
+
+/* ========== FORM ACTIONS ========== */
+.admin-form-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .admin-fieldset {
+    padding: 1rem;
+  }
+
+  .admin-field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-table th:nth-child(5),
+  .admin-table td:nth-child(5),
+  .admin-table th:nth-child(6),
+  .admin-table td:nth-child(6) {
+    display: none;
+  }
+
+  .admin-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

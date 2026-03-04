@@ -1,0 +1,44 @@
+/**
+ * ================================================================
+ * FILE: public/css/admin/apis.css
+ * PURPOSE: Admin panel styles for API Directory management
+ * ================================================================
+ */
+
+/* Reuses admin/snippets.css patterns — no duplication needed.
+   Only API-specific overrides go here. */
+
+.admin-code-textarea {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border: 1px solid #313244;
+  border-radius: var(--radius, 6px);
+  padding: 0.75rem;
+  resize: vertical;
+  width: 100%;
+}
+
+.admin-help-text {
+  font-size: 0.82rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+/* ========== ENDPOINT BLOCKS ========== */
+.admin-endpoint-block {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background: #fafafa;
+}
+
+.admin-remove-ep-btn {
+  align-self: flex-end;
+  color: #c9281a;
+  border-color: transparent;
+  flex-shrink: 0;
+}

@@ -109,7 +109,7 @@
     bannerText.textContent = 'We use cookies to improve your experience. By continuing you accept our ';
 
     var privacyLink     = document.createElement('a');
-    privacyLink.href    = '/legal/privacy-policy';
+    privacyLink.href    = '/legal/privacy-policy/';
     privacyLink.textContent = 'Privacy Policy';
     bannerText.appendChild(privacyLink);
     bannerText.appendChild(document.createTextNode('.'));

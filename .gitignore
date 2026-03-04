@@ -48,3 +48,8 @@ temp/
 # Uploaded files (if any user uploads are added later)
 # ------------------------------------------------------------
 uploads/
+
+# ------------------------------------------------------------
+# Deleted / archived files (old code kept for reference only)
+# ------------------------------------------------------------
+delete/

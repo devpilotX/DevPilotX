@@ -6,7 +6,7 @@
         <nav class="res-breadcrumb" aria-label="Breadcrumb">
           <ol class="breadcrumb-list" role="list">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/resources">Resources</a></li>
+            <li class="breadcrumb-item"><a href="/resources/">Resources</a></li>
             <li class="breadcrumb-item breadcrumb-current" aria-current="page">Developer Tools</li>
           </ol>
         </nav>
@@ -21,8 +21,17 @@
     </div>
   </div>
 </section>
-
-<!-- ADSENSE: leaderboard -->
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
 
 <!-- ========== QUICK NAVIGATION ========== -->
 <section class="res-quicknav" id="quick-nav" aria-label="Quick Navigation">
@@ -106,8 +115,6 @@
       <h2>Code Editors & IDEs</h2>
     </div>
     <p class="section-desc">Your code editor is where you'll spend most of your development time. The difference between a good editor and a great one isn't just features — it's how well those features integrate into your workflow, how quickly you can navigate large codebases, and how effectively it helps you catch mistakes before they become bugs.</p>
-
-    <!-- ADSENSE: in-article -->
 
     <!-- VS Code -->
     <article class="tool-review" id="vscode" aria-label="Visual Studio Code Review">
@@ -676,8 +683,6 @@
     </div>
     <p class="section-desc">The terminal is one of the most powerful interfaces you have to your computer. Modern terminal emulators make working at the command line faster, more pleasant, and more productive.</p>
 
-    <!-- ADSENSE: in-article -->
-
     <!-- Windows Terminal -->
     <article class="tool-review" id="windows-terminal" aria-label="Windows Terminal Review">
       <div class="tool-review-header">
@@ -1180,8 +1185,6 @@
 
   </div>
 </section>
-
-<!-- ADSENSE: in-article -->
 
 <!-- ========== SECTION 06: BROWSER DEVTOOLS ========== -->
 <section class="res-section res-section-alt" id="browser-devtools" aria-label="Browser Developer Tools">
@@ -1753,8 +1756,6 @@
     </div>
     <p class="section-desc">Security testing helps identify vulnerabilities before attackers do. These tools scan for common security issues and help you build more secure applications.</p>
 
-    <!-- ADSENSE: in-article -->
-
     <!-- OWASP ZAP -->
     <article class="tool-review" id="owasp-zap" aria-label="OWASP ZAP Review">
       <div class="tool-review-header">
@@ -2064,11 +2065,20 @@
         </a>
       </div>
       <div class="res-cta-actions">
-        <a href="/resources" class="btn btn-primary">Browse All Resources</a>
-        <a href="/tools" class="btn btn-secondary">Explore Our Tools</a>
+        <a href="/resources/" class="btn btn-primary">Browse All Resources</a>
+        <a href="/tools/" class="btn btn-secondary">Explore Our Tools</a>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ADSENSE: leaderboard -->
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>

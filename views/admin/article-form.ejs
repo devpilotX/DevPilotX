@@ -1,0 +1,418 @@
+<%# Admin Article Create / Edit Form %>
+<%
+  const isEdit = article !== null;
+  const formAction = isEdit ? `/admin/articles/edit/${article.id}` : '/admin/articles/new';
+  const pageHeading = isEdit ? 'Edit Article' : 'New Article';
+
+  /* Format existing published_at for datetime-local input (YYYY-MM-DDTHH:mm) */
+  let publishedAtValue = '';
+  if (isEdit && article.published_at) {
+    const d = new Date(article.published_at);
+    const pad = n => String(n).padStart(2, '0');
+    publishedAtValue = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  }
+%>
+
+<div class="admin-page">
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="admin-page-header">
+    <div>
+      <h1 class="admin-page-title"><%= pageHeading %></h1>
+      <% if (isEdit) { %>
+        <p class="admin-page-subtitle">Editing: <span class="admin-page-slug">/blog/<%= article.slug %></span></p>
+      <% } else { %>
+        <p class="admin-page-subtitle">Slug will be auto-generated from the title</p>
+      <% } %>
+    </div>
+    <a href="/admin/articles" class="admin-btn admin-btn--ghost">
+      &larr; Back to Articles
+    </a>
+  </div>
+
+  <!-- ========== FLASH ========== -->
+  <% if (typeof flash !== 'undefined' && flash) { %>
+  <div class="admin-alert admin-alert--<%= flash.type %>" role="alert"><%= flash.message %></div>
+  <% } %>
+
+  <!-- ========== ARTICLE FORM ========== -->
+  <form action="<%= formAction %>" method="POST" class="admin-article-form" id="articleForm">
+
+    <div class="admin-form-layout">
+
+      <!-- ========== MAIN FIELDS ========== -->
+      <div class="admin-form-main">
+
+        <!-- Title -->
+        <div class="admin-form-group">
+          <label for="title" class="admin-form-label admin-form-label--required">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="admin-form-input admin-form-input--lg"
+            placeholder="Article title..."
+            value="<%= isEdit ? article.title : '' %>"
+            required
+            maxlength="255"
+          >
+        </div>
+
+        <!-- Summary -->
+        <div class="admin-form-group">
+          <label for="summary" class="admin-form-label">Summary <span class="admin-form-hint">(shown in blog listings and used for meta description)</span></label>
+          <textarea
+            id="summary"
+            name="summary"
+            class="admin-form-textarea"
+            rows="3"
+            placeholder="A short summary of the article (120–160 characters recommended for SEO)..."
+            maxlength="500"
+          ><%= isEdit ? (article.summary || '') : '' %></textarea>
+        </div>
+
+        <!-- Content (Quill rich text editor) -->
+        <div class="admin-form-group">
+          <label class="admin-form-label admin-form-label--required">Content</label>
+
+          <!-- Quill toolbar + editor mount point -->
+          <div id="quill-editor" class="admin-quill-editor"></div>
+
+          <!-- Hidden textarea — actual POST field, filled by JS before submit -->
+          <textarea
+            id="article-content"
+            name="content"
+            style="display:none"
+            aria-hidden="true"
+          ><%= isEdit ? (article.content || '') : '' %></textarea>
+
+          <!-- Word count display -->
+          <div class="admin-word-count" id="wordCountDisplay">
+            <span id="wordCountNum">0</span> words &middot; est. <span id="readTimeNum">0</span> min read
+          </div>
+
+          <p class="admin-form-hint admin-form-hint--block">
+            Use the toolbar above to format your article. HTML is saved directly to the database.
+            Paste code snippets using the <strong>&lt;/&gt;</strong> code block button.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ========== SIDEBAR FIELDS ========== -->
+      <aside class="admin-form-sidebar">
+
+        <!-- Status & Publish -->
+        <div class="admin-sidebar-card">
+          <h3 class="admin-sidebar-card__title">Publish</h3>
+          <div class="admin-form-group">
+            <label for="status" class="admin-form-label">Status</label>
+            <select id="status" name="status" class="admin-select">
+              <option value="published" <%= !isEdit || article.status === 'published' ? 'selected' : '' %>>Published</option>
+              <option value="draft" <%= isEdit && article.status === 'draft' ? 'selected' : '' %>>Draft</option>
+            </select>
+          </div>
+          <div class="admin-form-group">
+            <label for="published_at" class="admin-form-label">Publish Date</label>
+            <input
+              type="datetime-local"
+              id="published_at"
+              name="published_at"
+              class="admin-form-input"
+              value="<%= publishedAtValue %>"
+            >
+            <p class="admin-form-hint">Leave blank to use current time when publishing</p>
+          </div>
+          <button type="submit" class="admin-btn admin-btn--primary admin-btn--full">
+            <%= isEdit ? 'Update Article' : 'Publish Article' %>
+          </button>
+        </div>
+
+        <!-- Category -->
+        <div class="admin-sidebar-card">
+          <h3 class="admin-sidebar-card__title">Category</h3>
+          <div class="admin-form-group">
+            <select id="category_id" name="category_id" class="admin-select">
+              <option value="">— No Category —</option>
+              <% categories.forEach(function(cat) { %>
+                <option value="<%= cat.id %>" <%= isEdit && article.category_id == cat.id ? 'selected' : '' %>>
+                  <%= cat.name %>
+                </option>
+              <% }); %>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="admin-sidebar-card">
+          <h3 class="admin-sidebar-card__title">Tags</h3>
+          <div class="admin-form-group">
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              class="admin-form-input"
+              placeholder="e.g. Node.js, AI, Web Dev"
+              value="<%= isEdit ? (article.tags || '') : '' %>"
+              maxlength="500"
+            >
+            <p class="admin-form-hint">Comma-separated</p>
+          </div>
+        </div>
+
+        <!-- Thumbnail -->
+        <div class="admin-sidebar-card">
+          <h3 class="admin-sidebar-card__title">Thumbnail</h3>
+          <div class="admin-form-group">
+            <input
+              type="text"
+              id="thumbnail"
+              name="thumbnail"
+              class="admin-form-input"
+              placeholder="/images/blog/my-image.jpg"
+              value="<%= isEdit ? (article.thumbnail || '') : '' %>"
+              maxlength="500"
+            >
+            <p class="admin-form-hint">Relative path or full URL</p>
+          </div>
+        </div>
+
+        <!-- Author -->
+        <div class="admin-sidebar-card">
+          <h3 class="admin-sidebar-card__title">Author</h3>
+          <div class="admin-form-group">
+            <input
+              type="text"
+              id="author"
+              name="author"
+              class="admin-form-input"
+              value="<%= isEdit ? (article.author || 'Value.Codes') : 'Value.Codes' %>"
+              maxlength="100"
+            >
+          </div>
+        </div>
+
+        <!-- SEO — Industry Grade -->
+        <div class="admin-sidebar-card">
+          <h3 class="admin-sidebar-card__title">SEO</h3>
+
+          <!-- Focus Keyword -->
+          <div class="admin-form-group">
+            <label for="focus_keyword" class="admin-form-label">Focus Keyword <span class="admin-form-hint">(optional)</span></label>
+            <input
+              type="text"
+              id="focus_keyword"
+              name="focus_keyword"
+              class="admin-form-input"
+              placeholder="e.g. javascript performance"
+              maxlength="100"
+            >
+          </div>
+
+          <!-- Meta Title with counter -->
+          <div class="admin-form-group">
+            <div class="admin-seo-label-row">
+              <label for="meta_title" class="admin-form-label">Meta Title</label>
+              <span class="admin-char-counter" id="metaTitleCounter">0/60</span>
+            </div>
+            <input
+              type="text"
+              id="meta_title"
+              name="meta_title"
+              class="admin-form-input"
+              placeholder="Leave blank to use article title"
+              value="<%= isEdit ? (article.meta_title || '') : '' %>"
+              maxlength="255"
+            >
+            <div class="admin-char-bar"><div class="admin-char-bar__fill" id="metaTitleBar"></div></div>
+          </div>
+
+          <!-- Meta Description with counter -->
+          <div class="admin-form-group">
+            <div class="admin-seo-label-row">
+              <label for="meta_description" class="admin-form-label">Meta Description</label>
+              <span class="admin-char-counter" id="metaDescCounter">0/160</span>
+            </div>
+            <textarea
+              id="meta_description"
+              name="meta_description"
+              class="admin-form-textarea"
+              rows="3"
+              placeholder="Leave blank to use summary (120–160 chars)"
+              maxlength="300"
+            ><%= isEdit ? (article.meta_description || '') : '' %></textarea>
+            <div class="admin-char-bar"><div class="admin-char-bar__fill" id="metaDescBar"></div></div>
+          </div>
+
+          <!-- SERP Preview -->
+          <div class="admin-serp-preview" id="serpPreview">
+            <div class="admin-serp-preview__label">Google Preview</div>
+            <div class="admin-serp-preview__url" id="serpUrl">value.codes › blog › slug</div>
+            <div class="admin-serp-preview__title" id="serpTitle">Article Title — Value.Codes</div>
+            <div class="admin-serp-preview__desc" id="serpDesc">Meta description will appear here...</div>
+          </div>
+
+          <!-- Social Preview (collapsible) -->
+          <div class="admin-social-preview">
+            <button type="button" class="admin-social-preview__toggle" id="socialToggle" aria-expanded="false">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              Preview Social Card
+            </button>
+            <div class="admin-social-preview__panel" id="socialPanel" hidden>
+              <div class="admin-social-card" id="socialCard">
+                <div class="admin-social-card__image" id="socialImage">
+                  <span>No thumbnail set</span>
+                </div>
+                <div class="admin-social-card__body">
+                  <div class="admin-social-card__domain">value.codes</div>
+                  <div class="admin-social-card__title" id="socialTitle">Article title will appear here</div>
+                  <div class="admin-social-card__desc" id="socialDesc">Description will appear here</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+  </form>
+
+</div>
+
+<!-- Quill CSS (snow theme) — from cdn.jsdelivr.net (already in CSP) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css">
+
+<!-- Quill JS — from cdn.jsdelivr.net (already in CSP, no API key needed) -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+
+<script>
+(function () {
+  /* ── Quill setup ── */
+  const toolbarOptions = [
+    [{ header: [1, 2, 3, 4, false] }],
+    ['bold', 'italic', 'underline', 'strike'],
+    [{ color: [] }, { background: [] }],
+    [{ list: 'ordered' }, { list: 'bullet' }],
+    [{ indent: '-1' }, { indent: '+1' }],
+    [{ align: [] }],
+    ['blockquote', 'code-block'],
+    ['link', 'image'],
+    ['clean']
+  ];
+
+  const quill = new Quill('#quill-editor', {
+    theme: 'snow',
+    placeholder: 'Write your article content here...',
+    modules: { toolbar: toolbarOptions }
+  });
+
+  /* ── Pre-fill existing content when editing ── */
+  const hiddenInput = document.getElementById('article-content');
+  const existingHTML = hiddenInput.value.trim();
+  if (existingHTML) {
+    quill.clipboard.dangerouslyPasteHTML(existingHTML);
+  }
+
+  /* ── On submit: copy Quill HTML → hidden textarea ── */
+  const form = document.getElementById('articleForm');
+  form.addEventListener('submit', function () {
+    hiddenInput.value = quill.getSemanticHTML();
+  });
+
+  /* ── Word count & read time ── */
+  function updateWordCount() {
+    const text = quill.getText().trim();
+    const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
+    const minutes = Math.max(1, Math.ceil(words / 200));
+    document.getElementById('wordCountNum').textContent = words.toLocaleString();
+    document.getElementById('readTimeNum').textContent = minutes;
+  }
+  quill.on('text-change', updateWordCount);
+  updateWordCount();
+
+  /* ── SERP Preview helpers ── */
+  const titleEl   = document.getElementById('title');
+  const metaTitle = document.getElementById('meta_title');
+  const metaDesc  = document.getElementById('meta_description');
+  const slugHint  = '<%= isEdit ? article.slug : "" %>';
+
+  function getSlug(str) {
+    return str.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '') || 'article-slug';
+  }
+
+  function updateSerp() {
+    const titleVal = metaTitle.value.trim() || titleEl.value.trim() || 'Article Title';
+    const descVal  = metaDesc.value.trim() || document.getElementById('summary').value.trim() || 'Meta description will appear here...';
+    const slug     = slugHint || getSlug(titleEl.value);
+
+    document.getElementById('serpUrl').textContent   = 'value.codes › blog › ' + slug;
+    document.getElementById('serpTitle').textContent = titleVal + (titleVal ? ' — Value.Codes' : '');
+    document.getElementById('serpDesc').textContent  = descVal.slice(0, 160) + (descVal.length > 160 ? '…' : '');
+
+    /* Social card */
+    document.getElementById('socialTitle').textContent = titleVal;
+    document.getElementById('socialDesc').textContent  = descVal.slice(0, 125) + (descVal.length > 125 ? '…' : '');
+
+    const thumb = document.getElementById('thumbnail').value.trim();
+    const socialImg = document.getElementById('socialImage');
+    if (thumb) {
+      socialImg.innerHTML = '<img src="' + thumb + '" alt="thumbnail" style="width:100%;height:100%;object-fit:cover;">';
+    } else {
+      socialImg.innerHTML = '<span>No thumbnail set</span>';
+    }
+  }
+
+  [titleEl, metaTitle, metaDesc, document.getElementById('summary'), document.getElementById('thumbnail')].forEach(function(el) {
+    if (el) el.addEventListener('input', updateSerp);
+  });
+  updateSerp();
+
+  /* ── Character counters ── */
+  function updateCounter(input, counterId, barId, max, greenMin, greenMax) {
+    const len = input.value.length;
+    const counter = document.getElementById(counterId);
+    const bar = document.getElementById(barId);
+
+    counter.textContent = len + '/' + max;
+
+    /* Color logic */
+    let status;
+    if (len >= greenMin && len <= greenMax) {
+      status = 'good';
+    } else if (len > 0) {
+      status = (len < greenMin - 15 || len > greenMax + 20) ? 'bad' : 'warn';
+    } else {
+      status = '';
+    }
+    counter.className = 'admin-char-counter' + (status ? ' admin-char-counter--' + status : '');
+
+    /* Progress bar */
+    const pct = Math.min(100, Math.round((len / max) * 100));
+    bar.style.width = pct + '%';
+    bar.className = 'admin-char-bar__fill' + (status ? ' admin-char-bar__fill--' + status : '');
+  }
+
+  metaTitle.addEventListener('input', function() {
+    updateCounter(this, 'metaTitleCounter', 'metaTitleBar', 60, 50, 60);
+    updateSerp();
+  });
+  metaDesc.addEventListener('input', function() {
+    updateCounter(this, 'metaDescCounter', 'metaDescBar', 160, 120, 160);
+    updateSerp();
+  });
+
+  /* Init counters with existing values */
+  updateCounter(metaTitle, 'metaTitleCounter', 'metaTitleBar', 60, 50, 60);
+  updateCounter(metaDesc, 'metaDescCounter', 'metaDescBar', 160, 120, 160);
+
+  /* ── Social Preview Toggle ── */
+  document.getElementById('socialToggle').addEventListener('click', function() {
+    const panel = document.getElementById('socialPanel');
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!expanded));
+    panel.hidden = expanded;
+    updateSerp();
+  });
+})();
+</script>

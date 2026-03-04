@@ -1,0 +1,109 @@
+##############################################################
+# Diagram: Apple Intelligence System Architecture
+# Article: Apple Intelligence — iOS 18 AI Features 2025
+# Author: Dipanshu Kumar
+# Compile: d2 apple-intelligence-architecture.d2 --out apple-intelligence-architecture.svg
+##############################################################
+
+direction: right
+
+# ─── User's Device ────────────────────────────────────────
+device: "iPhone / iPad / Mac\n(A17 Pro · M-Series)" {
+  style.fill: "#dbeafe"
+  style.stroke: "#3b82f6"
+  style.border-radius: 12
+
+  neural_engine: "Apple Neural Engine" {
+    style.fill: "#1d4ed8"
+    style.font-color: "#ffffff"
+    style.border-radius: 8
+    shape: rectangle
+  }
+
+  on_device: "On-Device Language Models\n(runs locally, no network)" {
+    style.fill: "#eff6ff"
+    style.stroke: "#93c5fd"
+    shape: rectangle
+  }
+
+  writing_tools: "Writing Tools\n(Proofread · Rewrite · Tone · Summarize)" {
+    shape: rectangle
+    style.fill: "#f0fdf4"
+    style.stroke: "#86efac"
+  }
+
+  genmoji: "Genmoji\n(Custom emoji from text)" {
+    shape: rectangle
+    style.fill: "#fdf4ff"
+    style.stroke: "#d8b4fe"
+  }
+
+  image_playground: "Image Playground\n(Animation · Illustration · Sketch)" {
+    shape: rectangle
+    style.fill: "#fff7ed"
+    style.stroke: "#fdba74"
+  }
+
+  enhanced_siri: "Enhanced Siri\n(Context-aware · Personal data access)" {
+    shape: rectangle
+    style.fill: "#fef3c7"
+    style.stroke: "#fbbf24"
+  }
+
+  neural_engine -> on_device: "powers"
+  on_device -> writing_tools
+  on_device -> genmoji
+  on_device -> image_playground
+  on_device -> enhanced_siri
+}
+
+# ─── Private Cloud Compute ────────────────────────────────
+pcc: "Private Cloud Compute" {
+  shape: cloud
+  style.fill: "#ecfdf5"
+  style.stroke: "#34d399"
+
+  secure: "Secure Processing\n(Secure Enclave keys)"
+  no_log: "No Request Logging\nNo Training Data"
+  open_src: "Open Source\nVerifiable by Researchers"
+
+  secure -> no_log
+  no_log -> open_src
+}
+
+# ─── ChatGPT Fallback ─────────────────────────────────────
+chatgpt: "ChatGPT (OpenAI)" {
+  shape: cloud
+  style.fill: "#fff8f0"
+  style.stroke: "#fb923c"
+
+  opt_in: "Explicit User Opt-In\nRequired Each Time"
+  no_account: "No OpenAI Account\nRequired"
+}
+
+# ─── Developer APIs ───────────────────────────────────────
+dev_apis: "Developer APIs" {
+  style.fill: "#f5f3ff"
+  style.stroke: "#8b5cf6"
+  style.border-radius: 8
+
+  writing_api: "UIWritingToolsCoordinator"
+  app_intents: "App Intents Framework\n(Siri actions in your app)"
+  image_api: "ImagePlaygroundViewController\nGenmojiPickerViewController"
+  core_ml: "Core ML · Create ML\n(on-device inference)"
+}
+
+# ─── Connections ──────────────────────────────────────────
+device -> pcc: "Complex request\n(end-to-end encrypted)" {
+  style.stroke: "#3b82f6"
+  style.stroke-dash: 4
+}
+
+pcc -> chatgpt: "Very complex request\n(user approved only)" {
+  style.stroke: "#fb923c"
+  style.stroke-dash: 4
+}
+
+device -> dev_apis: "exposes APIs to\nthird-party apps" {
+  style.stroke: "#8b5cf6"
+}

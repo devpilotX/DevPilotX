@@ -119,6 +119,15 @@
   text-decoration: none;
 }
 
+.nav-link-discord {
+  color: #5865f2;
+}
+
+.nav-link-discord:hover {
+  color: #4752c4;
+  background: rgba(88, 101, 242, 0.08);
+}
+
 
 /* ==========================================================================
    HEADER — ACTION BUTTONS (Search, Compiler, Login)

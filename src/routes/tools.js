@@ -103,17 +103,17 @@ router.get('/', (req, res) => {
     title: 'Free Developer Tools — Value.Codes | 10 Browser-Based Coding Tools',
     description: 'Explore 10 free browser-based developer tools: JSON Formatter, Regex Builder, Diff Checker, Base64 Encoder, Color Picker, and more. No signup required.',
     keywords: 'free developer tools, online coding tools, browser tools, web developer utilities, programming tools',
-    canonical: `${siteUrl}/tools`,
+    canonical: `${siteUrl}/tools/`,
     robots: 'index, follow',
     ogType: 'website',
-    ogImage: `${siteUrl}/images/og-image.jpg`,
+    ogImage: `${siteUrl}/images/og-image.svg`,
     schema: [
       {
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
         'name': 'Free Developer Tools',
         'description': 'Collection of 10 free browser-based developer tools.',
-        'url': `${siteUrl}/tools`,
+        'url': `${siteUrl}/tools/`,
         'isPartOf': { '@type': 'WebSite', 'name': 'Value.Codes', 'url': siteUrl }
       },
       {
@@ -121,7 +121,7 @@ router.get('/', (req, res) => {
         '@type': 'BreadcrumbList',
         'itemListElement': [
           { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': siteUrl },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Tools', 'item': `${siteUrl}/tools` }
+          { '@type': 'ListItem', 'position': 2, 'name': 'Tools', 'item': `${siteUrl}/tools/` }
         ]
       }
     ],
@@ -148,10 +148,10 @@ router.get('/:tool', (req, res, next) => {
     title: tool.title,
     description: tool.description,
     keywords: tool.keywords,
-    canonical: `${siteUrl}/tools/${slug}`,
+    canonical: `${siteUrl}/tools/${slug}/`,
     robots: 'index, follow',
     ogType: 'website',
-    ogImage: `${siteUrl}/images/og-image.jpg`,
+    ogImage: `${siteUrl}/images/og-image.svg`,
     schema: [
       {
         '@context': 'https://schema.org',
@@ -172,7 +172,7 @@ router.get('/:tool', (req, res, next) => {
         '@type': 'BreadcrumbList',
         'itemListElement': [
           { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': siteUrl },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Tools', 'item': `${siteUrl}/tools` },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Tools', 'item': `${siteUrl}/tools/` },
           { '@type': 'ListItem', 'position': 3, 'name': tool.name, 'item': `${siteUrl}/tools/${slug}` }
         ]
       }

@@ -132,10 +132,10 @@ router.get('/', function (req, res) {
     title:       'Online Compiler — Run Code in 19 Languages Free | Value.Codes',
     description: 'Free online compiler and code runner. Write and execute Python, JavaScript, Java, C++, Rust, Go, and 13 more languages directly in your browser. No signup required.',
     keywords:    'online compiler, run code online, python compiler online, javascript runner online, java compiler online, c++ compiler online, free code runner, execute code browser, 19 languages compiler, online ide free',
-    canonical:   siteUrl + '/compiler',
+    canonical:   siteUrl + '/compiler/',
     robots:      'index, follow',
     ogType:      'website',
-    ogImage:     siteUrl + '/images/og-image.jpg',
+    ogImage:     siteUrl + '/images/og-image.svg',
     schema:      SCHEMA,
     pageCSS:     COMPILER_CSS,
     pageJS:      COMPILER_JS

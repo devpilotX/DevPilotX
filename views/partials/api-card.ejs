@@ -1,0 +1,64 @@
+<!-- ================================================================
+     FILE: views/partials/api-card.ejs
+     PURPOSE: Reusable API card component — used in index, category
+     PASSED: api (object)
+     ================================================================ -->
+
+<a href="/apis/<%= api.category_slug %>/<%= api.slug %>/"
+   class="api-card"
+   data-name="<%= api.name.toLowerCase() %>"
+   data-category="<%= api.category_slug %>"
+   data-description="<%= api.description.toLowerCase() %>"
+   data-tags="<%= api.tags ? api.tags.map(function(t) { return t.slug; }).join(' ') : '' %>"
+   aria-label="<%= api.name %> API">
+
+  <div class="api-card-header">
+    <% if (api.logo_url) { %>
+      <img src="<%= api.logo_url %>" alt="<%= api.name %> logo" class="api-card-logo" loading="lazy" width="40" height="40">
+    <% } else { %>
+      <span class="api-card-logo-placeholder" aria-hidden="true"><%= api.category_emoji || '📦' %></span>
+    <% } %>
+    <div>
+      <h3 class="api-card-title"><%= api.name %></h3>
+      <span class="api-card-category"><%= api.category_emoji %> <%= api.category_name %></span>
+    </div>
+  </div>
+
+  <p class="api-card-desc"><%= api.description.substring(0, 120) %><%= api.description.length > 120 ? '...' : '' %></p>
+
+  <!-- ========== BADGES — The Key Info ========== -->
+  <div class="api-card-badges">
+    <!-- Auth badge -->
+    <% if (api.auth_type === 'none') { %>
+      <span class="api-badge api-badge-green">No Auth</span>
+    <% } else if (api.auth_type === 'api_key') { %>
+      <span class="api-badge api-badge-yellow">API Key</span>
+    <% } else if (api.auth_type === 'oauth') { %>
+      <span class="api-badge api-badge-orange">OAuth</span>
+    <% } else if (api.auth_type === 'bearer_token') { %>
+      <span class="api-badge api-badge-orange">Bearer Token</span>
+    <% } %>
+
+    <!-- CORS badge -->
+    <% if (api.cors_support === 'yes') { %>
+      <span class="api-badge api-badge-green">CORS ✓</span>
+    <% } else if (api.cors_support === 'no') { %>
+      <span class="api-badge api-badge-red">No CORS</span>
+    <% } %>
+
+    <!-- HTTPS badge -->
+    <% if (api.https_support) { %>
+      <span class="api-badge api-badge-blue">HTTPS</span>
+    <% } %>
+
+    <!-- Pricing badge -->
+    <% if (api.pricing === 'free') { %>
+      <span class="api-badge api-badge-green">Free</span>
+    <% } else if (api.pricing === 'freemium') { %>
+      <span class="api-badge api-badge-yellow">Freemium</span>
+    <% } else { %>
+      <span class="api-badge api-badge-red">Paid</span>
+    <% } %>
+  </div>
+
+</a>

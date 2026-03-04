@@ -1,0 +1,319 @@
+<%# ============================================================ %>
+<%# views/profile/settings.ejs — Account Settings            %>
+<%# ============================================================ %>
+<% var _section = (typeof activeSection !== 'undefined') ? activeSection : 'profile'; %>
+<% var _errors  = (typeof errors      !== 'undefined') ? errors      : []; %>
+
+<div class="settings-page">
+  <div class="container">
+
+    <!-- ========== PAGE HEADER ========== -->
+    <div class="settings-page-header">
+      <div>
+        <h1 class="settings-page-title">Account Settings</h1>
+        <p class="settings-page-sub">Manage your profile, password, and account.</p>
+      </div>
+      <a href="/profile" class="btn btn-secondary btn-sm">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Profile
+      </a>
+    </div>
+
+    <!-- ========== FLASH MESSAGES ========== -->
+    <% if (typeof flashSuccess !== 'undefined' && flashSuccess) { %>
+      <div class="settings-alert settings-alert-success" role="alert">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <%= flashSuccess %>
+      </div>
+    <% } %>
+
+    <% if (_errors && _errors.length > 0) { %>
+      <div class="settings-alert settings-alert-error" role="alert">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8 5v3M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <% _errors.forEach(function(e) { %><p><%= e.msg %></p><% }); %>
+        </div>
+      </div>
+    <% } %>
+
+    <!-- ========== LAYOUT ========== -->
+    <div class="settings-layout">
+
+      <!-- ---- Sidebar Nav ---- -->
+      <nav class="settings-nav" aria-label="Settings sections">
+        <a href="#profile" class="settings-nav-item <%= _section === 'profile' ? 'is-active' : '' %>" data-section="profile">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="5.5" r="3" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Profile Info
+        </a>
+        <a href="#avatar" class="settings-nav-item <%= _section === 'avatar' ? 'is-active' : '' %>" data-section="avatar">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="1.5" y="2.5" width="13" height="11" rx="2" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="8" cy="7" r="2.5" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M2 13.5c1-2 3-3 6-3s5 1 6 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Profile Picture
+        </a>
+        <a href="#password" class="settings-nav-item <%= _section === 'password' ? 'is-active' : '' %>" data-section="password">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="3" y="7" width="10" height="7.5" rx="2" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M5 7V5.5a3 3 0 016 0V7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Change Password
+        </a>
+        <a href="#danger" class="settings-nav-item settings-nav-danger <%= _section === 'danger' ? 'is-active' : '' %>" data-section="danger">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5L1.5 13.5h13L8 1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+            <path d="M8 6v3.5M8 11v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Danger Zone
+        </a>
+      </nav>
+
+      <!-- ---- Main Content ---- -->
+      <div class="settings-content">
+
+        <!-- ========== SECTION: Profile Info ========== -->
+        <section class="settings-card" id="profile" aria-label="Profile Info">
+          <div class="settings-card-header">
+            <h2 class="settings-card-title">Profile Info</h2>
+            <p class="settings-card-desc">Update your public profile information.</p>
+          </div>
+
+          <form class="settings-form" method="POST" action="/settings" novalidate id="profileForm">
+
+            <!-- Username -->
+            <div class="sform-group">
+              <label class="sform-label" for="username">Username</label>
+              <input class="sform-input" type="text" id="username" name="username"
+                value="<%= profileUser.username %>"
+                minlength="3" maxlength="30"
+                autocomplete="username" required
+                aria-describedby="usernameHint">
+              <p class="sform-hint" id="usernameHint">3–30 chars. Letters, numbers, hyphens, underscores.</p>
+              <p class="sform-error" id="usernameError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <!-- Bio -->
+            <div class="sform-group">
+              <label class="sform-label" for="bio">
+                Bio
+                <span class="sform-optional">optional</span>
+              </label>
+              <textarea class="sform-input sform-textarea" id="bio" name="bio"
+                rows="3" maxlength="300"
+                placeholder="Tell the community a bit about yourself…"
+                aria-describedby="bioHint"><%= profileUser.bio || '' %></textarea>
+              <p class="sform-hint" id="bioHint"><span id="bioCount">0</span>/300 characters</p>
+            </div>
+
+            <!-- Location -->
+            <div class="sform-group">
+              <label class="sform-label" for="location">
+                Location
+                <span class="sform-optional">optional</span>
+              </label>
+              <input class="sform-input" type="text" id="location" name="location"
+                value="<%= profileUser.location || '' %>"
+                maxlength="100"
+                placeholder="e.g. New Delhi, India"
+                autocomplete="country-name">
+            </div>
+
+            <!-- Website -->
+            <div class="sform-group">
+              <label class="sform-label" for="website">
+                Website
+                <span class="sform-optional">optional</span>
+              </label>
+              <input class="sform-input" type="url" id="website" name="website"
+                value="<%= profileUser.website || '' %>"
+                placeholder="https://yoursite.com"
+                autocomplete="url">
+              <p class="sform-error" id="websiteError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="sform-actions">
+              <button class="btn btn-primary btn-sm" type="submit">Save Changes</button>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- ========== SECTION: Profile Picture ========== -->
+        <section class="settings-card" id="avatar" aria-label="Profile Picture">
+          <div class="settings-card-header">
+            <h2 class="settings-card-title">Profile Picture</h2>
+            <p class="settings-card-desc">Set an avatar by providing a public image URL.</p>
+          </div>
+
+          <form class="settings-form" method="POST" action="/settings" novalidate id="avatarForm">
+
+            <!-- Hidden fields to carry current profile data through -->
+            <input type="hidden" name="username" value="<%= profileUser.username %>">
+            <input type="hidden" name="bio" value="<%= profileUser.bio || '' %>">
+            <input type="hidden" name="location" value="<%= profileUser.location || '' %>">
+            <input type="hidden" name="website" value="<%= profileUser.website || '' %>">
+
+            <!-- Preview -->
+            <div class="avatar-preview-row">
+              <div class="avatar-preview-wrap" id="avatarPreviewWrap">
+                <% if (profileUser.avatar) { %>
+                  <img class="avatar-preview-img" id="avatarPreviewImg"
+                    src="<%= profileUser.avatar %>" alt="Current avatar">
+                <% } else { %>
+                  <div class="avatar-preview-initials" id="avatarPreviewInitials">
+                    <%= profileUser.username.slice(0, 2).toUpperCase() %>
+                  </div>
+                  <img class="avatar-preview-img" id="avatarPreviewImg"
+                    src="" alt="Avatar preview" style="display:none;">
+                <% } %>
+              </div>
+              <div class="avatar-preview-info">
+                <p class="avatar-preview-label">Current avatar</p>
+                <p class="avatar-preview-hint">Paste any public image URL. Recommended: square, at least 200×200px.</p>
+              </div>
+            </div>
+
+            <!-- Avatar URL input -->
+            <div class="sform-group">
+              <label class="sform-label" for="avatar">Image URL</label>
+              <input class="sform-input" type="url" id="avatar" name="avatar"
+                value="<%= profileUser.avatar || '' %>"
+                placeholder="https://example.com/my-photo.jpg">
+              <p class="sform-error" id="avatarError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="sform-actions">
+              <button class="btn btn-primary btn-sm" type="submit">Save Picture</button>
+              <% if (profileUser.avatar) { %>
+              <button class="btn btn-secondary btn-sm" type="button" id="clearAvatarBtn">Remove Picture</button>
+              <% } %>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- ========== SECTION: Change Password ========== -->
+        <section class="settings-card" id="password" aria-label="Change Password">
+          <div class="settings-card-header">
+            <h2 class="settings-card-title">Change Password</h2>
+            <p class="settings-card-desc">Choose a strong password you haven't used before.</p>
+          </div>
+
+          <form class="settings-form" method="POST" action="/settings/password" novalidate id="passwordForm">
+
+            <!-- Current Password -->
+            <div class="sform-group">
+              <label class="sform-label" for="currentPassword">Current Password</label>
+              <div class="sform-input-wrap">
+                <input class="sform-input" type="password" id="currentPassword" name="currentPassword"
+                  placeholder="Enter your current password"
+                  autocomplete="current-password" required>
+                <button class="sform-toggle-pw" type="button" data-target="currentPassword" aria-label="Show password" tabindex="-1">
+                  <svg class="eye-open" width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M1.5 9s3-5.5 7.5-5.5S16.5 9 16.5 9s-3 5.5-7.5 5.5S1.5 9 1.5 9z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
+                  <svg class="eye-closed" width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="display:none"><path d="M1.5 9s3-5.5 7.5-5.5S16.5 9 16.5 9s-3 5.5-7.5 5.5S1.5 9 1.5 9z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M3 15L15 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <p class="sform-error" id="currentPasswordError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <!-- New Password -->
+            <div class="sform-group">
+              <label class="sform-label" for="newPassword">New Password</label>
+              <div class="sform-input-wrap">
+                <input class="sform-input" type="password" id="newPassword" name="newPassword"
+                  placeholder="Min 8 characters"
+                  autocomplete="new-password" required>
+                <button class="sform-toggle-pw" type="button" data-target="newPassword" aria-label="Show password" tabindex="-1">
+                  <svg class="eye-open" width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M1.5 9s3-5.5 7.5-5.5S16.5 9 16.5 9s-3 5.5-7.5 5.5S1.5 9 1.5 9z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
+                  <svg class="eye-closed" width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="display:none"><path d="M1.5 9s3-5.5 7.5-5.5S16.5 9 16.5 9s-3 5.5-7.5 5.5S1.5 9 1.5 9z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M3 15L15 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <!-- Requirements -->
+              <ul class="pw-reqs" id="pwReqs" aria-label="Password requirements">
+                <li class="pw-req" id="req-len" data-met="false">At least 8 characters</li>
+                <li class="pw-req" id="req-upper" data-met="false">One uppercase letter</li>
+                <li class="pw-req" id="req-lower" data-met="false">One lowercase letter</li>
+                <li class="pw-req" id="req-num" data-met="false">One number</li>
+              </ul>
+              <p class="sform-error" id="newPasswordError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <!-- Confirm New Password -->
+            <div class="sform-group">
+              <label class="sform-label" for="confirmPassword">Confirm New Password</label>
+              <div class="sform-input-wrap">
+                <input class="sform-input" type="password" id="confirmPassword" name="confirmPassword"
+                  placeholder="Re-enter new password"
+                  autocomplete="new-password" required>
+                <button class="sform-toggle-pw" type="button" data-target="confirmPassword" aria-label="Show password" tabindex="-1">
+                  <svg class="eye-open" width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M1.5 9s3-5.5 7.5-5.5S16.5 9 16.5 9s-3 5.5-7.5 5.5S1.5 9 1.5 9z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
+                  <svg class="eye-closed" width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="display:none"><path d="M1.5 9s3-5.5 7.5-5.5S16.5 9 16.5 9s-3 5.5-7.5 5.5S1.5 9 1.5 9z" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M3 15L15 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <p class="sform-error" id="confirmPasswordError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="sform-actions">
+              <button class="btn btn-primary btn-sm" type="submit">Update Password</button>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- ========== SECTION: Danger Zone ========== -->
+        <section class="settings-card settings-card-danger" id="danger" aria-label="Danger Zone">
+          <div class="settings-card-header">
+            <h2 class="settings-card-title settings-danger-title">Danger Zone</h2>
+            <p class="settings-card-desc">Permanently delete your account and all associated data. This cannot be undone.</p>
+          </div>
+
+          <!-- Delete trigger button -->
+          <button class="btn btn-danger-outline" type="button" id="showDeleteForm">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 4.5h11M6 4.5V3h4v1.5M5.5 4.5l.5 8h4l.5-8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Delete My Account
+          </button>
+
+          <!-- Confirmation form (hidden by default) -->
+          <div class="delete-confirm-box" id="deleteConfirmBox" hidden>
+            <p class="delete-confirm-text">
+              <strong>Are you absolutely sure?</strong> This will permanently delete your account,
+              profile, and all your data. Enter your password below to confirm.
+            </p>
+            <form class="settings-form" method="POST" action="/settings/delete" id="deleteForm" novalidate>
+              <div class="sform-group">
+                <label class="sform-label" for="deletePassword">Your password</label>
+                <input class="sform-input" type="password" id="deletePassword" name="deletePassword"
+                  placeholder="Enter your password to confirm"
+                  autocomplete="current-password" required>
+                <p class="sform-error" id="deletePasswordError" role="alert" aria-live="polite"></p>
+              </div>
+              <div class="sform-actions">
+                <button class="btn btn-danger btn-sm" type="submit" id="deleteSubmitBtn">
+                  Yes, permanently delete my account
+                </button>
+                <button class="btn btn-secondary btn-sm" type="button" id="cancelDeleteBtn">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+        </section>
+
+      </div><!-- /settings-content -->
+    </div><!-- /settings-layout -->
+
+  </div><!-- /container -->
+</div><!-- /settings-page -->

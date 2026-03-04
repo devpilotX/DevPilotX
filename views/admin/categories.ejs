@@ -1,0 +1,131 @@
+<%# Admin Categories Management %>
+<div class="admin-page">
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="admin-page-header">
+    <div>
+      <h1 class="admin-page-title">Categories</h1>
+      <p class="admin-page-subtitle">Organize your blog articles</p>
+    </div>
+  </div>
+
+  <!-- ========== FLASH ========== -->
+  <% if (typeof flash !== 'undefined' && flash) { %>
+  <div class="admin-alert admin-alert--<%= flash.type %>" role="alert"><%= flash.message %></div>
+  <% } %>
+
+  <div class="admin-categories-layout">
+
+    <!-- ========== ADD CATEGORY ========== -->
+    <div class="admin-sidebar-card">
+      <h2 class="admin-sidebar-card__title">Add New Category</h2>
+      <form action="/admin/categories/new" method="POST" class="admin-cat-form">
+        <div class="admin-form-group">
+          <label for="cat-name" class="admin-form-label admin-form-label--required">Name</label>
+          <input
+            type="text"
+            id="cat-name"
+            name="name"
+            class="admin-form-input"
+            placeholder="e.g. Web Development"
+            maxlength="100"
+            required
+          >
+        </div>
+        <div class="admin-form-group">
+          <label for="cat-desc" class="admin-form-label">Description</label>
+          <input
+            type="text"
+            id="cat-desc"
+            name="description"
+            class="admin-form-input"
+            placeholder="Short description (optional)"
+            maxlength="500"
+          >
+        </div>
+        <p class="admin-form-hint admin-form-hint--block">Slug is auto-generated from the name.</p>
+        <button type="submit" class="admin-btn admin-btn--primary">Add Category</button>
+      </form>
+    </div>
+
+    <!-- ========== CATEGORIES TABLE ========== -->
+    <div class="admin-table-wrap">
+      <% if (categories.length === 0) { %>
+        <div class="admin-empty">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <h3>No categories yet</h3>
+          <p>Add your first category using the form.</p>
+        </div>
+      <% } else { %>
+      <table class="admin-table" aria-label="Categories list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Articles</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% categories.forEach(function(cat) { %>
+          <tr>
+            <td class="admin-table__title-cell">
+              <strong><%= cat.name %></strong>
+              <% if (cat.description) { %>
+                <span class="admin-table__slug"><%= cat.description %></span>
+              <% } %>
+            </td>
+            <td><code class="admin-code">/blog/category/<%= cat.slug %></code></td>
+            <td>
+              <span class="admin-badge admin-badge--category"><%= cat.article_count %></span>
+            </td>
+            <td class="admin-table__actions">
+              <!-- Inline edit form (modal-free approach) -->
+              <button
+                type="button"
+                class="admin-action-btn"
+                title="Edit category"
+                onclick="toggleEditRow('<%= cat.id %>')"
+                aria-label="Edit category"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </button>
+              <form
+                action="/admin/categories/delete/<%= cat.id %>"
+                method="POST"
+                class="admin-delete-form"
+                onsubmit="return confirm('Delete category \'<%= cat.name.replace(/'/g, '') %>\'? Articles will become uncategorised.')"
+              >
+                <button type="submit" class="admin-action-btn admin-action-btn--danger" title="Delete category" aria-label="Delete category">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                </button>
+              </form>
+            </td>
+          </tr>
+          <!-- Inline edit row (hidden by default) -->
+          <tr class="admin-edit-row" id="edit-row-<%= cat.id %>" style="display:none">
+            <td colspan="4">
+              <form action="/admin/categories/edit/<%= cat.id %>" method="POST" class="admin-cat-inline-form">
+                <input type="text" name="name" class="admin-form-input" value="<%= cat.name %>" required maxlength="100" placeholder="Category name">
+                <input type="text" name="description" class="admin-form-input" value="<%= cat.description || '' %>" maxlength="500" placeholder="Description">
+                <button type="submit" class="admin-btn admin-btn--primary admin-btn--sm">Save</button>
+                <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" onclick="toggleEditRow('<%= cat.id %>')">Cancel</button>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function toggleEditRow(id) {
+  const row = document.getElementById('edit-row-' + id);
+  if (row) row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+}
+</script>

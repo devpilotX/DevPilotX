@@ -10,7 +10,7 @@
     <nav class="tool-breadcrumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
-        <li><a href="/tools">Tools</a></li>
+        <li><a href="/tools/">Tools</a></li>
         <li aria-current="page">Code Formatter</li>
       </ol>
     </nav>
@@ -31,6 +31,19 @@
     </div>
   </div>
 </section>
+<!-- ========== ADSENSE: LEADERBOARD ========== -->
+<% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+<div class="ad-leaderboard" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="<%= adsensePubId %>"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<% } %>
+
 
 <!-- TOOL WORKSPACE -->
 <section class="tool-workspace" aria-label="Code Formatter workspace">
@@ -187,7 +200,7 @@
           <ul class="tool-related-list">
             <li><a href="/tools/json-formatter">JSON Formatter</a><span class="text-muted"> — Full-featured JSON tool</span></li>
             <li><a href="/tools/diff-checker">Diff Checker</a><span class="text-muted"> — Compare code changes</span></li>
-            <li><a href="/compiler">Online Compiler</a><span class="text-muted"> — Run code in 19 languages</span></li>
+            <li><a href="/compiler/">Online Compiler</a><span class="text-muted"> — Run code in 19 languages</span></li>
           </ul>
         </div>
         <div class="tool-shortcuts">

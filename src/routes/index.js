@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
     ogType: 'website',
     ogTitle: 'Value.Codes — Free Developer Tools & Community',
     ogDescription: 'Free developer tools: JSON Formatter, Regex Builder, Diff Checker, Hash Generator, JWT Decoder, Online Compiler & developer community. No sign-up needed.',
-    ogImage: `${siteUrl}/images/og-image.jpg`,
+    ogImage: `${siteUrl}/images/og-image.svg`,
 
     /* Twitter */
     twitterDescription: 'JSON Formatter, Regex Builder, Diff Checker, Online Compiler, Developer Chat — all free, no sign-up.',
@@ -107,9 +107,7 @@ router.get('/', (req, res) => {
           'Hash Generator (MD5, SHA-256)',
           'Mock Data Generator',
           'Code Formatter & Beautifier',
-          'Online Compiler (19 Languages)',
-          'Developer Community & Chat',
-          'Open Source Contributions'
+          'Online Compiler (19 Languages)'
         ]
       },
       {
@@ -128,15 +126,15 @@ router.get('/', (req, res) => {
         'mainEntity': [
           {
             '@type': 'Question',
-            'name': 'Is Value.Codes really free?',
+            'name': 'Is Value.Codes free to use?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Yes. All core developer tools on Value.Codes are completely free with no sign-up required. Premium features are available for Pro members.'
+              'text': 'Yes — completely. All 10 core developer tools and the online compiler are free with no account required. No credit card, no trial period.'
             }
           },
           {
             '@type': 'Question',
-            'name': 'What tools does Value.Codes offer?',
+            'name': 'What developer tools are available on Value.Codes?',
             'acceptedAnswer': {
               '@type': 'Answer',
               'text': 'Value.Codes offers JSON Formatter, Regex Builder, Diff Checker, Base64 Encoder, Color Picker, Cron Builder, JWT Decoder, Hash Generator, Mock Data Generator, Code Formatter, and an Online Compiler supporting 19 programming languages.'
@@ -144,26 +142,34 @@ router.get('/', (req, res) => {
           },
           {
             '@type': 'Question',
-            'name': 'Do I need to login to use the community?',
+            'name': 'Is my data sent to a server when using Value.Codes tools?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Yes. The developer community chat requires a free account. You can create one in seconds to join discussions, share code, and connect with other developers.'
+              'text': 'No. Every tool runs entirely in your browser using client-side JavaScript. Your input never leaves your device — no server processing, no logs, no tracking.'
             }
           },
           {
             '@type': 'Question',
-            'name': 'Can I contribute to Value.Codes?',
+            'name': 'Which programming languages does the online compiler support?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Yes. Value.Codes is open-source. You can contribute by building new tools, fixing bugs, improving documentation, or suggesting features on our GitHub repository.'
+              'text': 'The online compiler supports 19 languages: Python, JavaScript, TypeScript, C, C++, Java, Go, Rust, C#, PHP, Ruby, Swift, Kotlin, and more — all free.'
             }
           },
           {
             '@type': 'Question',
-            'name': 'What are Value.Codes Pro features?',
+            'name': 'What is a JWT decoder used for?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Value.Codes Pro offers advanced compiler features, priority support, ad-free experience, extended API limits, and exclusive community channels. All core tools remain free forever.'
+              'text': 'A JWT decoder lets you inspect a JSON Web Token without a secret key. You can read the header, payload, expiration, and claims — great for debugging authentication issues.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Why use an online JSON formatter?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'An online JSON formatter instantly beautifies minified JSON, validates syntax, and highlights errors — without installing any software or IDE plugin.'
             }
           }
         ]

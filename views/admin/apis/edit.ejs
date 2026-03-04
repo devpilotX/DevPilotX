@@ -1,0 +1,281 @@
+<!-- ================================================================
+     FILE: views/admin/apis/edit.ejs
+     PURPOSE: Admin — Edit existing API entry
+     ================================================================ -->
+
+<div aria-label="Edit API">
+  <section class="admin-section">
+    <div class="container">
+
+      <div class="admin-header-row">
+        <h1>Edit: <%= api.name %></h1>
+        <a href="/admin/apis" class="btn btn-ghost">← Back</a>
+      </div>
+
+      <% if (error) { %>
+        <div class="alert alert-error" role="alert"><%= error %></div>
+      <% } %>
+
+      <form action="/admin/apis/edit/<%= api.id %>" method="POST" class="admin-form" id="api-form">
+
+        <!-- ========== BASIC INFO ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Basic Information</legend>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="name">API Name *</label>
+              <input type="text" id="name" name="name" required value="<%= api.name %>">
+            </div>
+            <div class="admin-field">
+              <label for="slug">Slug *</label>
+              <input type="text" id="slug" name="slug" required value="<%= api.slug %>" pattern="[a-z0-9\-]+" data-manual="1">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label for="description">Description *</label>
+            <textarea id="description" name="description" rows="3" required><%= api.description %></textarea>
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="category_id">Category *</label>
+              <select id="category_id" name="category_id" required>
+                <option value="">Select...</option>
+                <% categories.forEach(function(cat) { %>
+                  <option value="<%= cat.id %>" <%= api.category_id === cat.id ? 'selected' : '' %>><%= cat.emoji %> <%= cat.name %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="sort_order">Sort Order</label>
+              <input type="number" id="sort_order" name="sort_order" value="<%= api.sort_order %>" min="0">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ========== URLS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>URLs</legend>
+
+          <div class="admin-field">
+            <label for="website_url">Website URL *</label>
+            <input type="url" id="website_url" name="website_url" required value="<%= api.website_url %>">
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="docs_url">Documentation URL</label>
+              <input type="url" id="docs_url" name="docs_url" value="<%= api.docs_url || '' %>">
+            </div>
+            <div class="admin-field">
+              <label for="base_url">Base API URL</label>
+              <input type="url" id="base_url" name="base_url" value="<%= api.base_url || '' %>">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label for="logo_url">Logo URL</label>
+            <input type="url" id="logo_url" name="logo_url" value="<%= api.logo_url || '' %>">
+          </div>
+        </fieldset>
+
+        <!-- ========== REQUIREMENTS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Requirements & Badges</legend>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="auth_type">Authentication</label>
+              <select id="auth_type" name="auth_type">
+                <option value="none" <%= api.auth_type === 'none' ? 'selected' : '' %>>No Auth Required</option>
+                <option value="api_key" <%= api.auth_type === 'api_key' ? 'selected' : '' %>>API Key</option>
+                <option value="oauth" <%= api.auth_type === 'oauth' ? 'selected' : '' %>>OAuth</option>
+                <option value="bearer_token" <%= api.auth_type === 'bearer_token' ? 'selected' : '' %>>Bearer Token</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="cors_support">CORS Support</label>
+              <select id="cors_support" name="cors_support">
+                <option value="unknown" <%= api.cors_support === 'unknown' ? 'selected' : '' %>>Unknown</option>
+                <option value="yes" <%= api.cors_support === 'yes' ? 'selected' : '' %>>Yes — Supported</option>
+                <option value="no" <%= api.cors_support === 'no' ? 'selected' : '' %>>No — Not Supported</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="pricing">Pricing</label>
+              <select id="pricing" name="pricing">
+                <option value="free" <%= api.pricing === 'free' ? 'selected' : '' %>>Free</option>
+                <option value="freemium" <%= api.pricing === 'freemium' ? 'selected' : '' %>>Freemium</option>
+                <option value="paid" <%= api.pricing === 'paid' ? 'selected' : '' %>>Paid</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="rate_limit">Rate Limit</label>
+              <input type="text" id="rate_limit" name="rate_limit" value="<%= api.rate_limit || '' %>" placeholder="e.g., 50 requests/minute">
+            </div>
+            <div class="admin-field">
+              <label class="admin-checkbox-label">
+                <input type="checkbox" name="https_support" value="1" <%= api.https_support ? 'checked' : '' %>>
+                HTTPS Supported
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ========== ENDPOINTS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Endpoint Examples</legend>
+
+          <div id="endpoints-container">
+            <% if (api.endpoints && api.endpoints.length > 0) { %>
+              <% api.endpoints.forEach(function(ep, i) { %>
+                <div class="admin-endpoint-block" data-ep-index="<%= i %>">
+                  <div class="admin-field-row">
+                    <div class="admin-field" style="max-width: 100px;">
+                      <label>Method</label>
+                      <select name="endpoint_method_<%= i %>">
+                        <option value="GET" <%= ep.method === 'GET' ? 'selected' : '' %>>GET</option>
+                        <option value="POST" <%= ep.method === 'POST' ? 'selected' : '' %>>POST</option>
+                        <option value="PUT" <%= ep.method === 'PUT' ? 'selected' : '' %>>PUT</option>
+                        <option value="DELETE" <%= ep.method === 'DELETE' ? 'selected' : '' %>>DELETE</option>
+                        <option value="PATCH" <%= ep.method === 'PATCH' ? 'selected' : '' %>>PATCH</option>
+                      </select>
+                    </div>
+                    <div class="admin-field">
+                      <label>Path</label>
+                      <input type="text" name="endpoint_path_<%= i %>" value="<%= ep.path %>">
+                    </div>
+                    <div class="admin-field">
+                      <label>Description</label>
+                      <input type="text" name="endpoint_desc_<%= i %>" value="<%= ep.description %>">
+                    </div>
+                    <button type="button" class="btn btn-sm btn-ghost admin-remove-ep-btn" aria-label="Remove">✕</button>
+                  </div>
+                </div>
+              <% }); %>
+            <% } else { %>
+              <div class="admin-endpoint-block" data-ep-index="0">
+                <div class="admin-field-row">
+                  <div class="admin-field" style="max-width: 100px;">
+                    <label>Method</label>
+                    <select name="endpoint_method_0">
+                      <option value="GET">GET</option>
+                      <option value="POST">POST</option>
+                      <option value="PUT">PUT</option>
+                      <option value="DELETE">DELETE</option>
+                      <option value="PATCH">PATCH</option>
+                    </select>
+                  </div>
+                  <div class="admin-field">
+                    <label>Path</label>
+                    <input type="text" name="endpoint_path_0" placeholder="/v1/endpoint">
+                  </div>
+                  <div class="admin-field">
+                    <label>Description</label>
+                    <input type="text" name="endpoint_desc_0" placeholder="Description">
+                  </div>
+                  <button type="button" class="btn btn-sm btn-ghost admin-remove-ep-btn" aria-label="Remove">✕</button>
+                </div>
+              </div>
+            <% } %>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-sm" id="add-endpoint-btn">+ Add Endpoint</button>
+        </fieldset>
+
+        <!-- ========== SAMPLE RESPONSE ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>📋 Sample JSON Response</legend>
+
+          <div class="admin-field">
+            <label for="sample_response_language">Response Language</label>
+            <select id="sample_response_language" name="sample_response_language">
+              <option value="json" <%= (api.sample_response_language || 'json') === 'json' ? 'selected' : '' %>>JSON</option>
+              <option value="xml" <%= api.sample_response_language === 'xml' ? 'selected' : '' %>>XML</option>
+            </select>
+          </div>
+
+          <div class="admin-field">
+            <label for="sample_response">Sample Response</label>
+            <textarea id="sample_response" name="sample_response" rows="16" class="admin-code-textarea" spellcheck="false"><%= api.sample_response || '' %></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ========== FEATURES / USE CASES / NOTES ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Features, Use Cases & Notes</legend>
+
+          <div class="admin-field">
+            <label for="features">Key Features (one per line)</label>
+            <textarea id="features" name="features" rows="4"><%= Array.isArray(api.features) ? api.features.join('\n') : '' %></textarea>
+          </div>
+
+          <div class="admin-field">
+            <label for="use_cases">Use Cases (one per line)</label>
+            <textarea id="use_cases" name="use_cases" rows="4"><%= Array.isArray(api.use_cases) ? api.use_cases.join('\n') : '' %></textarea>
+          </div>
+
+          <div class="admin-field">
+            <label for="notes">Developer Notes (one per line)</label>
+            <textarea id="notes" name="notes" rows="4"><%= Array.isArray(api.notes) ? api.notes.join('\n') : '' %></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ========== TAGS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Tags</legend>
+          <div class="admin-tags-grid">
+            <% var selectedTagIds = api.tags ? api.tags.map(function(t) { return t.id; }) : []; %>
+            <% tags.forEach(function(tag) { %>
+              <label class="admin-tag-checkbox">
+                <input type="checkbox" name="tag_ids" value="<%= tag.id %>" <%= selectedTagIds.indexOf(tag.id) !== -1 ? 'checked' : '' %>>
+                <span><%= tag.name %></span>
+              </label>
+            <% }); %>
+          </div>
+        </fieldset>
+
+        <!-- ========== SEO ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>SEO (Optional)</legend>
+
+          <div class="admin-field">
+            <label for="seo_title">SEO Title</label>
+            <input type="text" id="seo_title" name="seo_title" maxlength="255" value="<%= api.seo_title || '' %>">
+          </div>
+          <div class="admin-field">
+            <label for="seo_description">SEO Description</label>
+            <textarea id="seo_description" name="seo_description" rows="2" maxlength="300"><%= api.seo_description || '' %></textarea>
+          </div>
+          <div class="admin-field">
+            <label for="seo_keywords">SEO Keywords</label>
+            <input type="text" id="seo_keywords" name="seo_keywords" value="<%= api.seo_keywords || '' %>">
+          </div>
+        </fieldset>
+
+        <!-- ========== PUBLISH ========== -->
+        <div class="admin-form-actions">
+          <div class="admin-field">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="draft" <%= api.status === 'draft' ? 'selected' : '' %>>Draft</option>
+              <option value="published" <%= api.status === 'published' ? 'selected' : '' %>>Published</option>
+            </select>
+          </div>
+          <label class="admin-checkbox-label">
+            <input type="checkbox" name="is_featured" value="1" <%= api.is_featured ? 'checked' : '' %>>
+            ⭐ Featured
+          </label>
+          <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+</div>

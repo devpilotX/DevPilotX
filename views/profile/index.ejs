@@ -1,0 +1,261 @@
+<%# ============================================================ %>
+<%# views/profile/index.ejs — User Profile Page              %>
+<%# ============================================================ %>
+
+<%
+  /* Format member-since date */
+  var joined = new Date(profileUser.created_at);
+  var joinedStr = joined.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  /* Avatar initials fallback */
+  var initials = profileUser.username ? profileUser.username.slice(0, 2).toUpperCase() : '??';
+
+  /* Trim website for display */
+  var websiteDisplay = profileUser.website
+    ? profileUser.website.replace(/^https?:\/\//, '').replace(/\/$/, '')
+    : null;
+%>
+
+<div class="profile-page">
+  <div class="container">
+
+    <!-- ========== PROFILE HERO ========== -->
+    <div class="profile-hero">
+
+      <!-- Avatar -->
+      <div class="profile-avatar-wrap">
+        <% if (profileUser.avatar) { %>
+          <img class="profile-avatar" src="<%= profileUser.avatar %>" alt="<%= profileUser.username %>'s avatar" loading="lazy" decoding="async">
+        <% } else { %>
+          <div class="profile-avatar profile-avatar-initials" aria-label="<%= profileUser.username %>">
+            <%= initials %>
+          </div>
+        <% } %>
+        <% if (profileUser.is_pro) { %>
+          <span class="profile-pro-ring" title="Pro Member" aria-label="Pro Member"></span>
+        <% } %>
+      </div>
+
+      <!-- Identity -->
+      <div class="profile-identity">
+        <div class="profile-name-row">
+          <h1 class="profile-username"><%= profileUser.username %></h1>
+          <% if (profileUser.is_pro) { %>
+            <span class="profile-pro-badge">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M6 1l1.4 3h3.1l-2.5 1.8.9 3L6 7l-2.9 1.8.9-3L1.5 4H4.6z" fill="currentColor"/>
+              </svg>
+              Pro
+            </span>
+          <% } %>
+        </div>
+
+        <% if (profileUser.bio) { %>
+          <p class="profile-bio"><%= profileUser.bio %></p>
+        <% } else { %>
+          <p class="profile-bio profile-bio-empty">No bio yet.</p>
+        <% } %>
+
+        <!-- Meta row -->
+        <div class="profile-meta">
+          <% if (profileUser.location) { %>
+            <span class="profile-meta-item">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 1.5A4.5 4.5 0 0112.5 6c0 3.5-4.5 8.5-4.5 8.5S3.5 9.5 3.5 6A4.5 4.5 0 018 1.5z" stroke="currentColor" stroke-width="1.3"/>
+                <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.3"/>
+              </svg>
+              <%= profileUser.location %>
+            </span>
+          <% } %>
+          <% if (websiteDisplay) { %>
+            <span class="profile-meta-item">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M1.5 8h13M8 1.5c-2 1.5-3 4-3 6.5s1 5 3 6.5M8 1.5c2 1.5 3 4 3 6.5s-1 5-3 6.5" stroke="currentColor" stroke-width="1.3"/>
+              </svg>
+              <a href="<%= profileUser.website %>" target="_blank" rel="noopener noreferrer" class="profile-website-link"><%= websiteDisplay %></a>
+            </span>
+          <% } %>
+          <span class="profile-meta-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M5 1.5v3M11 1.5v3M2 7h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            Joined <%= joinedStr %>
+          </span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="profile-actions">
+        <a href="/settings" class="btn btn-secondary btn-sm">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M2.9 2.9l1.1 1.1M12 12l1.1 1.1M2.9 13.1L4 12M12 4l1.1-1.1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Edit Profile
+        </a>
+        <a href="/logout" class="btn btn-ghost btn-sm profile-logout-btn">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 11l3-3-3-3M13 8H6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 13H3a1 1 0 01-1-1V4a1 1 0 011-1h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          Log out
+        </a>
+      </div>
+
+    </div><!-- /profile-hero -->
+
+    <!-- ========== PROFILE STATS ========== -->
+    <div class="profile-stats">
+      <div class="profile-stat">
+        <span class="profile-stat-value"><%= profileUser.is_pro ? 'Pro' : 'Free' %></span>
+        <span class="profile-stat-label">Account</span>
+      </div>
+      <div class="profile-stat-divider"></div>
+      <div class="profile-stat">
+        <span class="profile-stat-value" id="daysSinceJoin">—</span>
+        <span class="profile-stat-label">Days as member</span>
+      </div>
+      <div class="profile-stat-divider"></div>
+      <div class="profile-stat">
+        <span class="profile-stat-value"><%= profileUser.email %></span>
+        <span class="profile-stat-label">Email</span>
+      </div>
+    </div>
+
+    <!-- ========== PROFILE CONTENT GRID ========== -->
+    <div class="profile-grid">
+
+      <!-- Quick Links -->
+      <div class="profile-card">
+        <h2 class="profile-card-title">Quick Links</h2>
+        <ul class="profile-links">
+          <li>
+            <a href="/tools/" class="profile-link-item">
+              <span class="profile-link-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                  <rect x="9" y="1.5" width="5.5" height="5.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                  <rect x="1.5" y="9" width="5.5" height="5.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                  <rect x="9" y="9" width="5.5" height="5.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                </svg>
+              </span>
+              <span class="profile-link-text">Developer Tools</span>
+              <svg class="profile-link-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M5 8h6M9 6l2 2-2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="/compiler/" class="profile-link-item">
+              <span class="profile-link-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <polyline points="4 6 2 8 4 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="12 6 14 8 12 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="9" y1="3" x2="7" y2="13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="profile-link-text">Online Compiler</span>
+              <svg class="profile-link-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M5 8h6M9 6l2 2-2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="/community" class="profile-link-item">
+              <span class="profile-link-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="5.5" cy="5" r="2.5" stroke="currentColor" stroke-width="1.3"/>
+                  <circle cx="11" cy="5" r="2.5" stroke="currentColor" stroke-width="1.3"/>
+                  <path d="M1 14c0-2.5 2-4.5 4.5-4.5S10 11.5 10 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                  <path d="M12 9.5c1.5.5 3 2 3 4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="profile-link-text">Community</span>
+              <svg class="profile-link-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M5 8h6M9 6l2 2-2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="/settings" class="profile-link-item">
+              <span class="profile-link-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.3"/>
+                  <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="profile-link-text">Account Settings</span>
+              <svg class="profile-link-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M5 8h6M9 6l2 2-2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Account Info -->
+      <div class="profile-card">
+        <h2 class="profile-card-title">Account Info</h2>
+        <dl class="profile-info-list">
+          <div class="profile-info-row">
+            <dt class="profile-info-label">Username</dt>
+            <dd class="profile-info-value"><%= profileUser.username %></dd>
+          </div>
+          <div class="profile-info-row">
+            <dt class="profile-info-label">Email</dt>
+            <dd class="profile-info-value"><%= profileUser.email %></dd>
+          </div>
+          <div class="profile-info-row">
+            <dt class="profile-info-label">Plan</dt>
+            <dd class="profile-info-value">
+              <% if (profileUser.is_pro) { %>
+                <span class="profile-plan-badge profile-plan-pro">
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M6 1l1.4 3h3.1l-2.5 1.8.9 3L6 7l-2.9 1.8.9-3L1.5 4H4.6z" fill="currentColor"/>
+                  </svg>
+                  Pro
+                </span>
+              <% } else { %>
+                <span class="profile-plan-badge profile-plan-free">Free</span>
+              <% } %>
+            </dd>
+          </div>
+          <div class="profile-info-row">
+            <dt class="profile-info-label">Member since</dt>
+            <dd class="profile-info-value"><%= joinedStr %></dd>
+          </div>
+          <% if (profileUser.location) { %>
+          <div class="profile-info-row">
+            <dt class="profile-info-label">Location</dt>
+            <dd class="profile-info-value"><%= profileUser.location %></dd>
+          </div>
+          <% } %>
+          <% if (profileUser.website) { %>
+          <div class="profile-info-row">
+            <dt class="profile-info-label">Website</dt>
+            <dd class="profile-info-value">
+              <a href="<%= profileUser.website %>" target="_blank" rel="noopener noreferrer" class="profile-website-link">
+                <%= websiteDisplay %>
+              </a>
+            </dd>
+          </div>
+          <% } %>
+        </dl>
+      </div>
+
+    </div><!-- /profile-grid -->
+
+  </div><!-- /container -->
+</div><!-- /profile-page -->
+
+<script>
+  /* Calculate days since join — injected safely */
+  (function () {
+    var joined = new Date('<%= joined.toISOString() %>');
+    var days = Math.floor((Date.now() - joined.getTime()) / 86400000);
+    var el = document.getElementById('daysSinceJoin');
+    if (el) el.textContent = days.toLocaleString();
+  })();
+</script>

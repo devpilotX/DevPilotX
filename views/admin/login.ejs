@@ -1,0 +1,53 @@
+<%# Admin Login Page %>
+<div class="admin-login-wrap">
+  <div class="admin-login-card">
+    <div class="admin-login-header">
+      <div class="admin-login-logo">
+        Value<span class="admin-logo-accent">.Codes</span>
+      </div>
+      <h1 class="admin-login-title">Admin Panel</h1>
+      <p class="admin-login-subtitle">Sign in to manage your blog articles</p>
+    </div>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+    <div class="admin-alert admin-alert--error" role="alert">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <%= error %>
+    </div>
+    <% } %>
+
+    <form action="/admin/login" method="POST" class="admin-login-form" novalidate>
+      <div class="admin-form-group">
+        <label for="email" class="admin-form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="admin-form-input"
+          placeholder="admin@example.com"
+          autocomplete="email"
+          required
+        >
+      </div>
+      <div class="admin-form-group">
+        <label for="password" class="admin-form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="admin-form-input"
+          placeholder="••••••••"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+      <button type="submit" class="admin-btn admin-btn--primary admin-btn--full">
+        Sign In
+      </button>
+    </form>
+
+    <p class="admin-login-hint">
+      Set credentials via <code>ADMIN_EMAIL</code> and <code>ADMIN_PASSWORD</code> in your <code>.env</code> file.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<!-- Admin API List -->
+<div aria-label="Manage APIs">
+  <section class="admin-section">
+    <div class="container">
+
+      <div class="admin-header-row">
+        <h1>Manage APIs</h1>
+        <a href="/admin/apis/create" class="btn btn-primary">+ Add API</a>
+      </div>
+
+      <% if (success) { %>
+        <div class="alert alert-success" role="alert"><%= success %></div>
+      <% } %>
+      <% if (error) { %>
+        <div class="alert alert-error" role="alert"><%= error %></div>
+      <% } %>
+
+      <div class="admin-table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Auth</th>
+              <th>Pricing</th>
+              <th>Status</th>
+              <th>Featured</th>
+              <th>Views</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (apis.length === 0) { %>
+              <tr>
+                <td colspan="8" class="admin-empty-row">No APIs yet. Add your first one!</td>
+              </tr>
+            <% } else { %>
+              <% apis.forEach(function(a) { %>
+                <tr>
+                  <td>
+                    <strong><%= a.name %></strong>
+                    <br><small class="admin-slug">/<%= a.slug %></small>
+                  </td>
+                  <td><%= a.category_emoji %> <%= a.category_name %></td>
+                  <td><%= a.auth_type %></td>
+                  <td><%= a.pricing %></td>
+                  <td><span class="admin-status admin-status-<%= a.status %>"><%= a.status %></span></td>
+                  <td><%= a.is_featured ? '⭐' : '—' %></td>
+                  <td><%= a.views %></td>
+                  <td class="admin-actions">
+                    <a href="/admin/apis/edit/<%= a.id %>" class="btn btn-sm btn-ghost">Edit</a>
+                    <form action="/admin/apis/delete/<%= a.id %>" method="POST" class="admin-delete-form">
+                      <button type="submit" class="btn btn-sm btn-ghost admin-delete-btn">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% }); %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+</div>

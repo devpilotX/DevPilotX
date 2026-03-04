@@ -1,0 +1,318 @@
+/**
+ * ================================================================
+ * FILE: public/css/api-single.css
+ * PURPOSE: Styles for the single API detail page /apis/:cat/:slug
+ * ================================================================
+ */
+
+/* ========== HERO ========== */
+
+.api-single-hero {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.api-single-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.api-single-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.api-single-header h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.api-single-desc {
+  font-size: 1rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 680px;
+}
+
+.api-single-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.api-badge-lg {
+  font-size: 0.82rem;
+  padding: 0.3rem 0.8rem;
+}
+
+/* ========== MAIN LAYOUT ========== */
+
+.api-single-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  padding: 2.5rem 0 4rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .api-single-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== SECTIONS ========== */
+
+.api-single-section {
+  margin-bottom: 2.5rem;
+}
+
+.api-single-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ========== ENDPOINTS TABLE ========== */
+
+.api-endpoints-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.api-endpoints-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.api-endpoints-table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.api-method-badge {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.api-method-GET    { background: #dcfce7; color: #166534; }
+.api-method-POST   { background: #dbeafe; color: #1e40af; }
+.api-method-PUT    { background: #fef9c3; color: #854d0e; }
+.api-method-DELETE { background: #fee2e2; color: #991b1b; }
+.api-method-PATCH  { background: #ffedd5; color: #9a3412; }
+
+.api-endpoint-path {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+
+/* ========== SAMPLE RESPONSE ========== */
+
+.api-sample-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.api-sample-code {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+  white-space: pre;
+}
+
+.api-copy-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.1);
+  color: #cdd6f4;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.api-copy-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ========== FEATURES & USE CASES LISTS ========== */
+
+.api-feature-list,
+.api-use-case-list,
+.api-notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.api-feature-list li::before { content: '✓ '; color: #22c55e; font-weight: 700; }
+.api-use-case-list li::before { content: '→ '; color: var(--accent); font-weight: 700; }
+.api-notes-list li::before   { content: '⚠ '; color: #f59e0b; font-weight: 700; }
+
+.api-feature-list li,
+.api-use-case-list li,
+.api-notes-list li {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* ========== SIDEBAR INFO BOX ========== */
+
+.api-info-box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.25rem;
+  background: var(--surface);
+}
+
+.api-info-box h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.85rem;
+}
+
+.api-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+  gap: 0.5rem;
+}
+
+.api-info-row:last-child {
+  border-bottom: none;
+}
+
+.api-info-label {
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.api-info-value {
+  color: var(--ink);
+  font-weight: 500;
+  text-align: right;
+}
+
+.api-cta-btn {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.api-cta-btn:hover { opacity: 0.88; }
+
+/* ========== RELATED APIS ========== */
+
+.api-related-section {
+  padding: 2rem 0 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.api-related-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+}
+
+/* ========== PREV/NEXT NAV ========== */
+
+.api-prev-next {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.api-prev-link,
+.api-next-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--surface);
+  transition: border-color 0.15s;
+}
+
+.api-next-link { text-align: right; }
+
+.api-prev-link:hover,
+.api-next-link:hover {
+  border-color: var(--accent);
+}
+
+.api-nav-label {
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.api-nav-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}

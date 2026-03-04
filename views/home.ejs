@@ -1,9 +1,9 @@
 <%# ============================================================ %>
 <%# Value.Codes — Homepage                                     %>
 <%# ============================================================ %>
-<%# Sections: Hero, Tools, Compiler, Community, Resources,      %>
-<%# Newsletter, Contribute, Final CTA.                          %>
-<%# Zero inline CSS. Zero inline JS.                            %>
+<%# Sections: Hero, Tools, Compiler, Why Value.Codes,          %>
+<%# Resources, Newsletter, FAQ, Final CTA.                     %>
+<%# Zero inline CSS. Zero inline JS.                           %>
 <%# ============================================================ %>
 
 
@@ -56,6 +56,21 @@
     </div>
   </section>
 
+
+  <!-- ================================================================
+       ADSENSE: LEADERBOARD
+       ================================================================ -->
+  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+  <div class="ad-leaderboard" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="<%= adsensePubId %>"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <% } %>
 
   <!-- ================================================================
        [02] TOOLS — Developer Tools Showcase
@@ -146,142 +161,283 @@
 
 
   <!-- ================================================================
-       [03] COMPILER — Online Code Compiler
+       [02] SNIPPETS — Code Snippets Library (Dark Showcase)
        ================================================================ -->
-  <section class="compiler-section section-padding" aria-label="Online Compiler">
+  <section class="snippets-section section-padding" aria-label="Code Snippets">
     <div class="container">
-      <div class="compiler-grid">
-        <div class="compiler-content">
-          <div class="section-header">
+
+      <div class="snippets-intro">
+        <div class="snippets-intro-left">
+          <div class="section-header snippets-section-header">
             <span class="section-number">[02]</span>
-            <h2>Online Compiler</h2>
+            <h2>Code Snippets</h2>
           </div>
-          <p>
-            Write and execute code in 19 languages directly from your browser.
-            Python, JavaScript, C++, Rust, Go, and more — no local setup required.
+          <p class="snippets-lead">
+            Production-ready snippets for CSS, JavaScript, Node.js, React, and more.
+            Copy-paste into your project — no fluff, just clean working code.
           </p>
-          <div class="compiler-langs">
-            <span class="lang-tag">Python</span>
-            <span class="lang-tag">JavaScript</span>
-            <span class="lang-tag">C++</span>
-            <span class="lang-tag">Java</span>
-            <span class="lang-tag">Go</span>
-            <span class="lang-tag">Rust</span>
-            <span class="lang-tag">TypeScript</span>
-            <span class="lang-tag">C#</span>
-            <span class="lang-tag">Ruby</span>
-            <span class="lang-tag">PHP</span>
-            <span class="lang-tag">Swift</span>
-            <span class="lang-tag">Kotlin</span>
-            <span class="lang-tag">+ 7 more</span>
-          </div>
-          <a href="/compiler/" class="btn btn-primary">Open Compiler →</a>
         </div>
-        <div class="hero-visual">
-          <div class="code-card">
-            <div class="code-card-bar">
-              <span class="code-dot code-dot--red"></span>
-              <span class="code-dot code-dot--yellow"></span>
-              <span class="code-dot code-dot--green"></span>
-              <span class="code-card-label">compiler.py</span>
+        <div class="snippets-intro-right">
+          <div class="snippets-stats-row">
+            <div class="snippets-stat">
+              <span class="snippets-stat-value">300+</span>
+              <span class="snippets-stat-label">Snippets</span>
             </div>
-            <div class="code-card-body">
-              <span class="code-line"><span class="c-keyword">def</span> <span class="c-function">greet</span>(name):</span>
-              <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-keyword">return</span> <span class="c-string">f"Hello, {name}!"</span></span>
-              <span class="code-line"></span>
-              <span class="code-line"><span class="c-function">print</span>(greet(<span class="c-string">"Developer"</span>))</span>
-              <span class="code-line"></span>
-              <span class="code-line"><span class="c-comment"># Output: Hello, Developer!</span></span>
+            <div class="snippets-stat">
+              <span class="snippets-stat-value">7</span>
+              <span class="snippets-stat-label">Languages</span>
+            </div>
+            <div class="snippets-stat">
+              <span class="snippets-stat-value">Free</span>
+              <span class="snippets-stat-label">Always</span>
             </div>
           </div>
+          <a href="/snippets/" class="btn snippets-btn">Browse All Snippets →</a>
         </div>
       </div>
+
+      <div class="snippets-cards">
+
+        <!-- CSS Snippet -->
+        <div class="snippet-preview">
+          <div class="snippet-preview-header">
+            <span class="snippet-lang-badge snippet-lang-badge--css">CSS</span>
+            <span class="snippet-preview-name">Flexbox Center</span>
+            <span class="snippet-copy-hint" aria-hidden="true">copy</span>
+          </div>
+          <div class="snippet-preview-code">
+            <span class="code-line"><span class="c-function">.container</span> {</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">display</span>: <span class="c-string">flex</span>;</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">align-items</span>: <span class="c-string">center</span>;</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">justify-content</span>: <span class="c-string">center</span>;</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">min-height</span>: <span class="c-string">100vh</span>;</span>
+            <span class="code-line">}</span>
+          </div>
+        </div>
+
+        <!-- JavaScript Snippet -->
+        <div class="snippet-preview">
+          <div class="snippet-preview-header">
+            <span class="snippet-lang-badge snippet-lang-badge--js">JS</span>
+            <span class="snippet-preview-name">Debounce Function</span>
+            <span class="snippet-copy-hint" aria-hidden="true">copy</span>
+          </div>
+          <div class="snippet-preview-code">
+            <span class="code-line"><span class="c-keyword">const</span> <span class="c-function">debounce</span> = (fn, ms) => {</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">let</span> timer;</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">return</span> (...args) => {</span>
+            <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-function">clearTimeout</span>(timer);</span>
+            <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;timer = <span class="c-function">setTimeout</span>(</span>
+            <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;() => <span class="c-function">fn</span>(...args), ms);</span>
+            <span class="code-line">&nbsp;&nbsp;};</span>
+            <span class="code-line">};</span>
+          </div>
+        </div>
+
+        <!-- Node.js Snippet -->
+        <div class="snippet-preview snippet-preview--featured">
+          <div class="snippet-preview-header">
+            <span class="snippet-lang-badge snippet-lang-badge--node">Node.js</span>
+            <span class="snippet-preview-name">Express Logger</span>
+            <span class="snippet-copy-hint" aria-hidden="true">copy</span>
+          </div>
+          <div class="snippet-preview-code">
+            <span class="code-line"><span class="c-keyword">const</span> logger = (req, res, next) => {</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-keyword">const</span> start = <span class="c-function">Date.now</span>();</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-function">res.on</span>(<span class="c-string">'finish'</span>, () => {</span>
+            <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="c-function">log</span>(`${req.<span class="c-keyword">method</span>}</span>
+            <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${req.<span class="c-keyword">url</span>} <span class="c-number">${Date.now()-start}</span>ms`);</span>
+            <span class="code-line">&nbsp;&nbsp;});</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="c-function">next</span>();</span>
+            <span class="code-line">};</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="snippets-tags-row">
+        <span class="snippets-tag">CSS</span>
+        <span class="snippets-tag">JavaScript</span>
+        <span class="snippets-tag">React</span>
+        <span class="snippets-tag">Node.js</span>
+        <span class="snippets-tag">HTML</span>
+        <span class="snippets-tag">TypeScript</span>
+        <span class="snippets-tag">DevOps</span>
+        <span class="snippets-tag snippets-tag--more">+ more languages</span>
+      </div>
+
     </div>
   </section>
 
 
   <!-- ================================================================
-       [04] COMMUNITY — Developer Community (Login-Gated, Discord-Style)
+       [03] API DIRECTORY — Public API Directory (Category Grid)
        ================================================================ -->
-  <section class="community-section section-padding" id="community" aria-label="Developer Community">
+  <section class="apis-section section-padding" id="apis" aria-label="Public API Directory">
     <div class="container">
-      <div class="community-grid">
 
-        <!-- Left: Description -->
-        <div class="community-content">
+      <div class="apis-intro">
+        <div class="apis-intro-left">
           <div class="section-header">
             <span class="section-number">[03]</span>
-            <h2>Developer Community</h2>
+            <h2>Public API Directory</h2>
+          </div>
+          <p class="apis-lead">
+            Browse free public APIs with auth details, CORS support,
+            and live endpoint examples —
+            <strong>everything you need before writing a single line of code.</strong>
+          </p>
+        </div>
+        <div class="apis-intro-right">
+          <a href="/apis/" class="btn btn-primary">Explore All APIs →</a>
+        </div>
+      </div>
+
+      <div class="api-categories-grid">
+
+        <a href="/apis/" class="api-category-card">
+          <span class="api-category-icon" aria-hidden="true">💰</span>
+          <div class="api-category-name">Finance</div>
+          <div class="api-category-count">12 APIs available</div>
+          <div class="api-category-examples">
+            <span class="api-example-tag">CoinGecko</span>
+            <span class="api-example-tag">Alpha Vantage</span>
+            <span class="api-example-tag">Fixer.io</span>
+          </div>
+        </a>
+
+        <a href="/apis/" class="api-category-card">
+          <span class="api-category-icon" aria-hidden="true">🌤️</span>
+          <div class="api-category-name">Weather</div>
+          <div class="api-category-count">8 APIs available</div>
+          <div class="api-category-examples">
+            <span class="api-example-tag">Open-Meteo</span>
+            <span class="api-example-tag">OpenWeather</span>
+            <span class="api-example-tag">Weatherstack</span>
+          </div>
+        </a>
+
+        <a href="/apis/" class="api-category-card">
+          <span class="api-category-icon" aria-hidden="true">🤖</span>
+          <div class="api-category-name">AI &amp; ML</div>
+          <div class="api-category-count">10 APIs available</div>
+          <div class="api-category-examples">
+            <span class="api-example-tag">HuggingFace</span>
+            <span class="api-example-tag">Cohere</span>
+            <span class="api-example-tag">OpenRouter</span>
+          </div>
+        </a>
+
+        <a href="/apis/" class="api-category-card">
+          <span class="api-category-icon" aria-hidden="true">🧪</span>
+          <div class="api-category-name">Mock Data</div>
+          <div class="api-category-count">6 APIs available</div>
+          <div class="api-category-examples">
+            <span class="api-example-tag">JSONPlaceholder</span>
+            <span class="api-example-tag">RandomUser</span>
+            <span class="api-example-tag">FakeStore</span>
+          </div>
+        </a>
+
+        <a href="/apis/" class="api-category-card">
+          <span class="api-category-icon" aria-hidden="true">📰</span>
+          <div class="api-category-name">News</div>
+          <div class="api-category-count">5 APIs available</div>
+          <div class="api-category-examples">
+            <span class="api-example-tag">NewsAPI</span>
+            <span class="api-example-tag">GNews</span>
+            <span class="api-example-tag">Currents</span>
+          </div>
+        </a>
+
+        <a href="/apis/" class="api-category-card">
+          <span class="api-category-icon" aria-hidden="true">🔧</span>
+          <div class="api-category-name">Utilities</div>
+          <div class="api-category-count">15 APIs available</div>
+          <div class="api-category-examples">
+            <span class="api-example-tag">IPinfo</span>
+            <span class="api-example-tag">QR Server</span>
+            <span class="api-example-tag">URLhaus</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="apis-trust-row">
+        <span class="apis-trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Auth details included
+        </span>
+        <span class="apis-trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          CORS status shown
+        </span>
+        <span class="apis-trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Live endpoint examples
+        </span>
+        <span class="apis-trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          100% free APIs only
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       [04] WHY VALUE.CODES — Built for Real Developer Workflow
+       ================================================================ -->
+  <section class="contribute-section section-padding" id="why-value-codes" aria-label="Why Value.Codes">
+    <div class="container">
+      <div class="contribute-grid">
+
+        <!-- Left: Description -->
+        <div class="contribute-content">
+          <div class="section-header">
+            <span class="section-number">[04]</span>
+            <h2>Built for Real Developer Workflow</h2>
           </div>
           <p>
-            Real-time chat built directly into Value.Codes. Ask questions, share
-            code, get reviews, and collaborate with developers worldwide.
+            Every tool at Value.Codes is purpose-built to save time.
+            No distractions, no paywalls on core tools — just utilities
+            that work <strong>instantly, in your browser.</strong>
           </p>
-          <ul class="community-features">
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Topic-based channels
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
-              All experience levels welcome
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Code sharing with syntax highlighting
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-              Threaded Q&amp;A discussions
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-              Project showcases
-            </li>
-          </ul>
-          <p class="community-login-note">
-            <strong>Free account required.</strong> Takes 10 seconds. No credit card.
-          </p>
-          <div class="community-actions">
-            <a href="/login/" class="btn btn-primary">Join Community</a>
-            <a href="/community/" class="btn btn-secondary">Preview</a>
+          <div class="contribute-actions">
+            <a href="/tools/" class="btn btn-primary">Browse All Tools</a>
+            <a href="/compiler/" class="btn btn-secondary">Try the Compiler</a>
           </div>
         </div>
 
-        <!-- Right: Chat Preview Card -->
-        <div>
-          <div class="chat-card">
-            <div class="chat-card-header">
-              <span class="chat-card-dot"></span>
-              <span class="chat-card-title">#general</span>
-              <span class="chat-card-count">342 online</span>
+        <!-- Right: Feature Cards -->
+        <div class="contribute-ways">
+          <div class="contribute-card">
+            <span class="contribute-card-icon" aria-hidden="true">🔒</span>
+            <div class="contribute-card-body">
+              <h3>100% Private</h3>
+              <p>Everything runs in your browser. Your data never leaves your device — no server processing, no logs.</p>
             </div>
-            <div class="chat-message">
-              <div class="chat-avatar">A</div>
-              <div class="chat-bubble">
-                <p class="chat-bubble-name">alex_dev</p>
-                <p class="chat-bubble-text">Anyone have experience with Rust's borrow checker? Getting a lifetime error I can't figure out.</p>
-              </div>
+          </div>
+          <div class="contribute-card">
+            <span class="contribute-card-icon" aria-hidden="true">⚡</span>
+            <div class="contribute-card-body">
+              <h3>Instant Results</h3>
+              <p>Real-time output with zero latency. Format, test, decode, compile — no waiting, no server round-trips.</p>
             </div>
-            <div class="chat-message">
-              <div class="chat-avatar chat-avatar--alt">S</div>
-              <div class="chat-bubble">
-                <p class="chat-bubble-name">sarah_codes</p>
-                <p class="chat-bubble-text">Post the snippet — usually it's a reference outliving its scope. Happy to take a look!</p>
-              </div>
+          </div>
+          <div class="contribute-card">
+            <span class="contribute-card-icon" aria-hidden="true">🆓</span>
+            <div class="contribute-card-body">
+              <h3>Always Free</h3>
+              <p>No account required. No paywalls on core tools. No time limits. Free to use — forever.</p>
             </div>
-            <div class="chat-message">
-              <div class="chat-avatar chat-avatar--green">M</div>
-              <div class="chat-bubble">
-                <p class="chat-bubble-name">mike_rs</p>
-                <p class="chat-bubble-text">Check #rust-help — I posted a guide on common lifetime patterns yesterday. Should help! 🦀</p>
-              </div>
-            </div>
-            <div class="chat-card-footer">
-              <span class="chat-card-lock">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Login to start chatting
-              </span>
+          </div>
+          <div class="contribute-card">
+            <span class="contribute-card-icon" aria-hidden="true">🌐</span>
+            <div class="contribute-card-body">
+              <h3>Works Everywhere</h3>
+              <p>Browser-based and fully responsive. Works on any device, OS, or network — zero install required.</p>
             </div>
           </div>
         </div>
@@ -296,7 +452,7 @@
        ================================================================ -->
   <section class="content-section" id="resources" aria-label="Developer Resources">
     <div class="section-header">
-      <span class="section-number">[04]</span>
+      <span class="section-number">[05]</span>
       <h2>Resources</h2>
     </div>
     <p class="section-desc">
@@ -361,73 +517,74 @@
   <section class="newsletter-section section-padding" aria-label="Newsletter signup">
     <div class="container">
       <h2>The Value.Codes Newsletter</h2>
-      <p class="newsletter-desc">New tools, developer insights, and community highlights. One email per week. Unsubscribe anytime.</p>
+      <p class="newsletter-desc">New tools, developer insights, and resources. One email per week. Unsubscribe anytime.</p>
       <div class="newsletter-actions">
-        <a href="/newsletter-signup/" class="btn btn-primary">Subscribe</a>
-        <a href="/blog/" class="btn btn-secondary">Read the Blog</a>
+        <a href="/newsletter/" class="btn btn-primary">Subscribe Free</a>
+        <%#<a href="/blog/" class="btn btn-secondary">Read the Blog</a>%>
       </div>
     </div>
   </section>
 
 
   <!-- ================================================================
-       [07] CONTRIBUTE — Open Source Contribution
+       [07] FAQ — Frequently Asked Questions
        ================================================================ -->
-  <section class="contribute-section section-padding" id="contribute" aria-label="Contribute to Value.Codes">
-    <div class="container">
-      <div class="contribute-grid">
+  <section class="content-section" id="faq" aria-label="Frequently Asked Questions">
+    <div class="section-header">
+      <span class="section-number">[06]</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <p class="section-desc">
+      Everything you need to know about Value.Codes tools and platform.
+    </p>
 
-        <!-- Left: Description -->
-        <div class="contribute-content">
-          <div class="section-header">
-            <span class="section-number">[05]</span>
-            <h2>Contribute</h2>
-          </div>
-          <p>
-            Value.Codes is open source. Every tool, every page, every line of code
-            is on GitHub. The best developer tools are built by the people who use them.
-          </p>
-          <div class="contribute-actions">
-            <a href="https://github.com/Value-Codes" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              View on GitHub
-            </a>
-            <a href="/contribute/" class="btn btn-secondary">Contribution Guide</a>
-          </div>
+    <div class="resources-grid">
+      <div class="faq-card">
+        <span class="resource-icon" aria-hidden="true">💸</span>
+        <div class="resource-body">
+          <h3>Is Value.Codes free to use?</h3>
+          <p>Yes — completely. All 10 core developer tools and the online compiler are free with no account required. No credit card, no trial period.</p>
         </div>
+      </div>
 
-        <!-- Right: Ways to Contribute -->
-        <div class="contribute-ways">
-          <div class="contribute-card">
-            <span class="contribute-card-icon" aria-hidden="true">🛠️</span>
-            <div class="contribute-card-body">
-              <h3>Build a Tool</h3>
-              <p>Pick from the roadmap or propose your own. We'll help you ship it.</p>
-            </div>
-          </div>
-          <div class="contribute-card">
-            <span class="contribute-card-icon" aria-hidden="true">🐛</span>
-            <div class="contribute-card-body">
-              <h3>Fix Bugs</h3>
-              <p>Found a bug? Open an issue or submit a fix. Every PR gets reviewed.</p>
-            </div>
-          </div>
-          <div class="contribute-card">
-            <span class="contribute-card-icon" aria-hidden="true">📝</span>
-            <div class="contribute-card-body">
-              <h3>Write Documentation</h3>
-              <p>Clear docs make tools usable. Help us write guides developers actually read.</p>
-            </div>
-          </div>
-          <div class="contribute-card">
-            <span class="contribute-card-icon" aria-hidden="true">💡</span>
-            <div class="contribute-card-body">
-              <h3>Suggest Features</h3>
-              <p>Submit ideas and let the community vote. Top requests get prioritized.</p>
-            </div>
-          </div>
+      <div class="faq-card">
+        <span class="resource-icon" aria-hidden="true">🛠️</span>
+        <div class="resource-body">
+          <h3>What developer tools are available?</h3>
+          <p>JSON Formatter, Regex Builder, Diff Checker, Base64 Encoder, Color Picker, Cron Builder, JWT Decoder, Hash Generator, Mock Data Generator, and Code Formatter.</p>
         </div>
+      </div>
 
+      <div class="faq-card">
+        <span class="resource-icon" aria-hidden="true">🔒</span>
+        <div class="resource-body">
+          <h3>Is my data sent to a server?</h3>
+          <p>No. Every tool runs entirely in your browser using client-side JavaScript. Your input never leaves your device — no server processing, no logs, no tracking.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <span class="resource-icon" aria-hidden="true">💻</span>
+        <div class="resource-body">
+          <h3>Which languages does the compiler support?</h3>
+          <p>The online compiler supports 19 languages: Python, JavaScript, TypeScript, C, C++, Java, Go, Rust, C#, PHP, Ruby, Swift, Kotlin, and more — all free.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <span class="resource-icon" aria-hidden="true">🔑</span>
+        <div class="resource-body">
+          <h3>What is a JWT decoder used for?</h3>
+          <p>A JWT decoder lets you inspect a JSON Web Token without a secret key. You can read the header, payload, expiration, and claims — great for debugging authentication.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <span class="resource-icon" aria-hidden="true">{ }</span>
+        <div class="resource-body">
+          <h3>Why use an online JSON formatter?</h3>
+          <p>An online JSON formatter instantly beautifies minified JSON, validates syntax, and highlights errors — without installing any software or IDE plugin.</p>
+        </div>
       </div>
     </div>
   </section>

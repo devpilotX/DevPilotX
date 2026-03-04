@@ -1,0 +1,176 @@
+<!-- ================================================================
+     FILE: views/admin/snippets/edit.ejs
+     PURPOSE: Admin — Edit existing snippet
+     ================================================================ -->
+
+<div aria-label="Edit Snippet">
+  <section class="admin-section" aria-label="Edit snippet form">
+    <div class="container">
+
+      <div class="admin-header-row">
+        <h1>Edit: <%= snippet.title %></h1>
+        <a href="/admin/snippets" class="btn btn-ghost">← Back to List</a>
+      </div>
+
+      <% if (error) { %>
+        <div class="alert alert-error" role="alert"><%= error %></div>
+      <% } %>
+
+      <form action="/admin/snippets/edit/<%= snippet.id %>" method="POST" class="admin-form" id="snippet-form">
+
+        <!-- ========== BASIC INFO ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Basic Information</legend>
+
+          <div class="admin-field">
+            <label for="title">Title *</label>
+            <input type="text" id="title" name="title" required value="<%= snippet.title %>">
+          </div>
+
+          <div class="admin-field">
+            <label for="slug">Slug *</label>
+            <input type="text" id="slug" name="slug" required value="<%= snippet.slug %>" pattern="[a-z0-9\\-]+">
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="category_id">Category *</label>
+              <select id="category_id" name="category_id" required>
+                <% categories.forEach(function(cat) { %>
+                  <option value="<%= cat.id %>" <%= cat.id === snippet.category_id ? 'selected' : '' %>><%= cat.emoji %> <%= cat.name %></option>
+                <% }); %>
+              </select>
+            </div>
+
+            <div class="admin-field">
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty" name="difficulty">
+                <option value="beginner" <%= snippet.difficulty === 'beginner' ? 'selected' : '' %>>Beginner</option>
+                <option value="intermediate" <%= snippet.difficulty === 'intermediate' ? 'selected' : '' %>>Intermediate</option>
+                <option value="advanced" <%= snippet.difficulty === 'advanced' ? 'selected' : '' %>>Advanced</option>
+              </select>
+            </div>
+
+            <div class="admin-field">
+              <label for="sort_order">Sort Order</label>
+              <input type="number" id="sort_order" name="sort_order" value="<%= snippet.sort_order %>" min="0">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label for="description">Description *</label>
+            <textarea id="description" name="description" rows="3" required><%= snippet.description %></textarea>
+          </div>
+
+          <div class="admin-field">
+            <label for="browser_support">Browser Support</label>
+            <input type="text" id="browser_support" name="browser_support" value="<%= snippet.browser_support || '' %>">
+          </div>
+        </fieldset>
+
+        <!-- ========== CODE TABS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Code Tabs</legend>
+
+          <div id="tabs-container">
+            <% snippet.tabs.forEach(function(tab, idx) { %>
+              <div class="admin-tab-block" data-tab-index="<%= idx %>">
+                <div class="admin-tab-header">
+                  <strong>Tab <%= idx + 1 %></strong>
+                  <button type="button" class="btn btn-sm btn-ghost admin-remove-tab-btn" data-tab-index="<%= idx %>" aria-label="Remove this tab">✕</button>
+                </div>
+                <div class="admin-field-row">
+                  <div class="admin-field">
+                    <label for="tab_label_<%= idx %>">Tab Label *</label>
+                    <input type="text" id="tab_label_<%= idx %>" name="tab_label_<%= idx %>" required value="<%= tab.label %>">
+                  </div>
+                  <div class="admin-field">
+                    <label for="tab_language_<%= idx %>">Language *</label>
+                    <select id="tab_language_<%= idx %>" name="tab_language_<%= idx %>" required>
+                      <% ['css','html','javascript','typescript','jsx','json','bash','yaml','dockerfile','nginx','sql'].forEach(function(lang) { %>
+                        <option value="<%= lang %>" <%= tab.language === lang ? 'selected' : '' %>><%= lang %></option>
+                      <% }); %>
+                    </select>
+                  </div>
+                  <div class="admin-field">
+                    <label for="tab_file_name_<%= idx %>">File Name</label>
+                    <input type="text" id="tab_file_name_<%= idx %>" name="tab_file_name_<%= idx %>" value="<%= tab.file_name || '' %>">
+                  </div>
+                </div>
+                <div class="admin-field">
+                  <label for="tab_code_<%= idx %>">Code *</label>
+                  <textarea id="tab_code_<%= idx %>" name="tab_code_<%= idx %>" rows="12" required class="admin-code-textarea" spellcheck="false"><%= tab.code %></textarea>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-sm" id="add-tab-btn">+ Add Another Tab</button>
+        </fieldset>
+
+        <!-- ========== NOTES ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Notes</legend>
+          <div class="admin-field">
+            <label for="notes">Notes (one per line)</label>
+            <textarea id="notes" name="notes" rows="6"><%= snippet.notes ? snippet.notes.join('\\n') : '' %></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ========== TAGS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Tags</legend>
+          <% var selectedTagIds = snippet.tags.map(function(t) { return t.id || 0; }); %>
+          <div class="admin-tags-grid">
+            <% tags.forEach(function(tag) { %>
+              <label class="admin-tag-checkbox">
+                <input type="checkbox" name="tag_ids" value="<%= tag.id %>"
+                  <%= snippet.tags.some(function(st) { return st.slug === tag.slug; }) ? 'checked' : '' %>>
+                <span><%= tag.name %></span>
+              </label>
+            <% }); %>
+          </div>
+        </fieldset>
+
+        <!-- ========== RELATED & SEO ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Related Snippets & SEO</legend>
+
+          <div class="admin-field">
+            <label for="related_slugs">Related Snippet Slugs</label>
+            <input type="text" id="related_slugs" name="related_slugs" value="<%= snippet.related_slugs ? snippet.related_slugs.join(', ') : '' %>">
+          </div>
+
+          <div class="admin-field">
+            <label for="seo_title">SEO Title</label>
+            <input type="text" id="seo_title" name="seo_title" value="<%= snippet.seo_title || '' %>" maxlength="255">
+          </div>
+
+          <div class="admin-field">
+            <label for="seo_description">SEO Description</label>
+            <textarea id="seo_description" name="seo_description" rows="2" maxlength="300"><%= snippet.seo_description || '' %></textarea>
+          </div>
+
+          <div class="admin-field">
+            <label for="seo_keywords">SEO Keywords</label>
+            <input type="text" id="seo_keywords" name="seo_keywords" value="<%= snippet.seo_keywords || '' %>">
+          </div>
+        </fieldset>
+
+        <!-- ========== PUBLISH ========== -->
+        <div class="admin-form-actions">
+          <div class="admin-field">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="draft" <%= snippet.status === 'draft' ? 'selected' : '' %>>Draft</option>
+              <option value="published" <%= snippet.status === 'published' ? 'selected' : '' %>>Published</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Update Snippet</button>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+</div>

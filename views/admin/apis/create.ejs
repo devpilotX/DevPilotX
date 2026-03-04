@@ -1,0 +1,253 @@
+<!-- ================================================================
+     FILE: views/admin/apis/create.ejs
+     PURPOSE: Admin — Add new API to directory
+     ================================================================ -->
+
+<div aria-label="Add API">
+  <section class="admin-section">
+    <div class="container">
+
+      <div class="admin-header-row">
+        <h1>Add New API</h1>
+        <a href="/admin/apis" class="btn btn-ghost">← Back</a>
+      </div>
+
+      <% if (error) { %>
+        <div class="alert alert-error" role="alert"><%= error %></div>
+      <% } %>
+
+      <form action="/admin/apis/create" method="POST" class="admin-form" id="api-form">
+
+        <!-- ========== BASIC INFO ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Basic Information</legend>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="name">API Name *</label>
+              <input type="text" id="name" name="name" required placeholder="e.g., CoinGecko">
+            </div>
+            <div class="admin-field">
+              <label for="slug">Slug *</label>
+              <input type="text" id="slug" name="slug" required placeholder="e.g., coingecko" pattern="[a-z0-9\\-]+">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label for="description">Description *</label>
+            <textarea id="description" name="description" rows="3" required placeholder="What this API does..."></textarea>
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="category_id">Category *</label>
+              <select id="category_id" name="category_id" required>
+                <option value="">Select...</option>
+                <% categories.forEach(function(cat) { %>
+                  <option value="<%= cat.id %>"><%= cat.emoji %> <%= cat.name %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="sort_order">Sort Order</label>
+              <input type="number" id="sort_order" name="sort_order" value="0" min="0">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ========== URLS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>URLs</legend>
+
+          <div class="admin-field">
+            <label for="website_url">Website URL *</label>
+            <input type="url" id="website_url" name="website_url" required placeholder="<https://www.coingecko.com>">
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="docs_url">Documentation URL</label>
+              <input type="url" id="docs_url" name="docs_url" placeholder="<https://docs.coingecko.com>">
+            </div>
+            <div class="admin-field">
+              <label for="base_url">Base API URL</label>
+              <input type="url" id="base_url" name="base_url" placeholder="<https://api.coingecko.com/api/v3>">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label for="logo_url">Logo URL</label>
+            <input type="url" id="logo_url" name="logo_url" placeholder="<https://example.com/logo.png>">
+          </div>
+        </fieldset>
+
+        <!-- ========== REQUIREMENTS (BADGES) ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Requirements & Badges</legend>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="auth_type">Authentication</label>
+              <select id="auth_type" name="auth_type">
+                <option value="none">No Auth Required</option>
+                <option value="api_key">API Key</option>
+                <option value="oauth">OAuth</option>
+                <option value="bearer_token">Bearer Token</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="cors_support">CORS Support</label>
+              <select id="cors_support" name="cors_support">
+                <option value="unknown">Unknown</option>
+                <option value="yes">Yes — Supported</option>
+                <option value="no">No — Not Supported</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="pricing">Pricing</label>
+              <select id="pricing" name="pricing">
+                <option value="free">Free</option>
+                <option value="freemium">Freemium</option>
+                <option value="paid">Paid</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label for="rate_limit">Rate Limit</label>
+              <input type="text" id="rate_limit" name="rate_limit" placeholder="e.g., 50 requests/minute">
+            </div>
+            <div class="admin-field">
+              <label class="admin-checkbox-label">
+                <input type="checkbox" name="https_support" value="1" checked>
+                HTTPS Supported
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ========== ENDPOINTS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Endpoint Examples</legend>
+
+          <div id="endpoints-container">
+            <div class="admin-endpoint-block" data-ep-index="0">
+              <div class="admin-field-row">
+                <div class="admin-field" style="max-width: 100px;">
+                  <label for="endpoint_method_0">Method</label>
+                  <select id="endpoint_method_0" name="endpoint_method_0">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                    <option value="PATCH">PATCH</option>
+                  </select>
+                </div>
+                <div class="admin-field">
+                  <label for="endpoint_path_0">Path</label>
+                  <input type="text" id="endpoint_path_0" name="endpoint_path_0" placeholder="/v1/coins/list">
+                </div>
+                <div class="admin-field">
+                  <label for="endpoint_desc_0">Description</label>
+                  <input type="text" id="endpoint_desc_0" name="endpoint_desc_0" placeholder="List all coins">
+                </div>
+                <button type="button" class="btn btn-sm btn-ghost admin-remove-ep-btn" aria-label="Remove">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-sm" id="add-endpoint-btn">+ Add Endpoint</button>
+        </fieldset>
+
+        <!-- ========== SAMPLE RESPONSE (KILLER FEATURE) ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>📋 Sample JSON Response (The Killer Feature)</legend>
+          <p class="admin-help-text">Paste the actual JSON response developers will get. This is what makes your directory 10x better than any other.</p>
+
+          <div class="admin-field">
+            <label for="sample_response_language">Response Language</label>
+            <select id="sample_response_language" name="sample_response_language">
+              <option value="json" selected>JSON</option>
+              <option value="xml">XML</option>
+            </select>
+          </div>
+
+          <div class="admin-field">
+            <label for="sample_response">Sample Response *</label>
+            <textarea id="sample_response" name="sample_response" rows="16" class="admin-code-textarea" placeholder='{\\n  "id": "bitcoin",\\n  "symbol": "btc",\\n  "name": "Bitcoin",\\n  "current_price": 67234.00\\n}' spellcheck="false"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ========== FEATURES / USE CASES / NOTES ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Features, Use Cases & Notes</legend>
+
+          <div class="admin-field">
+            <label for="features">Key Features (one per line)</label>
+            <textarea id="features" name="features" rows="4" placeholder="Real-time prices&#10;Historical data&#10;No API key needed"></textarea>
+          </div>
+
+          <div class="admin-field">
+            <label for="use_cases">Use Cases (one per line)</label>
+            <textarea id="use_cases" name="use_cases" rows="4" placeholder="Crypto portfolio tracker&#10;Price alert app&#10;Market dashboard"></textarea>
+          </div>
+
+          <div class="admin-field">
+            <label for="notes">Developer Notes (one per line)</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Rate limited to 50 calls/min on free tier&#10;CORS headers included"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ========== TAGS ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>Tags</legend>
+          <div class="admin-tags-grid">
+            <% tags.forEach(function(tag) { %>
+              <label class="admin-tag-checkbox">
+                <input type="checkbox" name="tag_ids" value="<%= tag.id %>">
+                <span><%= tag.name %></span>
+              </label>
+            <% }); %>
+          </div>
+        </fieldset>
+
+        <!-- ========== SEO ========== -->
+        <fieldset class="admin-fieldset">
+          <legend>SEO (Optional — Auto-generated if blank)</legend>
+
+          <div class="admin-field">
+            <label for="seo_title">SEO Title</label>
+            <input type="text" id="seo_title" name="seo_title" maxlength="255">
+          </div>
+          <div class="admin-field">
+            <label for="seo_description">SEO Description</label>
+            <textarea id="seo_description" name="seo_description" rows="2" maxlength="300"></textarea>
+          </div>
+          <div class="admin-field">
+            <label for="seo_keywords">SEO Keywords</label>
+            <input type="text" id="seo_keywords" name="seo_keywords">
+          </div>
+        </fieldset>
+
+        <!-- ========== PUBLISH ========== -->
+        <div class="admin-form-actions">
+          <div class="admin-field">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="draft">Draft</option>
+              <option value="published">Published</option>
+            </select>
+          </div>
+          <label class="admin-checkbox-label">
+            <input type="checkbox" name="is_featured" value="1">
+            ⭐ Featured
+          </label>
+          <button type="submit" class="btn btn-primary btn-lg">Add API</button>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+</div>

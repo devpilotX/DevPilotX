@@ -60,6 +60,19 @@ var categoryColors = {
   </div>
 </section>
 
+<!-- ========== ADSENSE: LEADERBOARD ========== -->
+<% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+<div class="ad-leaderboard" aria-label="Advertisement">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="<%= adsensePubId %>"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<% } %>
+
 <!-- ========== FILTER BAR ========== -->
 <div class="tools-filter-bar" role="navigation" aria-label="Filter tools by category">
   <div class="container">
@@ -82,7 +95,7 @@ var categoryColors = {
       <p class="tools-grid-count" id="tools-count" aria-live="polite">
         Showing <strong><%= toolSlugs.length %></strong> tools
       </p>
-      <a href="/compiler" class="btn btn-secondary btn-sm">
+      <a href="/compiler/" class="btn btn-secondary btn-sm">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         Online Compiler
       </a>
@@ -92,7 +105,7 @@ var categoryColors = {
       <% toolSlugs.forEach(function(slug) { %>
         <% var tool = tools[slug]; %>
         <a
-          href="/tools/<%= slug %>"
+          href="/tools/<%= slug %>/"
           class="tool-card"
           role="listitem"
           data-category="<%= tool.category %>"

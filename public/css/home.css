@@ -11,8 +11,7 @@
   gap: 5rem;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 6rem var(--pad-x) 5rem;
-  min-height: calc(85vh - var(--nav-h));
+  padding: 5rem var(--pad-x);
 }
 
 .hero-content {
@@ -121,6 +120,86 @@
 .c-keyword  { color: #818cf8; }
 .c-string   { color: #86efac; }
 .c-function { color: #fbbf24; }
+.c-key      { color: #93c5fd; }
+.c-number   { color: #fb923c; }
+.c-bool     { color: #f87171; }
+.c-bracket  { color: #e5e7eb; }
+
+/* ========== API PREVIEW CARD (homepage [03] section) ========== */
+.api-preview-card {
+  background: #1a1a2e;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 0 1px rgba(255,255,255,0.03),
+    0 20px 60px -12px rgba(0,0,0,0.25);
+}
+
+.api-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #151525;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.api-preview-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.api-preview-dot--red    { background: #ff5f56; }
+.api-preview-dot--yellow { background: #ffbd2e; }
+.api-preview-dot--green  { background: #27c93f; }
+
+.api-preview-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-left: auto;
+  font-family: monospace;
+}
+
+.api-preview-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.api-preview-line {
+  font-family: monospace;
+  font-size: 0.8125rem;
+  color: #e5e7eb;
+  line-height: 1.7;
+  display: block;
+}
+
+.api-preview-badges {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.75rem 1.25rem 1rem;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.api-preview-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.api-preview-badge--green { background: #14532d; color: #86efac; }
+.api-preview-badge--blue  { background: #1e3a5f; color: #93c5fd; }
 
 
 /* ==========================================================================
@@ -195,12 +274,320 @@
 
 
 /* ==========================================================================
-   HOME — COMPILER FEATURE SECTION
+   HOME — COMPILER FEATURE SECTION (legacy — kept for compiler page)
    ========================================================================== */
 
 .compiler-section {
   background: var(--paper);
   border-bottom: 1px solid var(--border);
+}
+
+
+/* ==========================================================================
+   HOME — [02] SNIPPETS SECTION (Dark Code Showcase)
+   ========================================================================== */
+
+.snippets-section {
+  background: #0a0a14;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.snippets-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.snippets-section-header .section-number {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.snippets-section-header h2 {
+  color: #fff;
+}
+
+.snippets-lead {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.75;
+  max-width: 480px;
+  margin: 0;
+}
+
+.snippets-intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+.snippets-stats-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.snippets-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.snippets-stat-value {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.snippets-stat-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.snippets-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.12);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.snippets-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Three code preview cards */
+.snippets-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.snippet-preview {
+  background: #13131f;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.snippet-preview:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.snippet-preview--featured {
+  border-color: rgba(201, 40, 26, 0.3);
+}
+
+.snippet-preview--featured:hover {
+  border-color: rgba(201, 40, 26, 0.55);
+}
+
+.snippet-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1rem;
+  background: #0f0f1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.snippet-lang-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.snippet-lang-badge--css  { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.snippet-lang-badge--js   { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+.snippet-lang-badge--node { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+
+.snippet-preview-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.snippet-copy-hint {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: monospace;
+}
+
+.snippet-preview-code {
+  padding: 1rem 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+/* Language tags below cards */
+.snippets-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.snippets-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+}
+
+.snippets-tag--more {
+  color: var(--accent);
+  background: rgba(201, 40, 26, 0.08);
+  border-color: rgba(201, 40, 26, 0.2);
+}
+
+
+/* ==========================================================================
+   HOME — [03] APIS SECTION (Category Grid)
+   ========================================================================== */
+
+.apis-section {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.apis-intro {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.apis-lead {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0;
+}
+
+.apis-lead strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.apis-intro-right {
+  flex-shrink: 0;
+}
+
+/* 3×2 category card grid */
+.api-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.api-category-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.api-category-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(201, 40, 26, 0.07);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.api-category-icon {
+  font-size: 1.875rem;
+  line-height: 1;
+  margin-bottom: 0.875rem;
+  display: block;
+}
+
+.api-category-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.api-category-count {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.api-category-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: auto;
+}
+
+.api-example-tag {
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* Trust badges row */
+.apis-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.apis-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.apis-trust-badge svg {
+  color: var(--success);
+  flex-shrink: 0;
 }
 
 .compiler-grid {
@@ -312,22 +699,19 @@
   flex-wrap: wrap;
 }
 
-.community-actions .btn-primary {
-  background: var(--accent);
-  border-color: var(--accent);
+.community-discord-btn {
+  background: #5865f2;
+  border-color: #5865f2;
   color: #fff;
+  font-size: 0.9375rem;
 }
 
-.community-actions .btn-secondary {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.2);
+.community-discord-btn:hover {
+  background: #4752c4;
+  border-color: #4752c4;
   color: #fff;
-}
-
-.community-actions .btn-secondary:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
 }
 
 
@@ -432,14 +816,21 @@
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.chat-card-lock {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.3);
+.chat-card-discord-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #5865f2;
+  text-decoration: none;
+  transition: color 150ms ease, gap 150ms ease;
 }
 
-.chat-card-lock svg {
-  vertical-align: middle;
-  margin-right: 0.3rem;
+.chat-card-discord-link:hover {
+  color: #7983f5;
+  text-decoration: none;
+  gap: 8px;
 }
 
 
@@ -613,6 +1004,21 @@
   margin: 0;
 }
 
+.contribute-card--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.contribute-card--link:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.contribute-card--link h3 {
+  color: var(--accent);
+}
+
 
 /* ==========================================================================
    HOME — FINAL CTA
@@ -646,6 +1052,22 @@
 
 
 /* ==========================================================================
+   HOME — FAQ CARD (Non-interactive resource card variant)
+   ========================================================================== */
+
+.faq-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: default;
+}
+
+
+/* ==========================================================================
    HOME — SCROLL REVEAL ANIMATION (Progressive Enhancement)
    ========================================================================== */
 
@@ -673,6 +1095,10 @@
 
   .resources-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .api-categories-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -706,6 +1132,37 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
+  .snippets-intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .snippets-intro-right {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .snippets-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .apis-intro {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .apis-intro-right {
+    display: flex;
+  }
+
+  .api-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -716,11 +1173,36 @@
   .resources-grid {
     grid-template-columns: 1fr;
   }
+
+  .snippets-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .api-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .apis-trust-row {
+    gap: 0.875rem;
+  }
 }
 
 @media (max-width: 480px) {
   .tools-grid {
     grid-template-columns: 1fr;
+  }
+
+  .api-categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .snippets-stats-row {
+    gap: 1.25rem;
+  }
+
+  .snippets-intro-right {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .hero-actions,

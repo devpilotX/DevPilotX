@@ -35,6 +35,9 @@ const communityRoutes = require('./src/routes/community');
 const authRoutes = require('./src/routes/auth');
 const profileRoutes = require('./src/routes/profile');
 const blogRoutes = require('./src/routes/blog');
+const adminRoutes = require('./src/routes/admin');
+const snippetsRoutes = require('./src/routes/snippets');
+const apisRoutes = require('./src/routes/apis');
 const resourcesRoutes = require('./src/routes/resources');
 const pagesRoutes = require('./src/routes/pages');
 const legalRoutes = require('./src/routes/legal');
@@ -81,7 +84,8 @@ app.use(helmet({
         "https://pagead2.googlesyndication.com",
         "https://adservice.google.com",
         "https://cdn.jsdelivr.net",
-        "https://cdnjs.cloudflare.com"  /* SQL.js */
+        "https://cdnjs.cloudflare.com",  /* SQL.js */
+        "https://cdn.tiny.cloud"          /* TinyMCE rich text editor (admin only) */
       ],
       styleSrc: [
         "'self'",
@@ -172,10 +176,123 @@ app.use('/community', communityRoutes);
 app.use('/', authRoutes);
 app.use('/', profileRoutes);
 app.use('/blog', blogRoutes);
+app.use('/snippets', snippetsRoutes);
+app.use('/apis', apisRoutes);
+app.use('/admin', adminRoutes);
 app.use('/resources', resourcesRoutes);
 app.use('/', pagesRoutes);
 app.use('/legal', legalRoutes);
 app.use('/api', apiRoutes);
+
+/* ========== SITEMAP.XML ========== */
+/**
+ * Dynamically generated sitemap from all published articles + static pages.
+ * Cached for 6 hours to avoid DB hits on every request.
+ */
+let sitemapCache = { xml: null, generatedAt: 0 };
+const SITEMAP_TTL = 6 * 60 * 60 * 1000; /* 6 hours */
+
+app.get('/sitemap.xml', async (req, res) => {
+  try {
+    const now = Date.now();
+    if (!sitemapCache.xml || now - sitemapCache.generatedAt > SITEMAP_TTL) {
+      const SITE = process.env.SITE_URL || 'https://value.codes';
+      const today = new Date().toISOString().split('T')[0];
+
+      /* Fetch DB-driven content in parallel */
+      const [
+        [articles],
+        [snippetCats],
+        [apiCats],
+        [snippets],
+        [apis]
+      ] = await Promise.all([
+        db.query("SELECT slug, updated_at, published_at FROM articles WHERE status = 'published' ORDER BY published_at DESC"),
+        db.query("SELECT slug FROM snippet_categories ORDER BY name").catch(() => [[]]),
+        db.query("SELECT slug FROM api_categories ORDER BY name").catch(() => [[]]),
+        db.query("SELECT s.slug, sc.slug AS category_slug, s.updated_at FROM snippets s JOIN snippet_categories sc ON s.category_id = sc.id WHERE s.status = 'published' ORDER BY s.updated_at DESC").catch(() => [[]]),
+        db.query("SELECT a.slug, ac.slug AS category_slug, a.updated_at FROM apis a JOIN api_categories ac ON a.category_id = ac.id WHERE a.status = 'published' ORDER BY a.updated_at DESC").catch(() => [[]])
+      ]);
+
+      /* ---- Static pages ---- */
+      const staticPages = [
+        /* Core */
+        { loc: `${SITE}/`,          priority: '1.0', changefreq: 'daily',   lastmod: today },
+        { loc: `${SITE}/blog/`,     priority: '0.9', changefreq: 'daily',   lastmod: today },
+        { loc: `${SITE}/tools/`,    priority: '0.9', changefreq: 'weekly',  lastmod: today },
+        { loc: `${SITE}/compiler/`, priority: '0.8', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/snippets/`, priority: '0.8', changefreq: 'weekly',  lastmod: today },
+        { loc: `${SITE}/apis/`,     priority: '0.8', changefreq: 'weekly',  lastmod: today },
+        /* Tools — individual pages */
+        { loc: `${SITE}/tools/json-formatter/`,      priority: '0.8', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/regex-builder/`,       priority: '0.8', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/diff-checker/`,        priority: '0.8', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/base64-encoder/`,      priority: '0.8', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/color-picker/`,        priority: '0.7', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/cron-builder/`,        priority: '0.7', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/jwt-decoder/`,         priority: '0.8', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/hash-generator/`,      priority: '0.8', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/mock-data-generator/`, priority: '0.7', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/tools/code-formatter/`,      priority: '0.7', changefreq: 'monthly', lastmod: today },
+        /* Resources */
+        { loc: `${SITE}/resources/`,                    priority: '0.7', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/resources/developer-tools/`,    priority: '0.7', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/resources/best-practices/`,     priority: '0.7', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/resources/career-roadmaps/`,    priority: '0.7', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/resources/essential-software/`, priority: '0.6', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/resources/documentation/`,      priority: '0.6', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/resources/glossary/`,           priority: '0.6', changefreq: 'monthly', lastmod: today },
+        /* Company */
+        { loc: `${SITE}/about/`,   priority: '0.5', changefreq: 'monthly', lastmod: today },
+        { loc: `${SITE}/contact/`, priority: '0.4', changefreq: 'monthly', lastmod: today },
+        /* Legal */
+        { loc: `${SITE}/legal/privacy-policy/`,  priority: '0.3', changefreq: 'yearly', lastmod: today },
+        { loc: `${SITE}/legal/terms-of-service/`, priority: '0.3', changefreq: 'yearly', lastmod: today }
+      ];
+
+      const makeUrl = (loc, lastmod, changefreq, priority) =>
+        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+
+      const staticEntries  = staticPages.map(p => makeUrl(p.loc, p.lastmod, p.changefreq, p.priority));
+      const articleEntries = articles.map(a => makeUrl(
+        `${SITE}/blog/${a.slug}/`,
+        (a.updated_at || a.published_at || new Date()).toISOString().split('T')[0],
+        'monthly', '0.8'
+      ));
+      const snippetCatEntries = snippetCats.map(c => makeUrl(`${SITE}/snippets/${c.slug}/`, today, 'weekly', '0.7'));
+      const apiCatEntries     = apiCats.map(c => makeUrl(`${SITE}/apis/${c.slug}/`, today, 'weekly', '0.7'));
+      const snippetEntries    = snippets.map(s => makeUrl(
+        `${SITE}/snippets/${s.category_slug}/${s.slug}/`,
+        (s.updated_at || new Date()).toISOString().split('T')[0],
+        'monthly', '0.7'
+      ));
+      const apiEntries = apis.map(a => makeUrl(
+        `${SITE}/apis/${a.category_slug}/${a.slug}/`,
+        (a.updated_at || new Date()).toISOString().split('T')[0],
+        'monthly', '0.7'
+      ));
+
+      const allEntries = [
+        ...staticEntries,
+        ...articleEntries,
+        ...snippetCatEntries,
+        ...snippetEntries,
+        ...apiCatEntries,
+        ...apiEntries
+      ];
+
+      sitemapCache.xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allEntries.join('\n')}\n</urlset>`;
+      sitemapCache.generatedAt = now;
+    }
+
+    res.setHeader('Content-Type', 'application/xml');
+    res.setHeader('Cache-Control', 'public, max-age=21600'); /* 6 hours */
+    res.send(sitemapCache.xml);
+  } catch (err) {
+    process.stderr.write(`[Sitemap] Error: ${err.message}\n`);
+    res.status(500).send('<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>');
+  }
+});
 
 /* ========== 404 HANDLER ========== */
 /**
@@ -190,7 +307,7 @@ app.use((req, res) => {
     canonical: `${process.env.SITE_URL || 'https://value.codes'}${req.originalUrl}`,
     robots: 'noindex, nofollow',
     ogType: 'website',
-    ogImage: `${process.env.SITE_URL || 'https://value.codes'}/images/og-image.jpg`,
+    ogImage: `${process.env.SITE_URL || 'https://value.codes'}/images/og-image.svg`,
     schema: null,
     pageCSS: ['/css/errors.css'],
     pageJS: []
@@ -214,7 +331,7 @@ app.use((err, req, res, _next) => {
     canonical: process.env.SITE_URL || 'https://value.codes',
     robots: 'noindex, nofollow',
     ogType: 'website',
-    ogImage: `${process.env.SITE_URL || 'https://value.codes'}/images/og-image.jpg`,
+    ogImage: `${process.env.SITE_URL || 'https://value.codes'}/images/og-image.svg`,
     schema: null,
     pageCSS: ['/css/errors.css'],
     pageJS: []
