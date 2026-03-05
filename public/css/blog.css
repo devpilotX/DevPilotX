@@ -392,10 +392,17 @@
 .blog-post-hero-full {
   position: relative;
   width: 100%;
-  max-height: 92vh;
-  min-height: 520px;
+  max-height: 75vh;
+  min-height: 420px;
   overflow: hidden;
-  background: #0d0d0d;
+  background: #1a1a1a;
+}
+
+/* Hide hero entirely if image fails — fallback handled below */
+.blog-post-hero-full.no-image {
+  min-height: 0;
+  max-height: none;
+  background: var(--surface);
 }
 
 .blog-post-hero-full__figure {
@@ -440,14 +447,35 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 520px;
+  min-height: 420px;
   padding: 0 0 3.5rem;
+}
+
+.blog-post-hero-full.no-image .blog-post-hero-full__content {
+  min-height: 0;
+  padding: 3rem 0 2rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-post-hero-full.no-image .blog-post-hero-full__title {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.blog-post-hero-full.no-image .blog-post-hero-full__subtitle {
+  color: var(--muted);
+  text-shadow: none;
+}
+
+.blog-post-hero-full.no-image .blog-post-hero-full__overlay {
+  display: none;
 }
 
 .blog-post-hero-full__inner {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
   width: 100%;
 }
 
@@ -499,7 +527,7 @@
 .blog-post-meta-bar__inner {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -647,10 +675,15 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Hidden until headings are found */
+.blog-toc-bar--hidden {
+  display: none !important;
+}
+
 .blog-toc-bar__container {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
 }
 
 .blog-toc-bar__toggle {
@@ -696,6 +729,11 @@
   overflow-y: auto;
 }
 
+/* Dropdown closed state — class-based so no CSS reset can override */
+.blog-toc-dropdown--closed {
+  display: none !important;
+}
+
 .blog-toc-dropdown__nav {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -736,10 +774,10 @@
 
 /* ─── MAIN ARTICLE CONTENT — centered single column ─── */
 .blog-post-main {
-  max-width: 720px;
+  max-width: 860px;
   width: 100%;
   margin: 0 auto;
-  padding: 3.5rem 2rem 5rem;
+  padding: 2.5rem 2.5rem 5rem;
   box-sizing: border-box;
   overflow: hidden;
 }

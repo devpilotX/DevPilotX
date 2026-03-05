@@ -19,7 +19,7 @@
         fetchpriority="high"
         decoding="async"
         class="blog-post-hero-full__img"
-        onerror="this.onerror=null;this.src='/images/blog/placeholder.svg'"
+        onerror="this.closest('.blog-post-hero-full').classList.add('no-image'); this.style.display='none';"
       >
       <div class="blog-post-hero-full__overlay"></div>
     </figure>
@@ -88,7 +88,7 @@
   </div>
 
   <%# ─── FLOATING TOC BAR ─── %>
-  <div class="blog-toc-bar" id="blogTocBar" aria-label="Table of contents" hidden>
+  <div class="blog-toc-bar blog-toc-bar--hidden" id="blogTocBar" aria-label="Table of contents">
     <div class="blog-toc-bar__container">
       <button class="blog-toc-bar__toggle" id="tocToggleBtn" aria-expanded="false" aria-controls="tocDropdown" type="button">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
@@ -96,7 +96,7 @@
         <svg class="blog-toc-bar__chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
     </div>
-    <div class="blog-toc-bar__dropdown" id="tocDropdown" hidden>
+    <div class="blog-toc-bar__dropdown blog-toc-dropdown--closed" id="tocDropdown">
       <div class="blog-toc-bar__container">
         <nav class="blog-toc-dropdown__nav" data-blog-toc aria-label="Article sections"></nav>
       </div>
@@ -249,7 +249,8 @@
   function buildToc() {
     var headings = document.querySelectorAll('#blogArticleBody h2, #blogArticleBody h3');
     if (!headings.length) return;
-    tocBar.removeAttribute('hidden');
+    // Show TOC bar
+    tocBar.classList.remove('blog-toc-bar--hidden');
     var frag = document.createDocumentFragment();
     headings.forEach(function (h) {
       if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -258,14 +259,14 @@
       a.textContent = h.textContent;
       a.className = 'blog-toc__link' + (h.tagName === 'H3' ? ' blog-toc__link--h3' : '');
       a.addEventListener('click', function () {
-        tocDrop.setAttribute('hidden', '');
+        tocDrop.classList.add('blog-toc-dropdown--closed');
         tocBtn.setAttribute('aria-expanded', 'false');
       });
       frag.appendChild(a);
     });
     tocNav.appendChild(frag);
 
-    /* Active highlight */
+    /* Active highlight on scroll */
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
@@ -282,9 +283,14 @@
   }
 
   tocBtn && tocBtn.addEventListener('click', function () {
-    var expanded = tocBtn.getAttribute('aria-expanded') === 'true';
-    tocBtn.setAttribute('aria-expanded', String(!expanded));
-    expanded ? tocDrop.setAttribute('hidden', '') : tocDrop.removeAttribute('hidden');
+    var isOpen = !tocDrop.classList.contains('blog-toc-dropdown--closed');
+    if (isOpen) {
+      tocDrop.classList.add('blog-toc-dropdown--closed');
+      tocBtn.setAttribute('aria-expanded', 'false');
+    } else {
+      tocDrop.classList.remove('blog-toc-dropdown--closed');
+      tocBtn.setAttribute('aria-expanded', 'true');
+    }
   });
 
   /* ── Share buttons ── */
