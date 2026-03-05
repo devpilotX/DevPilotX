@@ -368,6 +368,13 @@
    ============================================================
    ============================================================ */
 
+/* ─── Post page global overflow guard ─── */
+.blog-post-page {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
 /* ─── Reading Progress Bar ─── */
 .blog-progress-bar {
   position: fixed;
@@ -730,8 +737,11 @@
 /* ─── MAIN ARTICLE CONTENT — centered single column ─── */
 .blog-post-main {
   max-width: 720px;
+  width: 100%;
   margin: 0 auto;
   padding: 3.5rem 2rem 5rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* ─── In-article ads ─── */
@@ -740,12 +750,15 @@
 }
 
 /* ─── Article typography ─── */
-.blog-article { min-width: 0; }
+.blog-article { min-width: 0; max-width: 100%; }
 
 .blog-article__body {
   font-size: 1.0625rem;
   line-height: 1.82;
   color: #1a1a1a;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .blog-article__body p { margin: 0 0 1.625rem; }
