@@ -88,7 +88,7 @@
   </div>
 
   <%# ─── FLOATING TOC BAR ─── %>
-  <div class="blog-toc-bar blog-toc-bar--hidden" id="blogTocBar" aria-label="Table of contents">
+  <div class="blog-toc-bar" id="blogTocBar" aria-label="Table of contents" hidden>
     <div class="blog-toc-bar__container">
       <button class="blog-toc-bar__toggle" id="tocToggleBtn" aria-expanded="false" aria-controls="tocDropdown" type="button">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
@@ -96,7 +96,7 @@
         <svg class="blog-toc-bar__chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
     </div>
-    <div class="blog-toc-bar__dropdown blog-toc-dropdown--closed" id="tocDropdown">
+    <div class="blog-toc-bar__dropdown" id="tocDropdown" hidden>
       <div class="blog-toc-bar__container">
         <nav class="blog-toc-dropdown__nav" data-blog-toc aria-label="Article sections"></nav>
       </div>
@@ -223,127 +223,4 @@
 
 </div>
 
-<%# ─── SCRIPTS ─── %>
-<script>
-(function () {
-  'use strict';
-
-  /* ── Reading progress ── */
-  var bar = document.getElementById('blogProgressBar');
-  function updateProgress() {
-    var body = document.body, docEl = document.documentElement;
-    var scrollTop = window.scrollY || docEl.scrollTop;
-    var total = Math.max(body.scrollHeight, docEl.scrollHeight) - window.innerHeight;
-    var pct = total > 0 ? Math.min(100, (scrollTop / total) * 100) : 0;
-    bar.style.setProperty('--progress', pct + '%');
-    bar.setAttribute('aria-valuenow', Math.round(pct));
-  }
-
-  /* ── TOC ── */
-  var tocBar = document.getElementById('blogTocBar');
-  var tocBtn = document.getElementById('tocToggleBtn');
-  var tocDrop = document.getElementById('tocDropdown');
-  var tocNav = document.querySelector('[data-blog-toc]');
-  var tocLabel = document.getElementById('tocActiveLabel');
-
-  function buildToc() {
-    var headings = document.querySelectorAll('#blogArticleBody h2, #blogArticleBody h3');
-    if (!headings.length) return;
-    // Show TOC bar
-    tocBar.classList.remove('blog-toc-bar--hidden');
-    var frag = document.createDocumentFragment();
-    headings.forEach(function (h) {
-      if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      var a = document.createElement('a');
-      a.href = '#' + h.id;
-      a.textContent = h.textContent;
-      a.className = 'blog-toc__link' + (h.tagName === 'H3' ? ' blog-toc__link--h3' : '');
-      a.addEventListener('click', function () {
-        tocDrop.classList.add('blog-toc-dropdown--closed');
-        tocBtn.setAttribute('aria-expanded', 'false');
-      });
-      frag.appendChild(a);
-    });
-    tocNav.appendChild(frag);
-
-    /* Active highlight on scroll */
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          tocNav.querySelectorAll('.blog-toc__link').forEach(function (l) { l.classList.remove('is-active'); });
-          var active = tocNav.querySelector('a[href="#' + e.target.id + '"]');
-          if (active) {
-            active.classList.add('is-active');
-            tocLabel.textContent = e.target.textContent.substring(0, 55);
-          }
-        }
-      });
-    }, { rootMargin: '-10% 0px -80% 0px' });
-    headings.forEach(function (h) { observer.observe(h); });
-  }
-
-  tocBtn && tocBtn.addEventListener('click', function () {
-    var isOpen = !tocDrop.classList.contains('blog-toc-dropdown--closed');
-    if (isOpen) {
-      tocDrop.classList.add('blog-toc-dropdown--closed');
-      tocBtn.setAttribute('aria-expanded', 'false');
-    } else {
-      tocDrop.classList.remove('blog-toc-dropdown--closed');
-      tocBtn.setAttribute('aria-expanded', 'true');
-    }
-  });
-
-  /* ── Share buttons ── */
-  document.querySelectorAll('[data-share]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var type = btn.dataset.share;
-      var url = encodeURIComponent(window.location.href);
-      var title = encodeURIComponent(document.title);
-      if (type === 'twitter') window.open('https://x.com/intent/tweet?url=' + url + '&text=' + title, '_blank', 'noopener');
-      if (type === 'linkedin') window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank', 'noopener');
-      if (type === 'copy') {
-        navigator.clipboard.writeText(window.location.href).then(function () {
-          btn.textContent = '✓ Copied!';
-          setTimeout(function () { btn.innerHTML = btn.dataset.origHtml || 'Copy Link'; }, 2000);
-        });
-      }
-    });
-  });
-
-  /* ── Newsletter popup ── */
-  var popup = document.getElementById('blogNlPopup');
-  var nlClose = document.getElementById('blogNlClose');
-  var dismissed = false;
-  try { dismissed = !!localStorage.getItem('nl_dismissed'); } catch (e) {}
-
-  function showPopup() {
-    if (!dismissed && popup) {
-      popup.removeAttribute('hidden');
-      popup.classList.add('is-visible');
-    }
-  }
-
-  nlClose && nlClose.addEventListener('click', function () {
-    popup.classList.remove('is-visible');
-    setTimeout(function () { popup.setAttribute('hidden', ''); }, 320);
-    try { localStorage.setItem('nl_dismissed', '1'); } catch (e) {}
-    dismissed = true;
-  });
-
-  /* Show popup after reading 40% of article */
-  var popupShown = false;
-  function checkPopup() {
-    if (popupShown || dismissed) return;
-    var el = document.getElementById('blogArticleBody');
-    if (!el) return;
-    var rect = el.getBoundingClientRect();
-    var totalH = el.offsetHeight;
-    var read = -rect.top + window.innerHeight;
-    if (read / totalH > 0.4) { showPopup(); popupShown = true; }
-  }
-
-  window.addEventListener('scroll', function () { updateProgress(); checkPopup(); }, { passive: true });
-  updateProgress();
-  buildToc();
-})();
-</script>
+<%# Scripts are handled by the site's existing JS file %>

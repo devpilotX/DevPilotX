@@ -675,11 +675,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Hidden until headings are found */
-.blog-toc-bar--hidden {
-  display: none !important;
-}
-
 .blog-toc-bar__container {
   max-width: 860px;
   margin: 0 auto;
@@ -727,11 +722,6 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
   max-height: 60vh;
   overflow-y: auto;
-}
-
-/* Dropdown closed state — class-based so no CSS reset can override */
-.blog-toc-dropdown--closed {
-  display: none !important;
 }
 
 .blog-toc-dropdown__nav {
