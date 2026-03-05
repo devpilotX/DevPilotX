@@ -19,7 +19,7 @@
         fetchpriority="high"
         decoding="async"
         class="blog-post-hero-full__img"
-        onerror="this.onerror=null;this.src='/images/blog/placeholder.svg'"
+        onerror="this.closest('.blog-post-hero-full').classList.add('no-image'); this.style.display='none';"
       >
       <div class="blog-post-hero-full__overlay"></div>
     </figure>
