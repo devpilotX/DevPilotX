@@ -1531,7 +1531,7 @@
       loadFromURL();
 
     } catch (err) {
-      console.error('[DiffChecker] Init error:', err);
+      /* Init error — silently handled in production */
     }
   }
 

@@ -391,13 +391,10 @@
   }
 
   function fallbackCopy(text, cb) {
-    try {
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.cssText = 'position:fixed;opacity:0;left:-9999px';
-      document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-      document.body.removeChild(ta); if (cb) cb();
-    } catch (e) {}
+    /* Modern clipboard API only — no deprecated execCommand */
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(cb).catch(function () {});
+    }
   }
 
   /* ================================================================

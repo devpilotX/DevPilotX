@@ -22,18 +22,7 @@
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(decoded).then(function () {
             showCopiedState(btn);
-          });
-        } else {
-          /* Fallback for older browsers */
-          var textarea = document.createElement('textarea');
-          textarea.value = decoded;
-          textarea.setAttribute('readonly', '');
-          textarea.setAttribute('aria-hidden', 'true');
-          document.body.appendChild(textarea);
-          textarea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textarea);
-          showCopiedState(btn);
+          }).catch(function () { /* clipboard unavailable */ });
         }
       });
     });

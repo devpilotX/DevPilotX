@@ -1387,19 +1387,16 @@
   }
 
   function fallbackCopy(text, label) {
-    var temp = document.createElement('textarea');
-    temp.value = text;
-    temp.setAttribute('readonly', '');
-    temp.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0';
-    document.body.appendChild(temp);
-    temp.select();
-    try {
-      document.execCommand('copy');
-      showToast((label || 'Copied') + ' to clipboard', 'success');
-    } catch (_) {
-      showToast('Copy failed', 'error');
+    /* No deprecated execCommand — clipboard API is the only path */
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function () {
+        showToast((label || 'Copied') + ' to clipboard', 'success');
+      }).catch(function () {
+        showToast('Copy failed', 'error');
+      });
+    } else {
+      showToast('Copy not supported in this browser', 'error');
     }
-    document.body.removeChild(temp);
   }
 
   function pasteFromClipboard() {

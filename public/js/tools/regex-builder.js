@@ -119,16 +119,7 @@
     if (!text) return;
     var done = function () { flashBtn(btn); };
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done, done);
-    } else {
-      var t = document.createElement('textarea');
-      t.value = text;
-      t.style.cssText = 'position:fixed;left:-9999px';
-      document.body.appendChild(t);
-      t.select();
-      try { document.execCommand('copy'); } catch (_) {}
-      document.body.removeChild(t);
-      done();
+      navigator.clipboard.writeText(text).then(done).catch(function () { done(); });
     }
   }
 

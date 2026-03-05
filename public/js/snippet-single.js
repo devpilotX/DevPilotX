@@ -65,25 +65,7 @@
           btn.classList.remove('copied');
           if (textEl) textEl.textContent = originalText;
         }, 2000);
-      }).catch(function () {
-        /* Fallback for older browsers */
-        try {
-          var range = document.createRange();
-          range.selectNodeContents(codeEl);
-          var sel = window.getSelection();
-          sel.removeAllRanges();
-          sel.addRange(range);
-          document.execCommand('copy');
-          sel.removeAllRanges();
-
-          var textEl = btn.querySelector('.snippet-copy-text');
-          if (textEl) {
-            var orig = textEl.textContent;
-            textEl.textContent = 'Copied!';
-            setTimeout(function () { textEl.textContent = orig; }, 2000);
-          }
-        } catch (e) { /* silent */ }
-      });
+      }).catch(function () { /* clipboard unavailable */ });
     });
   });
 })();

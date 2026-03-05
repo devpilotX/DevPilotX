@@ -63,9 +63,15 @@
       rootMargin: '0px 0px -40px 0px'
     });
 
+    var viewportH = window.innerHeight;
     revealTargets.forEach(function (el) {
-      el.classList.add('reveal-target');
-      revealObserver.observe(el);
+      var rect = el.getBoundingClientRect();
+      if (rect.top < viewportH) {
+        el.classList.add('revealed');
+      } else {
+        el.classList.add('reveal-target');
+        revealObserver.observe(el);
+      }
     });
   }
 

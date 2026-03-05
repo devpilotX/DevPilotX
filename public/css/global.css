@@ -642,15 +642,9 @@ img {
   contain: layout style;
 }
 
-/* Prevent CLS from images without intrinsic dimensions */
-img[width][height] {
-  aspect-ratio: attr(width) / attr(height);
-}
-
-/* Improve paint performance on scroll-heavy sections */
-.blog-sidebar,
+/* Promote TOC bar to own layer for smooth sticky behavior */
 .blog-toc-bar {
-  will-change: transform;
+  contain: layout style;
 }
 
 /* Ensure images don't cause layout shift */
