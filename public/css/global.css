@@ -629,15 +629,13 @@ img {
    GLOBAL — PERFORMANCE / CORE WEB VITALS
    ========================================================================== */
 
-/* Prevent CLS from AdSense ad containers loading in */
+/* Ad containers — NO min-height to avoid blank white gaps when ads don't load */
 .ad-leaderboard {
-  min-height: 90px;
   overflow: hidden;
   contain: layout style;
 }
 
 .ad-in-article {
-  min-height: 200px;
   overflow: hidden;
   contain: layout style;
 }
@@ -672,6 +670,6 @@ img {
   }
 
   .ad-leaderboard {
-    min-height: 50px;
+    min-height: 0;
   }
 }
