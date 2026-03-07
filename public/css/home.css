@@ -24,6 +24,26 @@
   margin-bottom: 1.25rem;
 }
 
+/* Hero stats row */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.hero-stat-sep {
+  color: var(--border);
+  font-weight: 300;
+}
+
 .hero-content .accent {
   color: var(--accent);
 }
@@ -36,12 +56,9 @@
   margin-bottom: 1.75rem;
 }
 
+/* hero-badges kept for backwards compat, now hidden in favour of hero-stats */
 .hero-badges {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.75rem;
-  flex-wrap: wrap;
+  display: none;
 }
 
 .hero-actions {
@@ -222,32 +239,18 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.75rem;
-  padding: 1.5rem;
+  gap: 0.625rem;
+  padding: 1.375rem 1.25rem;
   background: var(--paper);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   text-decoration: none;
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition),
-    transform var(--transition);
+  transition: border-color var(--transition);
 }
 
 .tool-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 20px rgba(201, 40, 26, 0.08);
-  transform: translateY(-2px);
+  border-color: #9ca3af;
   text-decoration: none;
-}
-
-.tool-card:active {
-  transform: translateY(0);
-}
-
-.tool-card-icon {
-  font-size: 1.75rem;
-  line-height: 1;
 }
 
 .tool-card-name {
@@ -301,12 +304,11 @@
   margin-bottom: 2rem;
 }
 
-.snippets-section-header .section-number {
-  color: rgba(255, 255, 255, 0.25);
-}
-
-.snippets-section-header h2 {
+.snippets-heading {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
   color: #fff;
+  margin: 0 0 0.5rem;
 }
 
 .snippets-lead {
@@ -511,29 +513,17 @@
 .api-category-card {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 1.25rem 1.375rem;
   background: var(--paper);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   text-decoration: none;
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition),
-    transform var(--transition);
+  transition: border-color var(--transition);
 }
 
 .api-category-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 20px rgba(201, 40, 26, 0.07);
-  transform: translateY(-2px);
+  border-color: #9ca3af;
   text-decoration: none;
-}
-
-.api-category-icon {
-  font-size: 1.875rem;
-  line-height: 1;
-  margin-bottom: 0.875rem;
-  display: block;
 }
 
 .api-category-name {
@@ -568,12 +558,33 @@
   white-space: nowrap;
 }
 
-/* Trust badges row */
-.apis-trust-row {
+/* Trust badges row (legacy — overridden below) */
+.apis-trust-row-legacy {
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
   align-items: center;
+}
+
+/* Trust row */
+.apis-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 0;
+  margin-top: 1.25rem;
+}
+
+.apis-trust-item {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.apis-trust-sep {
+  margin: 0 0.75rem;
+  color: var(--border);
+  font-weight: 300;
 }
 
 .apis-trust-badge {
@@ -846,31 +857,28 @@
 
 .resource-card {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.5rem;
+  flex-direction: column;
+  padding: 1.25rem 1.375rem;
   background: var(--paper);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   text-decoration: none;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition: border-color var(--transition);
 }
 
 .resource-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 2px 12px rgba(201, 40, 26, 0.06);
+  border-color: #9ca3af;
   text-decoration: none;
-}
-
-.resource-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  line-height: 1;
 }
 
 .resource-body h3 {
   font-size: 0.9375rem;
-  margin-bottom: 0.35rem;
+  margin: 0 0 0.35rem;
+  transition: color var(--transition);
+}
+
+.resource-card:hover .resource-body h3 {
+  color: var(--accent);
 }
 
 .resource-body p {
@@ -972,10 +980,7 @@
 }
 
 .contribute-card {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1.25rem;
+  padding: 1.125rem 1.25rem;
   background: var(--paper);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -983,13 +988,7 @@
 }
 
 .contribute-card:hover {
-  border-color: var(--accent);
-}
-
-.contribute-card-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  line-height: 1;
+  border-color: #9ca3af;
 }
 
 .contribute-card-body h3 {
@@ -1052,18 +1051,57 @@
 
 
 /* ==========================================================================
-   HOME — FAQ CARD (Non-interactive resource card variant)
+   HOME — SECTION TITLE (shared)
    ========================================================================== */
 
-.faq-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.5rem;
+.section-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+
+/* ==========================================================================
+   HOME — FAQ LIST
+   ========================================================================== */
+
+.faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.faq-item {
+  padding: 1.25rem 1.375rem;
   background: var(--paper);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  cursor: default;
+}
+
+.faq-item h3 {
+  font-size: 0.9375rem;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.faq-item p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Legacy faq-card kept for compat */
+.faq-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
 
@@ -1174,6 +1212,10 @@
     grid-template-columns: 1fr;
   }
 
+  .faq-list {
+    grid-template-columns: 1fr;
+  }
+
   .snippets-cards {
     grid-template-columns: 1fr;
   }
@@ -1183,7 +1225,7 @@
   }
 
   .apis-trust-row {
-    gap: 0.875rem;
+    gap: 0.5rem;
   }
 }
 

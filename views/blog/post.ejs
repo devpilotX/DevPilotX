@@ -1,48 +1,15 @@
 <%# ============================================================ %>
-<%# blog/post.ejs — Aeon-Style Editorial Blog Post Layout       %>
+<%# blog/post.ejs — Two-Column Blog Post Layout (Odin-style)   %>
 <%# ============================================================ %>
 
-<%# ─── Reading Progress Bar ─── %>
+<%# Reading Progress Bar %>
 <div class="blog-progress-bar" id="blogProgressBar" aria-hidden="true"></div>
 
 <div class="blog-post-page">
 
-  <%# ─── FULL-BLEED HERO (Aeon-style) ─── %>
-  <div class="blog-post-hero-full" id="blogPostHero">
-    <figure class="blog-post-hero-full__figure">
-      <img
-        src="<%= blog.thumbnail || '/images/blog/placeholder.svg' %>"
-        alt="<%= blog.title %>"
-        width="1600"
-        height="900"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        class="blog-post-hero-full__img"
-        onerror="this.closest('.blog-post-hero-full').classList.add('no-image'); this.style.display='none';"
-      >
-      <div class="blog-post-hero-full__overlay"></div>
-    </figure>
-
-    <%# Title on top of hero like Aeon %>
-    <div class="blog-post-hero-full__content">
-      <div class="blog-post-hero-full__inner">
-        <% if (blog.category_name) { %>
-        <a href="/blog/category/<%= blog.category_slug %>/" class="blog-post-hero-full__cat">
-          <%= blog.category_name %>
-        </a>
-        <% } %>
-        <h1 class="blog-post-hero-full__title"><%= blog.title %></h1>
-        <% if (blog.summary) { %>
-        <p class="blog-post-hero-full__subtitle"><%= blog.summary %></p>
-        <% } %>
-      </div>
-    </div>
-  </div>
-
-  <%# ─── ARTICLE META BAR ─── %>
-  <div class="blog-post-meta-bar">
-    <div class="blog-post-meta-bar__inner">
+  <%# Post Header %>
+  <div class="blog-post-header">
+    <div class="blog-post-header__inner">
 
       <nav class="blog-breadcrumb" aria-label="Breadcrumb">
         <ol class="blog-breadcrumb__list">
@@ -52,77 +19,38 @@
         </ol>
       </nav>
 
-      <div class="blog-post-meta-bar__right">
-        <div class="blog-post__author">
-          <div class="blog-post__avatar" aria-hidden="true">
-            <%= (blog.author || 'V').charAt(0).toUpperCase() %>
-          </div>
-          <div class="blog-post__author-info">
-            <span class="blog-post__author-name"><%= blog.author %></span>
-            <div class="blog-post__date-info">
-              <time datetime="<%= blog.published_at || '' %>"><%= blog.formattedDate %></time>
-              <span class="blog-post__dot" aria-hidden="true">&middot;</span>
-              <span><%= blog.readTime %></span>
-              <% if (blog.views > 0) { %>
-              <span class="blog-post__dot" aria-hidden="true">&middot;</span>
-              <span><%= blog.views.toLocaleString() %> views</span>
-              <% } %>
-            </div>
-          </div>
-        </div>
+      <% if (blog.category_name) { %>
+      <a href="/blog/category/<%= blog.category_slug %>/" class="blog-post-cat-link">
+        <%= blog.category_name %>
+      </a>
+      <% } %>
 
-        <div class="blog-post__share-icons" aria-label="Share this article">
-          <button class="blog-share-btn" type="button" data-share="twitter" aria-label="Share on X (Twitter)">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </button>
-          <button class="blog-share-btn" type="button" data-share="linkedin" aria-label="Share on LinkedIn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </button>
-          <button class="blog-share-btn" type="button" data-share="copy" aria-label="Copy link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          </button>
-        </div>
+      <h1 class="blog-post-title"><%= blog.title %></h1>
+
+      <% if (blog.summary) { %>
+      <p class="blog-post-subtitle"><%= blog.summary %></p>
+      <% } %>
+
+      <div class="blog-post-meta">
+        <span class="blog-post-meta__author"><%= blog.author %></span>
+        <span class="blog-post-meta__sep" aria-hidden="true">|</span>
+        <time datetime="<%= blog.published_at || '' %>"><%= blog.formattedDate %></time>
+        <span class="blog-post-meta__sep" aria-hidden="true">|</span>
+        <span><%= blog.readTime %></span>
+        <% if (blog.views > 0) { %>
+        <span class="blog-post-meta__sep" aria-hidden="true">|</span>
+        <span><%= blog.views.toLocaleString() %> views</span>
+        <% } %>
       </div>
 
     </div>
   </div>
 
-  <%# ─── FLOATING TOC BAR ─── %>
-  <div class="blog-toc-bar" id="blogTocBar" aria-label="Table of contents" hidden>
-    <div class="blog-toc-bar__container">
-      <button class="blog-toc-bar__toggle" id="tocToggleBtn" aria-expanded="false" aria-controls="tocDropdown" type="button">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-        <span id="tocActiveLabel">Contents</span>
-        <svg class="blog-toc-bar__chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-    </div>
-    <div class="blog-toc-bar__dropdown" id="tocDropdown" hidden>
-      <div class="blog-toc-bar__container">
-        <nav class="blog-toc-dropdown__nav" data-blog-toc aria-label="Article sections"></nav>
-      </div>
-    </div>
-  </div>
+  <%# Two-Column Layout %>
+  <div class="blog-post-layout">
 
-  <%# ─── ARTICLE BODY — single centered column ─── %>
-  <main class="blog-post-main" aria-label="Article content">
-
-    <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-    <div class="blog-ad-inline" aria-label="Advertisement">
-      <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-layout="in-article"
-           data-ad-format="fluid"
-           data-ad-client="<%= adsensePubId %>"
-           data-ad-slot="auto"></ins>
-    </div>
-    <% } %>
-
-    <article class="blog-article" aria-labelledby="blogArticleTitle">
-      <h2 class="sr-only" id="blogArticleTitle">Article body</h2>
-
-      <div class="blog-article__body" id="blogArticleBody">
-        <%- article ? article.content : (blog ? blog.content : '') %>
-      </div>
+    <%# Main Article Content %>
+    <main class="blog-post-main" aria-label="Article content">
 
       <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
       <div class="blog-ad-inline" aria-label="Advertisement">
@@ -135,92 +63,89 @@
       </div>
       <% } %>
 
-      <%# ─── TAGS ─── %>
-      <% if (blog.tags && blog.tags.length > 0) { %>
-      <div class="blog-post__footer-tags">
-        <span class="blog-post__tags-label">Tagged:</span>
-        <% blog.tags.forEach(function(tag) { %>
-        <a href="/blog/?tag=<%= encodeURIComponent(tag) %>" class="blog-tag-link"><%= tag %></a>
-        <% }); %>
-      </div>
+      <article class="blog-article">
+        <div class="blog-article__body" id="blogArticleBody">
+          <%- article ? article.content : (blog ? blog.content : '') %>
+        </div>
+
+        <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
+        <div class="blog-ad-inline" aria-label="Advertisement">
+          <ins class="adsbygoogle"
+               style="display:block; text-align:center;"
+               data-ad-layout="in-article"
+               data-ad-format="fluid"
+               data-ad-client="<%= adsensePubId %>"
+               data-ad-slot="auto"></ins>
+        </div>
+        <% } %>
+
+        <%# Tags %>
+        <% if (blog.tags && blog.tags.length > 0) { %>
+        <div class="blog-post__footer-tags">
+          <span class="blog-post__tags-label">Tagged:</span>
+          <% blog.tags.forEach(function(tag) { %>
+          <a href="/blog/?tag=<%= encodeURIComponent(tag) %>" class="blog-tag-link"><%= tag %></a>
+          <% }); %>
+        </div>
+        <% } %>
+
+        <%# Share Row %>
+        <div class="blog-post__share-bottom">
+          <p class="blog-post__share-label">Found this helpful? Share it:</p>
+          <div class="blog-post__share-actions">
+            <button class="blog-share-btn" type="button" data-share="twitter" aria-label="Share on X (Twitter)">Share on X</button>
+            <button class="blog-share-btn" type="button" data-share="linkedin" aria-label="Share on LinkedIn">LinkedIn</button>
+            <button class="blog-share-btn" type="button" data-share="copy" aria-label="Copy link">Copy Link</button>
+          </div>
+        </div>
+
+        <%# Prev / Next %>
+        <nav class="blog-post-nav" aria-label="Previous and next articles">
+          <% if (prevPost) { %>
+          <a href="/blog/<%= prevPost.slug %>/" class="blog-post-nav__link blog-post-nav__link--prev">
+            <span class="blog-post-nav__dir">Previous</span>
+            <span class="blog-post-nav__title"><%= prevPost.title %></span>
+          </a>
+          <% } else { %>
+          <div></div>
+          <% } %>
+          <% if (nextPost) { %>
+          <a href="/blog/<%= nextPost.slug %>/" class="blog-post-nav__link blog-post-nav__link--next">
+            <span class="blog-post-nav__dir">Next</span>
+            <span class="blog-post-nav__title"><%= nextPost.title %></span>
+          </a>
+          <% } %>
+        </nav>
+
+      </article>
+
+      <%# Related Articles %>
+      <% if (relatedPosts && relatedPosts.length > 0) { %>
+      <section class="blog-related" aria-labelledby="relatedHeading">
+        <h2 class="blog-related__heading" id="relatedHeading">Related Articles</h2>
+        <div class="blog-related__grid">
+          <% relatedPosts.forEach(function(rp) { %>
+          <a href="/blog/<%= rp.slug %>/" class="blog-related__card">
+            <div class="blog-related__card-body">
+              <span class="blog-related__card-title"><%= rp.title %></span>
+              <span class="blog-related__card-date"><%= rp.formattedDate %></span>
+            </div>
+          </a>
+          <% }); %>
+        </div>
+      </section>
       <% } %>
 
-      <%# ─── SHARE ROW (bottom) ─── %>
-      <div class="blog-post__share-bottom">
-        <p class="blog-post__share-label">Found this helpful? Share it:</p>
-        <div class="blog-post__share-actions">
-          <button class="blog-share-btn blog-share-btn--labeled" type="button" data-share="twitter">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            Share on X
-          </button>
-          <button class="blog-share-btn blog-share-btn--labeled" type="button" data-share="linkedin">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </button>
-          <button class="blog-share-btn blog-share-btn--labeled blog-share-btn--ghost" type="button" data-share="copy">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-            Copy Link
-          </button>
-        </div>
+    </main>
+
+    <%# Sidebar TOC — Odin Project style %>
+    <aside class="blog-post-sidebar" aria-label="Table of contents">
+      <div class="blog-toc-sidebar" id="blogTocSidebar">
+        <p class="blog-toc-sidebar__heading">Contents</p>
+        <nav class="blog-toc-sidebar__nav" data-blog-toc aria-label="Article sections"></nav>
       </div>
+    </aside>
 
-      <%# ─── PREV / NEXT ─── %>
-      <nav class="blog-post-nav" aria-label="Previous and next articles">
-        <% if (prevPost) { %>
-        <a href="/blog/<%= prevPost.slug %>/" class="blog-post-nav__link blog-post-nav__link--prev">
-          <span class="blog-post-nav__dir">← Previous</span>
-          <span class="blog-post-nav__title"><%= prevPost.title %></span>
-        </a>
-        <% } else { %>
-        <div></div>
-        <% } %>
-        <% if (nextPost) { %>
-        <a href="/blog/<%= nextPost.slug %>/" class="blog-post-nav__link blog-post-nav__link--next">
-          <span class="blog-post-nav__dir">Next →</span>
-          <span class="blog-post-nav__title"><%= nextPost.title %></span>
-        </a>
-        <% } %>
-      </nav>
-
-    </article>
-
-    <%# ─── RELATED ARTICLES ─── %>
-    <% if (relatedPosts && relatedPosts.length > 0) { %>
-    <section class="blog-related" aria-labelledby="relatedHeading">
-      <h2 class="blog-related__heading" id="relatedHeading">Related Articles</h2>
-      <div class="blog-related__grid">
-        <% relatedPosts.forEach(function(rp) { %>
-        <a href="/blog/<%= rp.slug %>/" class="blog-related__card">
-          <% if (rp.thumbnail) { %>
-          <div class="blog-related__card-img-wrap">
-            <img src="<%= rp.thumbnail %>" alt="" width="320" height="180" loading="lazy" class="blog-related__card-img" onerror="this.parentElement.style.display='none'">
-          </div>
-          <% } %>
-          <div class="blog-related__card-body">
-            <span class="blog-related__card-title"><%= rp.title %></span>
-            <span class="blog-related__card-date"><%= rp.formattedDate %></span>
-          </div>
-        </a>
-        <% }); %>
-      </div>
-    </section>
-    <% } %>
-
-  </main>
-
-  <%# ─── NEWSLETTER POPUP — dismissible (Aeon-style) ─── %>
-  <div class="blog-nl-popup" id="blogNlPopup" role="dialog" aria-modal="false" aria-label="Newsletter signup" hidden>
-    <button class="blog-nl-popup__close" id="blogNlClose" type="button" aria-label="Close newsletter signup">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <div class="blog-nl-popup__icon" aria-hidden="true">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    </div>
-    <h3 class="blog-nl-popup__title">Stay Updated</h3>
-    <p class="blog-nl-popup__desc">Get the latest dev articles delivered to your inbox. No spam, ever.</p>
-    <a href="/newsletter/" class="blog-nl-popup__btn">Subscribe Free →</a>
   </div>
 
 </div>
-
-<%# Scripts are handled by the site's existing JS file %>

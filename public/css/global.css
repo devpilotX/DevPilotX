@@ -640,11 +640,6 @@ img {
   contain: layout style;
 }
 
-/* Promote TOC bar to own layer for smooth sticky behavior */
-.blog-toc-bar {
-  contain: layout style;
-}
-
 /* Ensure images don't cause layout shift */
 .blog-card__image-wrap {
   contain: layout;
@@ -654,7 +649,8 @@ img {
 @supports (content-visibility: auto) {
   .blog-newsletter-cta,
   .blog-post-nav,
-  .blog-post__footer-tags {
+  .blog-post__footer-tags,
+  .blog-related {
     content-visibility: auto;
     contain-intrinsic-size: 0 200px;
   }
@@ -663,10 +659,8 @@ img {
 /* touch targets on mobile */
 @media (max-width: 768px) {
   .btn,
-  .blog-share-btn,
-  .blog-toc-bar__toggle {
+  .blog-share-btn {
     min-height: 44px;
-    min-width: 44px;
   }
 
   .ad-leaderboard {

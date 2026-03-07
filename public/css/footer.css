@@ -76,32 +76,34 @@
 
 
 /* ==========================================================================
-   FOOTER — SOCIAL ICONS
+   FOOTER — SOCIAL LINKS (text-based)
    ========================================================================== */
 
 .footer-social {
   display: flex;
-  gap: 0.4rem;
-  margin-top: 0.25rem;
-}
-
-.social-icon {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  color: var(--subtle);
-  text-decoration: none;
-  transition: border-color var(--transition), color var(--transition);
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
 }
 
-.social-icon:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+.footer-social-link {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted);
   text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-social-link:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.footer-social-sep {
+  font-size: 0.75rem;
+  color: var(--border);
+  user-select: none;
 }
 
 
@@ -175,7 +177,7 @@
 .footer-legal {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.625rem;
 }
 
 .footer-legal a {
@@ -186,8 +188,14 @@
 }
 
 .footer-legal a:hover {
-  color: #374151;
+  color: var(--ink);
   text-decoration: none;
+}
+
+.footer-legal span[aria-hidden] {
+  font-size: 0.75rem;
+  color: var(--border);
+  user-select: none;
 }
 
 

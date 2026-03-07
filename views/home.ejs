@@ -1,31 +1,25 @@
 <%# ============================================================ %>
 <%# Value.Codes — Homepage                                     %>
 <%# ============================================================ %>
-<%# Sections: Hero, Tools, Compiler, Why Value.Codes,          %>
-<%# Resources, Newsletter, FAQ, Final CTA.                     %>
-<%# Zero inline CSS. Zero inline JS.                           %>
-<%# ============================================================ %>
 
 
   <!-- ================================================================
-       [01] HERO — Value Proposition
+       HERO — Value Proposition
        ================================================================ -->
   <section class="hero" aria-label="Hero">
     <div class="hero-content">
-      <div class="badge">
-        <span class="badge-dot" aria-hidden="true"></span>
-        <span>Free &amp; Open Source</span>
-      </div>
       <h1>Developer tools that<br><span class="accent">respect your time.</span></h1>
       <p class="hero-lead">
         Format JSON. Test regex. Diff code. Generate hashes. Decode JWTs.
         Compile in 19 languages. Everything runs in your browser —
         nothing is stored, nothing is tracked.
       </p>
-      <div class="hero-badges">
-        <span class="badge-pill">10+ Free Tools</span>
-        <span class="badge-pill">19-Language Compiler</span>
-        <span class="badge-pill">Zero Data Collection</span>
+      <div class="hero-stats">
+        <span class="hero-stat">10+ Free Tools</span>
+        <span class="hero-stat-sep" aria-hidden="true">|</span>
+        <span class="hero-stat">19-Language Compiler</span>
+        <span class="hero-stat-sep" aria-hidden="true">|</span>
+        <span class="hero-stat">Zero Data Collection</span>
       </div>
       <div class="hero-actions">
         <a href="/tools/" class="btn btn-primary">Get Started</a>
@@ -72,87 +66,74 @@
   <% } %>
 
   <!-- ================================================================
-       [02] TOOLS — Developer Tools Showcase
+       TOOLS — Developer Tools Showcase
        ================================================================ -->
   <section class="tools-section section-padding" id="tools" aria-label="Developer Tools">
     <div class="container">
-      <div class="section-header">
-        <span class="section-number">[01]</span>
-        <h2>Developer Tools</h2>
-      </div>
+      <h2 class="section-title">Developer Tools</h2>
       <p class="section-desc">
-        Every tool runs <strong>client-side.</strong> Your data never leaves your machine.
+        Every tool runs client-side. Your data never leaves your machine.
       </p>
 
       <div class="tools-grid">
         <a href="/tools/json-formatter/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">{ }</span>
           <h3 class="tool-card-name">JSON Formatter</h3>
           <p class="tool-card-desc">Validate, format, and minify JSON with real-time error highlighting.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/regex-builder/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">.*</span>
           <h3 class="tool-card-name">Regex Builder</h3>
           <p class="tool-card-desc">Build and test patterns with live match highlighting and group capture.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/diff-checker/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">⇄</span>
           <h3 class="tool-card-name">Diff Checker</h3>
           <p class="tool-card-desc">Compare text or code side by side with inline change highlighting.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/base64-encoder/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">🔤</span>
           <h3 class="tool-card-name">Base64 Encoder</h3>
           <p class="tool-card-desc">Encode and decode Base64 strings, files, and data URIs instantly.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/color-picker/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">🎨</span>
           <h3 class="tool-card-name">Color Picker</h3>
-          <p class="tool-card-desc">Pick colors, convert between HEX / RGB / HSL, and generate palettes.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <p class="tool-card-desc">Pick colors, convert between HEX, RGB, and HSL, and generate palettes.</p>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/cron-builder/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">⏰</span>
           <h3 class="tool-card-name">Cron Builder</h3>
           <p class="tool-card-desc">Visual cron expression builder with human-readable output and schedule preview.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/jwt-decoder/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">🔑</span>
           <h3 class="tool-card-name">JWT Decoder</h3>
           <p class="tool-card-desc">Decode any JWT to inspect header, payload, signature, and expiration.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/hash-generator/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">#</span>
           <h3 class="tool-card-name">Hash Generator</h3>
           <p class="tool-card-desc">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from any input.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/mock-data-generator/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">📋</span>
           <h3 class="tool-card-name">Mock Data Generator</h3>
           <p class="tool-card-desc">Generate realistic names, emails, addresses, and structured JSON for testing.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
 
         <a href="/tools/code-formatter/" class="tool-card" tabindex="0">
-          <span class="tool-card-icon" aria-hidden="true">✨</span>
           <h3 class="tool-card-name">Code Formatter</h3>
           <p class="tool-card-desc">Auto-indent and beautify code across multiple languages and formats.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open</span>
         </a>
       </div>
     </div>
@@ -160,17 +141,14 @@
 
 
   <!-- ================================================================
-       [02] SNIPPETS — Code Snippets Library (Dark Showcase)
+       SNIPPETS — Code Snippets Library
        ================================================================ -->
   <section class="snippets-section section-padding" aria-label="Code Snippets">
     <div class="container">
 
       <div class="snippets-intro">
         <div class="snippets-intro-left">
-          <div class="section-header snippets-section-header">
-            <span class="section-number">[02]</span>
-            <h2>Code Snippets</h2>
-          </div>
+          <h2 class="snippets-heading">Code Snippets</h2>
           <p class="snippets-lead">
             Production-ready snippets for CSS, JavaScript, Node.js, React, and more.
             Copy-paste into your project — no fluff, just clean working code.
@@ -191,7 +169,7 @@
               <span class="snippets-stat-label">Always</span>
             </div>
           </div>
-          <a href="/snippets/" class="btn snippets-btn">Browse All Snippets →</a>
+          <a href="/snippets/" class="btn snippets-btn">Browse All Snippets</a>
         </div>
       </div>
 
@@ -262,7 +240,7 @@
         <span class="snippets-tag">HTML</span>
         <span class="snippets-tag">TypeScript</span>
         <span class="snippets-tag">DevOps</span>
-        <span class="snippets-tag snippets-tag--more">+ more languages</span>
+        <span class="snippets-tag snippets-tag--more">more languages</span>
       </div>
 
     </div>
@@ -270,32 +248,28 @@
 
 
   <!-- ================================================================
-       [03] API DIRECTORY — Public API Directory (Category Grid)
+       API DIRECTORY — Public API Directory
        ================================================================ -->
   <section class="apis-section section-padding" id="apis" aria-label="Public API Directory">
     <div class="container">
 
       <div class="apis-intro">
         <div class="apis-intro-left">
-          <div class="section-header">
-            <span class="section-number">[03]</span>
-            <h2>Public API Directory</h2>
-          </div>
+          <h2 class="section-title">Public API Directory</h2>
           <p class="apis-lead">
             Browse free public APIs with auth details, CORS support,
             and live endpoint examples —
-            <strong>everything you need before writing a single line of code.</strong>
+            everything you need before writing a single line of code.
           </p>
         </div>
         <div class="apis-intro-right">
-          <a href="/apis/" class="btn btn-primary">Explore All APIs →</a>
+          <a href="/apis/" class="btn btn-primary">Explore All APIs</a>
         </div>
       </div>
 
       <div class="api-categories-grid">
 
         <a href="/apis/" class="api-category-card">
-          <span class="api-category-icon" aria-hidden="true">💰</span>
           <div class="api-category-name">Finance</div>
           <div class="api-category-count">12 APIs available</div>
           <div class="api-category-examples">
@@ -306,7 +280,6 @@
         </a>
 
         <a href="/apis/" class="api-category-card">
-          <span class="api-category-icon" aria-hidden="true">🌤️</span>
           <div class="api-category-name">Weather</div>
           <div class="api-category-count">8 APIs available</div>
           <div class="api-category-examples">
@@ -317,7 +290,6 @@
         </a>
 
         <a href="/apis/" class="api-category-card">
-          <span class="api-category-icon" aria-hidden="true">🤖</span>
           <div class="api-category-name">AI &amp; ML</div>
           <div class="api-category-count">10 APIs available</div>
           <div class="api-category-examples">
@@ -328,7 +300,6 @@
         </a>
 
         <a href="/apis/" class="api-category-card">
-          <span class="api-category-icon" aria-hidden="true">🧪</span>
           <div class="api-category-name">Mock Data</div>
           <div class="api-category-count">6 APIs available</div>
           <div class="api-category-examples">
@@ -339,7 +310,6 @@
         </a>
 
         <a href="/apis/" class="api-category-card">
-          <span class="api-category-icon" aria-hidden="true">📰</span>
           <div class="api-category-name">News</div>
           <div class="api-category-count">5 APIs available</div>
           <div class="api-category-examples">
@@ -350,7 +320,6 @@
         </a>
 
         <a href="/apis/" class="api-category-card">
-          <span class="api-category-icon" aria-hidden="true">🔧</span>
           <div class="api-category-name">Utilities</div>
           <div class="api-category-count">15 APIs available</div>
           <div class="api-category-examples">
@@ -363,22 +332,13 @@
       </div>
 
       <div class="apis-trust-row">
-        <span class="apis-trust-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          Auth details included
-        </span>
-        <span class="apis-trust-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          CORS status shown
-        </span>
-        <span class="apis-trust-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          Live endpoint examples
-        </span>
-        <span class="apis-trust-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          100% free APIs only
-        </span>
+        <span class="apis-trust-item">Auth details included</span>
+        <span class="apis-trust-sep" aria-hidden="true">|</span>
+        <span class="apis-trust-item">CORS status shown</span>
+        <span class="apis-trust-sep" aria-hidden="true">|</span>
+        <span class="apis-trust-item">Live endpoint examples</span>
+        <span class="apis-trust-sep" aria-hidden="true">|</span>
+        <span class="apis-trust-item">100% free APIs only</span>
       </div>
 
     </div>
@@ -386,7 +346,7 @@
 
 
   <!-- ================================================================
-       [04] WHY VALUE.CODES — Built for Real Developer Workflow
+       WHY VALUE.CODES — Built for Real Developer Workflow
        ================================================================ -->
   <section class="contribute-section section-padding" id="why-value-codes" aria-label="Why Value.Codes">
     <div class="container">
@@ -394,14 +354,11 @@
 
         <!-- Left: Description -->
         <div class="contribute-content">
-          <div class="section-header">
-            <span class="section-number">[04]</span>
-            <h2>Built for Real Developer Workflow</h2>
-          </div>
+          <h2>Built for Real Developer Workflow</h2>
           <p>
             Every tool at Value.Codes is purpose-built to save time.
             No distractions, no paywalls on core tools — just utilities
-            that work <strong>instantly, in your browser.</strong>
+            that work instantly, in your browser.
           </p>
           <div class="contribute-actions">
             <a href="/tools/" class="btn btn-primary">Browse All Tools</a>
@@ -412,28 +369,24 @@
         <!-- Right: Feature Cards -->
         <div class="contribute-ways">
           <div class="contribute-card">
-            <span class="contribute-card-icon" aria-hidden="true">🔒</span>
             <div class="contribute-card-body">
               <h3>100% Private</h3>
               <p>Everything runs in your browser. Your data never leaves your device — no server processing, no logs.</p>
             </div>
           </div>
           <div class="contribute-card">
-            <span class="contribute-card-icon" aria-hidden="true">⚡</span>
             <div class="contribute-card-body">
               <h3>Instant Results</h3>
               <p>Real-time output with zero latency. Format, test, decode, compile — no waiting, no server round-trips.</p>
             </div>
           </div>
           <div class="contribute-card">
-            <span class="contribute-card-icon" aria-hidden="true">🆓</span>
             <div class="contribute-card-body">
               <h3>Always Free</h3>
               <p>No account required. No paywalls on core tools. No time limits. Free to use — forever.</p>
             </div>
           </div>
           <div class="contribute-card">
-            <span class="contribute-card-icon" aria-hidden="true">🌐</span>
             <div class="contribute-card-body">
               <h3>Works Everywhere</h3>
               <p>Browser-based and fully responsive. Works on any device, OS, or network — zero install required.</p>
@@ -447,20 +400,16 @@
 
 
   <!-- ================================================================
-       [05] RESOURCES — Curated Developer Resources
+       RESOURCES — Curated Developer Resources
        ================================================================ -->
   <section class="content-section" id="resources" aria-label="Developer Resources">
-    <div class="section-header">
-      <span class="section-number">[05]</span>
-      <h2>Resources</h2>
-    </div>
+    <h2 class="section-title">Resources</h2>
     <p class="section-desc">
-      Curated guides, references, and roadmaps — everything in <strong>one place.</strong>
+      Curated guides, references, and roadmaps — everything in one place.
     </p>
 
     <div class="resources-grid">
       <a href="/resources/developer-tools/" class="resource-card">
-        <span class="resource-icon" aria-hidden="true">🛠️</span>
         <div class="resource-body">
           <h3>Developer Tools</h3>
           <p>The tools and extensions that belong in every developer's workflow.</p>
@@ -468,7 +417,6 @@
       </a>
 
       <a href="/resources/best-practices/" class="resource-card">
-        <span class="resource-icon" aria-hidden="true">✅</span>
         <div class="resource-body">
           <h3>Best Practices</h3>
           <p>Production-ready patterns for quality, testing, and security.</p>
@@ -476,7 +424,6 @@
       </a>
 
       <a href="/resources/career-roadmaps/" class="resource-card">
-        <span class="resource-icon" aria-hidden="true">🗺️</span>
         <div class="resource-body">
           <h3>Career Roadmaps</h3>
           <p>Structured paths for frontend, backend, DevOps, and full-stack roles.</p>
@@ -484,7 +431,6 @@
       </a>
 
       <a href="/resources/documentation/" class="resource-card">
-        <span class="resource-icon" aria-hidden="true">📄</span>
         <div class="resource-body">
           <h3>Documentation</h3>
           <p>Direct links to official docs for popular languages, frameworks, and APIs.</p>
@@ -492,7 +438,6 @@
       </a>
 
       <a href="/resources/essential-software/" class="resource-card">
-        <span class="resource-icon" aria-hidden="true">💻</span>
         <div class="resource-body">
           <h3>Essential Software</h3>
           <p>IDEs, terminals, Git clients, and productivity apps worth your disk space.</p>
@@ -500,7 +445,6 @@
       </a>
 
       <a href="/resources/glossary/" class="resource-card">
-        <span class="resource-icon" aria-hidden="true">📖</span>
         <div class="resource-body">
           <h3>Glossary</h3>
           <p>No-jargon definitions for technical terms, acronyms, and concepts.</p>
@@ -511,7 +455,7 @@
 
 
   <!-- ================================================================
-       [06] NEWSLETTER — Email Signup CTA
+       NEWSLETTER — Email Signup CTA
        ================================================================ -->
   <section class="newsletter-section section-padding" aria-label="Newsletter signup">
     <div class="container">
@@ -519,78 +463,56 @@
       <p class="newsletter-desc">New tools, developer insights, and resources. One email per week. Unsubscribe anytime.</p>
       <div class="newsletter-actions">
         <a href="/newsletter/" class="btn btn-primary">Subscribe Free</a>
-        <%#<a href="/blog/" class="btn btn-secondary">Read the Blog</a>%>
       </div>
     </div>
   </section>
 
 
   <!-- ================================================================
-       [07] FAQ — Frequently Asked Questions
+       FAQ — Frequently Asked Questions
        ================================================================ -->
   <section class="content-section" id="faq" aria-label="Frequently Asked Questions">
-    <div class="section-header">
-      <span class="section-number">[06]</span>
-      <h2>Frequently Asked Questions</h2>
-    </div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
     <p class="section-desc">
       Everything you need to know about Value.Codes tools and platform.
     </p>
 
-    <div class="resources-grid">
-      <div class="faq-card">
-        <span class="resource-icon" aria-hidden="true">💸</span>
-        <div class="resource-body">
-          <h3>Is Value.Codes free to use?</h3>
-          <p>Yes — completely. All 10 core developer tools and the online compiler are free with no account required. No credit card, no trial period.</p>
-        </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Is Value.Codes free to use?</h3>
+        <p>Yes — completely. All 10 core developer tools and the online compiler are free with no account required. No credit card, no trial period.</p>
       </div>
 
-      <div class="faq-card">
-        <span class="resource-icon" aria-hidden="true">🛠️</span>
-        <div class="resource-body">
-          <h3>What developer tools are available?</h3>
-          <p>JSON Formatter, Regex Builder, Diff Checker, Base64 Encoder, Color Picker, Cron Builder, JWT Decoder, Hash Generator, Mock Data Generator, and Code Formatter.</p>
-        </div>
+      <div class="faq-item">
+        <h3>What developer tools are available?</h3>
+        <p>JSON Formatter, Regex Builder, Diff Checker, Base64 Encoder, Color Picker, Cron Builder, JWT Decoder, Hash Generator, Mock Data Generator, and Code Formatter.</p>
       </div>
 
-      <div class="faq-card">
-        <span class="resource-icon" aria-hidden="true">🔒</span>
-        <div class="resource-body">
-          <h3>Is my data sent to a server?</h3>
-          <p>No. Every tool runs entirely in your browser using client-side JavaScript. Your input never leaves your device — no server processing, no logs, no tracking.</p>
-        </div>
+      <div class="faq-item">
+        <h3>Is my data sent to a server?</h3>
+        <p>No. Every tool runs entirely in your browser using client-side JavaScript. Your input never leaves your device — no server processing, no logs, no tracking.</p>
       </div>
 
-      <div class="faq-card">
-        <span class="resource-icon" aria-hidden="true">💻</span>
-        <div class="resource-body">
-          <h3>Which languages does the compiler support?</h3>
-          <p>The online compiler supports 19 languages: Python, JavaScript, TypeScript, C, C++, Java, Go, Rust, C#, PHP, Ruby, Swift, Kotlin, and more — all free.</p>
-        </div>
+      <div class="faq-item">
+        <h3>Which languages does the compiler support?</h3>
+        <p>The online compiler supports 19 languages: Python, JavaScript, TypeScript, C, C++, Java, Go, Rust, C#, PHP, Ruby, Swift, Kotlin, and more — all free.</p>
       </div>
 
-      <div class="faq-card">
-        <span class="resource-icon" aria-hidden="true">🔑</span>
-        <div class="resource-body">
-          <h3>What is a JWT decoder used for?</h3>
-          <p>A JWT decoder lets you inspect a JSON Web Token without a secret key. You can read the header, payload, expiration, and claims — great for debugging authentication.</p>
-        </div>
+      <div class="faq-item">
+        <h3>What is a JWT decoder used for?</h3>
+        <p>A JWT decoder lets you inspect a JSON Web Token without a secret key. You can read the header, payload, expiration, and claims — great for debugging authentication.</p>
       </div>
 
-      <div class="faq-card">
-        <span class="resource-icon" aria-hidden="true">{ }</span>
-        <div class="resource-body">
-          <h3>Why use an online JSON formatter?</h3>
-          <p>An online JSON formatter instantly beautifies minified JSON, validates syntax, and highlights errors — without installing any software or IDE plugin.</p>
-        </div>
+      <div class="faq-item">
+        <h3>Why use an online JSON formatter?</h3>
+        <p>An online JSON formatter instantly beautifies minified JSON, validates syntax, and highlights errors — without installing any software or IDE plugin.</p>
       </div>
     </div>
   </section>
 
 
   <!-- ================================================================
-       [08] FINAL CTA — Closing Call to Action
+       FINAL CTA — Closing Call to Action
        ================================================================ -->
   <section class="final-cta section-padding" aria-label="Call to action">
     <div class="container">

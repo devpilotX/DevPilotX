@@ -147,23 +147,21 @@
 .nav-search-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  padding: 0.375rem 0.75rem;
+  padding: 0.375rem 0.875rem;
   font-size: 0.8125rem;
   font-weight: 500;
   color: var(--muted);
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 6px;
   text-decoration: none;
   background: transparent;
   white-space: nowrap;
-  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  transition: color var(--transition), border-color var(--transition);
 }
 
 .nav-search-btn:hover {
   color: var(--ink);
   border-color: #9ca3af;
-  background: var(--surface);
   text-decoration: none;
 }
 
@@ -171,7 +169,6 @@
 .nav-btn-compiler {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
   padding: 0.375rem 0.875rem;
   font-size: 0.8125rem;
   font-weight: 600;
@@ -182,37 +179,34 @@
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: background var(--transition), transform var(--transition);
+  transition: background var(--transition);
 }
 
 .nav-btn-compiler:hover {
   background: var(--accent-dark);
   color: #fff;
   text-decoration: none;
-  transform: translateY(-1px);
 }
 
 /* Login Button */
 .nav-btn-login {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
   padding: 0.375rem 0.875rem;
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--ink);
   background: transparent;
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 6px;
   text-decoration: none;
   white-space: nowrap;
-  transition: border-color var(--transition), background var(--transition), color var(--transition);
+  transition: border-color var(--transition), color var(--transition);
 }
 
 .nav-btn-login:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-light);
+  border-color: #9ca3af;
+  color: var(--ink);
   text-decoration: none;
 }
 
@@ -356,9 +350,7 @@
 }
 
 .dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
+  display: block;
   width: 100%;
   padding: 0.65rem 1rem;
   font-size: 0.875rem;
@@ -370,17 +362,13 @@
   cursor: pointer;
   text-align: left;
   font-family: inherit;
-  transition: background 0.1s var(--ease);
+  transition: background 0.1s var(--ease), color 0.1s var(--ease);
 }
 
 .dropdown-item:hover {
   background: var(--surface);
+  color: var(--ink);
   text-decoration: none;
-}
-
-.dropdown-item svg {
-  flex-shrink: 0;
-  color: #9ca3af;
 }
 
 .dropdown-divider {
