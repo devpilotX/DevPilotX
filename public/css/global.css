@@ -352,7 +352,16 @@ img {
   color: var(--accent);
 }
 
-.badge-dot {
+.badge-dot,
+.tool-usecase-icon,
+.tool-hero-icon,
+.tool-meta-icon,
+.tool-card-icon,
+.dc-feature-icon,
+.option-icon,
+.res-cta-card-icon,
+.breadcrumb-icon,
+.glossary-no-results-icon {
   display: none;
 }
 

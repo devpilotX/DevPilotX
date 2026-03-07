@@ -1,6 +1,6 @@
 ﻿<!-- ================================================================
      FILE: views/apis/single.ejs
-     PURPOSE: Single API detail â€” /apis/:category/:slug
+     PURPOSE: Single API detail  |  /apis/:category/:slug
               This is the programmatic SEO page that captures long-tail.
      ================================================================ -->
 
@@ -63,11 +63,11 @@
       <!-- ========== ACTION LINKS ========== -->
       <div class="api-single-actions">
         <a href="<%= api.website_url %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          Visit Website â†—
+          Visit Website
         </a>
         <% if (api.docs_url) { %>
           <a href="<%= api.docs_url %>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            Read Docs â†—
+            Read Docs
           </a>
         <% } %>
       </div>
@@ -114,7 +114,7 @@
     </section>
   <% } %>
 
-  <!-- ========== LIVE JSON PREVIEW â€” THE KILLER FEATURE ========== -->
+  <!-- ========== LIVE JSON PREVIEW  |  THE KILLER FEATURE ========== -->
   <% if (api.sample_response) { %>
     <section class="api-single-section" aria-label="Sample JSON response">
       <div class="container">

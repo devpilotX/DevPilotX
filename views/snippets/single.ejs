@@ -1,6 +1,6 @@
 ﻿<!-- ================================================================
      FILE: views/snippets/single.ejs
-     PURPOSE: Single snippet page â€” /snippets/:category/:slug
+     PURPOSE: Single snippet page  |  /snippets/:category/:slug
      ================================================================ -->
 
 <div aria-label="<%= snippet.title %> Code Snippet">
@@ -10,16 +10,16 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/snippets/">Snippets</a>
-        <span aria-hidden="true">â€º</span>
+        <span aria-hidden="true">/</span>
         <a href="/snippets/<%= snippet.category_slug %>/"><%= snippet.category_name %></a>
-        <span aria-hidden="true">â€º</span>
+        <span aria-hidden="true">/</span>
         <span><%= snippet.title %></span>
       </nav>
 
       <div class="snippet-single-header">
         <h1><%= snippet.title %></h1>
         <div class="snippet-single-meta">
-          <span class="badge badge-pill"><%= snippet.difficulty %></span>
+          <span class="tag"><%= snippet.difficulty %></span>
           <% if (snippet.browser_support) { %>
             <span class="snippet-single-browser" aria-label="Browser support"><%= snippet.browser_support %></span>
           <% } %>
@@ -72,9 +72,8 @@
                 <span class="snippet-file-name"><%= tab.file_name %></span>
               <% } %>
               <span class="snippet-lang-badge"><%= tab.language %></span>
-              <button type="button" class="btn btn-sm btn-ghost snippet-copy-btn" data-copy-target="snippet-code-<%= idx %>" aria-label="Copy code to clipboard">
-                <span class="snippet-copy-icon" aria-hidden="true">ðŸ“‹</span>
-                <span class="snippet-copy-text">Copy</span>
+              <button type=”button” class=”btn btn-sm btn-ghost snippet-copy-btn” data-copy-target=”snippet-code-<%= idx %>” aria-label=”Copy code to clipboard”>
+                <span class=”snippet-copy-text”>Copy</span>
               </button>
             </div>
             <pre class="snippet-code-block"><code id="snippet-code-<%= idx %>" class="language-<%= tab.language %>"><%= tab.code %></code></pre>
@@ -104,7 +103,7 @@
       <div class="snippet-nav-row">
         <% if (prevSnippet) { %>
           <a href="/snippets/<%= snippet.category_slug %>/<%= prevSnippet.slug %>/" class="snippet-nav-link snippet-nav-prev" aria-label="Previous: <%= prevSnippet.title %>">
-            <span class="snippet-nav-direction">â† Previous</span>
+            <span class="snippet-nav-direction">Previous</span>
             <span class="snippet-nav-title"><%= prevSnippet.title %></span>
           </a>
         <% } else { %>
@@ -112,7 +111,7 @@
         <% } %>
         <% if (nextSnippet) { %>
           <a href="/snippets/<%= snippet.category_slug %>/<%= nextSnippet.slug %>/" class="snippet-nav-link snippet-nav-next" aria-label="Next: <%= nextSnippet.title %>">
-            <span class="snippet-nav-direction">Next â†’</span>
+            <span class="snippet-nav-direction">Next</span>
             <span class="snippet-nav-title"><%= nextSnippet.title %></span>
           </a>
         <% } %>

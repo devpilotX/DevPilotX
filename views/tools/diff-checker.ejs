@@ -1,9 +1,9 @@
 ﻿<!-- ========================================================================
-     DIFF CHECKER v2 â€” views/tools/diff-checker.ejs
+     DIFF CHECKER v2  |  views/tools/diff-checker.ejs
      Production-grade text/code comparison tool.
      Myers O(ND) diff Â· Web Worker Â· Virtual scroll Â· Syntax highlight
      Dark mode Â· Minimap Â· Auto-compare Â· Share via URL
-     Value.Codes â€” Free Developer Tools
+     Value.Codes  |  Free Developer Tools
      ======================================================================== -->
 
 <% layout('layouts/main') %>
@@ -25,7 +25,7 @@
           <div class="tool-hero-text">
             <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free &amp; Private</span></div>
             <h1>Diff Checker</h1>
-            <p class="tool-hero-desc">Compare two blocks of text or code with character-level precision. Myers O(ND) algorithm handles files with 100k+ lines. Everything runs in your browser via Web Workers â€” nothing is ever sent to a server.</p>
+            <p class="tool-hero-desc">Compare two blocks of text or code with character-level precision. Myers O(ND) algorithm handles files with 100k+ lines. Everything runs in your browser via Web Workers  |  nothing is ever sent to a server.</p>
           </div>
           <div class="tool-hero-meta">
             <div class="tool-meta-item">
@@ -160,7 +160,7 @@
           <button class="btn btn-sm btn-primary dc-btn-compare" id="dc-btn-compare" type="button">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             <span>Compare</span>
-            <kbd class="dc-kbd">âŒ˜â†µ</kbd>
+            <kbd class="dc-kbd"></kbd>
           </button>
         </div>
       </div>
@@ -189,7 +189,7 @@
           </div>
           <div class="dc-panel-body">
             <div class="dc-gutter" id="dc-gutter-original" aria-hidden="true"></div>
-            <textarea class="dc-textarea" id="dc-input-original" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Original text input" placeholder="Paste original text here, or drag & drop a fileâ€¦"></textarea>
+            <textarea class="dc-textarea" id="dc-input-original" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Original text input" placeholder="Paste original text here, or drag & drop a file..."></textarea>
             <div class="dc-drop-overlay" aria-hidden="true">
               <div class="dc-drop-overlay-inner">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -229,7 +229,7 @@
           </div>
           <div class="dc-panel-body">
             <div class="dc-gutter" id="dc-gutter-modified" aria-hidden="true"></div>
-            <textarea class="dc-textarea" id="dc-input-modified" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Modified text input" placeholder="Paste modified text here, or drag & drop a fileâ€¦"></textarea>
+            <textarea class="dc-textarea" id="dc-input-modified" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Modified text input" placeholder="Paste modified text here, or drag & drop a file..."></textarea>
             <div class="dc-drop-overlay" aria-hidden="true">
               <div class="dc-drop-overlay-inner">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -253,11 +253,11 @@
           <div class="dc-output-bar-right">
             <!-- Change navigation -->
             <div class="dc-nav" role="navigation" aria-label="Navigate between changes">
-              <button class="dc-icon-btn" id="dc-prev" type="button" title="Previous change (â†‘)" aria-label="Previous change">
+              <button class="dc-icon-btn" id="dc-prev" type="button" title="Previous change ()" aria-label="Previous change">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
               </button>
               <span class="dc-nav-counter" id="dc-nav-counter" aria-live="polite">0 / 0</span>
-              <button class="dc-icon-btn" id="dc-next" type="button" title="Next change (â†“)" aria-label="Next change">
+              <button class="dc-icon-btn" id="dc-next" type="button" title="Next change ()" aria-label="Next change">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
             </div>
@@ -283,7 +283,7 @@
           <!-- Loading spinner -->
           <div class="dc-loading" id="dc-loading" aria-hidden="true">
             <div class="dc-spinner" aria-hidden="true"></div>
-            <span>Computing diffâ€¦</span>
+            <span>Computing diff...</span>
           </div>
 
           <!-- Split view -->
@@ -377,7 +377,7 @@
           <div class="dc-guide-num" aria-hidden="true">2</div>
           <div class="dc-guide-body">
             <h3>Compare Instantly</h3>
-            <p>With auto-compare enabled, results appear as you type. Or press <kbd>Ctrl+Enter</kbd> for manual compare. The diff engine runs in a Web Worker â€” your UI never freezes.</p>
+            <p>With auto-compare enabled, results appear as you type. Or press <kbd>Ctrl+Enter</kbd> for manual compare. The diff engine runs in a Web Worker  |  your UI never freezes.</p>
           </div>
         </div>
         <div class="dc-guide-step">
@@ -432,7 +432,7 @@
         <div class="dc-feature-card">
           <span class="dc-feature-icon" aria-hidden="true">ðŸŽ¨</span>
           <h3>Syntax Highlighting</h3>
-          <p>19 languages supported. Select your language to see diff output with proper syntax coloring â€” keywords, strings, comments, and more.</p>
+          <p>19 languages supported. Select your language to see diff output with proper syntax coloring  |  keywords, strings, comments, and more.</p>
         </div>
         <div class="dc-feature-card">
           <span class="dc-feature-icon" aria-hidden="true">ðŸŒ—</span>
@@ -491,7 +491,7 @@
         <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd><span>Swap sides</span></div>
         <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd><span>Clear all</span></div>
         <div class="dc-shortcut"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd><span>Toggle dark mode</span></div>
-        <div class="dc-shortcut"><kbd>â†‘</kbd> / <kbd>â†“</kbd><span>Previous / Next change</span></div>
+        <div class="dc-shortcut"><kbd></kbd> / <kbd></kbd><span>Previous / Next change</span></div>
         <div class="dc-shortcut"><kbd>F11</kbd><span>Toggle fullscreen</span></div>
         <div class="dc-shortcut"><kbd>Tab</kbd><span>Insert 2 spaces in editor</span></div>
       </div>
@@ -507,25 +507,25 @@
           <span class="tool-card-icon" aria-hidden="true">{ }</span>
           <h3 class="tool-card-name">JSON Formatter</h3>
           <p class="tool-card-desc">Format, validate, and minify JSON instantly.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open </span>
         </a>
         <a href="/tools/code-formatter" class="tool-card">
           <span class="tool-card-icon" aria-hidden="true">âœ¨</span>
           <h3 class="tool-card-name">Code Formatter</h3>
           <p class="tool-card-desc">Beautify and format code in multiple languages.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open </span>
         </a>
         <a href="/tools/hash-generator" class="tool-card">
           <span class="tool-card-icon" aria-hidden="true">#</span>
           <h3 class="tool-card-name">Hash Generator</h3>
           <p class="tool-card-desc">Generate MD5, SHA-1, SHA-256, SHA-512 hashes.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open </span>
         </a>
         <a href="/compiler/" class="tool-card">
           <span class="tool-card-icon" aria-hidden="true">â–¶</span>
           <h3 class="tool-card-name">Online Compiler</h3>
           <p class="tool-card-desc">Write and run code in 19 languages. Zero setup.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open </span>
         </a>
       </div>
     </div>
