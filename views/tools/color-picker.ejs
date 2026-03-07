@@ -1,8 +1,8 @@
-<!-- ========================================================================
-     COLOR PICKER v1 — views/tools/color-picker.ejs
+﻿<!-- ========================================================================
+     COLOR PICKER v1 â€” views/tools/color-picker.ejs
      Pick colors, convert HEX/RGB/HSL, copy codes, generate palettes.
-     100% browser-based — no server calls.
-     Value.Codes — Free Developer Tools
+     100% browser-based â€” no server calls.
+     Value.Codes â€” Free Developer Tools
      ======================================================================== -->
 
 <!-- TOOL HERO -->
@@ -28,17 +28,6 @@
     </div>
   </div>
 </section>
-<!-- ========== ADSENSE: LEADERBOARD ========== -->
-<% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-<div class="ad-leaderboard" aria-label="Advertisement">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="<%= adsensePubId %>"
-       data-ad-slot="auto"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
-<% } %>
 
 
 <!-- TOOL WORKSPACE -->
@@ -108,7 +97,7 @@
 
         <div class="cp-value-row">
           <label class="cp-value-label">HSB</label>
-          <input type="text" class="cp-value-input" id="cp-hsb" value="hsb(4°, 87%, 79%)" aria-label="HSB color value" spellcheck="false" />
+          <input type="text" class="cp-value-input" id="cp-hsb" value="hsb(4Â°, 87%, 79%)" aria-label="HSB color value" spellcheck="false" />
           <button class="cp-copy-btn" data-target="cp-hsb" type="button" aria-label="Copy HSB">Copy</button>
         </div>
 
@@ -122,11 +111,11 @@
             </div>
             <div class="cp-contrast-info">
               <div class="cp-contrast-score" id="cp-contrast-vs-white">
-                <span class="cp-contrast-ratio" id="cp-ratio-white">—</span>
+                <span class="cp-contrast-ratio" id="cp-ratio-white">â€”</span>
                 <span class="cp-contrast-label">vs White</span>
               </div>
               <div class="cp-contrast-score" id="cp-contrast-vs-black">
-                <span class="cp-contrast-ratio" id="cp-ratio-black">—</span>
+                <span class="cp-contrast-ratio" id="cp-ratio-black">â€”</span>
                 <span class="cp-contrast-label">vs Black</span>
               </div>
             </div>
@@ -164,22 +153,22 @@
 
     <div class="tool-usecases-grid">
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">🎨</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸŽ¨</span>
         <h3>Pick from Spectrum</h3>
         <p>Click and drag on the color canvas to select any hue, saturation, and brightness combination.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">🔄</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸ”„</span>
         <h3>Convert Formats</h3>
         <p>Type any HEX, RGB, or HSL value and instantly see all other formats updated.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">♿</span>
+        <span class="tool-usecase-icon" aria-hidden="true">â™¿</span>
         <h3>Check Contrast</h3>
         <p>WCAG contrast ratios are calculated automatically against white and black backgrounds.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">🖌️</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸ–Œï¸</span>
         <h3>Palette Generator</h3>
         <p>Auto-generates tints, shades, and complementary colors based on your selection.</p>
       </div>
@@ -199,19 +188,19 @@
         <span class="tool-card-icon" aria-hidden="true">#</span>
         <h3 class="tool-card-name">Hash Generator</h3>
         <p class="tool-card-desc">Generate MD5, SHA-1, SHA-256 hashes.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
       <a href="/tools/json-formatter" class="tool-card">
         <span class="tool-card-icon" aria-hidden="true">{ }</span>
         <h3 class="tool-card-name">JSON Formatter</h3>
         <p class="tool-card-desc">Format and validate JSON data.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
       <a href="/tools/code-formatter" class="tool-card">
-        <span class="tool-card-icon" aria-hidden="true">✦</span>
+        <span class="tool-card-icon" aria-hidden="true">âœ¦</span>
         <h3 class="tool-card-name">Code Formatter</h3>
         <p class="tool-card-desc">Beautify and format code online.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
     </div>
   </div>

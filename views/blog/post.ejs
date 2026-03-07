@@ -52,32 +52,10 @@
     <%# Main Article Content %>
     <main class="blog-post-main" aria-label="Article content">
 
-      <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-      <div class="blog-ad-inline" aria-label="Advertisement">
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-layout="in-article"
-             data-ad-format="fluid"
-             data-ad-client="<%= adsensePubId %>"
-             data-ad-slot="auto"></ins>
-      </div>
-      <% } %>
-
       <article class="blog-article">
         <div class="blog-article__body" id="blogArticleBody">
           <%- article ? article.content : (blog ? blog.content : '') %>
         </div>
-
-        <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-        <div class="blog-ad-inline" aria-label="Advertisement">
-          <ins class="adsbygoogle"
-               style="display:block; text-align:center;"
-               data-ad-layout="in-article"
-               data-ad-format="fluid"
-               data-ad-client="<%= adsensePubId %>"
-               data-ad-slot="auto"></ins>
-        </div>
-        <% } %>
 
         <%# Tags %>
         <% if (blog.tags && blog.tags.length > 0) { %>

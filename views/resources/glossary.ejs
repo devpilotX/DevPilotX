@@ -1,4 +1,4 @@
-<!-- views/resources/glossary.ejs -->
+﻿<!-- views/resources/glossary.ejs -->
 <!-- Glossary page: Comprehensive glossary of programming terms, concepts, and jargon -->
 
 <div aria-label="Programming Glossary">
@@ -12,11 +12,11 @@
         <ol class="breadcrumb-list">
           <li class="breadcrumb-item">
             <a href="/" class="breadcrumb-link">Home</a>
-            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <span class="breadcrumb-sep" aria-hidden="true">â€º</span>
           </li>
           <li class="breadcrumb-item">
             <a href="/resources/" class="breadcrumb-link">Resources</a>
-            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <span class="breadcrumb-sep" aria-hidden="true">â€º</span>
           </li>
           <li class="breadcrumb-item breadcrumb-current" aria-current="page">
             Glossary
@@ -27,7 +27,7 @@
       <!-- Hero content -->
       <div class="glossary-hero-content">
         <div class="glossary-hero-badge">
-          <span class="badge badge-pill" aria-hidden="true">📖</span>
+          <span class="badge badge-pill" aria-hidden="true">ðŸ“–</span>
           <span class="badge badge-new">250+ Terms</span>
         </div>
         <h1 class="glossary-hero-title">Programming Glossary</h1>
@@ -75,7 +75,7 @@
           <span class="glossary-stat-label">Categories</span>
         </div>
         <div class="glossary-stat">
-          <span class="glossary-stat-num">A–Z</span>
+          <span class="glossary-stat-num">Aâ€“Z</span>
           <span class="glossary-stat-label">Indexed</span>
         </div>
       </div>
@@ -150,7 +150,7 @@
 
       <!-- No results message -->
       <div class="glossary-no-results hidden" id="glossary-no-results">
-        <div class="glossary-no-results-icon" aria-hidden="true">🔍</div>
+        <div class="glossary-no-results-icon" aria-hidden="true">ðŸ”</div>
         <h2 class="glossary-no-results-title">No terms found</h2>
         <p class="glossary-no-results-desc">Try a different search term or clear filters to see all terms.</p>
         <button type="button" class="btn btn-primary" id="glossary-reset-btn">Reset All Filters</button>
@@ -188,7 +188,7 @@
             <p class="glossary-term-def">
               A project management and software development methodology that emphasizes iterative development,
               collaboration, flexibility, and continuous delivery. Agile breaks work into small increments called
-              sprints (usually 1–4 weeks), with regular feedback loops. Common frameworks include Scrum and Kanban.
+              sprints (usually 1â€“4 weeks), with regular feedback loops. Common frameworks include Scrum and Kanban.
             </p>
             <div class="glossary-term-meta">
               <span class="glossary-term-related">Related: <a href="#scrum">Scrum</a>, <a href="#sprint">Sprint</a></span>
@@ -337,7 +337,7 @@
             <p class="glossary-term-def">
               A mathematical notation that describes the upper bound of an algorithm's time or space complexity
               as the input size grows. Common complexities: O(1) constant, O(log n) logarithmic, O(n) linear,
-              O(n log n) linearithmic, O(n²) quadratic, O(2ⁿ) exponential. It helps compare algorithm efficiency
+              O(n log n) linearithmic, O(nÂ²) quadratic, O(2â¿) exponential. It helps compare algorithm efficiency
               regardless of hardware.
             </p>
             <div class="glossary-term-meta">
@@ -425,8 +425,8 @@
             <p class="glossary-term-def">
               A temporary storage layer that keeps frequently accessed data closer to the consumer to reduce
               latency and improve performance. Caches exist at many levels: CPU cache (L1/L2/L3), browser cache,
-              CDN cache, application cache (Redis/Memcached), and database query cache. Cache invalidation — knowing
-              when cached data is stale — is famously one of the hardest problems in computer science.
+              CDN cache, application cache (Redis/Memcached), and database query cache. Cache invalidation â€” knowing
+              when cached data is stale â€” is famously one of the hardest problems in computer science.
             </p>
             <div class="glossary-term-meta">
               <span class="glossary-term-related">Related: <a href="#cdn">CDN</a>, <a href="#redis">Redis</a></span>
@@ -441,7 +441,7 @@
             <p class="glossary-term-def">
               A function passed as an argument to another function, which is then invoked (called back) at a later time.
               Callbacks are a fundamental pattern for handling asynchronous operations in JavaScript. Nesting too many
-              callbacks leads to "callback hell" — deeply nested, hard-to-read code. Promises and async/await were
+              callbacks leads to "callback hell" â€” deeply nested, hard-to-read code. Promises and async/await were
               introduced to solve this problem.
             </p>
             <div class="glossary-term-meta">
@@ -521,7 +521,7 @@
             <p class="glossary-term-def">
               A function that "remembers" and has access to variables from its outer (enclosing) scope, even after
               the outer function has returned. Closures are fundamental in JavaScript for data privacy, factory
-              functions, and event handlers. Example: <code>function counter() { let count = 0; return () => ++count; }</code> —
+              functions, and event handlers. Example: <code>function counter() { let count = 0; return () => ++count; }</code> â€”
               the returned function closes over <code>count</code>.
             </p>
             <div class="glossary-term-meta">
@@ -643,9 +643,9 @@
             </div>
             <p class="glossary-term-def">
               An organized collection of structured data stored electronically. Databases are managed by Database
-              Management Systems (DBMS). Two main categories: <strong>Relational (SQL)</strong> — MySQL, PostgreSQL,
-              SQLite — store data in tables with rows and columns; <strong>Non-relational (NoSQL)</strong> — MongoDB,
-              Redis, DynamoDB — store data as documents, key-value pairs, graphs, or wide columns.
+              Management Systems (DBMS). Two main categories: <strong>Relational (SQL)</strong> â€” MySQL, PostgreSQL,
+              SQLite â€” store data in tables with rows and columns; <strong>Non-relational (NoSQL)</strong> â€” MongoDB,
+              Redis, DynamoDB â€” store data as documents, key-value pairs, graphs, or wide columns.
             </p>
             <div class="glossary-term-meta">
               <span class="glossary-term-related">Related: <a href="#sql">SQL</a>, <a href="#nosql">NoSQL</a>, <a href="#orm">ORM</a></span>
@@ -1112,7 +1112,7 @@
             <p class="glossary-term-def">
               <strong>JSON Web Token.</strong> A compact, URL-safe token format for securely transmitting claims between
               parties. A JWT has three Base64-encoded parts separated by dots: Header (algorithm), Payload (claims/data),
-              and Signature (verification). JWTs are commonly used for stateless authentication — the server doesn't
+              and Signature (verification). JWTs are commonly used for stateless authentication â€” the server doesn't
               need to store session data. Decode JWTs with our <a href="/tools/jwt-decoder">JWT Decoder</a> tool.
             </p>
             <div class="glossary-term-meta">
@@ -1344,7 +1344,7 @@
               An open standard authorization protocol that allows third-party applications to access a user's
               resources without exposing their credentials. OAuth 2.0 is the current version. "Sign in with Google/GitHub"
               uses OAuth. The flow involves authorization codes, access tokens, and refresh tokens. Not to be confused
-              with authentication — OAuth is specifically about authorization (delegated access).
+              with authentication â€” OAuth is specifically about authorization (delegated access).
             </p>
             <div class="glossary-term-meta">
               <span class="glossary-term-related">Related: <a href="#authentication">Authentication</a>, <a href="#jwt">JWT</a></span>
@@ -1358,7 +1358,7 @@
             </div>
             <p class="glossary-term-def">
               A data structure that stores data as key-value pairs (properties) and can include functions (methods).
-              In JavaScript, objects are everywhere — arrays, functions, dates, and even errors are objects. Created with
+              In JavaScript, objects are everywhere â€” arrays, functions, dates, and even errors are objects. Created with
               object literals <code>{ key: value }</code>, constructors, or <code>Object.create()</code>. Objects are
               passed by reference, not by value, which means changes to an object variable affect the original.
             </p>
@@ -1433,7 +1433,7 @@
             </div>
             <p class="glossary-term-def">
               A request to merge changes from one branch into another, typically on platforms like GitHub or GitLab.
-              PRs enable code review — team members can comment on changes, request modifications, approve, or reject
+              PRs enable code review â€” team members can comment on changes, request modifications, approve, or reject
               the merge. PRs usually include a description, linked issues, CI/CD checks, and review assignments.
               Also called "Merge Requests" on GitLab.
             </p>
@@ -1461,7 +1461,7 @@
             <p class="glossary-term-def">
               A programming technique where a function calls itself to solve a problem by breaking it into smaller
               subproblems. Every recursive function needs a <strong>base case</strong> (stopping condition) to prevent
-              infinite recursion. Classic examples: factorial (<code>n! = n × (n-1)!</code>), Fibonacci sequence,
+              infinite recursion. Classic examples: factorial (<code>n! = n Ã— (n-1)!</code>), Fibonacci sequence,
               tree traversal, and merge sort. Recursion uses the call stack and can cause stack overflow for deep recursion.
             </p>
             <div class="glossary-term-meta">
@@ -1687,7 +1687,7 @@
             <p class="glossary-term-def">
               A named container that stores a value in memory. In JavaScript, variables are declared with
               <code>const</code> (immutable binding), <code>let</code> (mutable, block-scoped), or <code>var</code>
-              (mutable, function-scoped — generally avoided). Variables can hold any data type: numbers, strings,
+              (mutable, function-scoped â€” generally avoided). Variables can hold any data type: numbers, strings,
               booleans, objects, arrays, functions, null, and undefined. Choose descriptive names: <code>userAge</code>
               not <code>x</code>.
             </p>
@@ -1844,15 +1844,5 @@
       </div>
     </div>
   </section>
-  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-  <div class="ad-leaderboard" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="<%= adsensePubId %>"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-  </div>
-  <% } %>
 
 </div>

@@ -1,7 +1,7 @@
-<!-- ========================================================================
-     HASH GENERATOR v1 — views/tools/hash-generator.ejs
+﻿<!-- ========================================================================
+     HASH GENERATOR v1 â€” views/tools/hash-generator.ejs
      Generate MD5, SHA-1, SHA-256, SHA-512 hashes. 100% browser-based.
-     Value.Codes — Free Developer Tools
+     Value.Codes â€” Free Developer Tools
      ======================================================================== -->
 
 <!-- TOOL HERO -->
@@ -18,7 +18,7 @@
       <div class="tool-hero-text">
         <div class="badge"><span class="badge-dot" aria-hidden="true"></span><span>Free Tool</span></div>
         <h1>Hash Generator</h1>
-        <p class="tool-hero-desc">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from any text. Compare hashes to verify data integrity. 100% browser-based — your data never leaves your device.</p>
+        <p class="tool-hero-desc">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from any text. Compare hashes to verify data integrity. 100% browser-based â€” your data never leaves your device.</p>
       </div>
       <div class="tool-hero-actions">
         <button class="btn btn-secondary btn-sm" id="hash-clear-btn" type="button">Clear</button>
@@ -27,17 +27,6 @@
     </div>
   </div>
 </section>
-<!-- ========== ADSENSE: LEADERBOARD ========== -->
-<% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-<div class="ad-leaderboard" aria-label="Advertisement">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="<%= adsensePubId %>"
-       data-ad-slot="auto"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
-<% } %>
 
 
 <!-- TOOL WORKSPACE -->
@@ -102,7 +91,7 @@
         <div class="hash-output-header">
           <span class="hash-algo-name">MD5</span>
           <span class="hash-algo-bits">128-bit</span>
-          <span class="hash-algo-note">⚠ Not for security</span>
+          <span class="hash-algo-note">âš  Not for security</span>
         </div>
         <div class="hash-output-wrap">
           <output class="hash-output-value" id="hash-md5" aria-label="MD5 hash" aria-live="polite"></output>
@@ -114,7 +103,7 @@
         <div class="hash-output-header">
           <span class="hash-algo-name">SHA-1</span>
           <span class="hash-algo-bits">160-bit</span>
-          <span class="hash-algo-note">⚠ Deprecated for security</span>
+          <span class="hash-algo-note">âš  Deprecated for security</span>
         </div>
         <div class="hash-output-wrap">
           <output class="hash-output-value" id="hash-sha1" aria-label="SHA-1 hash" aria-live="polite"></output>
@@ -126,7 +115,7 @@
         <div class="hash-output-header">
           <span class="hash-algo-name">SHA-256</span>
           <span class="hash-algo-bits">256-bit</span>
-          <span class="hash-algo-note hash-algo-good">✓ Recommended</span>
+          <span class="hash-algo-note hash-algo-good">âœ“ Recommended</span>
         </div>
         <div class="hash-output-wrap">
           <output class="hash-output-value" id="hash-sha256" aria-label="SHA-256 hash" aria-live="polite"></output>
@@ -138,7 +127,7 @@
         <div class="hash-output-header">
           <span class="hash-algo-name">SHA-512</span>
           <span class="hash-algo-bits">512-bit</span>
-          <span class="hash-algo-note hash-algo-good">✓ Most secure</span>
+          <span class="hash-algo-note hash-algo-good">âœ“ Most secure</span>
         </div>
         <div class="hash-output-wrap">
           <output class="hash-output-value" id="hash-sha512" aria-label="SHA-512 hash" aria-live="polite"></output>
@@ -175,22 +164,22 @@
 
     <div class="tool-usecases-grid">
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">🔒</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸ”’</span>
         <h3>Password Storage</h3>
         <p>Passwords are stored as hashes (ideally with bcrypt or Argon2). SHA-256 is fine for data integrity but not for passwords without salting.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">📁</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸ“</span>
         <h3>File Integrity</h3>
         <p>Verify downloaded files by comparing the file's SHA-256 hash against the publisher's checksum. Any change produces a completely different hash.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">🔑</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸ”‘</span>
         <h3>HMAC Authentication</h3>
         <p>HMAC (Hash-based Message Authentication Code) uses a secret key to authenticate API requests. Used in AWS Signature v4, webhooks, and OAuth.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">🪙</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸª™</span>
         <h3>Blockchain</h3>
         <p>Bitcoin and Ethereum use SHA-256 for proof-of-work and transaction signing. Every block contains the hash of the previous block.</p>
       </div>
@@ -210,19 +199,19 @@
         <span class="tool-card-icon" aria-hidden="true">64</span>
         <h3 class="tool-card-name">Base64 Encoder</h3>
         <p class="tool-card-desc">Encode and decode Base64 strings.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
       <a href="/tools/jwt-decoder" class="tool-card">
-        <span class="tool-card-icon" aria-hidden="true">🔑</span>
+        <span class="tool-card-icon" aria-hidden="true">ðŸ”‘</span>
         <h3 class="tool-card-name">JWT Decoder</h3>
         <p class="tool-card-desc">Decode and inspect JSON Web Tokens.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
       <a href="/tools/json-formatter" class="tool-card">
         <span class="tool-card-icon" aria-hidden="true">{ }</span>
         <h3 class="tool-card-name">JSON Formatter</h3>
         <p class="tool-card-desc">Format and validate JSON data.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
     </div>
   </div>

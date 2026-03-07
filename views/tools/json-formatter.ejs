@@ -1,5 +1,5 @@
-<!-- views/tools/json-formatter.ejs -->
-<!-- ========== JSON FORMATTER TOOL PAGE — v2.0 ========== -->
+﻿<!-- views/tools/json-formatter.ejs -->
+<!-- ========== JSON FORMATTER TOOL PAGE â€” v2.0 ========== -->
 <!-- Production tool page for Value.Codes JSON Formatter -->
 <!-- Rating target: 9.5+ -->
 
@@ -20,7 +20,7 @@
           <span>Free Tool</span>
         </div>
         <h1>JSON Formatter</h1>
-        <p class="tool-hero-desc">Format, validate, minify, and fix JSON instantly. Syntax highlighted, dark mode, tree view with JSON path — 100% browser-based, your data never leaves your device.</p>
+        <p class="tool-hero-desc">Format, validate, minify, and fix JSON instantly. Syntax highlighted, dark mode, tree view with JSON path â€” 100% browser-based, your data never leaves your device.</p>
       </div>
       <div class="tool-hero-actions">
         <button class="btn btn-primary btn-sm" id="btn-format" type="button">
@@ -53,17 +53,6 @@
     </div>
   </div>
 </section>
-<!-- ========== ADSENSE: LEADERBOARD ========== -->
-<% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-<div class="ad-leaderboard" aria-label="Advertisement">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="<%= adsensePubId %>"
-       data-ad-slot="auto"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
-<% } %>
 
 
 <section class="tool-workspace" aria-label="JSON Formatter workspace">
@@ -149,7 +138,7 @@
     <div class="jf-perf-warning jf-perf-warning-hidden" id="jf-perf-warning" role="alert">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <span id="jf-perf-text">Large file detected. Some features may be slower.</span>
-      <button class="jf-perf-dismiss" id="jf-perf-dismiss" type="button" aria-label="Dismiss warning">✕</button>
+      <button class="jf-perf-dismiss" id="jf-perf-dismiss" type="button" aria-label="Dismiss warning">âœ•</button>
     </div>
 
     <!-- Main editor panels -->
@@ -268,23 +257,23 @@
 
         <h3>Features</h3>
         <ul class="tool-feature-list">
-          <li><strong>Syntax highlighting</strong> — Color-coded JSON in both input and output panels</li>
-          <li><strong>Dark mode</strong> — System-aware with manual toggle, persisted across sessions</li>
+          <li><strong>Syntax highlighting</strong> â€” Color-coded JSON in both input and output panels</li>
+          <li><strong>Dark mode</strong> â€” System-aware with manual toggle, persisted across sessions</li>
           <li>Instant formatting with 2-space, 4-space, or tab indentation</li>
           <li>One-click minification for compact JSON output</li>
           <li>Real-time validation with detailed error messages and line numbers</li>
           <li>Auto-fix for trailing commas, single quotes, unquoted keys, and comments</li>
-          <li><strong>Diff view</strong> — See exactly what changed between original and fixed/formatted JSON</li>
+          <li><strong>Diff view</strong> â€” See exactly what changed between original and fixed/formatted JSON</li>
           <li><strong>Interactive tree view</strong> with expand/collapse, search, and JSON path display</li>
-          <li><strong>JSON path</strong> — Click any tree node to see and copy its full path (e.g., <code>$.store.books[0].title</code>)</li>
-          <li><strong>Undo/Redo</strong> — Full history stack for all operations</li>
+          <li><strong>JSON path</strong> â€” Click any tree node to see and copy its full path (e.g., <code>$.store.books[0].title</code>)</li>
+          <li><strong>Undo/Redo</strong> â€” Full history stack for all operations</li>
           <li>File upload and download support (.json) with drag-and-drop</li>
           <li>Copy to clipboard with one click</li>
           <li>Resizable split panels with keyboard support</li>
           <li>Live stats: lines, size, key count, nesting depth</li>
-          <li><strong>Tab key support</strong> — Insert tabs/spaces directly in the editor</li>
-          <li><strong>localStorage persistence</strong> — Your last input is saved automatically</li>
-          <li><strong>Performance guard</strong> — Warnings for large files (>1MB), graceful handling up to 5MB</li>
+          <li><strong>Tab key support</strong> â€” Insert tabs/spaces directly in the editor</li>
+          <li><strong>localStorage persistence</strong> â€” Your last input is saved automatically</li>
+          <li><strong>Performance guard</strong> â€” Warnings for large files (>1MB), graceful handling up to 5MB</li>
         </ul>
 
         <h3>What is JSON?</h3>
@@ -292,11 +281,11 @@
 
         <h3>Common JSON Errors</h3>
         <ul class="tool-feature-list">
-          <li><strong>Trailing commas</strong> — JSON does not allow a comma after the last element in an object or array.</li>
-          <li><strong>Single quotes</strong> — JSON requires double quotes for strings.</li>
-          <li><strong>Unquoted keys</strong> — All object keys must be double-quoted strings.</li>
-          <li><strong>Comments</strong> — JSON does not support comments (// or /* */).</li>
-          <li><strong>Missing commas</strong> — Between key-value pairs or array elements.</li>
+          <li><strong>Trailing commas</strong> â€” JSON does not allow a comma after the last element in an object or array.</li>
+          <li><strong>Single quotes</strong> â€” JSON requires double quotes for strings.</li>
+          <li><strong>Unquoted keys</strong> â€” All object keys must be double-quoted strings.</li>
+          <li><strong>Comments</strong> â€” JSON does not support comments (// or /* */).</li>
+          <li><strong>Missing commas</strong> â€” Between key-value pairs or array elements.</li>
         </ul>
 
         <h3>Keyboard Shortcuts</h3>
@@ -328,18 +317,18 @@
         <div class="tool-related">
           <h3>Related Tools</h3>
           <ul class="tool-related-list">
-            <li><a href="/tools/diff-checker">Diff Checker</a><span class="text-muted"> — Compare JSON outputs</span></li>
-            <li><a href="/tools/jwt-decoder">JWT Decoder</a><span class="text-muted"> — Decode JSON Web Tokens</span></li>
-            <li><a href="/tools/base64-encoder">Base64 Encoder</a><span class="text-muted"> — Encode/decode data</span></li>
-            <li><a href="/tools/mock-data-generator">Mock Data Generator</a><span class="text-muted"> — Generate test JSON</span></li>
-            <li><a href="/tools/code-formatter">Code Formatter</a><span class="text-muted"> — Beautify other formats</span></li>
+            <li><a href="/tools/diff-checker">Diff Checker</a><span class="text-muted"> â€” Compare JSON outputs</span></li>
+            <li><a href="/tools/jwt-decoder">JWT Decoder</a><span class="text-muted"> â€” Decode JSON Web Tokens</span></li>
+            <li><a href="/tools/base64-encoder">Base64 Encoder</a><span class="text-muted"> â€” Encode/decode data</span></li>
+            <li><a href="/tools/mock-data-generator">Mock Data Generator</a><span class="text-muted"> â€” Generate test JSON</span></li>
+            <li><a href="/tools/code-formatter">Code Formatter</a><span class="text-muted"> â€” Beautify other formats</span></li>
           </ul>
         </div>
         <div class="tool-shortcuts">
           <h3>Quick Tips</h3>
           <ul class="tool-tips-list">
             <li>Drag and drop a <code>.json</code> file directly onto the input panel</li>
-            <li>Your input is auto-saved — refresh and it's still there</li>
+            <li>Your input is auto-saved â€” refresh and it's still there</li>
             <li>Click any path in Tree View to copy it</li>
             <li>Use Diff view after Fix JSON to see all corrections</li>
             <li>The formatter handles files up to 5MB</li>

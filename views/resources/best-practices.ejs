@@ -1,4 +1,4 @@
-<div class="page-content">
+﻿<div class="page-content">
 
   <!-- BREADCRUMB -->
   <nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -36,7 +36,7 @@
             <span>Developer Resource</span>
           </div>
           <h1>Best <span class="accent">Practices</span></h1>
-          <p class="bp-hero-lead">Industry-proven coding standards, design patterns, testing strategies, and development workflows. Write better, more maintainable code — backed by decades of engineering wisdom.</p>
+          <p class="bp-hero-lead">Industry-proven coding standards, design patterns, testing strategies, and development workflows. Write better, more maintainable code â€” backed by decades of engineering wisdom.</p>
           <div class="bp-hero-stats">
             <div class="bp-stat">
               <span class="bp-stat-number">8</span>
@@ -108,16 +108,6 @@
       </div>
     </div>
   </section>
-  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-  <div class="ad-leaderboard" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="<%= adsensePubId %>"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-  </div>
-  <% } %>
 
   <!-- ========== SECTION 1: CODING STANDARDS ========== -->
   <section class="bp-section" id="coding-standards" aria-label="Coding Standards and Style">
@@ -145,7 +135,7 @@
           <p class="bp-card-desc">Pick a style guide (Airbnb, Google, StandardJS) and follow it across your entire codebase. Consistency reduces cognitive load and makes onboarding faster.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+              <span class="bp-example-label bp-example-bad">âœ— Avoid</span>
             </div>
             <pre><code>function getData( ){
   var x=  getUser()
@@ -154,7 +144,7 @@
           </div>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+              <span class="bp-example-label bp-example-good">âœ“ Prefer</span>
             </div>
             <pre><code>function getData() {
   const user = getUser();
@@ -175,7 +165,7 @@
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Enforce in CI pipeline — fail builds on lint errors
+              Enforce in CI pipeline â€” fail builds on lint errors
             </li>
           </ul>
         </article>
@@ -192,10 +182,10 @@
             </div>
           </div>
           <h3 class="bp-card-title">Meaningful Naming Conventions</h3>
-          <p class="bp-card-desc">Names should reveal intent. A variable, function, or class name should tell you why it exists, what it does, and how it's used — without needing a comment.</p>
+          <p class="bp-card-desc">Names should reveal intent. A variable, function, or class name should tell you why it exists, what it does, and how it's used â€” without needing a comment.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+              <span class="bp-example-label bp-example-bad">âœ— Avoid</span>
             </div>
             <pre><code>const d = new Date();
 const arr = users.filter(u => u.a > 18);
@@ -203,7 +193,7 @@ function proc(x) { /* ... */ }</code></pre>
           </div>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+              <span class="bp-example-label bp-example-good">âœ“ Prefer</span>
             </div>
             <pre><code>const createdAt = new Date();
 const adultUsers = users.filter(
@@ -242,7 +232,7 @@ function processPayment(order) { /* ... */ }</code></pre>
           <p class="bp-card-desc">Every function, class, and module should do one thing and do it well. If you can't describe what it does in one sentence, it's doing too much.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+              <span class="bp-example-label bp-example-bad">âœ— Avoid</span>
             </div>
             <pre><code>function handleUser(user) {
   validate(user);
@@ -254,7 +244,7 @@ function processPayment(order) { /* ... */ }</code></pre>
           </div>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+              <span class="bp-example-label bp-example-good">âœ“ Prefer</span>
             </div>
             <pre><code>function registerUser(user) {
   const validated = validateUser(user);
@@ -294,7 +284,7 @@ function processPayment(order) { /* ... */ }</code></pre>
           <p class="bp-card-desc">Every piece of knowledge should have a single, unambiguous, authoritative representation. Duplicate code means duplicate bugs and double maintenance effort.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+              <span class="bp-example-label bp-example-bad">âœ— Avoid</span>
             </div>
             <pre><code>// In checkout.js
 const tax = price * 0.18;
@@ -306,7 +296,7 @@ const invoiceTotal = amount + invoiceTax;</code></pre>
           </div>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+              <span class="bp-example-label bp-example-good">âœ“ Prefer</span>
             </div>
             <pre><code>// tax.js
 const TAX_RATE = 0.18;
@@ -327,7 +317,7 @@ function calculateTotal(price) {
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              But avoid premature abstraction — rule of three
+              But avoid premature abstraction â€” rule of three
             </li>
           </ul>
         </article>
@@ -347,7 +337,7 @@ function calculateTotal(price) {
           <p class="bp-card-desc">Never swallow errors silently. Catch specific exceptions, provide meaningful messages, and fail gracefully. Unhandled errors in production destroy user trust.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+              <span class="bp-example-label bp-example-bad">âœ— Avoid</span>
             </div>
             <pre><code>try {
   await saveUser(data);
@@ -357,7 +347,7 @@ function calculateTotal(price) {
           </div>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+              <span class="bp-example-label bp-example-good">âœ“ Prefer</span>
             </div>
             <pre><code>try {
   await saveUser(data);
@@ -404,7 +394,7 @@ function calculateTotal(price) {
           <p class="bp-card-desc">Good code is self-documenting. Use comments to explain <em>why</em> something is done, not <em>what</em> the code does. If you need to explain what, the code needs refactoring.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+              <span class="bp-example-label bp-example-bad">âœ— Avoid</span>
             </div>
             <pre><code>// Loop through users
 for (const u of users) {
@@ -417,7 +407,7 @@ for (const u of users) {
           </div>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+              <span class="bp-example-label bp-example-good">âœ“ Prefer</span>
             </div>
             <pre><code>// Legal requirement: GDPR mandates age
 // verification before data processing
@@ -432,7 +422,7 @@ const eligibleUsers = users.filter(
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Delete commented-out code — Git remembers
+              Delete commented-out code â€” Git remembers
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -452,7 +442,7 @@ const eligibleUsers = users.filter(
         <span class="section-number">[02]</span>
         <h2>Design Patterns</h2>
       </div>
-      <p class="bp-section-desc">Proven solutions to recurring software design problems. Know when to use them — and when not to.</p>
+      <p class="bp-section-desc">Proven solutions to recurring software design problems. Know when to use them â€” and when not to.</p>
 
       <div class="bp-grid">
 
@@ -469,7 +459,7 @@ const eligibleUsers = users.filter(
           <p class="bp-card-desc">Create objects without exposing instantiation logic. Use factories when the type of object depends on runtime conditions or configuration.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Example</span>
+              <span class="bp-example-label bp-example-good">âœ“ Example</span>
             </div>
             <pre><code>function createNotifier(type) {
   switch (type) {
@@ -493,7 +483,7 @@ const notifier = createNotifier('email');</code></pre>
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Testable — mock the factory in unit tests
+              Testable â€” mock the factory in unit tests
             </li>
           </ul>
         </article>
@@ -508,10 +498,10 @@ const notifier = createNotifier('email');</code></pre>
             </div>
           </div>
           <h3 class="bp-card-title">Observer / Event Emitter</h3>
-          <p class="bp-card-desc">Decouple components by using publish-subscribe. When something happens, emit an event — interested parties subscribe and react independently.</p>
+          <p class="bp-card-desc">Decouple components by using publish-subscribe. When something happens, emit an event â€” interested parties subscribe and react independently.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Example</span>
+              <span class="bp-example-label bp-example-good">âœ“ Example</span>
             </div>
             <pre><code>const EventEmitter = require('events');
 const bus = new EventEmitter();
@@ -536,7 +526,7 @@ bus.emit('order:placed', newOrder);</code></pre>
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Watch for memory leaks — always removeListener
+              Watch for memory leaks â€” always removeListener
             </li>
           </ul>
         </article>
@@ -554,7 +544,7 @@ bus.emit('order:placed', newOrder);</code></pre>
           <p class="bp-card-desc">Encapsulate private state and expose only a public API. In JavaScript, use ES modules or IIFEs. Prevents namespace pollution and unintended access.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Example</span>
+              <span class="bp-example-label bp-example-good">âœ“ Example</span>
             </div>
             <pre><code>// counter.js
 let count = 0; // private
@@ -596,7 +586,7 @@ export function getCount() {
           <p class="bp-card-desc">Define a family of algorithms, encapsulate each one, and make them interchangeable. The strategy pattern lets the algorithm vary independently from clients.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Example</span>
+              <span class="bp-example-label bp-example-good">âœ“ Example</span>
             </div>
             <pre><code>const strategies = {
   standard: (price) => price,
@@ -617,7 +607,7 @@ function getPrice(tier, basePrice) {
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Open/closed principle — extend without modifying
+              Open/closed principle â€” extend without modifying
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -639,7 +629,7 @@ function getPrice(tier, basePrice) {
           <p class="bp-card-desc">Pass a request through a chain of handlers. Each handler processes or passes it along. Express.js middleware is a textbook example of this pattern.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Example</span>
+              <span class="bp-example-label bp-example-good">âœ“ Example</span>
             </div>
             <pre><code>app.use(helmet());
 app.use(compression());
@@ -656,7 +646,7 @@ app.get('/dashboard', controller);
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Order matters — arrange from general to specific
+              Order matters â€” arrange from general to specific
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -678,7 +668,7 @@ app.get('/dashboard', controller);
           <p class="bp-card-desc">Ensure a class has only one instance. Common for database connections, loggers, and config. But overuse creates hidden coupling and testing nightmares.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Example</span>
+              <span class="bp-example-label bp-example-good">âœ“ Example</span>
             </div>
             <pre><code>// database.js (Node.js module = singleton)
 const pool = mysql.createPool({
@@ -700,7 +690,7 @@ module.exports = pool;
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Avoid for business logic — prefer dependency injection
+              Avoid for business logic â€” prefer dependency injection
             </li>
           </ul>
         </article>
@@ -734,7 +724,7 @@ module.exports = pool;
           <p class="bp-card-desc">Unit tests are the foundation of your testing pyramid. Test individual functions and modules in isolation. Aim for fast execution and high coverage of business logic.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Example</span>
+              <span class="bp-example-label bp-example-good">âœ“ Example</span>
             </div>
             <pre><code>describe('calculateTotal', () => {
   it('applies tax correctly', () => {
@@ -783,7 +773,7 @@ module.exports = pool;
           <p class="bp-card-desc">Many unit tests (fast, cheap), fewer integration tests (verify modules work together), and a handful of E2E tests (simulate real user flows). Invert this pyramid and you'll have slow, flaky CI.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Ratio Guide</span>
+              <span class="bp-example-label bp-example-good">âœ“ Ratio Guide</span>
             </div>
             <pre><code>Testing Pyramid:
 
@@ -820,25 +810,25 @@ module.exports = pool;
             </div>
           </div>
           <h3 class="bp-card-title">Test-Driven Development (TDD)</h3>
-          <p class="bp-card-desc">Red → Green → Refactor. Write a failing test first, write the minimum code to pass it, then refactor. TDD produces cleaner APIs and catches regressions immediately.</p>
+          <p class="bp-card-desc">Red â†’ Green â†’ Refactor. Write a failing test first, write the minimum code to pass it, then refactor. TDD produces cleaner APIs and catches regressions immediately.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ TDD Cycle</span>
+              <span class="bp-example-label bp-example-good">âœ“ TDD Cycle</span>
             </div>
-            <pre><code>// 1. RED — Write failing test
+            <pre><code>// 1. RED â€” Write failing test
 it('reverses a string', () => {
   expect(reverse('hello')).toBe('olleh');
-}); // ✗ ReferenceError: reverse not defined
+}); // âœ— ReferenceError: reverse not defined
 
-// 2. GREEN — Minimum code to pass
+// 2. GREEN â€” Minimum code to pass
 function reverse(str) {
   return str.split('').reverse().join('');
-} // ✓ Test passes
+} // âœ“ Test passes
 
-// 3. REFACTOR — Improve if needed
+// 3. REFACTOR â€” Improve if needed
 function reverse(str) {
   return [...str].reverse().join('');
-} // ✓ Still passes, cleaner</code></pre>
+} // âœ“ Still passes, cleaner</code></pre>
           </div>
           <ul class="bp-card-checklist">
             <li>
@@ -869,7 +859,7 @@ function reverse(str) {
           <p class="bp-card-desc">Tests that don't run automatically are tests that will be skipped. Wire every test suite into your CI pipeline. Block merges on test failure. No exceptions.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ GitHub Actions</span>
+              <span class="bp-example-label bp-example-good">âœ“ GitHub Actions</span>
             </div>
             <pre><code>name: CI
 on: [push, pull_request]
@@ -929,14 +919,14 @@ jobs:
           <p class="bp-card-desc">Each commit should represent one logical change. Small, focused commits are easier to review, revert, bisect, and cherry-pick.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-bad">✗ Avoid</span>
+              <span class="bp-example-label bp-example-bad">âœ— Avoid</span>
             </div>
             <pre><code>git commit -m "fixed stuff and added feature
 and updated deps"</code></pre>
           </div>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Prefer</span>
+              <span class="bp-example-label bp-example-good">âœ“ Prefer</span>
             </div>
             <pre><code>git commit -m "fix: resolve null pointer in
 user validation (#142)"
@@ -957,7 +947,7 @@ git commit -m "chore: update express to 4.19"</code></pre>
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              One concern per commit — never mix refactor + feature
+              One concern per commit â€” never mix refactor + feature
             </li>
           </ul>
         </article>
@@ -975,19 +965,19 @@ git commit -m "chore: update express to 4.19"</code></pre>
           <p class="bp-card-desc">Adopt Git Flow, GitHub Flow, or Trunk-Based Development. Consistency in branching prevents merge chaos and deployment accidents.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ GitHub Flow</span>
+              <span class="bp-example-label bp-example-good">âœ“ GitHub Flow</span>
             </div>
             <pre><code>main (always deployable)
-  └── feature/add-user-auth
-  └── fix/login-redirect-bug
-  └── chore/update-dependencies
+  â””â”€â”€ feature/add-user-auth
+  â””â”€â”€ fix/login-redirect-bug
+  â””â”€â”€ chore/update-dependencies
 
 Workflow:
 1. Branch from main
 2. Make changes + commit
 3. Open Pull Request
 4. Code review + CI passes
-5. Merge to main → auto-deploy</code></pre>
+5. Merge to main â†’ auto-deploy</code></pre>
           </div>
           <ul class="bp-card-checklist">
             <li>
@@ -996,7 +986,7 @@ Workflow:
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Short-lived branches — merge within 1-2 days
+              Short-lived branches â€” merge within 1-2 days
             </li>
             <li>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -1016,10 +1006,10 @@ Workflow:
             </div>
           </div>
           <h3 class="bp-card-title">Never Commit Secrets</h3>
-          <p class="bp-card-desc">API keys, passwords, tokens, and .env files must never enter your repository. Once committed, they're in the history forever — even if you delete the file.</p>
+          <p class="bp-card-desc">API keys, passwords, tokens, and .env files must never enter your repository. Once committed, they're in the history forever â€” even if you delete the file.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ .gitignore</span>
+              <span class="bp-example-label bp-example-good">âœ“ .gitignore</span>
             </div>
             <pre><code># Environment
 .env
@@ -1078,9 +1068,9 @@ credentials.json</code></pre>
           <p class="bp-card-desc">No code reaches main without at least one peer review. Reviews catch bugs, enforce standards, and distribute knowledge across the team.</p>
           <ul class="bp-card-checklist">
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Require at least 1 approval before merge</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Review within 24 hours — don't block teammates</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Review within 24 hours â€” don't block teammates</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Check logic, security, tests, naming, edge cases</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Be constructive — critique the code, not the person</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Be constructive â€” critique the code, not the person</li>
           </ul>
         </article>
 
@@ -1097,7 +1087,7 @@ credentials.json</code></pre>
           <p class="bp-card-desc">A good PR tells the reviewer what changed, why, and how to test it. Include screenshots for UI changes. Link the issue. Describe the approach.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ PR Template</span>
+              <span class="bp-example-label bp-example-good">âœ“ PR Template</span>
             </div>
             <pre><code>## What
 Added email verification on signup.
@@ -1108,13 +1098,13 @@ Reduces spam accounts by 80% (Issue #234).
 ## How to test
 1. Register with a new email
 2. Check inbox for verification link
-3. Click link → account activated
+3. Click link â†’ account activated
 
 ## Screenshots
-[before] → [after]</code></pre>
+[before] â†’ [after]</code></pre>
           </div>
           <ul class="bp-card-checklist">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Keep PRs under 400 lines — split large features</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Keep PRs under 400 lines â€” split large features</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use a PR template for consistency</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Self-review before requesting others</li>
           </ul>
@@ -1131,7 +1121,7 @@ Reduces spam accounts by 80% (Issue #234).
         <span class="section-number">[06]</span>
         <h2>Security Best Practices</h2>
       </div>
-      <p class="bp-section-desc">Security is not a feature — it's a requirement. Think about security at every layer from day one.</p>
+      <p class="bp-section-desc">Security is not a feature â€” it's a requirement. Think about security at every layer from day one.</p>
 
       <div class="bp-grid">
 
@@ -1149,7 +1139,7 @@ Reduces spam accounts by 80% (Issue #234).
           <p class="bp-card-desc">Never trust user input. Validate type, length, format, and range on the server. Sanitize to prevent XSS and SQL injection. Client-side validation is UX, not security.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ Express Validator</span>
+              <span class="bp-example-label bp-example-good">âœ“ Express Validator</span>
             </div>
             <pre><code>const { body, validationResult } = require(
   'express-validator'
@@ -1172,8 +1162,8 @@ app.post('/api/contact', [
 });</code></pre>
           </div>
           <ul class="bp-card-checklist">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Validate on server — never rely on client alone</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use parameterized queries — never concatenate SQL</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Validate on server â€” never rely on client alone</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use parameterized queries â€” never concatenate SQL</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Escape HTML output to prevent XSS</li>
           </ul>
         </article>
@@ -1188,9 +1178,9 @@ app.post('/api/contact', [
             </div>
           </div>
           <h3 class="bp-card-title">Secure Authentication</h3>
-          <p class="bp-card-desc">Hash passwords with bcrypt (cost factor ≥ 10). Use HTTPS everywhere. Implement rate limiting on login endpoints. Never store plaintext passwords.</p>
+          <p class="bp-card-desc">Hash passwords with bcrypt (cost factor â‰¥ 10). Use HTTPS everywhere. Implement rate limiting on login endpoints. Never store plaintext passwords.</p>
           <ul class="bp-card-checklist">
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>bcrypt with salt rounds ≥ 10</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>bcrypt with salt rounds â‰¥ 10</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Rate limit login to 5 attempts per minute</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Set secure, httpOnly, sameSite on session cookies</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use helmet() for security headers</li>
@@ -1211,7 +1201,7 @@ app.post('/api/contact', [
           <ul class="bp-card-checklist">
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Run npm audit weekly</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Enable Dependabot on GitHub</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use package-lock.json — commit it</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use package-lock.json â€” commit it</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Review changelogs before major updates</li>
           </ul>
         </article>
@@ -1267,7 +1257,7 @@ app.post('/api/contact', [
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Add indexes on columns used in WHERE and JOIN</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use EXPLAIN to analyze slow queries</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use connection pooling (mysql2 pool)</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>SELECT only columns you need — never SELECT *</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>SELECT only columns you need â€” never SELECT *</li>
           </ul>
         </article>
 
@@ -1318,7 +1308,7 @@ app.post('/api/contact', [
           <p class="bp-card-desc">Your README is your project's front door. Include what it does, how to install it, how to run it, how to contribute, and license information. A bad README kills adoption.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ README Structure</span>
+              <span class="bp-example-label bp-example-good">âœ“ README Structure</span>
             </div>
             <pre><code># Project Name
 One-line description.
@@ -1343,7 +1333,7 @@ MIT</code></pre>
           </div>
           <ul class="bp-card-checklist">
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Include badges (build status, coverage, license)</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Keep it updated — stale docs are worse than none</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Keep it updated â€” stale docs are worse than none</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Add screenshots/GIFs for visual projects</li>
           </ul>
         </article>
@@ -1381,7 +1371,7 @@ MIT</code></pre>
           <p class="bp-card-desc">Use Architecture Decision Records (ADRs) to document why you chose a technology, pattern, or approach. Future you (and your team) will thank you.</p>
           <div class="bp-card-example">
             <div class="bp-card-example-header">
-              <span class="bp-example-label bp-example-good">✓ ADR Format</span>
+              <span class="bp-example-label bp-example-good">âœ“ ADR Format</span>
             </div>
             <pre><code># ADR-001: Use MySQL over PostgreSQL
 
@@ -1402,7 +1392,7 @@ Use MySQL with mysql2 driver.
           <ul class="bp-card-checklist">
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Store ADRs in docs/adr/ in your repo</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Record context, decision, and consequences</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Never delete ADRs — supersede them</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Never delete ADRs â€” supersede them</li>
           </ul>
         </article>
 
@@ -1463,7 +1453,7 @@ Use MySQL with mysql2 driver.
               </li>
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
-                npm audit — no critical vulnerabilities
+                npm audit â€” no critical vulnerabilities
               </li>
             </ul>
           </div>
@@ -1496,16 +1486,6 @@ Use MySQL with mysql2 driver.
       </div>
     </div>
   </section>
-  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-  <div class="ad-leaderboard" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="<%= adsensePubId %>"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-  </div>
-  <% } %>
 
   <!-- RELATED RESOURCES -->
   <section class="bp-related" aria-label="Related resources">
@@ -1513,21 +1493,21 @@ Use MySQL with mysql2 driver.
       <h2 class="bp-related-title">Continue Learning</h2>
       <div class="bp-related-grid">
         <a href="/resources/developer-tools" class="resource-card">
-          <span class="resource-icon" aria-hidden="true">🛠️</span>
+          <span class="resource-icon" aria-hidden="true">ðŸ› ï¸</span>
           <div class="resource-body">
             <h3>Developer Tools</h3>
             <p>Essential tools and extensions every developer should know about.</p>
           </div>
         </a>
         <a href="/resources/career-roadmaps" class="resource-card">
-          <span class="resource-icon" aria-hidden="true">🗺️</span>
+          <span class="resource-icon" aria-hidden="true">ðŸ—ºï¸</span>
           <div class="resource-body">
             <h3>Career Roadmaps</h3>
             <p>Step-by-step guides for frontend, backend, DevOps, and more.</p>
           </div>
         </a>
         <a href="/resources/documentation" class="resource-card">
-          <span class="resource-icon" aria-hidden="true">📄</span>
+          <span class="resource-icon" aria-hidden="true">ðŸ“„</span>
           <div class="resource-body">
             <h3>Documentation</h3>
             <p>Links to official docs for popular languages, frameworks, and APIs.</p>
@@ -1542,7 +1522,7 @@ Use MySQL with mysql2 driver.
     <div class="container">
       <div class="bp-cta-inner">
         <h2>Put these practices to <span class="accent">work</span></h2>
-        <p>Open any of our free developer tools and start writing better code today. Format, validate, test, and build — all in your browser.</p>
+        <p>Open any of our free developer tools and start writing better code today. Format, validate, test, and build â€” all in your browser.</p>
         <div class="bp-cta-actions">
           <a href="/tools/" class="btn btn-primary">Explore All Tools</a>
           <a href="/community" class="btn btn-secondary">Join Community</a>

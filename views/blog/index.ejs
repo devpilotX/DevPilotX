@@ -1,5 +1,5 @@
-<%# ============================================================ %>
-<%# blog/index.ejs — Blog Home / Listing Page                    %>
+﻿<%# ============================================================ %>
+<%# blog/index.ejs â€” Blog Home / Listing Page                    %>
 <%# ============================================================ %>
 
 <div class="blog-page" aria-label="Blog articles listing">
@@ -45,17 +45,6 @@
       </div>
     </div>
   </section>
-
-  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-  <div class="ad-leaderboard" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="<%= adsensePubId %>"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-  </div>
-  <% } %>
 
   <%# ========== ARTICLE GRID ========== %>
   <section class="blog-listing section-padding" aria-label="All blog articles">
@@ -136,7 +125,7 @@
     </div>
   </section>
 
-  <%# ========== NEWSLETTER CTA — BOTTOM ========== %>
+  <%# ========== NEWSLETTER CTA â€” BOTTOM ========== %>
   <section class="blog-newsletter-cta" aria-label="Newsletter signup">
     <div class="container">
       <div class="blog-newsletter-cta__inner">

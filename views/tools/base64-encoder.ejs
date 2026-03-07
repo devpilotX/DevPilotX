@@ -1,4 +1,4 @@
-<%- include('../partials/seo-head') %>
+﻿<%- include('../partials/seo-head') %>
 
 <div class="page-content">
 
@@ -13,10 +13,10 @@
         </ol>
       </nav>
       <div class="tool-hero-header">
-        <span class="tool-hero-icon" aria-hidden="true">🔤</span>
+        <span class="tool-hero-icon" aria-hidden="true">ðŸ”¤</span>
         <div class="tool-hero-text">
           <h1>Base64 Encoder <span class="accent">&amp; Decoder</span></h1>
-          <p class="tool-hero-desc">Encode text or files to Base64 and decode Base64 strings back to plain text — instantly, privately, 100% in your browser.</p>
+          <p class="tool-hero-desc">Encode text or files to Base64 and decode Base64 strings back to plain text â€” instantly, privately, 100% in your browser.</p>
         </div>
       </div>
       <div class="tool-hero-badges">
@@ -27,17 +27,6 @@
       </div>
     </div>
   </section>
-<!-- ========== ADSENSE: LEADERBOARD ========== -->
-<% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-<div class="ad-leaderboard" aria-label="Advertisement">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="<%= adsensePubId %>"
-       data-ad-slot="auto"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
-<% } %>
 
 
   <!-- TOOL WORKSPACE -->
@@ -150,7 +139,7 @@
         <!-- STATUS BAR -->
         <div class="b64-status-bar" id="b64-status-bar" aria-live="polite" aria-atomic="true">
           <span class="b64-status-icon" id="b64-status-icon" aria-hidden="true"></span>
-          <span class="b64-status-text" id="b64-status-text">Ready — enter text above to encode or decode.</span>
+          <span class="b64-status-text" id="b64-status-text">Ready â€” enter text above to encode or decode.</span>
         </div>
 
       </div>
@@ -161,7 +150,7 @@
           <div class="b64-file-zone-inner">
             <svg class="b64-file-zone-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
             <p class="b64-file-zone-title">Drop a file here or click to browse</p>
-            <p class="b64-file-zone-hint">Max 5 MB · Images, text, PDFs, or any file</p>
+            <p class="b64-file-zone-hint">Max 5 MB Â· Images, text, PDFs, or any file</p>
             <input type="file" class="b64-file-input" id="b64-file-input" aria-label="Choose a file to encode to Base64" />
           </div>
         </div>
@@ -170,8 +159,8 @@
         <div class="b64-file-info b64-file-info-hidden" id="b64-file-info">
           <div class="b64-file-info-header">
             <div class="b64-file-info-details">
-              <span class="b64-file-name" id="b64-file-name">—</span>
-              <span class="b64-file-meta" id="b64-file-meta">— · —</span>
+              <span class="b64-file-name" id="b64-file-name">â€”</span>
+              <span class="b64-file-meta" id="b64-file-meta">â€” Â· â€”</span>
             </div>
             <button class="b64-action-btn" id="b64-file-remove-btn" type="button" aria-label="Remove file">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -227,13 +216,13 @@
         <span class="section-number" aria-hidden="true">[01]</span>
         <h2>How Base64 Encoding Works</h2>
       </div>
-      <p class="section-desc">Base64 converts binary data into a <strong>safe ASCII string</strong> using 64 printable characters (A–Z, a–z, 0–9, +, /).</p>
+      <p class="section-desc">Base64 converts binary data into a <strong>safe ASCII string</strong> using 64 printable characters (Aâ€“Z, aâ€“z, 0â€“9, +, /).</p>
 
       <div class="tool-info-grid">
         <div class="tool-info-card">
           <span class="tool-info-card-number" aria-hidden="true">1</span>
           <h3>Input Bytes</h3>
-          <p>Your text is first converted to raw bytes using UTF-8 encoding. Each character becomes 1–4 bytes.</p>
+          <p>Your text is first converted to raw bytes using UTF-8 encoding. Each character becomes 1â€“4 bytes.</p>
         </div>
         <div class="tool-info-card">
           <span class="tool-info-card-number" aria-hidden="true">2</span>
@@ -286,32 +275,32 @@
       <p class="section-desc">Base64 is used across the web and in <strong>almost every modern stack.</strong></p>
       <div class="tool-usecases-grid">
         <div class="tool-usecase-card">
-          <span class="tool-usecase-icon" aria-hidden="true">🖼️</span>
+          <span class="tool-usecase-icon" aria-hidden="true">ðŸ–¼ï¸</span>
           <h3>Embedding Images in HTML/CSS</h3>
           <p>Convert small images to Data URIs (<code>data:image/png;base64,...</code>) to reduce HTTP requests and speed up rendering.</p>
         </div>
         <div class="tool-usecase-card">
-          <span class="tool-usecase-icon" aria-hidden="true">📧</span>
+          <span class="tool-usecase-icon" aria-hidden="true">ðŸ“§</span>
           <h3>Email Attachments (MIME)</h3>
           <p>Email protocols (SMTP) use Base64 to encode binary attachments so they can travel through text-only channels.</p>
         </div>
         <div class="tool-usecase-card">
-          <span class="tool-usecase-icon" aria-hidden="true">🔑</span>
+          <span class="tool-usecase-icon" aria-hidden="true">ðŸ”‘</span>
           <h3>API Authentication</h3>
           <p>HTTP Basic Auth encodes <code>username:password</code> as Base64 in the <code>Authorization</code> header. Used in REST APIs worldwide.</p>
         </div>
         <div class="tool-usecase-card">
-          <span class="tool-usecase-icon" aria-hidden="true">🪙</span>
+          <span class="tool-usecase-icon" aria-hidden="true">ðŸª™</span>
           <h3>JWT Tokens</h3>
           <p>JSON Web Tokens use Base64url encoding for the header and payload segments. Every JWT you see is Base64 encoded.</p>
         </div>
         <div class="tool-usecase-card">
-          <span class="tool-usecase-icon" aria-hidden="true">💾</span>
+          <span class="tool-usecase-icon" aria-hidden="true">ðŸ’¾</span>
           <h3>Data Storage in JSON/XML</h3>
           <p>When you need to embed binary data inside text formats like JSON or XML, Base64 is the standard approach.</p>
         </div>
         <div class="tool-usecase-card">
-          <span class="tool-usecase-icon" aria-hidden="true">🔐</span>
+          <span class="tool-usecase-icon" aria-hidden="true">ðŸ”</span>
           <h3>Cryptographic Operations</h3>
           <p>Hashes, keys, and certificates are often represented as Base64 strings for safe transport and storage.</p>
         </div>
@@ -333,7 +322,7 @@
             <svg class="tool-faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="tool-faq-answer" aria-hidden="true">
-            <p><strong>No.</strong> Base64 is an encoding scheme, not encryption. It doesn't provide security — anyone can decode it. It's designed to safely represent binary data as ASCII text, not to hide information.</p>
+            <p><strong>No.</strong> Base64 is an encoding scheme, not encryption. It doesn't provide security â€” anyone can decode it. It's designed to safely represent binary data as ASCII text, not to hide information.</p>
           </div>
         </div>
         <div class="tool-faq-item">
@@ -397,19 +386,19 @@
           <span class="tool-card-icon" aria-hidden="true">#</span>
           <h3 class="tool-card-name">Hash Generator</h3>
           <p class="tool-card-desc">Generate MD5, SHA-1, SHA-256, SHA-512 hashes from any text.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
         </a>
         <a href="/tools/jwt-decoder" class="tool-card">
-          <span class="tool-card-icon" aria-hidden="true">🔑</span>
+          <span class="tool-card-icon" aria-hidden="true">ðŸ”‘</span>
           <h3 class="tool-card-name">JWT Decoder</h3>
           <p class="tool-card-desc">Decode and inspect JSON Web Tokens. Check expiry and claims.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
         </a>
         <a href="/tools/json-formatter" class="tool-card">
           <span class="tool-card-icon" aria-hidden="true">{ }</span>
           <h3 class="tool-card-name">JSON Formatter</h3>
           <p class="tool-card-desc">Format, validate, and minify JSON data instantly.</p>
-          <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+          <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
         </a>
       </div>
     </div>

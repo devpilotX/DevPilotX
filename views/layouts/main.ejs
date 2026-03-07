@@ -70,19 +70,9 @@
     <% }); %>
   <% } %>
 
-  <!-- ========== GOOGLE ADSENSE ========== -->
+  <!-- ========== GOOGLE ADSENSE (Auto Ads) ========== -->
   <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= adsensePubId %>" crossorigin="anonymous"></script>
-  <script>
-    window.addEventListener('load', function () {
-      var ads = document.querySelectorAll('ins.adsbygoogle');
-      for (var i = 0; i < ads.length; i++) {
-        if (!ads[i].getAttribute('data-adsbygoogle-status')) {
-          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-        }
-      }
-    });
-  </script>
   <% } %>
 </body>
 </html>

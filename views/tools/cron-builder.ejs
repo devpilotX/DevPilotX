@@ -1,8 +1,8 @@
-<!-- ========================================================================
-     CRON BUILDER v1 — views/tools/cron-builder.ejs
+﻿<!-- ========================================================================
+     CRON BUILDER v1 â€” views/tools/cron-builder.ejs
      Build and explain cron expressions visually.
-     100% browser-based — no server calls.
-     Value.Codes — Free Developer Tools
+     100% browser-based â€” no server calls.
+     Value.Codes â€” Free Developer Tools
      ======================================================================== -->
 
 <!-- TOOL HERO -->
@@ -28,17 +28,6 @@
     </div>
   </div>
 </section>
-<!-- ========== ADSENSE: LEADERBOARD ========== -->
-<% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-<div class="ad-leaderboard" aria-label="Advertisement">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="<%= adsensePubId %>"
-       data-ad-slot="auto"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
-<% } %>
 
 
 <!-- TOOL WORKSPACE -->
@@ -80,7 +69,7 @@
           </select>
           <div class="cron-field-input cron-field-hidden" id="cron-minute-input">
             <input type="text" class="cron-text-input" id="cron-minute-val" placeholder="e.g. 0,15,30,45" aria-label="Minute values" />
-            <span class="cron-field-hint">Comma-separated, 0–59</span>
+            <span class="cron-field-hint">Comma-separated, 0â€“59</span>
           </div>
         </div>
 
@@ -95,7 +84,7 @@
           </select>
           <div class="cron-field-input cron-field-hidden" id="cron-hour-input">
             <input type="text" class="cron-text-input" id="cron-hour-val" placeholder="e.g. 0,6,12,18" aria-label="Hour values" />
-            <span class="cron-field-hint">Comma-separated, 0–23</span>
+            <span class="cron-field-hint">Comma-separated, 0â€“23</span>
           </div>
         </div>
 
@@ -109,7 +98,7 @@
           </select>
           <div class="cron-field-input cron-field-hidden" id="cron-dom-input">
             <input type="text" class="cron-text-input" id="cron-dom-val" placeholder="e.g. 1,15" aria-label="Day of month values" />
-            <span class="cron-field-hint">Comma-separated, 1–31</span>
+            <span class="cron-field-hint">Comma-separated, 1â€“31</span>
           </div>
         </div>
 
@@ -222,11 +211,11 @@
         <div class="cron-ref-row cron-ref-header">
           <span>Field</span><span>Required</span><span>Values</span><span>Special chars</span>
         </div>
-        <div class="cron-ref-row"><span>Minute</span><span>Yes</span><span>0–59</span><span>* , - /</span></div>
-        <div class="cron-ref-row"><span>Hour</span><span>Yes</span><span>0–23</span><span>* , - /</span></div>
-        <div class="cron-ref-row"><span>Day of month</span><span>Yes</span><span>1–31</span><span>* , - / L</span></div>
-        <div class="cron-ref-row"><span>Month</span><span>Yes</span><span>1–12</span><span>* , -</span></div>
-        <div class="cron-ref-row"><span>Day of week</span><span>Yes</span><span>0–6 (Sun=0)</span><span>* , - /</span></div>
+        <div class="cron-ref-row"><span>Minute</span><span>Yes</span><span>0â€“59</span><span>* , - /</span></div>
+        <div class="cron-ref-row"><span>Hour</span><span>Yes</span><span>0â€“23</span><span>* , - /</span></div>
+        <div class="cron-ref-row"><span>Day of month</span><span>Yes</span><span>1â€“31</span><span>* , - / L</span></div>
+        <div class="cron-ref-row"><span>Month</span><span>Yes</span><span>1â€“12</span><span>* , -</span></div>
+        <div class="cron-ref-row"><span>Day of week</span><span>Yes</span><span>0â€“6 (Sun=0)</span><span>* , - /</span></div>
       </div>
     </div>
 
@@ -244,22 +233,22 @@
 
     <div class="tool-usecases-grid">
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">🗄️</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸ—„ï¸</span>
         <h3>Database Backups</h3>
         <p>Schedule nightly database dumps: <code>0 2 * * *</code> runs at 2 AM every day.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">📧</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸ“§</span>
         <h3>Email Digests</h3>
         <p>Send weekly newsletters: <code>0 9 * * 1</code> runs every Monday at 9 AM.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">🧹</span>
+        <span class="tool-usecase-icon" aria-hidden="true">ðŸ§¹</span>
         <h3>Log Cleanup</h3>
         <p>Clear old files monthly: <code>0 0 1 * *</code> runs on the 1st of every month.</p>
       </div>
       <div class="tool-usecase-card">
-        <span class="tool-usecase-icon" aria-hidden="true">☁️</span>
+        <span class="tool-usecase-icon" aria-hidden="true">â˜ï¸</span>
         <h3>Cloud Functions</h3>
         <p>Trigger AWS Lambda, Google Cloud Functions, and Azure Functions using cron syntax.</p>
       </div>
@@ -276,22 +265,22 @@
     </div>
     <div class="tool-related-grid">
       <a href="/tools/jwt-decoder" class="tool-card">
-        <span class="tool-card-icon" aria-hidden="true">🔑</span>
+        <span class="tool-card-icon" aria-hidden="true">ðŸ”‘</span>
         <h3 class="tool-card-name">JWT Decoder</h3>
         <p class="tool-card-desc">Decode and inspect JSON Web Tokens.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
       <a href="/tools/hash-generator" class="tool-card">
         <span class="tool-card-icon" aria-hidden="true">#</span>
         <h3 class="tool-card-name">Hash Generator</h3>
         <p class="tool-card-desc">Generate MD5, SHA-256 and other hashes.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
       <a href="/tools/regex-builder" class="tool-card">
         <span class="tool-card-icon" aria-hidden="true">.*</span>
         <h3 class="tool-card-name">Regex Builder</h3>
         <p class="tool-card-desc">Build and test regular expressions.</p>
-        <span class="tool-card-arrow" aria-hidden="true">Open →</span>
+        <span class="tool-card-arrow" aria-hidden="true">Open â†’</span>
       </a>
     </div>
   </div>
