@@ -11,7 +11,7 @@
       <h1>Code Snippets</h1>
       <p class="section-desc">
         <%= totalCount %> production-ready code snippets. Copy-paste into your projects.
-        No fluff, no tutorials:just clean, working code.
+        No fluff, no tutorials. Just clean, working code.
       </p>
     </div>
   </section>
@@ -20,7 +20,7 @@
   <section class="snippet-categories" aria-label="Snippet categories">
     <div class="container">
       <% categories.forEach(function(cat) { %>
-        <a href="/snippets/<%= cat.slug %>/" class="snippet-category-card" aria-label="<%= cat.name %>:<%= cat.snippet_count %> snippets">
+        <a href="/snippets/<%= cat.slug %>/" class="snippet-category-card" aria-label="<%= cat.name %>, <%= cat.snippet_count %> snippets">
           <h2 class="snippet-category-title"><%= cat.name %></h2>
           <p class="snippet-category-desc"><%= cat.description %></p>
           <span class="snippet-category-count"><%= cat.snippet_count %> snippet<%= cat.snippet_count !== 1 ? 's' : '' %></span>
@@ -34,9 +34,9 @@
     <div class="container">
       <h2>More Developer Resources</h2>
       <ul>
-        <li><a href="/tools/">Free Developer Tools</a>:JSON Formatter, Regex Builder, and more</li>
-        <li><a href="/compiler/">Online Compiler</a>:Run code in 19 languages</li>
-        <li><a href="/resources/">Curated Resources</a>:Handpicked links for developers</li>
+        <li><a href="/tools/">Free Developer Tools</a> | JSON Formatter, Regex Builder, and more</li>
+        <li><a href="/compiler/">Online Compiler</a> | Run code in 19 languages</li>
+        <li><a href="/resources/">Curated Resources</a> | Handpicked links for developers</li>
       </ul>
     </div>
   </section>

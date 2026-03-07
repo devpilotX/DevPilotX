@@ -65,9 +65,9 @@ router.get('/:category', async function (req, res, next) {
     var apis = await Api.getPublishedByCategory(req.params.category);
 
     res.render('apis/category', {
-      title: category.emoji + ' ' + category.name + ' APIs — Free Public API Directory — Value.Codes',
-      description: 'Browse ' + apis.length + ' free ' + category.name.toLowerCase() + ' APIs. Auth details, CORS support, endpoint examples, and live JSON previews.',
-      keywords: category.name.toLowerCase() + ' api, free ' + category.slug.replace(/-/g, ' ') + ' api, ' + category.name.toLowerCase() + ' api json',
+      title: 'Free ' + category.name + ' APIs — Public API Directory | Value.Codes',
+      description: 'Browse ' + apis.length + ' free ' + category.name.toLowerCase() + ' APIs for developers. Auth methods, CORS details, endpoint examples, and live JSON previews. No signup required.',
+      keywords: category.name.toLowerCase() + ' api, free ' + category.slug.replace(/-/g, ' ') + ' api, public ' + category.name.toLowerCase() + ' api, ' + category.name.toLowerCase() + ' rest api free',
       canonical: SITE + '/apis/' + category.slug + '/',
       robots: 'index, follow',
       ogType: 'website',
@@ -110,9 +110,9 @@ router.get('/:category/:slug', async function (req, res, next) {
     var relatedApis = await Api.getRelated(api, 4);
 
     /* SEO */
-    var seoTitle = api.seo_title || api.name + ' API — Free Public API — Value.Codes';
-    var seoDesc = api.seo_description || api.description.substring(0, 160);
-    var seoKeys = api.seo_keywords || api.tags.map(function (t) { return t.name; }).join(', ') + ', ' + api.name.toLowerCase() + ' api';
+    var seoTitle = api.seo_title || api.name + ' API — Free ' + api.category_name + ' API | Value.Codes';
+    var seoDesc = api.seo_description || api.description.substring(0, 140) + '. Free public API with auth details, endpoint docs, and live JSON preview.';
+    var seoKeys = api.seo_keywords || api.tags.map(function (t) { return t.name; }).join(', ') + ', ' + api.name.toLowerCase() + ' api, free ' + api.category_name.toLowerCase() + ' api';
 
     res.render('apis/single', {
       title: seoTitle,

@@ -161,9 +161,9 @@ router.get('/', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('tools/index', {
-    title: 'Free Developer Tools — Value.Codes | 10 Browser-Based Coding Tools',
-    description: 'Explore 10 free browser-based developer tools: JSON Formatter, Regex Builder, Diff Checker, Base64 Encoder, Color Picker, and more. No signup required.',
-    keywords: 'free developer tools, online coding tools, browser tools, web developer utilities, programming tools',
+    title: 'Free Developer Tools — Value.Codes | JSON Formatter, Regex Tester, Diff Checker & More',
+    description: 'Free browser-based developer tools: JSON Formatter, Regex Builder, Diff Checker, Base64 Encoder, Color Picker, Cron Builder, JWT Decoder, Hash Generator, Mock Data, Code Formatter. No signup. 100% private.',
+    keywords: 'free developer tools, json formatter online, regex tester, diff checker, base64 encoder, color picker, cron builder, jwt decoder, hash generator, mock data generator, code formatter, browser tools no signup',
     canonical: `${siteUrl}/tools/`,
     robots: 'index, follow',
     ogType: 'website',

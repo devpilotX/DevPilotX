@@ -64,9 +64,9 @@ router.get('/:category', async function (req, res, next) {
     var snippets = await Snippet.getPublishedByCategory(categorySlug);
 
     res.render('snippets/category', {
-      title: category.emoji + ' ' + category.name + ' Snippets — Value.Codes',
-      description: category.description + ' ' + snippets.length + ' copy-paste ready code snippets.',
-      keywords: categorySlug.replace(/-/g, ' ') + ', code snippets, ' + category.name.toLowerCase() + ' snippets',
+      title: category.name + ' Code Snippets — Value.Codes | ' + snippets.length + ' Ready-to-Use Examples',
+      description: category.description + ' ' + snippets.length + ' copy-paste ready code snippets for developers.',
+      keywords: categorySlug.replace(/-/g, ' ') + ' snippets, ' + category.name.toLowerCase() + ' code examples, copy paste ' + category.name.toLowerCase() + ', developer snippets',
       canonical: SITE + '/snippets/' + categorySlug + '/',
       robots: 'index, follow',
       ogType: 'website',
@@ -112,9 +112,9 @@ router.get('/:category/:slug', async function (req, res, next) {
     var relatedSnippets = await Snippet.getRelatedBySlugs(snippet.related_slugs);
 
     /* SEO fallbacks */
-    var seoTitle = snippet.seo_title || snippet.title + ' — Value.Codes Snippets';
-    var seoDesc = snippet.seo_description || snippet.description.substring(0, 160);
-    var seoKeys = snippet.seo_keywords || snippet.tags.map(function (t) { return t.name; }).join(', ');
+    var seoTitle = snippet.seo_title || snippet.title + ' — ' + snippet.category_name + ' Code Snippet | Value.Codes';
+    var seoDesc = snippet.seo_description || snippet.description.substring(0, 155) + '. Copy-paste ready ' + snippet.category_name + ' code example.';
+    var seoKeys = snippet.seo_keywords || (snippet.tags.map(function (t) { return t.name; }).join(', ') + ', ' + snippet.category_name.toLowerCase() + ' snippet, code example, copy paste');
 
     res.render('snippets/single', {
       title: seoTitle,

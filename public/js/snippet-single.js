@@ -46,26 +46,48 @@
 /* ========== COPY TO CLIPBOARD ========== */
 
 (function () {
+  function copyText(text, btn) {
+    var textEl = btn.querySelector('.snippet-copy-text');
+
+    function onSuccess() {
+      btn.classList.add('copied');
+      if (textEl) textEl.textContent = 'Copied!';
+      setTimeout(function () {
+        btn.classList.remove('copied');
+        if (textEl) textEl.textContent = 'Copy';
+      }, 2000);
+    }
+
+    /* Modern clipboard API (requires HTTPS or localhost) */
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(onSuccess).catch(function () {
+        execCommandFallback(text, onSuccess);
+      });
+    } else {
+      execCommandFallback(text, onSuccess);
+    }
+  }
+
+  /* Fallback for HTTP or older browsers */
+  function execCommandFallback(text, onSuccess) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      var ok = document.execCommand('copy');
+      if (ok) onSuccess();
+    } catch (e) { /* nothing we can do */ }
+    document.body.removeChild(ta);
+  }
+
   document.querySelectorAll('.snippet-copy-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var targetId = btn.dataset.copyTarget;
-      var codeEl = document.getElementById(targetId);
+      var codeEl = document.getElementById(btn.dataset.copyTarget);
       if (!codeEl) return;
-
-      var text = codeEl.textContent || codeEl.innerText || '';
-
-      navigator.clipboard.writeText(text).then(function () {
-        var textEl = btn.querySelector('.snippet-copy-text');
-        var originalText = textEl ? textEl.textContent : 'Copy';
-
-        btn.classList.add('copied');
-        if (textEl) textEl.textContent = 'Copied!';
-
-        setTimeout(function () {
-          btn.classList.remove('copied');
-          if (textEl) textEl.textContent = originalText;
-        }, 2000);
-      }).catch(function () { /* clipboard unavailable */ });
+      copyText(codeEl.textContent || codeEl.innerText || '', btn);
     });
   });
 })();
