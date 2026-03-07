@@ -10,10 +10,10 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/snippets/">Snippets</a>
-        <span aria-hidden="true">›</span>
+        <span aria-hidden="true">/</span>
         <span><%= category.name %></span>
       </nav>
-      <h1><span aria-hidden="true"><%= category.emoji %></span> <%= category.name %></h1>
+      <h1><%= category.name %></h1>
       <p class="section-desc"><%= category.description %></p>
     </div>
   </section>
@@ -47,7 +47,7 @@
                   <% snippet.tags.slice(0, 4).forEach(function(tag) { %>
                     <span class="tag"><%= tag.name %></span>
                   <% }); %>
-                  <span class="badge badge-pill"><%= snippet.difficulty %></span>
+                  <span class="tag"><%= snippet.difficulty %></span>
                 </div>
               </div>
               <span class="snippet-list-arrow" aria-hidden="true">→</span>

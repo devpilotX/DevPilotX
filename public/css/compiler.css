@@ -236,22 +236,32 @@ kbd {
   margin: 0 0 1.5rem;
 }
 
+.comp-hero-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--comp-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
 .comp-stat-pills {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.badge-pill {
-  font-family: var(--comp-font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
+.comp-stat {
+  font-size: 0.8125rem;
   color: var(--comp-text-2);
-  background: var(--comp-surface-2);
-  border: 1px solid var(--comp-border);
-  padding: 0.3rem 0.65rem;
-  border-radius: 100px;
-  white-space: nowrap;
+  font-weight: 500;
+}
+
+.comp-stat-sep {
+  color: var(--comp-border-2);
+  user-select: none;
+  font-size: 0.8125rem;
 }
 
 /* ================================================================
@@ -823,20 +833,6 @@ kbd {
 
 .comp-feature-card:hover {
   border-color: var(--comp-accent);
-  transform: translateY(-2px);
-  box-shadow: var(--comp-shadow-sm);
-}
-
-.comp-feature-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--comp-accent-glow);
-  border-radius: var(--comp-radius-sm);
-  color: var(--comp-accent);
-  margin-bottom: 1rem;
 }
 
 .comp-feature-card h3 {
@@ -1098,9 +1094,8 @@ kbd {
     gap: 0.35rem;
   }
 
-  .badge-pill {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.5rem;
+  .comp-stat {
+    font-size: 0.75rem;
   }
 
   .compiler__lang-select {

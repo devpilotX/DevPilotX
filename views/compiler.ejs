@@ -29,25 +29,25 @@
     </nav>
 
     <div class="comp-hero-content">
-      <div class="badge">
-        <span class="badge-dot" aria-hidden="true"></span>
-        <span>Free &amp; No Signup Required</span>
-      </div>
+      <p class="comp-hero-label">Free | No Signup Required</p>
 
       <h1>Online Compiler &amp; Code Runner</h1>
 
       <p class="comp-hero-desc">
         Write, compile, and run code in <strong>19 programming languages</strong> directly in your browser.
-        Powered by sandboxed execution — your code runs securely with no setup required.
+        Powered by sandboxed execution. Your code runs securely with no setup required.
       </p>
 
       <div class="comp-stat-pills">
-        <span class="badge-pill">19 Languages</span>
-        <span class="badge-pill">STDIN Support</span>
-        <span class="badge-pill">Syntax Highlighting</span>
-        <span class="badge-pill">Ctrl+Enter to Run</span>
-        <span class="badge-pill">Cache ⚡</span>
-        <span class="badge-pill">Auto-Save</span>
+        <span class="comp-stat">19 Languages</span>
+        <span class="comp-stat-sep" aria-hidden="true">|</span>
+        <span class="comp-stat">STDIN Support</span>
+        <span class="comp-stat-sep" aria-hidden="true">|</span>
+        <span class="comp-stat">Syntax Highlighting</span>
+        <span class="comp-stat-sep" aria-hidden="true">|</span>
+        <span class="comp-stat">Ctrl+Enter to Run</span>
+        <span class="comp-stat-sep" aria-hidden="true">|</span>
+        <span class="comp-stat">Auto-Save</span>
       </div>
     </div>
   </div>
@@ -260,7 +260,7 @@
         Powered by <a href="https://pyodide.org" target="_blank" rel="noopener noreferrer">Pyodide</a>,
         <a href="https://github.com/nicowillis/JSCPP" target="_blank" rel="noopener noreferrer">JSCPP</a>
         &amp; <a href="https://sql.js.org" target="_blank" rel="noopener noreferrer">SQL.js</a>
-        — 100% in-browser
+        | 100% in-browser
       </span>
     </div>
   </div>
@@ -286,10 +286,9 @@
 <section class="comp-languages section-padding" aria-label="Supported languages">
   <div class="container">
     <div class="section-header">
-      <span class="section-number">19 Languages</span>
       <h2>Code in Any Language</h2>
       <p class="section-desc">
-        From Python to Rust, we support the most popular programming languages — all with
+        From Python to Rust, we support the most popular programming languages. All with
         real sandboxed execution and proper version pinning.
       </p>
     </div>
@@ -323,59 +322,38 @@
     ================================================================ %>
 <section class="comp-features section-padding" aria-label="Compiler features">
   <div class="container">
-    <div class="section-header">
-      <span class="section-number">[02]</span>
-      <h2>Built for Developers</h2>
-      <p class="section-desc">Everything you need to write, run, and debug code — without leaving your browser.</p>
-    </div>
+    <h2>Built for Developers</h2>
+    <p class="section-desc">Everything you need to write, run, and debug code. Without leaving your browser.</p>
 
     <div class="comp-features-grid">
-      <div class="card comp-feature-card">
-        <div class="comp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+      <div class="comp-feature-card">
         <h3>Sandboxed Execution</h3>
         <p>Your code runs in an isolated container via the Piston execution engine. No risk to our servers, no risk to your data.</p>
       </div>
 
-      <div class="card comp-feature-card">
-        <div class="comp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
+      <div class="comp-feature-card">
         <h3>Lightning Fast</h3>
-        <p>Results in seconds. LRU caching means repeated executions return instantly (⚡ cached). Smart auto-retry on transient errors.</p>
+        <p>Results in seconds. LRU caching means repeated executions return instantly. Smart auto-retry on transient errors.</p>
       </div>
 
-      <div class="card comp-feature-card">
-        <div class="comp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-        </div>
+      <div class="comp-feature-card">
         <h3>STDIN Support</h3>
-        <p>Provide standard input for programs that read from stdin — perfect for competitive programming and interactive programs.</p>
+        <p>Provide standard input for programs that read from stdin. Perfect for competitive programming and interactive programs.</p>
       </div>
 
-      <div class="card comp-feature-card">
-        <div class="comp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
+      <div class="comp-feature-card">
         <h3>Syntax Highlighting</h3>
         <p>Full CodeMirror 5 integration with language-aware syntax highlighting, bracket matching, auto-indent, and code folding.</p>
       </div>
 
-      <div class="card comp-feature-card">
-        <div class="comp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </div>
+      <div class="comp-feature-card">
         <h3>Rich Error Output</h3>
-        <p>Compile errors, runtime errors, and stderr are all displayed clearly with color coding — helping you debug faster.</p>
+        <p>Compile errors, runtime errors, and stderr are all displayed clearly with color coding. Debug faster.</p>
       </div>
 
-      <div class="card comp-feature-card">
-        <div class="comp-feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </div>
-        <h3>Download &amp; Auto-Save</h3>
-        <p>Download your code as a properly-named file. Your code auto-saves to localStorage — never lose your work on refresh.</p>
+      <div class="comp-feature-card">
+        <h3>Download and Auto-Save</h3>
+        <p>Download your code as a properly-named file. Your code auto-saves to localStorage. Never lose your work on refresh.</p>
       </div>
     </div>
   </div>
@@ -386,10 +364,7 @@
     ================================================================ %>
 <section class="comp-faq section-padding" aria-label="Frequently asked questions">
   <div class="container">
-    <div class="section-header">
-      <span class="section-number">[03]</span>
-      <h2>Frequently Asked Questions</h2>
-    </div>
+    <h2>Frequently Asked Questions</h2>
 
     <div class="comp-faq-list">
       <details class="comp-faq-item" open>
@@ -402,7 +377,7 @@
       <details class="comp-faq-item">
         <summary class="comp-faq-q">How does the online compiler execute code?</summary>
         <div class="comp-faq-a">
-          <p>We use <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener noreferrer">Piston</a>, an open-source code execution engine that runs your code in isolated containers. Your code never runs on our main server — it executes in a sandboxed environment.</p>
+          <p>We use <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener noreferrer">Piston</a>, an open-source code execution engine that runs your code in isolated containers. Your code never runs on our main server. It executes in a sandboxed environment.</p>
         </div>
       </details>
 
@@ -457,9 +432,8 @@
 <section class="comp-related section-padding" aria-label="Related developer tools">
   <div class="container">
     <div class="section-header">
-      <span class="section-number">[04]</span>
       <h2>More Developer Tools</h2>
-      <p class="section-desc">Everything you need to write better code — all free, all browser-based.</p>
+      <p class="section-desc">Everything you need to write better code. All free, all browser-based.</p>
     </div>
 
     <div class="comp-related-grid">

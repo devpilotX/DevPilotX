@@ -37,7 +37,7 @@
 /* ========== CATEGORIES GRID (index page) ========== */
 
 .snippet-categories {
-  padding: 3rem 0 4rem;
+  padding: 2rem 0 2.5rem;
 }
 
 .snippet-categories .container {
@@ -61,14 +61,6 @@
 
 .snippet-category-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-  transform: translateY(-2px);
-}
-
-.snippet-category-emoji {
-  font-size: 2rem;
-  line-height: 1;
-  margin-bottom: 0.25rem;
 }
 
 .snippet-category-title {
@@ -97,7 +89,7 @@
 /* ========== SNIPPET LIST SECTION (category page) ========== */
 
 .snippet-list-section {
-  padding: 2.5rem 0 4rem;
+  padding: 2rem 0 2.5rem;
 }
 
 .snippet-list {
@@ -174,11 +166,10 @@
   font-size: 1rem;
   color: var(--muted);
   flex-shrink: 0;
-  transition: transform 0.15s ease, color 0.15s ease;
+  transition: color var(--transition);
 }
 
 .snippet-list-item:hover .snippet-list-arrow {
-  transform: translateX(3px);
   color: var(--accent);
 }
 
@@ -196,7 +187,7 @@
 /* ========== INTERNAL LINKS ========== */
 
 .snippet-internal-links {
-  padding: 2.5rem 0 4rem;
+  padding: 1.5rem 0 2rem;
   border-top: 1px solid var(--border);
 }
 

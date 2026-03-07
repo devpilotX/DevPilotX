@@ -43,7 +43,7 @@
 
 .api-search-input {
   width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  padding: 0.75rem 1.25rem;
   font-size: 1rem;
   border: 2px solid var(--border);
   border-radius: 100px;
@@ -57,14 +57,6 @@
   border-color: var(--accent);
 }
 
-.api-search-icon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1rem;
-  pointer-events: none;
-}
 
 /* ========== CATEGORY FILTERS ========== */
 
@@ -128,7 +120,7 @@
 /* ========== ALL APIs GRID ========== */
 
 .api-all-section {
-  padding: 2rem 0 4rem;
+  padding: 1.5rem 0 2.5rem;
 }
 
 .api-card-grid {
@@ -149,13 +141,11 @@
   background: var(--surface);
   text-decoration: none;
   color: var(--ink);
-  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+  transition: border-color var(--transition);
 }
 
 .api-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-  transform: translateY(-2px);
 }
 
 .api-card-header {
@@ -250,7 +240,7 @@
 /* ========== INTERNAL LINKS ========== */
 
 .api-internal-links {
-  padding: 2rem 0 4rem;
+  padding: 1.5rem 0 2rem;
   border-top: 1px solid var(--border);
 }
 

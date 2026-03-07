@@ -11,9 +11,9 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/apis/">APIs</a>
-        <span aria-hidden="true">›</span>
+        <span aria-hidden="true">/</span>
         <a href="/apis/<%= api.category_slug %>/"><%= api.category_name %></a>
-        <span aria-hidden="true">›</span>
+        <span aria-hidden="true">/</span>
         <span><%= api.name %></span>
       </nav>
 
@@ -30,33 +30,33 @@
       <!-- ========== BADGES ROW ========== -->
       <div class="api-single-badges">
         <% if (api.auth_type === 'none') { %>
-          <span class="api-badge api-badge-green api-badge-lg">🔓 No Auth Required</span>
+          <span class="api-badge api-badge-green api-badge-lg">No Auth Required</span>
         <% } else if (api.auth_type === 'api_key') { %>
-          <span class="api-badge api-badge-yellow api-badge-lg">🔑 API Key Required</span>
+          <span class="api-badge api-badge-yellow api-badge-lg">API Key Required</span>
         <% } else if (api.auth_type === 'oauth') { %>
-          <span class="api-badge api-badge-orange api-badge-lg">🔐 OAuth Required</span>
+          <span class="api-badge api-badge-orange api-badge-lg">OAuth Required</span>
         <% } else if (api.auth_type === 'bearer_token') { %>
-          <span class="api-badge api-badge-orange api-badge-lg">🎫 Bearer Token Required</span>
+          <span class="api-badge api-badge-orange api-badge-lg">Bearer Token Required</span>
         <% } %>
 
         <% if (api.cors_support === 'yes') { %>
-          <span class="api-badge api-badge-green api-badge-lg">✅ CORS Supported</span>
+          <span class="api-badge api-badge-green api-badge-lg">CORS Supported</span>
         <% } else if (api.cors_support === 'no') { %>
-          <span class="api-badge api-badge-red api-badge-lg">❌ No CORS</span>
+          <span class="api-badge api-badge-red api-badge-lg">No CORS</span>
         <% } %>
 
         <% if (api.https_support) { %>
-          <span class="api-badge api-badge-blue api-badge-lg">🔒 HTTPS</span>
+          <span class="api-badge api-badge-blue api-badge-lg">HTTPS</span>
         <% } %>
 
         <% if (api.pricing === 'free') { %>
-          <span class="api-badge api-badge-green api-badge-lg">💚 100% Free</span>
+          <span class="api-badge api-badge-green api-badge-lg">100% Free</span>
         <% } else if (api.pricing === 'freemium') { %>
-          <span class="api-badge api-badge-yellow api-badge-lg">💛 Freemium</span>
+          <span class="api-badge api-badge-yellow api-badge-lg">Freemium</span>
         <% } %>
 
         <% if (api.rate_limit) { %>
-          <span class="api-badge api-badge-subtle api-badge-lg">⏱️ <%= api.rate_limit %></span>
+          <span class="api-badge api-badge-subtle api-badge-lg"><%= api.rate_limit %></span>
         <% } %>
       </div>
 
@@ -92,7 +92,7 @@
         <div class="api-base-url-block">
           <code class="api-base-url"><%= api.base_url %></code>
           <button type="button" class="btn btn-sm btn-ghost api-copy-btn" data-copy-text="<%= api.base_url %>" aria-label="Copy base URL">
-            📋 Copy
+            Copy
           </button>
         </div>
       </div>
@@ -111,7 +111,7 @@
                 <span class="api-endpoint-method api-method-<%= ep.method.toLowerCase() %>"><%= ep.method %></span>
                 <code class="api-endpoint-path"><%= api.base_url %><%= ep.path %></code>
                 <button type="button" class="btn btn-sm btn-ghost api-copy-btn" data-copy-text="<%= api.base_url %><%= ep.path %>" aria-label="Copy endpoint URL">
-                  📋
+                  Copy
                 </button>
               </div>
               <% if (ep.description) { %>
@@ -134,7 +134,7 @@
           <div class="api-code-header">
             <span class="snippet-lang-badge"><%= api.sample_response_language || 'json' %></span>
             <button type="button" class="btn btn-sm btn-ghost api-copy-btn" data-copy-target="api-sample-code" aria-label="Copy sample response">
-              📋 Copy
+              Copy
             </button>
           </div>
           <pre class="api-code-block"><code id="api-sample-code" class="language-<%= api.sample_response_language || 'json' %>"><%= api.sample_response %></code></pre>

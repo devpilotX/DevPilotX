@@ -353,11 +353,7 @@ img {
 }
 
 .badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
+  display: none;
 }
 
 .badge-pill {
