@@ -44,6 +44,9 @@ function setLocals(req, res, next) {
   res.locals.siteUrl = process.env.SITE_URL || 'https://value.codes';
   res.locals.adsensePubId = process.env.ADSENSE_PUB_ID || 'ca-pub-6484525483464374';
 
+  /* Google Analytics Measurement ID */
+  res.locals.gaMeasurementId = process.env.GA_MEASUREMENT_ID || 'G-Y6QM28HH3M';
+
   /* Google Search Console site verification token */
   res.locals.googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION || '';
 

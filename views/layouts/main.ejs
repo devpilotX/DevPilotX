@@ -4,34 +4,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6QM28HH3M"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Y6QM28HH3M');
-  </script>
-
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <%- include('../partials/seo-head') %>
 
-  <!-- ========== FAVICON ========== -->
+  <!-- ========== FAVICON & TOUCH ICONS ========== -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-  <!-- ========== RESOURCE HINTS ========== -->
+  <!-- ========== RESOURCE HINTS (fastest lookup first) ========== -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://adservice.google.com">
-  <link rel="dns-prefetch" href="https://www.googletagservices.com">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://ui-avatars.com">
-  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+
+  <!-- ========== PRELOAD CRITICAL ASSETS ========== -->
+  <link rel="preload" href="/css/global.css" as="style">
+  <link rel="preload" href="/css/header.css" as="style">
 
   <!-- ========== CRITICAL CSS (above the fold — must block render) ========== -->
   <link rel="stylesheet" href="/css/global.css">
@@ -47,6 +42,17 @@
   <!-- ========== FOOTER CSS (async — below the fold) ========== -->
   <link rel="preload" href="/css/footer.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/css/footer.css"></noscript>
+
+  <!-- ========== GOOGLE ANALYTICS (async — non-blocking) ========== -->
+  <% if (typeof gaMeasurementId !== 'undefined' && gaMeasurementId) { %>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gaMeasurementId %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '<%= gaMeasurementId %>', { send_page_view: true });
+  </script>
+  <% } %>
 
   <!-- ========== GOOGLE ADSENSE (verification meta — must be in head) ========== -->
   <meta name="google-adsense-account" content="<%= adsensePubId %>">
@@ -82,9 +88,26 @@
     <% }); %>
   <% } %>
 
-  <!-- ========== GOOGLE ADSENSE (Auto Ads) ========== -->
+  <!-- ========== GOOGLE ADSENSE (deferred — loads after page is idle) ========== -->
   <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= adsensePubId %>" crossorigin="anonymous"></script>
+  <script>
+    (function() {
+      function loadAdSense() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.crossOrigin = 'anonymous';
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= adsensePubId %>';
+        document.head.appendChild(s);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadAdSense, { timeout: 4000 });
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadAdSense, 1000);
+        }, { once: true, passive: true });
+      }
+    })();
+  </script>
   <% } %>
 </body>
 </html>

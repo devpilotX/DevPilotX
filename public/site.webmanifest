@@ -1,0 +1,17 @@
+{
+  "name": "Value.Codes",
+  "short_name": "Value.Codes",
+  "description": "Free developer tools — JSON formatter, regex builder, code compiler and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#c9281a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

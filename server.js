@@ -81,6 +81,7 @@ app.use(helmet({
         "'unsafe-inline'",
         "'unsafe-eval'",          /* Pyodide: Python exec() requires eval */
         "'wasm-unsafe-eval'",     /* WebAssembly instantiation (Pyodide, SQL.js) */
+        "https://www.googletagmanager.com",      /* Google Analytics gtag.js */
         "https://pagead2.googlesyndication.com",
         "https://adservice.google.com",
         "https://cdn.jsdelivr.net",
@@ -96,11 +97,16 @@ app.use(helmet({
         "'self'",
         "data:",
         "https:",                                /* allow all HTTPS thumbnail URLs */
+        "https://www.google-analytics.com",
         "https://pagead2.googlesyndication.com",
         "https://cdn.jsdelivr.net"
       ],
       connectSrc: [
         "'self'",
+        "https://www.google-analytics.com",      /* GA event collection */
+        "https://analytics.google.com",
+        "https://stats.g.doubleclick.net",
+        "https://region1.google-analytics.com",
         "https://cdn.jsdelivr.net",
         "https://cdnjs.cloudflare.com"  /* SQL.js WASM binary */
       ],
