@@ -4,7 +4,8 @@
       "Bash(powershell:*)",
       "Bash(rm:*)",
       "Bash(node:*)",
-      "Bash(\"C:\\\\Users\\\\dipan\\\\OneDrive\\\\Desktop\\\\value-codes\\\\migrations\\\\thumbnail-svg-support.sql\":*)"
+      "Bash(\"C:\\\\Users\\\\dipan\\\\OneDrive\\\\Desktop\\\\value-codes\\\\migrations\\\\thumbnail-svg-support.sql\":*)",
+      "Bash(curl:*)"
     ]
   }
 }
