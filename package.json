@@ -1,7 +1,7 @@
 {
   "name": "value-codes",
   "version": "1.0.0",
-  "description": "Value.Codes — Free developer tools, online compiler, and community platform",
+  "description": "Value.Codes | Free developer tools, online compiler, and community platform",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
