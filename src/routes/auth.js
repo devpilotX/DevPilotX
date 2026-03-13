@@ -1,12 +1,12 @@
 /**
  * ============================================================
- * Value.Codes — Authentication Routes
+ * Value.Codes | Authentication Routes
  * ============================================================
- * GET  /login    — Render login form
- * POST /login    — Process login with bcrypt verification
- * GET  /register — Render registration form
- * POST /register — Process registration with validation
- * GET  /logout   — Destroy session and redirect to homepage
+ * GET  /login    | Render login form
+ * POST /login    | Process login with bcrypt verification
+ * GET  /register | Render registration form
+ * POST /register | Process registration with validation
+ * GET  /logout   | Destroy session and redirect to homepage
  * ============================================================
  */
 
@@ -32,7 +32,7 @@ router.get('/login', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('auth/login', {
-    title: 'Login — Value.Codes | Sign In to Your Account',
+    title: 'Login | Value.Codes | Sign In to Your Account',
     description: 'Sign in to your Value.Codes account to access the developer community, save preferences, and unlock Pro features.',
     keywords: 'login, sign in, value.codes account, developer login',
     canonical: `${siteUrl}/login`,
@@ -67,7 +67,7 @@ router.post('/login',
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).render('auth/login', {
-        title: 'Login — Value.Codes | Sign In to Your Account',
+        title: 'Login | Value.Codes | Sign In to Your Account',
         description: 'Sign in to your Value.Codes account to access the developer community, save preferences, and unlock Pro features.',
         keywords: 'login, sign in, value.codes account, developer login',
         canonical: `${siteUrl}/login`,
@@ -91,10 +91,10 @@ router.post('/login',
         [email]
       );
 
-      /* User not found — generic message to prevent user enumeration */
+      /* User not found | generic message to prevent user enumeration */
       if (rows.length === 0) {
         return res.status(401).render('auth/login', {
-          title: 'Login — Value.Codes | Sign In to Your Account',
+          title: 'Login | Value.Codes | Sign In to Your Account',
           description: 'Sign in to your Value.Codes account to access the developer community, save preferences, and unlock Pro features.',
           keywords: 'login, sign in, value.codes account, developer login',
           canonical: `${siteUrl}/login`,
@@ -115,7 +115,7 @@ router.post('/login',
       const isMatch = await bcrypt.compare(password, user.password_hash);
       if (!isMatch) {
         return res.status(401).render('auth/login', {
-          title: 'Login — Value.Codes | Sign In to Your Account',
+          title: 'Login | Value.Codes | Sign In to Your Account',
           description: 'Sign in to your Value.Codes account to access the developer community, save preferences, and unlock Pro features.',
           keywords: 'login, sign in, value.codes account, developer login',
           canonical: `${siteUrl}/login`,
@@ -134,7 +134,7 @@ router.post('/login',
       req.session.regenerate((err) => {
         if (err) {
           return res.status(500).render('auth/login', {
-            title: 'Login — Value.Codes | Sign In to Your Account',
+            title: 'Login | Value.Codes | Sign In to Your Account',
             description: 'Sign in to your Value.Codes account.',
             keywords: 'login, sign in',
             canonical: `${siteUrl}/login`,
@@ -164,7 +164,7 @@ router.post('/login',
       });
     } catch (err) {
       return res.status(500).render('auth/login', {
-        title: 'Login — Value.Codes | Sign In to Your Account',
+        title: 'Login | Value.Codes | Sign In to Your Account',
         description: 'Sign in to your Value.Codes account.',
         keywords: 'login, sign in',
         canonical: `${siteUrl}/login`,
@@ -191,7 +191,7 @@ router.get('/register', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('auth/register', {
-    title: 'Register — Value.Codes | Create Your Free Account',
+    title: 'Register | Value.Codes | Create Your Free Account',
     description: 'Create a free Value.Codes account to join the developer community, save tool preferences, and access exclusive features.',
     keywords: 'register, sign up, create account, value.codes, developer account',
     canonical: `${siteUrl}/register`,
@@ -241,7 +241,7 @@ router.post('/register',
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).render('auth/register', {
-        title: 'Register — Value.Codes | Create Your Free Account',
+        title: 'Register | Value.Codes | Create Your Free Account',
         description: 'Create a free Value.Codes account.',
         keywords: 'register, sign up, create account',
         canonical: `${siteUrl}/register`,
@@ -266,7 +266,7 @@ router.post('/register',
       );
       if (existingEmail.length > 0) {
         return res.status(409).render('auth/register', {
-          title: 'Register — Value.Codes | Create Your Free Account',
+          title: 'Register | Value.Codes | Create Your Free Account',
           description: 'Create a free Value.Codes account.',
           keywords: 'register, sign up, create account',
           canonical: `${siteUrl}/register`,
@@ -288,7 +288,7 @@ router.post('/register',
       );
       if (existingUsername.length > 0) {
         return res.status(409).render('auth/register', {
-          title: 'Register — Value.Codes | Create Your Free Account',
+          title: 'Register | Value.Codes | Create Your Free Account',
           description: 'Create a free Value.Codes account.',
           keywords: 'register, sign up, create account',
           canonical: `${siteUrl}/register`,
@@ -329,7 +329,7 @@ router.post('/register',
       });
     } catch (err) {
       return res.status(500).render('auth/register', {
-        title: 'Register — Value.Codes | Create Your Free Account',
+        title: 'Register | Value.Codes | Create Your Free Account',
         description: 'Create a free Value.Codes account.',
         keywords: 'register, sign up, create account',
         canonical: `${siteUrl}/register`,

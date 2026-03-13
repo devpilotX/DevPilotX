@@ -1,15 +1,15 @@
 /**
  * ============================================================
- * Value.Codes — Static Pages Routes
+ * Value.Codes | Static Pages Routes
  * ============================================================
- * GET  /about       — About page
- * GET  /contact     — Contact page
- * POST /contact     — Handle contact form submission
- * GET  /pricing     — Pricing page (Free vs Pro)
- * GET  /contribute  — Contribute / Open Source page
- * GET  /newsletter  — Newsletter signup page
- * GET  /search      — Search results page (noindex)
- * GET  /sitemap     — HTML sitemap page
+ * GET  /about       | About page
+ * GET  /contact     | Contact page
+ * POST /contact     | Handle contact form submission
+ * GET  /pricing     | Pricing page (Free vs Pro)
+ * GET  /contribute  | Contribute / Open Source page
+ * GET  /newsletter  | Newsletter signup page
+ * GET  /search      | Search results page (noindex)
+ * GET  /sitemap     | HTML sitemap page
  * ============================================================
  */
 
@@ -23,7 +23,7 @@ router.get('/about', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('pages/about', {
-    title: 'About — Value.Codes | Our Mission & Story',
+    title: 'About | Value.Codes | Our Mission & Story',
     description: 'Learn about Value.Codes, our mission to provide free developer tools, and the team behind the platform. Built by developers, for developers.',
     keywords: 'about value.codes, developer tools platform, our mission, about us, developer community',
     canonical: `${siteUrl}/about/`,
@@ -57,7 +57,7 @@ router.get('/contact', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('pages/contact', {
-    title: 'Contact Us — Value.Codes | Get in Touch',
+    title: 'Contact Us | Value.Codes | Get in Touch',
     description: 'Have a question, suggestion, or found a bug? Contact the Value.Codes team. We typically respond within 24 hours.',
     keywords: 'contact value.codes, get in touch, support, feedback, bug report, developer tools support',
     canonical: `${siteUrl}/contact/`,
@@ -88,12 +88,12 @@ router.get('/contact', (req, res) => {
   });
 });
 
-/* ========== POST /contact — Handle Form Submission ========== */
+/* ========== POST /contact | Handle Form Submission ========== */
 router.post('/contact', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
   const { name, email, subject, message, website } = req.body;
 
-  /* Honeypot check — bots fill hidden fields */
+  /* Honeypot check | bots fill hidden fields */
   if (website && website.trim()) {
     return res.redirect('/contact');
   }
@@ -116,7 +116,7 @@ router.post('/contact', (req, res) => {
 
   if (errors.length > 0) {
     return res.render('pages/contact', {
-      title: 'Contact Us — Value.Codes | Get in Touch',
+      title: 'Contact Us | Value.Codes | Get in Touch',
       description: 'Have a question, suggestion, or found a bug? Contact the Value.Codes team.',
       keywords: 'contact value.codes, get in touch, support, feedback',
       canonical: `${siteUrl}/contact/`,
@@ -141,7 +141,7 @@ router.post('/contact', (req, res) => {
   });
 
   return res.render('pages/contact', {
-    title: 'Contact Us — Value.Codes | Get in Touch',
+    title: 'Contact Us | Value.Codes | Get in Touch',
     description: 'Have a question, suggestion, or found a bug? Contact the Value.Codes team.',
     keywords: 'contact value.codes, get in touch, support, feedback',
     canonical: `${siteUrl}/contact/`,
@@ -161,7 +161,7 @@ router.get('/pricing', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('pages/pricing', {
-    title: 'Pricing — Value.Codes | Free & Pro Plans for Developers',
+    title: 'Pricing | Value.Codes | Free & Pro Plans for Developers',
     description: 'Compare Value.Codes Free and Pro plans. Get ad-free experience, extended limits, priority support, and exclusive community channels with Pro.',
     keywords: 'pricing, pro plan, free plan, developer tools pricing, premium features, ad-free, value.codes pro',
     canonical: `${siteUrl}/pricing/`,
@@ -195,7 +195,7 @@ router.get('/contribute', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('pages/contribute', {
-    title: 'Contribute — Value.Codes | Open Source & Community Contributions',
+    title: 'Contribute | Value.Codes | Open Source & Community Contributions',
     description: 'Contribute to Value.Codes! Help improve our developer tools, report bugs, suggest features, or contribute code. Open source and community-driven.',
     keywords: 'contribute, open source, community contributions, developer tools, help improve, report bugs, suggest features',
     canonical: `${siteUrl}/contribute/`,
@@ -229,7 +229,7 @@ router.get('/newsletter', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('pages/newsletter', {
-    title: 'Newsletter — Value.Codes | Developer News & Tips Weekly',
+    title: 'Newsletter | Value.Codes | Developer News & Tips Weekly',
     description: 'Subscribe to the Value.Codes newsletter for weekly developer tips, tool updates, and curated resources delivered straight to your inbox.',
     keywords: 'developer newsletter, programming newsletter, weekly tips, coding updates, developer news, value.codes newsletter',
     canonical: `${siteUrl}/newsletter/`,
@@ -260,7 +260,7 @@ router.get('/newsletter', (req, res) => {
   });
 });
 
-/* ========== POST /newsletter — Handle Newsletter Signup ========== */
+/* ========== POST /newsletter | Handle Newsletter Signup ========== */
 router.post('/newsletter', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
   const { name, email, website } = req.body;
@@ -273,7 +273,7 @@ router.post('/newsletter', (req, res) => {
   }
 
   const renderOpts = {
-    title: 'Newsletter — Value.Codes | Developer News & Tips Weekly',
+    title: 'Newsletter | Value.Codes | Developer News & Tips Weekly',
     description: 'Subscribe to the Value.Codes newsletter.',
     keywords: 'developer newsletter, programming newsletter',
     canonical: `${siteUrl}/newsletter/`,
@@ -299,7 +299,7 @@ router.get('/search', (req, res) => {
   const query = req.query.q || '';
 
   res.render('pages/search', {
-    title: `Search Results — Value.Codes`,
+    title: `Search Results | Value.Codes`,
     description: 'Search Value.Codes for developer tools, articles, resources, and more.',
     keywords: 'search, find tools, search developer tools, value.codes search',
     canonical: `${siteUrl}/search/`,
@@ -318,7 +318,7 @@ router.get('/sitemap', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('pages/sitemap', {
-    title: 'Sitemap — Value.Codes | All Pages & Tools',
+    title: 'Sitemap | Value.Codes | All Pages & Tools',
     description: 'Browse the complete sitemap of Value.Codes. Find all developer tools, community pages, resources, and more in one place.',
     keywords: 'sitemap, all pages, site navigation, value.codes pages, site map',
     canonical: `${siteUrl}/sitemap/`,

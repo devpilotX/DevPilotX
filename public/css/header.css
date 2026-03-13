@@ -11,7 +11,8 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: var(--paper);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
   height: var(--nav-h);
 }
@@ -106,7 +107,7 @@
   font-weight: 500;
   color: #374151;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 999px;
   white-space: nowrap;
   min-height: 44px;
   transition: color var(--transition), background var(--transition);
@@ -115,7 +116,7 @@
 .nav-link:hover,
 .nav-link.active {
   color: var(--ink);
-  background: var(--surface);
+  background: rgba(var(--accent-rgb), 0.08);
   text-decoration: none;
 }
 
@@ -152,7 +153,7 @@
   font-weight: 500;
   color: var(--muted);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 999px;
   text-decoration: none;
   background: transparent;
   white-space: nowrap;
@@ -175,7 +176,7 @@
   color: #fff;
   background: var(--accent);
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -198,7 +199,7 @@
   color: var(--ink);
   background: transparent;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 999px;
   text-decoration: none;
   white-space: nowrap;
   transition: border-color var(--transition), color var(--transition);
@@ -238,7 +239,7 @@
   gap: 0.45rem;
   background: transparent;
   border: 1.5px solid var(--border);
-  border-radius: 8px;
+  border-radius: 999px;
   padding: 0.3rem 0.7rem 0.3rem 0.35rem;
   cursor: pointer;
   font-size: 0.875rem;
@@ -285,12 +286,16 @@
 
 .nav-chevron {
   color: var(--subtle);
-  transition: transform 0.2s var(--ease);
+  transition: color 0.2s var(--ease);
   flex-shrink: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .nav-profile-btn-expanded .nav-chevron {
-  transform: rotate(180deg);
+  color: var(--accent);
 }
 
 
@@ -404,7 +409,7 @@
   padding: 7px;
   background: transparent;
   border: 1.5px solid var(--border);
-  border-radius: 6px;
+  border-radius: 999px;
   cursor: pointer;
   margin-left: 1rem;
   transition: border-color var(--transition);
@@ -519,5 +524,13 @@
     text-align: center;
     justify-content: center;
     width: 100%;
+  }
+
+  .menu-toggle.text-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0.4rem 0.8rem;
   }
 }

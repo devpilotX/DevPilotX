@@ -2,23 +2,23 @@
 
 /**
  * ============================================================
- * admin.js — Admin Panel Routes
+ * admin.js | Admin Panel Routes
  * ============================================================
  * Handles:
- *   GET  /admin/login              — Login page
- *   POST /admin/login              — Authenticate admin
- *   POST /admin/logout             — Destroy admin session
- *   GET  /admin                    — Redirect to /admin/articles
- *   GET  /admin/articles           — Article list dashboard
- *   GET  /admin/articles/new       — Create article form
- *   POST /admin/articles/new       — Save new article
- *   GET  /admin/articles/edit/:id  — Edit article form
- *   POST /admin/articles/edit/:id  — Update article
+ *   GET  /admin/login              | Login page
+ *   POST /admin/login              | Authenticate admin
+ *   POST /admin/logout             | Destroy admin session
+ *   GET  /admin                    | Redirect to /admin/articles
+ *   GET  /admin/articles           | Article list dashboard
+ *   GET  /admin/articles/new       | Create article form
+ *   POST /admin/articles/new       | Save new article
+ *   GET  /admin/articles/edit/:id  | Edit article form
+ *   POST /admin/articles/edit/:id  | Update article
  *   POST /admin/articles/delete/:id— Delete article
- *   GET  /admin/categories         — Category management
- *   POST /admin/categories/new     — Create category
+ *   GET  /admin/categories         | Category management
+ *   POST /admin/categories/new     | Create category
  *   POST /admin/categories/edit/:id— Update category
- *   POST /admin/categories/delete/:id — Delete category
+ *   POST /admin/categories/delete/:id | Delete category
  * ============================================================
  */
 
@@ -46,7 +46,7 @@ function sanitizeInput(str) {
   return str.trim();
 }
 
-/** Admin render helper — uses the admin layout */
+/** Admin render helper | uses the admin layout */
 function adminRender(res, view, data = {}) {
   res.render(view, {
     layout: 'layouts/admin',
@@ -61,7 +61,7 @@ function adminRender(res, view, data = {}) {
 router.get('/login', (req, res) => {
   if (req.session.isAdminLoggedIn) return res.redirect('/admin/articles');
   adminRender(res, 'admin/login', {
-    title: 'Admin Login — Value.Codes',
+    title: 'Admin Login | Value.Codes',
     error: req.session.loginError || null,
     schema: null
   });
@@ -135,7 +135,7 @@ router.get('/articles', requireAdmin, async (req, res, next) => {
     const [[{ draft }]] = await db.query("SELECT COUNT(*) AS draft FROM articles WHERE status = 'draft'");
 
     adminRender(res, 'admin/dashboard', {
-      title: 'Articles — Admin Panel — Value.Codes',
+      title: 'Articles | Admin Panel | Value.Codes',
       articles,
       search,
       statusFilter,
@@ -155,7 +155,7 @@ router.get('/articles/new', requireAdmin, async (req, res, next) => {
   try {
     const [categories] = await db.query('SELECT id, name FROM categories ORDER BY name');
     adminRender(res, 'admin/article-form', {
-      title: 'New Article — Admin — Value.Codes',
+      title: 'New Article | Admin | Value.Codes',
       article: null,
       categories,
       pageJS: [],
@@ -233,7 +233,7 @@ router.get('/articles/edit/:id', requireAdmin, async (req, res, next) => {
 
     const [categories] = await db.query('SELECT id, name FROM categories ORDER BY name');
     adminRender(res, 'admin/article-form', {
-      title: `Edit: ${article.title} — Admin — Value.Codes`,
+      title: `Edit: ${article.title} | Admin | Value.Codes`,
       article,
       categories,
       pageJS: [],
@@ -268,14 +268,14 @@ router.post('/articles/edit/:id', requireAdmin, async (req, res, next) => {
     let publishedAtValue = null;
 
     if (published_at) {
-      /* Admin explicitly set a date — always honour it */
+      /* Admin explicitly set a date | always honour it */
       const parsed = new Date(published_at);
       if (!isNaN(parsed.getTime())) {
         publishedAtValue = parsed;
         publishedAtQuery = ', published_at = ?';
       }
     } else if (status === 'published' && existing.status === 'draft') {
-      /* First publish with no custom date — use NOW() */
+      /* First publish with no custom date | use NOW() */
       publishedAtQuery = ', published_at = NOW()';
     }
 
@@ -340,7 +340,7 @@ router.get('/categories', requireAdmin, async (req, res, next) => {
     );
 
     adminRender(res, 'admin/categories', {
-      title: 'Categories — Admin Panel — Value.Codes',
+      title: 'Categories | Admin Panel | Value.Codes',
       categories,
       flash: req.session.flash || null,
       schema: null

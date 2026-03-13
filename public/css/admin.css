@@ -152,7 +152,7 @@ body.admin-body {
 .admin-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #9ca3af; pointer-events: none; }
 .admin-search-input {
   width: 100%;
-  padding: 9px 12px 9px 38px;
+  padding: 9px 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 14px;
@@ -162,6 +162,13 @@ body.admin-body {
   transition: border-color .15s;
 }
 .admin-search-input:focus { border-color: #c9281a; box-shadow: 0 0 0 3px rgba(201,40,26,.12); }
+.admin-search-icon,
+.admin-alert svg,
+.admin-nav__link svg,
+.admin-btn svg,
+.admin-empty svg {
+  display: none;
+}
 
 /* ─── Buttons ───────────────────────────────────────────── */
 .admin-btn {
@@ -249,8 +256,8 @@ body.admin-body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   border-radius: 6px;
   border: 1px solid #e5e7eb;
   background: #fff;
@@ -263,6 +270,15 @@ body.admin-body {
 .admin-action-btn--danger { color: #ef4444; border-color: #fecaca; }
 .admin-action-btn--danger:hover { background: #fef2f2; border-color: #ef4444; }
 .admin-delete-form { display: inline-flex; }
+.admin-action-btn.text-control {
+  width: auto;
+  height: auto;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 
 /* ─── Badges ────────────────────────────────────────────── */
 .admin-badge {
@@ -447,6 +463,16 @@ body.admin-body {
   height: 2px;
   background: #fff;
   border-radius: 2px;
+}
+.admin-topbar-toggle.text-control {
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* ─── Sidebar Overlay ───────────────────────────────────── */

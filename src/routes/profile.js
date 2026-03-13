@@ -1,12 +1,12 @@
 /**
  * ============================================================
- * Value.Codes — Profile & Settings Routes
+ * Value.Codes | Profile & Settings Routes
  * ============================================================
- * GET  /profile           — User profile page (protected)
- * GET  /settings          — Account settings page (protected)
- * POST /settings          — Update profile info
- * POST /settings/password — Change password
- * POST /settings/delete   — Delete account
+ * GET  /profile           | User profile page (protected)
+ * GET  /settings          | Account settings page (protected)
+ * POST /settings          | Update profile info
+ * POST /settings/password | Change password
+ * POST /settings/delete   | Delete account
  * ============================================================
  */
 
@@ -34,7 +34,7 @@ async function renderSettings(req, res, { activeSection = 'profile', errors = []
     return;
   }
   return res.render('profile/settings', {
-    title: 'Account Settings — Value.Codes',
+    title: 'Account Settings | Value.Codes',
     description: 'Manage your Value.Codes account settings, update your profile, and change your password.',
     keywords: 'account settings, profile settings, value.codes',
     canonical: `${siteUrl}/settings`,
@@ -65,7 +65,7 @@ router.get('/profile', isLoggedIn, async (req, res, next) => {
       return;
     }
     res.render('profile/index', {
-      title: `${user.username}'s Profile — Value.Codes`,
+      title: `${user.username}'s Profile | Value.Codes`,
       description: `View ${user.username}'s profile on Value.Codes developer community.`,
       keywords: 'user profile, developer profile, value.codes',
       canonical: `${siteUrl}/profile`,
@@ -87,7 +87,7 @@ router.get('/settings', isLoggedIn, async (req, res, next) => {
   } catch (err) { next(err); }
 });
 
-/* ========== POST /settings — Update profile info ========== */
+/* ========== POST /settings | Update profile info ========== */
 router.post('/settings', isLoggedIn,
   [
     body('username').trim()
@@ -144,7 +144,7 @@ router.post('/settings', isLoggedIn,
   }
 );
 
-/* ========== POST /settings/password — Change password ========== */
+/* ========== POST /settings/password | Change password ========== */
 router.post('/settings/password', isLoggedIn,
   [
     body('currentPassword').notEmpty().withMessage('Current password is required.'),
@@ -188,7 +188,7 @@ router.post('/settings/password', isLoggedIn,
   }
 );
 
-/* ========== POST /settings/delete — Delete account ========== */
+/* ========== POST /settings/delete | Delete account ========== */
 router.post('/settings/delete', isLoggedIn,
   [
     body('deletePassword').notEmpty().withMessage('Please enter your password to confirm deletion.')
@@ -214,7 +214,7 @@ router.post('/settings/delete', isLoggedIn,
         });
       }
 
-      /* Delete user — cascades to sessions/messages via FK */
+      /* Delete user | cascades to sessions/messages via FK */
       await db.execute('DELETE FROM users WHERE id = ?', [req.session.userId]);
 
       req.session.destroy(() => {

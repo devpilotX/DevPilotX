@@ -11,9 +11,6 @@
   gap: 2.5rem;
 }
 .sitemap-col__title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   font-size: 1rem;
   font-weight: 700;
   color: var(--ink);
@@ -21,7 +18,7 @@
   padding-bottom: 0.75rem;
   border-bottom: 2px solid var(--border);
 }
-.sitemap-col__title svg { color: var(--accent); flex-shrink: 0; }
+.sitemap-col__title--spaced { margin-top: 2rem; }
 .sitemap-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
 .sitemap-links a { font-size: 0.9rem; color: var(--muted); text-decoration: none; transition: color var(--transition); display: block; padding: 0.2rem 0; }
 .sitemap-links a:hover { color: var(--accent); }

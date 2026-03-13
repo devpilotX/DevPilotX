@@ -33,7 +33,8 @@
 <meta property="og:image" content="<%= _ogImage %>">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Value.Codes — Free Developer Tools Platform">
+<meta property="og:image:secure_url" content="<%= _ogImage %>">
+<meta property="og:image:alt" content="Value.Codes free developer tools platform">
 <meta property="og:site_name" content="Value.Codes">
 <meta property="og:locale" content="en_US">
 
@@ -51,13 +52,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@value_codes">
 <meta name="twitter:creator" content="@value_codes">
+<meta name="twitter:domain" content="value.codes">
 <% if (typeof canonical !== 'undefined' && canonical) { %>
 <meta name="twitter:url" content="<%= canonical %>">
 <% } %>
 <meta name="twitter:title" content="<%= typeof title !== 'undefined' ? title : 'Value.Codes' %>">
 <meta name="twitter:description" content="<%= typeof twitterDescription !== 'undefined' ? twitterDescription : (typeof description !== 'undefined' ? description : '') %>">
 <meta name="twitter:image" content="<%= (typeof twitterImage !== 'undefined' && twitterImage) ? twitterImage : _ogImage %>">
-<meta name="twitter:image:alt" content="Value.Codes — Free Developer Tools Platform">
+<meta name="twitter:image:alt" content="Value.Codes free developer tools platform">
 
 <!-- ========== LCP PRELOAD — blog post hero image ========== -->
 <% if (typeof preloadImage !== 'undefined' && preloadImage) { %>
@@ -77,3 +79,4 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#ffffff">
 <meta name="rating" content="general">
+<meta name="googlebot" content="<%= typeof robots !== 'undefined' ? robots : 'index, follow' %>, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
