@@ -124,6 +124,8 @@
     history: [],
     historyIndex: -1,
     historyPaused: false
+    diffAdded: 0,
+  diffRemoved: 0
   };
 
 
@@ -300,8 +302,6 @@
     var result = '';
     var i = 0;
     var len = text.length;
-    var inString = false;
-    var isKey = false;
     var afterColon = false;
 
     while (i < len) {
@@ -761,8 +761,14 @@
         }
 
         /* Not a key, just output the word */
-        result += word;
-        continue;
+        /* Not a key, just output the word */
+if (word.length === 0) {
+  result += text[i];
+  i++;
+} else {
+  result += word;
+}
+continue;
       }
 
       result += ch;
