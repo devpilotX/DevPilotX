@@ -264,8 +264,6 @@ app.get('/sitemap.xml', async (req, res) => {
         /* Company */
         { loc: `${SITE}/about/`,   priority: '0.5', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/contact/`, priority: '0.4', changefreq: 'monthly', lastmod: today },
-        { loc: `${SITE}/newsletter/`, priority: '0.5', changefreq: 'weekly', lastmod: today },
-        { loc: `${SITE}/sitemap/`, priority: '0.4', changefreq: 'monthly', lastmod: today },
         /* Legal */
         { loc: `${SITE}/legal/privacy-policy/`,  priority: '0.3', changefreq: 'yearly', lastmod: today },
         { loc: `${SITE}/legal/terms-of-service/`, priority: '0.3', changefreq: 'yearly', lastmod: today }
@@ -322,7 +320,7 @@ app.get('/sitemap.xml', async (req, res) => {
  */
 app.use((req, res) => {
   res.status(404).render('errors/404', {
-    title: 'Page Not Found | Value.Codes',
+    title: 'Page Not Found — Value.Codes',
     description: 'The page you are looking for does not exist or has been moved.',
     keywords: '404, page not found, value.codes',
     canonical: `${process.env.SITE_URL || 'https://value.codes'}${req.originalUrl}`,
@@ -346,7 +344,7 @@ app.use((err, req, res, _next) => {
   }
 
   res.status(500).render('errors/500', {
-    title: 'Server Error | Value.Codes',
+    title: 'Server Error — Value.Codes',
     description: 'Something went wrong on our end. Please try again later.',
     keywords: '500, server error, value.codes',
     canonical: process.env.SITE_URL || 'https://value.codes',
@@ -382,7 +380,7 @@ async function startServer() {
     startListen();
   } catch (err) {
     process.stderr.write(`[Value.Codes] DB unavailable: ${err.message}\n`);
-    process.stderr.write('[Value.Codes] Starting without database. Set DB_* env vars in the hosting panel.\n');
+    process.stderr.write('[Value.Codes] Starting without database — set DB_* env vars in hosting panel.\n');
     startListen();
   }
 }

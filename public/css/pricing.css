@@ -26,32 +26,10 @@
 .pricing-card__period { font-size: 0.9rem; color: var(--muted); margin-left: 0.25rem; }
 .pricing-card__tagline { font-size: 0.88rem; color: var(--muted); margin: 0 0 1.5rem; }
 .pricing-card__features { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-.pricing-card__features li { display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--ink); }
-.pricing-card__feature-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 72px;
-  min-height: 24px;
-  padding: 0 0.6rem;
-  border-radius: 999px;
-  background: #ecfdf5;
-  color: #166534;
-  font-size: 0.63rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  flex-shrink: 0;
-}
-.pricing-card__feature-tag--muted {
-  background: #f3f4f6;
-  color: #6b7280;
-}
-.pricing-card__feature-tag--pro {
-  background: #fef3c7;
-  color: #92400e;
-}
+.pricing-card__features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; color: var(--ink); }
+.pricing-card__features svg { flex-shrink: 0; color: var(--success); }
 .pricing-card__feature--muted { color: var(--subtle) !important; }
+.pricing-card__feature--muted svg { color: var(--subtle) !important; }
 .pricing-card__cta .btn { width: 100%; justify-content: center; }
 .pricing-note { text-align: center; font-size: 0.85rem; color: var(--subtle); margin: 2rem auto 0; max-width: 500px; }
 .pricing-faq { background: var(--surface); }

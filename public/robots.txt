@@ -1,36 +1,34 @@
 # ============================================================
-# Value.Codes robots.txt
+# Value.Codes — Robots.txt
 # ============================================================
 
 User-agent: *
 
-# Public sections
+# Allow all public content
 Allow: /
-Allow: /about/
 Allow: /blog/
-Allow: /contact/
-Allow: /newsletter/
-Allow: /resources/
-Allow: /sitemap/
-Allow: /snippets/
 Allow: /tools/
+Allow: /snippets/
+Allow: /apis/
+Allow: /resources/
 
-# Private or low-value pages
-Disallow: /admin/
-Disallow: /api/
-Disallow: /community/
+# Block private / low-value pages
 Disallow: /login
+Disallow: /register
 Disallow: /logout
 Disallow: /profile/
-Disallow: /register
-Disallow: /search
-Disallow: /search/
 Disallow: /settings/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /search
+Disallow: /pricing/
+Disallow: /community/
 
-# Prevent duplicate paginated URLs
+# Block pagination from being indexed separately (use canonical instead)
 Disallow: /*?page=
 
-# Small crawl delay for shared hosting
+# Crawl-delay for politeness
 Crawl-delay: 1
 
+# Sitemap location
 Sitemap: https://value.codes/sitemap.xml

@@ -1,9 +1,9 @@
 /* ================================================================
    src/routes/api.js
-   Value.Codes | API Routes (JSON endpoints)
-   POST /api/contact       | Contact form submission
-   POST /api/newsletter    | Newsletter subscription
-   POST /api/compiler/run  | Code compilation via Piston API proxy
+   Value.Codes — API Routes (JSON endpoints)
+   POST /api/contact       — Contact form submission
+   POST /api/newsletter    — Newsletter subscription
+   POST /api/compiler/run  — Code compilation via Piston API proxy
 
    COMPILER PROXY FEATURES:
    - LRU Cache: SHA-256 keyed, 5min TTL, 200 max entries
@@ -132,7 +132,7 @@ var PISTON_LANGUAGES = {
 };
 
 /* ==============================================================
-   POST /api/contact | Contact Form Submission
+   POST /api/contact — Contact Form Submission
    ============================================================== */
 router.post('/contact',
   formLimiter,
@@ -191,7 +191,7 @@ router.post('/contact',
 );
 
 /* ==============================================================
-   POST /api/newsletter | Newsletter Subscription
+   POST /api/newsletter — Newsletter Subscription
    ============================================================== */
 router.post('/newsletter',
   formLimiter,
@@ -255,7 +255,7 @@ router.post('/newsletter',
 );
 
 /* ==============================================================
-   POST /api/compiler/run | Code Compilation via Piston API Proxy
+   POST /api/compiler/run — Code Compilation via Piston API Proxy
    ==============================================================
    Request:  { language: string, code: string, stdin?: string }
    Response: { success, output, error, exitCode, time, cached? }
@@ -377,7 +377,7 @@ router.post('/compiler/run',
       var run = data.run || {};
       var result;
 
-      /* Compilation error | NOT cached (user will fix) */
+      /* Compilation error — NOT cached (user will fix) */
       if (compile.code !== undefined && compile.code !== 0) {
         result = {
           success: false,
@@ -389,7 +389,7 @@ router.post('/compiler/run',
         return res.json(result);
       }
 
-      /* Runtime error | NOT cached (user will fix) */
+      /* Runtime error — NOT cached (user will fix) */
       if (run.code !== 0 && run.code !== undefined && run.code !== null) {
         result = {
           success: false,
@@ -401,7 +401,7 @@ router.post('/compiler/run',
         return res.json(result);
       }
 
-      /* ===== Step 6: Success | Cache the result ===== */
+      /* ===== Step 6: Success — Cache the result ===== */
       var stdout = sanitizeOutput(run.stdout || run.output || '');
       result = {
         success: true,
@@ -438,7 +438,7 @@ router.post('/compiler/run',
 );
 
 /* ==============================================================
-   GET /api/github-stats | Live repo star & fork counts
+   GET /api/github-stats — Live repo star & fork counts
    ============================================================== */
 router.get('/github-stats', async function (req, res) {
   try {
@@ -457,7 +457,7 @@ router.get('/github-stats', async function (req, res) {
 });
 
 /* ==============================================================
-   GET /api/github-issues | Open "good first issue" issues
+   GET /api/github-issues — Open "good first issue" issues
    ============================================================== */
 router.get('/github-issues', async function (req, res) {
   try {
@@ -475,7 +475,7 @@ router.get('/github-issues', async function (req, res) {
 });
 
 /* ==============================================================
-   POST /api/github-webhook | GitHub webhook receiver
+   POST /api/github-webhook — GitHub webhook receiver
    Webhook URL: https://value.codes/api/github-webhook
    ============================================================== */
 router.post('/github-webhook', function (req, res) {

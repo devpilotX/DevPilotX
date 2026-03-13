@@ -17,7 +17,7 @@ var Api = require('../models/api');
 
 var SITE = process.env.SITE_URL || 'https://value.codes';
 
-/* ========== HUB PAGE | /apis ========== */
+/* ========== HUB PAGE — /apis ========== */
 router.get('/', async function (req, res, next) {
   try {
     var categories = await Api.getAllCategories();
@@ -26,7 +26,7 @@ router.get('/', async function (req, res, next) {
     var totalCount = await Api.getPublishedCount();
 
     res.render('apis/index', {
-      title: 'Free Public API Directory for Developers | Value.Codes',
+      title: 'Free Public API Directory for Developers — Value.Codes',
       description: 'Discover ' + totalCount + ' free public APIs for your next project. Finance, Crypto, Weather, AI, Mock Data, and more. Live JSON previews included.',
       keywords: 'free public apis, api directory, free api for developers, rest api list, json api free',
       canonical: SITE + '/apis/',
@@ -56,7 +56,7 @@ router.get('/', async function (req, res, next) {
   }
 });
 
-/* ========== CATEGORY PAGE | /apis/:category ========== */
+/* ========== CATEGORY PAGE — /apis/:category ========== */
 router.get('/:category', async function (req, res, next) {
   try {
     var category = await Api.getCategoryBySlug(req.params.category);
@@ -65,7 +65,7 @@ router.get('/:category', async function (req, res, next) {
     var apis = await Api.getPublishedByCategory(req.params.category);
 
     res.render('apis/category', {
-      title: 'Free ' + category.name + ' APIs | Public API Directory | Value.Codes',
+      title: 'Free ' + category.name + ' APIs — Public API Directory | Value.Codes',
       description: 'Browse ' + apis.length + ' free ' + category.name.toLowerCase() + ' APIs for developers. Auth methods, CORS details, endpoint examples, and live JSON previews. No signup required.',
       keywords: category.name.toLowerCase() + ' api, free ' + category.slug.replace(/-/g, ' ') + ' api, public ' + category.name.toLowerCase() + ' api, ' + category.name.toLowerCase() + ' rest api free',
       canonical: SITE + '/apis/' + category.slug + '/',
@@ -94,7 +94,7 @@ router.get('/:category', async function (req, res, next) {
   }
 });
 
-/* ========== SINGLE API | /apis/:category/:slug (Programmatic SEO) ========== */
+/* ========== SINGLE API — /apis/:category/:slug (Programmatic SEO) ========== */
 router.get('/:category/:slug', async function (req, res, next) {
   try {
     var api = await Api.getPublishedBySlug(req.params.slug);
@@ -110,7 +110,7 @@ router.get('/:category/:slug', async function (req, res, next) {
     var relatedApis = await Api.getRelated(api, 4);
 
     /* SEO */
-    var seoTitle = api.seo_title || api.name + ' API | Free ' + api.category_name + ' API | Value.Codes';
+    var seoTitle = api.seo_title || api.name + ' API — Free ' + api.category_name + ' API | Value.Codes';
     var seoDesc = api.seo_description || api.description.substring(0, 140) + '. Free public API with auth details, endpoint docs, and live JSON preview.';
     var seoKeys = api.seo_keywords || api.tags.map(function (t) { return t.name; }).join(', ') + ', ' + api.name.toLowerCase() + ' api, free ' + api.category_name.toLowerCase() + ' api';
 

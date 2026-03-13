@@ -1,27 +1,46 @@
-<section class="community-page" aria-label="Developer community">
+<!-- ===================================================================
+     views/community.ejs — Discord-Style Developer Community
+     ===================================================================
+     3-panel layout: channel sidebar, message area, member sidebar.
+     Logged-in users can send/delete messages. Guests see read-only.
+     =================================================================== -->
+<section class="community-page" aria-label="Developer Community">
+
+  <!-- ========== COMMUNITY LAYOUT (3 panels) ========== -->
   <div class="community-layout">
+
+    <!-- ============================== -->
+    <!-- PANEL 1: CHANNEL SIDEBAR       -->
+    <!-- ============================== -->
     <aside class="community-sidebar" id="communitySidebar" role="navigation" aria-label="Community channels">
+
+      <!-- Sidebar Header -->
       <div class="sidebar-header">
         <h2 class="sidebar-title">Community</h2>
-        <button class="sidebar-close-btn" id="sidebarCloseBtn" type="button" aria-label="Close channel list" data-label="Close"></button>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" type="button" aria-label="Close channel list">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
 
+      <!-- Online Count -->
       <div class="sidebar-online" aria-live="polite">
         <span class="online-dot" aria-hidden="true"></span>
         <span class="online-text" id="onlineCount">0 online</span>
       </div>
 
+      <!-- Free Channels -->
       <div class="channel-group">
-        <h3 class="channel-group-title">Open Channels</h3>
-        <ul class="channel-list" role="listbox" aria-label="Open channels">
+        <h3 class="channel-group-title">Channels</h3>
+        <ul class="channel-list" role="listbox" aria-label="Free channels">
           <% channels.forEach(function(channel, index) { %>
-            <li
-              class="channel-item<%= index === 0 ? ' is-active' : '' %>"
-              role="option"
-              aria-selected="<%= index === 0 ? 'true' : 'false' %>"
-              data-channel="<%= channel.id %>"
-              tabindex="0"
-            >
+            <li class="channel-item<%= index === 0 ? ' is-active' : '' %>"
+                role="option"
+                aria-selected="<%= index === 0 ? 'true' : 'false' %>"
+                data-channel="<%= channel.id %>"
+                tabindex="0">
+              <span class="channel-icon" aria-hidden="true"><%= channel.icon %></span>
               <span class="channel-name"><%= channel.name %></span>
               <span class="channel-unread" id="unread-<%= channel.id %>" aria-label="Unread messages" style="display:none;">0</span>
             </li>
@@ -29,74 +48,101 @@
         </ul>
       </div>
 
+      <!-- Pro Channels -->
       <div class="channel-group">
         <h3 class="channel-group-title">
           Pro Channels
-          <span class="badge badge-pro">Pro</span>
+          <span class="badge badge-pro" aria-label="Pro only">PRO</span>
         </h3>
         <ul class="channel-list" role="listbox" aria-label="Pro channels">
           <% proChannels.forEach(function(channel) { %>
-            <li
-              class="channel-item channel-item-pro"
-              role="option"
-              aria-selected="false"
-              data-channel="<%= channel.id %>"
-              data-pro="true"
-              tabindex="0"
-            >
+            <li class="channel-item channel-item-pro"
+                role="option"
+                aria-selected="false"
+                data-channel="<%= channel.id %>"
+                data-pro="true"
+                tabindex="0">
+              <span class="channel-icon" aria-hidden="true"><%= channel.icon %></span>
               <span class="channel-name"><%= channel.name %></span>
               <% if (!isLoggedIn || !currentUser.isPro) { %>
-                <span class="channel-access">Locked</span>
-              <% } else { %>
-                <span class="channel-access channel-access--pro">Pro</span>
+                <svg class="channel-lock" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-label="Locked">
+                  <rect x="2" y="6" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
               <% } %>
             </li>
           <% }); %>
         </ul>
       </div>
 
+      <!-- User Info (bottom of sidebar) -->
       <div class="sidebar-user">
         <% if (isLoggedIn) { %>
           <div class="sidebar-user-info">
             <span class="sidebar-user-avatar" aria-hidden="true"><%= currentUser.username ? currentUser.username.charAt(0).toUpperCase() : '?' %></span>
             <div class="sidebar-user-meta">
               <span class="sidebar-user-name"><%= currentUser.username %></span>
-              <span class="sidebar-user-status"><%= currentUser.isPro ? 'Pro member' : 'Community member' %></span>
+              <% if (currentUser.isPro) { %>
+                <span class="badge badge-pro">PRO</span>
+              <% } %>
             </div>
-          </div>
-        <% } else { %>
-          <div class="sidebar-guest-card">
-            <p class="sidebar-guest-copy">Sign in to join the conversation, save your place, and unlock private channels.</p>
-            <a href="/login" class="btn btn-secondary sidebar-login-btn">Sign In</a>
           </div>
         <% } %>
       </div>
+
     </aside>
 
+    <!-- ============================== -->
+    <!-- PANEL 2: MESSAGE AREA          -->
+    <!-- ============================== -->
     <div class="community-main">
+
+      <!-- Channel Header -->
       <div class="channel-header">
-        <button class="channel-menu-btn" id="channelMenuBtn" type="button" aria-label="Open channel list" aria-controls="communitySidebar" data-label="Channels"></button>
+        <button class="channel-menu-btn" id="channelMenuBtn" type="button" aria-label="Open channel list" aria-controls="communitySidebar">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
         <div class="channel-header-info">
-          <h1 class="channel-header-name" id="channelHeaderName">General</h1>
+          <h1 class="channel-header-name" id="channelHeaderName">
+            <span class="channel-header-icon" id="channelHeaderIcon" aria-hidden="true">💬</span>
+            General
+          </h1>
           <p class="channel-header-desc" id="channelHeaderDesc">General developer discussion</p>
         </div>
-        <button class="channel-members-btn" id="channelMembersBtn" type="button" aria-label="Toggle channel details" aria-controls="communityMembers" data-label="Info"></button>
+        <button class="channel-members-btn" id="channelMembersBtn" type="button" aria-label="Toggle member list" aria-controls="communityMembers">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M1 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="14" cy="6" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13 17c0-2.5 1.5-4.5 3.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
 
+      <!-- Messages Container -->
       <div class="messages-container" id="messagesContainer" role="log" aria-label="Chat messages" aria-live="polite">
+
+        <!-- Loading State -->
         <div class="messages-loading" id="messagesLoading">
           <div class="loading-spinner" aria-hidden="true"></div>
           <p class="loading-text">Loading messages...</p>
         </div>
 
+        <!-- Empty State -->
         <div class="messages-empty" id="messagesEmpty" style="display:none;">
+          <span class="messages-empty-icon" aria-hidden="true">💬</span>
           <h2 class="messages-empty-title">No messages yet</h2>
-          <p class="messages-empty-desc">Start the first conversation in this channel.</p>
+          <p class="messages-empty-desc">Be the first to start the conversation in this channel!</p>
         </div>
 
+        <!-- Messages will be injected here by JS -->
         <div class="messages-list" id="messagesList" aria-label="Messages"></div>
+
       </div>
 
+      <!-- Message Input -->
       <div class="message-input-area" id="messageInputArea">
         <% if (isLoggedIn) { %>
           <form class="message-form" id="messageForm" autocomplete="off">
@@ -111,53 +157,68 @@
               ></textarea>
               <div class="message-input-actions">
                 <span class="message-char-count" id="messageCharCount" aria-live="polite">0/2000</span>
-                <button class="btn btn-primary btn-sm message-send-btn" id="messageSendBtn" type="submit" disabled>
+                <button class="btn btn-primary btn-sm message-send-btn" id="messageSendBtn" type="submit" aria-label="Send message" disabled>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M14.5 1.5L7 9M14.5 1.5L10 14.5L7 9M14.5 1.5L1.5 6L7 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                   Send
                 </button>
               </div>
             </div>
           </form>
-        <% } else { %>
-          <div class="message-login-prompt">
-            <p class="message-login-text">Read along freely, then sign in when you are ready to post, ask questions, or share your work.</p>
-            <a href="/login" class="btn btn-primary btn-sm">Sign In to Participate</a>
-          </div>
         <% } %>
       </div>
+
     </div>
 
-    <aside class="community-members" id="communityMembers" role="complementary" aria-label="Channel details">
+    <!-- ============================== -->
+    <!-- PANEL 3: MEMBERS SIDEBAR       -->
+    <!-- ============================== -->
+    <aside class="community-members" id="communityMembers" role="complementary" aria-label="Channel information">
+
+      <!-- Members Header -->
       <div class="members-header">
         <h3 class="members-title">Channel Info</h3>
-        <button class="members-close-btn" id="membersCloseBtn" type="button" aria-label="Close channel details" data-label="Close"></button>
+        <button class="members-close-btn" id="membersCloseBtn" type="button" aria-label="Close member list">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
 
+      <!-- Channel Description -->
       <div class="members-section">
         <h3 class="members-section-title">About</h3>
         <p class="members-channel-desc" id="membersChannelDesc">General developer discussion</p>
       </div>
 
+      <!-- Channel Rules -->
       <div class="members-section">
         <h3 class="members-section-title">Rules</h3>
         <ul class="members-rules">
-          <li>Keep feedback respectful and specific.</li>
-          <li>Post questions in the most relevant channel.</li>
-          <li>Avoid spam, scraping, or promotional drops.</li>
-          <li>Share reproducible details when reporting bugs.</li>
-          <li>Help others when you can.</li>
+          <li>Be respectful and constructive</li>
+          <li>No spam or self-promotion</li>
+          <li>Use appropriate channels</li>
+          <li>No NSFW or offensive content</li>
+          <li>Help others when you can</li>
         </ul>
       </div>
 
+      <!-- Discord CTA -->
       <div class="members-section">
         <h3 class="members-section-title">Join Our Discord</h3>
         <div class="discord-join">
-          <p class="discord-join-text">For live chat, events, and quick replies, continue the conversation on Discord.</p>
+          <p class="discord-join-text">Connect with the community on Discord: real-time chat, voice, events, and more.</p>
           <a class="discord-btn" href="https://discord.gg/qqbCQYG6" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+              <path d="M15.247 1.16A14.842 14.842 0 0011.516 0c-.17.303-.356.712-.487 1.034a13.705 13.705 0 00-4.055 0A11.31 11.31 0 006.485 0 14.87 14.87 0 002.75 1.163C.396 4.72-.242 8.19.077 11.611a15.003 15.003 0 004.576 2.34 11.39 11.39 0 00.98-1.613 9.8 9.8 0 01-1.543-.748c.13-.096.257-.195.38-.298 2.974 1.382 6.195 1.382 9.132 0 .124.103.251.202.38.298-.49.294-1.008.549-1.545.75.278.574.6 1.117.98 1.612a14.968 14.968 0 004.579-2.34c.376-3.974-.64-7.41-2.749-10.453zM6.013 9.508c-.876 0-1.595-.814-1.595-1.81 0-.997.703-1.813 1.595-1.813.894 0 1.608.816 1.596 1.814 0 .995-.702 1.809-1.596 1.809zm5.974 0c-.876 0-1.595-.814-1.595-1.81 0-.997.702-1.813 1.595-1.813.893 0 1.607.816 1.595 1.814 0 .995-.7 1.809-1.595 1.809z" fill="currentColor"/>
+            </svg>
             Join Discord Server
           </a>
         </div>
       </div>
 
+      <!-- Quick Links -->
       <div class="members-section">
         <h3 class="members-section-title">Quick Links</h3>
         <ul class="members-links">
@@ -168,13 +229,20 @@
         </ul>
       </div>
 
+      <!-- Ad Slot -->
       <div class="members-section">
-        <div class="ad-slot">Community sponsor space</div>
+        <div class="ad-slot">
+          <span>Advertisement</span>
+        </div>
       </div>
+
     </aside>
+
   </div>
+
 </section>
 
+<!-- ========== HIDDEN DATA FOR JS ========== -->
 <script type="application/json" id="communityData">
 {
   "isLoggedIn": <%= isLoggedIn ? 'true' : 'false' %>,

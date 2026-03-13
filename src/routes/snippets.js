@@ -17,14 +17,14 @@ var Snippet = require('../models/snippet');
 
 var SITE = process.env.SITE_URL || 'https://value.codes';
 
-/* ========== ALL CATEGORIES | /snippets ========== */
+/* ========== ALL CATEGORIES — /snippets ========== */
 router.get('/', async function (req, res, next) {
   try {
     var categories = await Snippet.getAllCategories();
     var totalCount = await Snippet.getPublishedCount();
 
     res.render('snippets/index', {
-      title: 'Code Snippets | Value.Codes | Copy-Paste Ready Developer Snippets',
+      title: 'Code Snippets — Value.Codes | Copy-Paste Ready Developer Snippets',
       description: 'Browse ' + totalCount + ' production-ready code snippets for CSS, JavaScript, Node.js, React, and DevOps. Copy-paste into your projects instantly.',
       keywords: 'code snippets, css snippets, javascript snippets, react hooks, node.js snippets, developer snippets',
       canonical: SITE + '/snippets/',
@@ -53,7 +53,7 @@ router.get('/', async function (req, res, next) {
   }
 });
 
-/* ========== CATEGORY LISTING | /snippets/:category ========== */
+/* ========== CATEGORY LISTING — /snippets/:category ========== */
 router.get('/:category', async function (req, res, next) {
   try {
     var categorySlug = req.params.category;
@@ -64,7 +64,7 @@ router.get('/:category', async function (req, res, next) {
     var snippets = await Snippet.getPublishedByCategory(categorySlug);
 
     res.render('snippets/category', {
-      title: category.name + ' Code Snippets | Value.Codes | ' + snippets.length + ' Ready-to-Use Examples',
+      title: category.name + ' Code Snippets — Value.Codes | ' + snippets.length + ' Ready-to-Use Examples',
       description: category.description + ' ' + snippets.length + ' copy-paste ready code snippets for developers.',
       keywords: categorySlug.replace(/-/g, ' ') + ' snippets, ' + category.name.toLowerCase() + ' code examples, copy paste ' + category.name.toLowerCase() + ', developer snippets',
       canonical: SITE + '/snippets/' + categorySlug + '/',
@@ -93,7 +93,7 @@ router.get('/:category', async function (req, res, next) {
   }
 });
 
-/* ========== SINGLE SNIPPET | /snippets/:category/:slug ========== */
+/* ========== SINGLE SNIPPET — /snippets/:category/:slug ========== */
 router.get('/:category/:slug', async function (req, res, next) {
   try {
     var snippet = await Snippet.getPublishedBySlug(req.params.slug);
@@ -102,7 +102,7 @@ router.get('/:category/:slug', async function (req, res, next) {
       return next();
     }
 
-    /* Increment view count (fire and forget | don't await) */
+    /* Increment view count (fire and forget — don't await) */
     Snippet.incrementViews(snippet.id);
 
     /* Get prev/next navigation */
@@ -112,7 +112,7 @@ router.get('/:category/:slug', async function (req, res, next) {
     var relatedSnippets = await Snippet.getRelatedBySlugs(snippet.related_slugs);
 
     /* SEO fallbacks */
-    var seoTitle = snippet.seo_title || snippet.title + ' | ' + snippet.category_name + ' Code Snippet | Value.Codes';
+    var seoTitle = snippet.seo_title || snippet.title + ' — ' + snippet.category_name + ' Code Snippet | Value.Codes';
     var seoDesc = snippet.seo_description || snippet.description.substring(0, 155) + '. Copy-paste ready ' + snippet.category_name + ' code example.';
     var seoKeys = snippet.seo_keywords || (snippet.tags.map(function (t) { return t.name; }).join(', ') + ', ' + snippet.category_name.toLowerCase() + ' snippet, code example, copy paste');
 

@@ -2,12 +2,12 @@
 
 /**
  * ============================================================
- * blog.js | Blog Public Routes (DB-Driven)
+ * blog.js — Blog Public Routes (DB-Driven)
  * ============================================================
- * GET /blog                     | Blog listing (paginated)
- * GET /blog/category/:slug      | Articles by category
- * GET /blog/:slug               | Single article (DB, views++)
- * GET /sitemap.xml              | Dynamic sitemap from DB
+ * GET /blog                     — Blog listing (paginated)
+ * GET /blog/category/:slug      — Articles by category
+ * GET /blog/:slug               — Single article (DB, views++)
+ * GET /sitemap.xml              — Dynamic sitemap from DB
  * ============================================================
  */
 
@@ -38,22 +38,22 @@ function parseTags(tagStr) {
   return tagStr.split(',').map(t => t.trim()).filter(Boolean);
 }
 
-/** Ensure thumbnail is a usable URL | full URLs pass through, relative paths get SITE_URL prefix.
+/** Ensure thumbnail is a usable URL — full URLs pass through, relative paths get SITE_URL prefix.
  *  Data URIs (SVG thumbnails) pass through as-is for <img> src use. */
 function normalizeThumbnail(thumb) {
   if (!thumb) return null;
   const t = thumb.trim();
-  if (t.startsWith('data:')) return t;                              /* data URI | pass through */
+  if (t.startsWith('data:')) return t;                              /* data URI — pass through */
   if (t.startsWith('http://') || t.startsWith('https://')) return t;
   return t.startsWith('/') ? `${SITE_URL}${t}` : `${SITE_URL}/${t}`;
 }
 
 /** Returns a publicly accessible absolute URL for OG/Twitter meta tags.
- *  Data URIs cannot be used as OG images | falls back to default. */
+ *  Data URIs cannot be used as OG images — falls back to default. */
 function ogThumbnail(thumb) {
   if (!thumb) return null;
   const t = thumb.trim();
-  if (t.startsWith('data:')) return null;   /* data URI | not usable as OG image */
+  if (t.startsWith('data:')) return null;   /* data URI — not usable as OG image */
   if (t.startsWith('http://') || t.startsWith('https://')) return t;
   return t.startsWith('/') ? `${SITE_URL}${t}` : `${SITE_URL}/${t}`;
 }
@@ -87,7 +87,7 @@ function formatArticle(a) {
   };
 }
 
-/* ─── GET /blog | Listing ─────────────────────────────── */
+/* ─── GET /blog — Listing ─────────────────────────────── */
 
 router.get('/', async (req, res, next) => {
   try {
@@ -131,7 +131,7 @@ router.get('/', async (req, res, next) => {
       'SELECT * FROM categories ORDER BY name'
     );
 
-    /* Tag cloud | all unique tags across published articles */
+    /* Tag cloud — all unique tags across published articles */
     const [tagRows] = await db.query(
       "SELECT tags FROM articles WHERE status = 'published' AND tags IS NOT NULL"
     );
@@ -155,7 +155,7 @@ router.get('/', async (req, res, next) => {
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Value.Codes Blog | Developer Insights & Tech Trends",
+        "name": "Value.Codes Blog — Developer Insights & Tech Trends",
         "description": "In-depth articles on programming, developer tools, AI, web development, and cybersecurity.",
         "url": `${SITE_URL}/blog`,
         "publisher": { "@type": "Organization", "name": "Value.Codes", "url": SITE_URL }
@@ -163,7 +163,7 @@ router.get('/', async (req, res, next) => {
     ];
 
     res.render('blog/index', {
-      title: 'Blog | Value.Codes | Developer Insights, Tutorials & Tech Trends',
+      title: 'Blog — Value.Codes | Developer Insights, Tutorials & Tech Trends',
       description: 'Read in-depth articles on programming, developer tools, AI, web development, cybersecurity, and emerging tech trends. Written by developers, for developers.',
       keywords: 'developer blog, programming articles, tech trends, web development, AI, cybersecurity, coding tutorials',
       canonical: `${SITE_URL}/blog/`,
@@ -226,7 +226,7 @@ router.get('/category/:slug', async (req, res, next) => {
     const totalPages = Math.ceil(countRow.total / PER_PAGE);
 
     res.render('blog/index', {
-      title: `${category.name} Articles | Value.Codes Blog`,
+      title: `${category.name} Articles — Value.Codes Blog`,
       description: category.description || `In-depth ${category.name} articles for developers.`,
       keywords: `${category.name}, developer blog, tutorials`,
       canonical: `${SITE_URL}/blog/category/${slug}/`,
@@ -252,7 +252,7 @@ router.get('/category/:slug', async (req, res, next) => {
   }
 });
 
-/* ─── GET /blog/:slug | Single Article ───────────────── */
+/* ─── GET /blog/:slug — Single Article ───────────────── */
 
 router.get('/:slug', async (req, res, next) => {
   try {
@@ -348,7 +348,7 @@ router.get('/:slug', async (req, res, next) => {
     const ogImg = ogThumbnail(article.thumbnail) || `${SITE_URL}/images/og-image.svg`;
 
     res.render('blog/post', {
-      title: article.meta_title || `${article.title} | Value.Codes Blog`,
+      title: article.meta_title || `${article.title} — Value.Codes Blog`,
       description: article.meta_description || article.summary || '',
       keywords: article.tags || '',
       canonical: `${SITE_URL}/blog/${slug}/`,

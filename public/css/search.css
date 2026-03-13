@@ -6,8 +6,9 @@
 .search-hero__title { text-align: center; margin: 0 0 1.5rem; }
 .search-form { max-width: 680px; margin: 0 auto; }
 .search-form__wrap { display: flex; align-items: center; gap: 0; position: relative; }
+.search-form__icon { position: absolute; left: 14px; color: var(--subtle); pointer-events: none; }
 .search-form__input {
-  flex: 1; padding: 14px 16px;
+  flex: 1; padding: 14px 16px 14px 46px;
   border: 1px solid var(--border); border-right: none;
   border-radius: var(--radius) 0 0 var(--radius);
   font-size: 1rem; font-family: inherit; color: var(--ink); background: var(--paper);
@@ -28,22 +29,8 @@
   text-decoration: none; color: var(--ink); font-size: 0.88rem; font-weight: 500;
   background: var(--paper); text-align: center; transition: all var(--transition);
 }
-.search-quick-link__label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 58px;
-  min-height: 28px;
-  padding: 0 0.7rem;
-  border-radius: 999px;
-  background: var(--accent-light);
-  color: var(--accent);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 .search-quick-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+.search-quick-link svg { color: var(--accent); }
 @media (max-width: 768px) {
   .search-form__wrap { flex-direction: column; }
   .search-form__input { border-right: 1px solid var(--border); border-radius: var(--radius); border-bottom: none; border-radius: var(--radius) var(--radius) 0 0; }

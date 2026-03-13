@@ -1,6 +1,6 @@
 /* ================================================================
    src/routes/compiler.js
-   Value.Codes | Online Compiler Page Route
+   Value.Codes — Online Compiler Page Route
 
    GET /compiler  → renders views/compiler.ejs
 
@@ -49,7 +49,7 @@ var COMPILER_JS = [
   CM + '/mode/lua/lua.min.js',
   CM + '/mode/shell/shell.min.js',           /* Bash */
   CM + '/mode/sql/sql.min.js',
-  /* Our compiler logic | must come LAST */
+  /* Our compiler logic — must come LAST */
   '/js/compiler.js'
 ];
 
@@ -129,7 +129,7 @@ router.get('/', function (req, res) {
   var siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('compiler', {
-    title:       'Online Compiler | Run Code in 19 Languages Free | Value.Codes',
+    title:       'Online Compiler — Run Code in 19 Languages Free | Value.Codes',
     description: 'Free online compiler and code runner. Write and execute Python, JavaScript, Java, C++, Rust, Go, and 13 more languages directly in your browser. No signup required.',
     keywords:    'online compiler, run code online, python compiler online, javascript runner online, java compiler online, c++ compiler online, free code runner, execute code browser, 19 languages compiler, online ide free',
     canonical:   siteUrl + '/compiler/',

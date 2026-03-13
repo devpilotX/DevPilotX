@@ -1,9 +1,9 @@
 /**
  * ============================================================
- * Value.Codes | Legal Pages Routes
+ * Value.Codes — Legal Pages Routes
  * ============================================================
- * GET /legal/privacy-policy    | Privacy Policy page
- * GET /legal/terms-of-service  | Terms of Service page
+ * GET /legal/privacy-policy    — Privacy Policy page
+ * GET /legal/terms-of-service  — Terms of Service page
  * ============================================================
  */
 
@@ -17,7 +17,7 @@ router.get('/privacy-policy', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('legal/privacy-policy', {
-    title: 'Privacy Policy | Value.Codes | How We Protect Your Data',
+    title: 'Privacy Policy — Value.Codes | How We Protect Your Data',
     description: 'Read the Value.Codes privacy policy. Learn how we collect, use, and protect your personal data, including our use of Google AdSense and cookies.',
     keywords: 'privacy policy, data protection, cookies, google adsense, personal data, value.codes privacy',
     canonical: `${siteUrl}/legal/privacy-policy/`,
@@ -29,7 +29,7 @@ router.get('/privacy-policy', (req, res) => {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
         'name': 'Privacy Policy',
-        'description': 'Value.Codes privacy policy | how we collect, use, and protect your data.',
+        'description': 'Value.Codes privacy policy — how we collect, use, and protect your data.',
         'url': `${siteUrl}/legal/privacy-policy/`
       },
       {
@@ -51,7 +51,7 @@ router.get('/terms-of-service', (req, res) => {
   const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
   res.render('legal/terms-of-service', {
-    title: 'Terms of Service | Value.Codes | Usage Terms & Conditions',
+    title: 'Terms of Service — Value.Codes | Usage Terms & Conditions',
     description: 'Read the Value.Codes terms of service. Understand the terms and conditions for using our developer tools, compiler, and community platform.',
     keywords: 'terms of service, terms and conditions, usage terms, value.codes terms, legal, user agreement',
     canonical: `${siteUrl}/legal/terms-of-service/`,

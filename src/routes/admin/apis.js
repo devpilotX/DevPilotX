@@ -19,7 +19,7 @@ var router = express.Router();
 var Api = require('../../models/api');
 var { requireAdmin } = require('../../middleware/adminAuth');
 
-/** Admin render helper | uses admin layout, dedupes admin.css */
+/** Admin render helper — uses admin layout, dedupes admin.css */
 function adminRender(res, view, data) {
   res.render(view, Object.assign({
     layout: 'layouts/admin',
@@ -54,7 +54,7 @@ router.get('/', requireAdmin, async function (req, res, next) {
   try {
     var apis = await Api.adminGetAll();
     adminRender(res, 'admin/apis/index', {
-      title: 'Manage APIs | Admin',
+      title: 'Manage APIs — Admin',
       apis: apis,
       success: req.query.success || null,
       error: req.query.error || null
@@ -68,7 +68,7 @@ router.get('/create', requireAdmin, async function (req, res, next) {
     var categories = await Api.adminGetAllCategories();
     var tags = await Api.adminGetAllTags();
     adminRender(res, 'admin/apis/create', {
-      title: 'Add API | Admin',
+      title: 'Add API — Admin',
       categories: categories,
       tags: tags,
       error: null
@@ -117,7 +117,7 @@ router.post('/create', requireAdmin, async function (req, res, next) {
         var categories = await Api.adminGetAllCategories();
         var tags = await Api.adminGetAllTags();
         return adminRender(res, 'admin/apis/create', {
-          title: 'Add API | Admin',
+          title: 'Add API — Admin',
           categories: categories,
           tags: tags,
           error: 'An API with that slug already exists.'
@@ -138,7 +138,7 @@ router.get('/edit/:id', requireAdmin, async function (req, res, next) {
     var tags = await Api.adminGetAllTags();
 
     adminRender(res, 'admin/apis/edit', {
-      title: 'Edit: ' + api.name + ' | Admin',
+      title: 'Edit: ' + api.name + ' — Admin',
       api: api,
       categories: categories,
       tags: tags,

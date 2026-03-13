@@ -178,6 +178,18 @@
   transform: translateY(-2px);
 }
 
+.about-value-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
 .about-value-card h3 {
   font-size: 1rem;
   font-weight: 700;
@@ -248,20 +260,17 @@
 .about-team-card__links {
   display: flex;
   gap: 0.75rem;
-  flex-wrap: wrap;
 }
 
 .about-team-card__links a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 34px;
+  width: 34px;
+  height: 34px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: var(--muted);
-  padding: 0.45rem 0.75rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
   transition: all var(--transition);
 }
 
@@ -295,19 +304,14 @@
 }
 
 .about-roadmap-item__marker {
-  min-width: 44px;
-  min-height: 28px;
-  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
-  padding: 0 0.625rem;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .about-roadmap-item--done .about-roadmap-item__marker {

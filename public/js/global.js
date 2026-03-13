@@ -45,7 +45,24 @@
   scrollBtn.setAttribute('aria-label', 'Scroll to top');
   scrollBtn.setAttribute('type', 'button');
 
-  scrollBtn.textContent = 'Top';
+  /* Create SVG icon via DOM API (no innerHTML) */
+  var ns = 'http://www.w3.org/2000/svg';
+
+  var scrollSvg = document.createElementNS(ns, 'svg');
+  scrollSvg.setAttribute('width', '18');
+  scrollSvg.setAttribute('height', '18');
+  scrollSvg.setAttribute('viewBox', '0 0 24 24');
+  scrollSvg.setAttribute('fill', 'none');
+  scrollSvg.setAttribute('stroke', 'currentColor');
+  scrollSvg.setAttribute('stroke-width', '2.5');
+  scrollSvg.setAttribute('stroke-linecap', 'round');
+  scrollSvg.setAttribute('stroke-linejoin', 'round');
+  scrollSvg.setAttribute('aria-hidden', 'true');
+
+  var scrollPath = document.createElementNS(ns, 'path');
+  scrollPath.setAttribute('d', 'M18 15l-6-6-6 6');
+  scrollSvg.appendChild(scrollPath);
+  scrollBtn.appendChild(scrollSvg);
   document.body.appendChild(scrollBtn);
 
   /* Throttled scroll listener with rAF */
@@ -151,76 +168,6 @@
     window.scrollTo({ top: top, behavior: 'smooth' });
     history.pushState(null, null, href);
   });
-
-
-  /* ======================================================================
-     5. TEXT-FIRST CONTROL FALLBACKS
-     ====================================================================== */
-
-  function hasTextContent(node) {
-    return (node.textContent || '').replace(/\s+/g, ' ').trim().length > 0;
-  }
-
-  function inferControlLabel(control) {
-    var className = (control.className || '').toString();
-    var matchers = [
-      { test: /copy/i, label: 'Copy' },
-      { test: /download/i, label: 'Download' },
-      { test: /upload/i, label: 'Upload' },
-      { test: /delete|remove|trash/i, label: 'Delete' },
-      { test: /close|dismiss/i, label: 'Close' },
-      { test: /menu|sidebar/i, label: 'Menu' },
-      { test: /theme/i, label: 'Theme' },
-      { test: /search/i, label: 'Search' },
-      { test: /run|execute/i, label: 'Run' },
-      { test: /clear|reset/i, label: 'Clear' },
-      { test: /edit/i, label: 'Edit' },
-      { test: /view|preview/i, label: 'View' },
-      { test: /share/i, label: 'Share' },
-      { test: /save/i, label: 'Save' }
-    ];
-    var index;
-
-    for (index = 0; index < matchers.length; index += 1) {
-      if (matchers[index].test.test(className)) {
-        return matchers[index].label;
-      }
-    }
-
-    return '';
-  }
-
-  function textifyControls(root) {
-    var scope = root || document;
-    var controls = scope.querySelectorAll('button, a');
-
-    controls.forEach(function (control) {
-      var preferredLabel = control.getAttribute('data-label') || '';
-      var fallbackLabel = preferredLabel || control.getAttribute('aria-label') || control.getAttribute('title') || inferControlLabel(control);
-      var shouldHideIcons = control.getAttribute('data-hide-icons') === 'true';
-      var hasVisibleText = hasTextContent(control);
-
-      if (shouldHideIcons || hasVisibleText || fallbackLabel) {
-        control.querySelectorAll('svg').forEach(function (svg) {
-          svg.setAttribute('aria-hidden', 'true');
-        });
-      }
-
-      if (!fallbackLabel) {
-        return;
-      }
-
-      if (hasVisibleText && !control.hasAttribute('data-force-text-control')) {
-        return;
-      }
-
-      control.classList.add('text-control');
-      control.textContent = fallbackLabel;
-    });
-  }
-
-  textifyControls();
-  window.ValueCodesTextifyControls = textifyControls;
 
 
 })();

@@ -19,7 +19,7 @@ var router = express.Router();
 var Snippet = require('../../models/snippet');
 var { requireAdmin } = require('../../middleware/adminAuth');
 
-/** Admin render helper for snippets | uses the admin layout */
+/** Admin render helper for snippets — uses the admin layout */
 function adminRender(res, view, data) {
   res.render(view, Object.assign({
     layout: 'layouts/admin',
@@ -36,7 +36,7 @@ router.get('/', requireAdmin, async function (req, res, next) {
     var snippets = await Snippet.adminGetAll();
 
     adminRender(res, 'admin/snippets/index', {
-      title: 'Manage Snippets | Admin',
+      title: 'Manage Snippets — Admin',
       snippets: snippets,
       success: req.query.success || null,
       error: req.query.error || null
@@ -53,7 +53,7 @@ router.get('/create', requireAdmin, async function (req, res, next) {
     var tags = await Snippet.adminGetAllTags();
 
     adminRender(res, 'admin/snippets/create', {
-      title: 'Create Snippet | Admin',
+      title: 'Create Snippet — Admin',
       categories: categories,
       tags: tags,
       error: null
@@ -115,7 +115,7 @@ router.post('/create', requireAdmin, async function (req, res, next) {
         var categories = await Snippet.adminGetAllCategories();
         var tags = await Snippet.adminGetAllTags();
         return adminRender(res, 'admin/snippets/create', {
-          title: 'Create Snippet | Admin',
+          title: 'Create Snippet — Admin',
           categories: categories,
           tags: tags,
           error: 'A snippet with that slug already exists.'
@@ -138,7 +138,7 @@ router.get('/edit/:id', requireAdmin, async function (req, res, next) {
     var tags = await Snippet.adminGetAllTags();
 
     adminRender(res, 'admin/snippets/edit', {
-      title: 'Edit: ' + snippet.title + ' | Admin',
+      title: 'Edit: ' + snippet.title + ' — Admin',
       snippet: snippet,
       categories: categories,
       tags: tags,
