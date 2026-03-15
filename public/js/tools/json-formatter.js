@@ -116,14 +116,16 @@
     isWrapped: false,
     toastTimer: null,
     lastParsed: null,
-    lastInputBeforeFix: '',         /* For diff */
-    lastOutputForDiff: '',          /* For diff */
+    lastInputBeforeFix: '',         
+    lastOutputForDiff: '',          
     isDarkMode: false,
     isLargeFile: false,
     highlightEnabled: true,
     history: [],
     historyIndex: -1,
-    historyPaused: false
+    historyPaused: false,           /* Added the comma here! */
+    diffAdded: 0,
+    diffRemoved: 0
   };
 
 
