@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS articles (
   id               INT             NOT NULL AUTO_INCREMENT,
   title            VARCHAR(255)    NOT NULL,
   slug             VARCHAR(255)    NOT NULL,
-  thumbnail        TEXT            DEFAULT NULL,
+  thumbnail        VARCHAR(500)    DEFAULT NULL,
   summary          TEXT            DEFAULT NULL,
   content          LONGTEXT        NOT NULL,
   author           VARCHAR(100)    NOT NULL DEFAULT 'Dipanshu Kumar',

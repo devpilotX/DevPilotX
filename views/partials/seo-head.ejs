@@ -64,16 +64,8 @@
 <link rel="preload" as="image" href="<%= preloadImage %>" fetchpriority="high">
 <% } %>
 
-<!-- ========== ARTICLE TAGS ========== -->
-<% if (typeof ogType !== 'undefined' && ogType === 'article' && typeof blog !== 'undefined' && blog && blog.tags && blog.tags.length > 0) { %>
-<% blog.tags.forEach(function(tag) { %>
-<meta property="article:tag" content="<%= tag %>">
-<% }); %>
-<% } %>
-
 <!-- ========== APP META — PWA / Mobile ========== -->
 <meta name="application-name" content="Value.Codes">
 <meta name="apple-mobile-web-app-title" content="Value.Codes">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#ffffff">
-<meta name="rating" content="general">

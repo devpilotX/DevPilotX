@@ -116,16 +116,14 @@
     isWrapped: false,
     toastTimer: null,
     lastParsed: null,
-    lastInputBeforeFix: '',         
-    lastOutputForDiff: '',          
+    lastInputBeforeFix: '',         /* For diff */
+    lastOutputForDiff: '',          /* For diff */
     isDarkMode: false,
     isLargeFile: false,
     highlightEnabled: true,
     history: [],
     historyIndex: -1,
-    historyPaused: false,           /* Added the comma here! */
-    diffAdded: 0,
-    diffRemoved: 0
+    historyPaused: false
   };
 
 
@@ -302,6 +300,8 @@
     var result = '';
     var i = 0;
     var len = text.length;
+    var inString = false;
+    var isKey = false;
     var afterColon = false;
 
     while (i < len) {
@@ -761,14 +761,8 @@
         }
 
         /* Not a key, just output the word */
-        /* Not a key, just output the word */
-if (word.length === 0) {
-  result += text[i];
-  i++;
-} else {
-  result += word;
-}
-continue;
+        result += word;
+        continue;
       }
 
       result += ch;

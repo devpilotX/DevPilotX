@@ -38,22 +38,10 @@ function parseTags(tagStr) {
   return tagStr.split(',').map(t => t.trim()).filter(Boolean);
 }
 
-/** Ensure thumbnail is a usable URL — full URLs pass through, relative paths get SITE_URL prefix.
- *  Data URIs (SVG thumbnails) pass through as-is for <img> src use. */
+/** Ensure thumbnail is a usable URL — full URLs pass through, relative paths get SITE_URL prefix */
 function normalizeThumbnail(thumb) {
   if (!thumb) return null;
   const t = thumb.trim();
-  if (t.startsWith('data:')) return t;                              /* data URI — pass through */
-  if (t.startsWith('http://') || t.startsWith('https://')) return t;
-  return t.startsWith('/') ? `${SITE_URL}${t}` : `${SITE_URL}/${t}`;
-}
-
-/** Returns a publicly accessible absolute URL for OG/Twitter meta tags.
- *  Data URIs cannot be used as OG images — falls back to default. */
-function ogThumbnail(thumb) {
-  if (!thumb) return null;
-  const t = thumb.trim();
-  if (t.startsWith('data:')) return null;   /* data URI — not usable as OG image */
   if (t.startsWith('http://') || t.startsWith('https://')) return t;
   return t.startsWith('/') ? `${SITE_URL}${t}` : `${SITE_URL}/${t}`;
 }
@@ -329,7 +317,7 @@ router.get('/:slug', async (req, res, next) => {
         "@type": "Article",
         "headline": article.title,
         "description": article.meta_description || article.summary,
-        "image": ogThumbnail(article.thumbnail) || `${SITE_URL}/images/og-image.svg`,
+        "image": normalizeThumbnail(article.thumbnail) || `${SITE_URL}/images/og-image.svg`,
         "author": { "@type": "Person", "name": article.author },
         "publisher": {
           "@type": "Organization",
@@ -345,7 +333,6 @@ router.get('/:slug', async (req, res, next) => {
     ];
 
     const heroImage = normalizeThumbnail(article.thumbnail) || '/images/blog/placeholder.svg';
-    const ogImg = ogThumbnail(article.thumbnail) || `${SITE_URL}/images/og-image.svg`;
 
     res.render('blog/post', {
       title: article.meta_title || `${article.title} — Value.Codes Blog`,
@@ -354,8 +341,8 @@ router.get('/:slug', async (req, res, next) => {
       canonical: `${SITE_URL}/blog/${slug}/`,
       robots: 'index, follow',
       ogType: 'article',
-      ogImage: ogImg,
-      preloadImage: heroImage.startsWith('data:') ? null : heroImage,
+      ogImage: normalizeThumbnail(article.thumbnail) || `${SITE_URL}/images/og-image.svg`,
+      preloadImage: heroImage,
       schema,
       pageCSS: ['/css/blog.css'],
       pageJS: ['/js/blog.js'],

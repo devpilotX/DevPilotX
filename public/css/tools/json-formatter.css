@@ -1509,9 +1509,9 @@ kbd {
     width: 120px;
   }
 
-  .tool-shortcut-list {
-  grid-template-columns: 1fr;
-}
+  .jf-shortcut-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
