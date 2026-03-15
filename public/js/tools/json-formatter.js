@@ -124,8 +124,6 @@
     history: [],
     historyIndex: -1,
     historyPaused: false
-    diffAdded: 0,
-  diffRemoved: 0
   };
 
 
