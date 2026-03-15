@@ -98,9 +98,35 @@
             <span id="wordCountNum">0</span> words &middot; est. <span id="readTimeNum">0</span> min read
           </div>
 
-          <p class="admin-form-hint admin-form-hint--block">
-            Use the toolbar to format your article. For images, click the <strong>image icon</strong> and paste a URL.
-            Headings (H2/H3) will get anchor IDs automatically for the Table of Contents.
+          <!-- SVG Insert trigger -->
+          <div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <button type="button" id="svgContentTrigger" class="admin-btn admin-btn--ghost admin-btn--sm">
+              Insert SVG
+            </button>
+            <span class="admin-form-hint" style="margin:0;">Paste raw SVG code to embed vector graphics inline.</span>
+          </div>
+
+          <!-- SVG Insert Panel (hidden by default) -->
+          <div id="svgContentPanel" style="display:none;margin-top:0.75rem;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;background:var(--surface);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+              <strong style="font-size:0.875rem;">Paste SVG Code</strong>
+              <button type="button" id="svgContentCancel" class="admin-btn admin-btn--ghost admin-btn--sm">Cancel</button>
+            </div>
+            <textarea
+              id="svgContentCode"
+              class="admin-form-textarea"
+              rows="8"
+              placeholder='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">...</svg>'
+              style="font-family:monospace;font-size:0.8125rem;"
+            ></textarea>
+            <div style="margin-top:0.5rem;display:flex;gap:0.5rem;align-items:center;">
+              <button type="button" id="svgContentInsert" class="admin-btn admin-btn--primary admin-btn--sm">Insert into Article</button>
+              <span id="svgContentError" style="color:var(--error);font-size:0.8125rem;display:none;">Invalid SVG. Must start with &lt;svg</span>
+            </div>
+          </div>
+
+          <p class="admin-form-hint admin-form-hint--block" style="margin-top:0.5rem;">
+            Use the toolbar for formatting and images (URL). Use Insert SVG for vector graphics. Headings (H2/H3) get anchor IDs for the Table of Contents automatically.
           </p>
         </div>
 
@@ -170,7 +196,15 @@
         <!-- Thumbnail -->
         <div class="admin-sidebar-card">
           <h3 class="admin-sidebar-card__title">Thumbnail</h3>
-          <div class="admin-form-group">
+
+          <!-- Thumbnail mode tabs -->
+          <div style="display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:0.75rem;">
+            <button type="button" id="thumbModeUrl" class="admin-btn admin-btn--ghost admin-btn--sm" style="flex:1;border-radius:0;border:none;border-right:1px solid var(--border);background:var(--accent);color:#fff;font-weight:600;">Image URL</button>
+            <button type="button" id="thumbModeSvg" class="admin-btn admin-btn--ghost admin-btn--sm" style="flex:1;border-radius:0;border:none;">SVG Code</button>
+          </div>
+
+          <!-- URL mode -->
+          <div id="thumbUrlMode" class="admin-form-group">
             <input
               type="text"
               id="thumbnail"
@@ -178,10 +212,25 @@
               class="admin-form-input"
               placeholder="https://... or /images/blog/my-image.jpg"
               value="<%= isEdit ? (article.thumbnail || '') : '' %>"
-              maxlength="500"
+              maxlength="65535"
             >
-            <p class="admin-form-hint">Full URL or relative path (e.g. /images/blog/post.jpg)</p>
+            <p class="admin-form-hint">Full URL or relative path to an image file.</p>
           </div>
+
+          <!-- SVG Code mode -->
+          <div id="thumbSvgMode" class="admin-form-group" style="display:none;">
+            <textarea
+              id="thumbSvgCode"
+              class="admin-form-textarea"
+              rows="7"
+              placeholder='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">...</svg>'
+              style="font-family:monospace;font-size:0.8125rem;"
+            ></textarea>
+            <p class="admin-form-hint">Paste SVG code. It will be stored as a data URI thumbnail.</p>
+            <button type="button" id="thumbSvgApply" class="admin-btn admin-btn--primary admin-btn--sm" style="margin-top:0.5rem;">Apply SVG as Thumbnail</button>
+            <span id="thumbSvgError" style="color:var(--error);font-size:0.8125rem;display:none;margin-left:0.5rem;">Invalid SVG.</span>
+          </div>
+
           <!-- Live thumbnail preview -->
           <div id="thumbPreviewWrap" style="display:none;margin-top:0.75rem;">
             <img id="thumbPreview" src="" alt="thumbnail preview" style="width:100%;border-radius:8px;border:1px solid var(--border);object-fit:cover;max-height:160px;">
@@ -378,6 +427,105 @@
   }
   thumbInput.addEventListener('input', updateThumbPreview);
   updateThumbPreview(); /* Show preview on load when editing */
+
+  /* ── Thumbnail mode tabs (URL / SVG Code) ── */
+  const thumbModeUrl  = document.getElementById('thumbModeUrl');
+  const thumbModeSvg  = document.getElementById('thumbModeSvg');
+  const thumbUrlMode  = document.getElementById('thumbUrlMode');
+  const thumbSvgMode  = document.getElementById('thumbSvgMode');
+  const thumbSvgCode  = document.getElementById('thumbSvgCode');
+  const thumbSvgApply = document.getElementById('thumbSvgApply');
+  const thumbSvgError = document.getElementById('thumbSvgError');
+
+  /* Detect if current thumbnail is an SVG data URI — switch to SVG mode on load */
+  (function initThumbMode() {
+    const current = thumbInput.value.trim();
+    if (current.startsWith('data:image/svg+xml')) {
+      activateThumbSvgMode();
+      /* Decode the data URI back to SVG code for editing */
+      try {
+        const raw = current.replace(/^data:image\/svg\+xml;charset=utf-8,/, '');
+        thumbSvgCode.value = decodeURIComponent(raw);
+      } catch (e) { /* leave blank if decode fails */ }
+    }
+  })();
+
+  function activateThumbUrlMode() {
+    thumbModeUrl.style.background = 'var(--accent)';
+    thumbModeUrl.style.color = '#fff';
+    thumbModeUrl.style.fontWeight = '600';
+    thumbModeSvg.style.background = '';
+    thumbModeSvg.style.color = '';
+    thumbModeSvg.style.fontWeight = '';
+    thumbUrlMode.style.display = '';
+    thumbSvgMode.style.display = 'none';
+    thumbSvgError.style.display = 'none';
+  }
+
+  function activateThumbSvgMode() {
+    thumbModeSvg.style.background = 'var(--accent)';
+    thumbModeSvg.style.color = '#fff';
+    thumbModeSvg.style.fontWeight = '600';
+    thumbModeUrl.style.background = '';
+    thumbModeUrl.style.color = '';
+    thumbModeUrl.style.fontWeight = '';
+    thumbUrlMode.style.display = 'none';
+    thumbSvgMode.style.display = '';
+  }
+
+  thumbModeUrl.addEventListener('click', activateThumbUrlMode);
+  thumbModeSvg.addEventListener('click', activateThumbSvgMode);
+
+  /* Convert SVG code to a URL-encoded data URI and apply as thumbnail */
+  thumbSvgApply.addEventListener('click', function() {
+    const svgCode = thumbSvgCode.value.trim();
+    if (!svgCode || !svgCode.toLowerCase().startsWith('<svg')) {
+      thumbSvgError.style.display = 'inline';
+      return;
+    }
+    thumbSvgError.style.display = 'none';
+    const dataUri = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgCode);
+    thumbInput.value = dataUri;
+    updateThumbPreview();
+    updateSerp();
+  });
+
+  /* ── SVG Insert for Content ── */
+  const svgContentTrigger = document.getElementById('svgContentTrigger');
+  const svgContentPanel   = document.getElementById('svgContentPanel');
+  const svgContentCancel  = document.getElementById('svgContentCancel');
+  const svgContentInsert  = document.getElementById('svgContentInsert');
+  const svgContentCode    = document.getElementById('svgContentCode');
+  const svgContentError   = document.getElementById('svgContentError');
+
+  svgContentTrigger.addEventListener('click', function() {
+    svgContentPanel.style.display = 'block';
+    svgContentCode.value = '';
+    svgContentError.style.display = 'none';
+    svgContentCode.focus();
+  });
+
+  svgContentCancel.addEventListener('click', function() {
+    svgContentPanel.style.display = 'none';
+    svgContentCode.value = '';
+    svgContentError.style.display = 'none';
+  });
+
+  svgContentInsert.addEventListener('click', function() {
+    const svgCode = svgContentCode.value.trim();
+    if (!svgCode || !svgCode.toLowerCase().startsWith('<svg')) {
+      svgContentError.style.display = 'inline';
+      return;
+    }
+    svgContentError.style.display = 'none';
+    /* Convert to data URI and insert as image into Quill */
+    const dataUri = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgCode);
+    const range = quill.getSelection(true) || { index: quill.getLength() - 1 };
+    quill.insertEmbed(range.index, 'image', dataUri);
+    quill.setSelection(range.index + 1);
+    svgContentPanel.style.display = 'none';
+    svgContentCode.value = '';
+  });
 
   /* ── SERP Preview helpers ── */
   const titleEl   = document.getElementById('title');

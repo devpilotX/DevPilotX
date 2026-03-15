@@ -35,13 +35,7 @@
             Compiler
           </a>
 
-          <% if (!isLoggedIn) { %>
-
-          <a href="/login" class="nav-btn-login" id="nav-login-btn" title="Login to your account">
-            Login
-          </a>
-
-          <% } else { %>
+          <% if (isLoggedIn && currentUser) { %>
 
           <!-- Profile Dropdown -->
           <div id="nav-profile-item" class="nav-profile-item">
