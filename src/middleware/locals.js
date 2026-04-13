@@ -1,31 +1,21 @@
 /**
  * ============================================================
- * Value.Codes — Global Template Locals Middleware
+ * Value.Codes — Global Template Locals Middleware (UPDATED)
  * ============================================================
- * Injects variables into every EJS template render context.
- * These variables are available in all views and partials
- * without needing to pass them explicitly from each route.
+ * Changes from original:
+ * - Documents cspNonce and cacheBuster (set in server.js)
+ * - csrfToken is set in server.js CSRF middleware
  * ============================================================
  */
 
 'use strict';
 
 /* ========== SET LOCALS ========== */
-/**
- * Attaches global data to res.locals so every template can access:
- * - isLoggedIn: boolean — whether user has an active session
- * - currentUser: object|null — user data (username, email, isPro, avatar)
- * - currentPath: string — the current URL path (for active nav highlighting)
- * - siteName: string — site display name
- * - siteUrl: string — full site URL (for canonical links, OG tags)
- * - adsensePubId: string — Google AdSense publisher ID
- * - currentYear: number — for copyright notices in footer
- */
 function setLocals(req, res, next) {
   /* Authentication state */
   res.locals.isLoggedIn = !!(req.session && req.session.userId);
 
-  /* User data (populated during login, stored in session) */
+  /* User data */
   res.locals.currentUser = req.session && req.session.userId
     ? {
       id: req.session.userId,
@@ -42,10 +32,10 @@ function setLocals(req, res, next) {
   /* Site-wide constants */
   res.locals.siteName = process.env.SITE_NAME || 'Value.Codes';
   res.locals.siteUrl = process.env.SITE_URL || 'https://value.codes';
-  res.locals.adsensePubId = process.env.ADSENSE_PUB_ID || 'ca-pub-6484525483464374';
+  res.locals.adsensePubId = process.env.ADSENSE_PUB_ID || '';
 
   /* Google Analytics Measurement ID */
-  res.locals.gaMeasurementId = process.env.GA_MEASUREMENT_ID || 'G-Y6QM28HH3M';
+  res.locals.gaMeasurementId = process.env.GA_MEASUREMENT_ID || '';
 
   /* Google Search Console site verification token */
   res.locals.googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION || '';
@@ -53,7 +43,7 @@ function setLocals(req, res, next) {
   /* Current year for footer copyright */
   res.locals.currentYear = new Date().getFullYear();
 
-  /* Flash messages (success/error feedback after form submissions) */
+  /* Flash messages */
   res.locals.flashSuccess = req.session ? req.session.flashSuccess || null : null;
   res.locals.flashError = req.session ? req.session.flashError || null : null;
 
@@ -62,6 +52,13 @@ function setLocals(req, res, next) {
     delete req.session.flashSuccess;
     delete req.session.flashError;
   }
+
+  /*
+   * The following are set in server.js middleware and available in all templates:
+   * - res.locals.cspNonce    — CSP nonce for inline scripts
+   * - res.locals.csrfToken   — CSRF token for forms
+   * - res.locals.cacheBuster — Cache bust string for static assets
+   */
 
   next();
 }

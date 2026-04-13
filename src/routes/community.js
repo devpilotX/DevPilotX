@@ -1,11 +1,12 @@
 /**
  * ===================================================================
- * src/routes/community.js — Developer Community Routes
+ * src/routes/community.js — Developer Community Routes (SECURED)
  * ===================================================================
- * GET    /community                      — Renders the community page
- * GET    /community/api/messages/:channel — Fetch messages for a channel
- * POST   /community/api/messages         — Post a new message
- * DELETE /community/api/messages/:id     — Delete own message
+ * Changes from original:
+ * - var → const/let throughout
+ * - Error logging with pino
+ * - Message content XSS protection via stripTags
+ * - OG image changed to PNG
  * ===================================================================
  */
 
@@ -14,6 +15,9 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
+const helpers = require('../utils/helpers');
+const pino = require('pino');
+const logger = pino({ level: process.env.NODE_ENV === 'production' ? 'info' : 'debug' });
 const siteUrl = process.env.SITE_URL || 'https://value.codes';
 
 /* ========== CHANNEL DEFINITIONS ========== */
@@ -31,24 +35,19 @@ const proChannels = [
   { id: 'pro-code-review', name: 'Code Review', icon: '🔍', description: 'Get priority code reviews',        isPro: true }
 ];
 
-function getAllChannelIds() {
-  return channels.map(c => c.id).concat(proChannels.map(c => c.id));
-}
-
-function isProChannel(channelId) {
-  return proChannels.some(c => c.id === channelId);
-}
+const ALL_CHANNEL_IDS = new Set([...channels.map(c => c.id), ...proChannels.map(c => c.id)]);
+const PRO_CHANNEL_IDS = new Set(proChannels.map(c => c.id));
 
 /* ========== COMMUNITY PAGE ========== */
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
   res.render('community', {
     title: 'Developer Community — Value.Codes | Connect with Developers',
-    description: 'Join the Value.Codes developer community. Chat with developers, ask questions, share projects, and find resources in our Discord-style community channels.',
+    description: 'Join the Value.Codes developer community. Chat with developers, ask questions, share projects, and find resources.',
     keywords: 'developer community, developer chat, programming community, coding community, developer forum',
     canonical: siteUrl + '/community/',
     robots: 'noindex, nofollow',
     ogType: 'website',
-    ogImage: siteUrl + '/images/og-image.svg',
+    ogImage: siteUrl + '/images/og-image.png',
     schema: {
       '@context': 'https://schema.org',
       '@graph': [
@@ -75,16 +74,15 @@ router.get('/', function (req, res) {
 });
 
 /* ========== API: GET MESSAGES ========== */
-router.get('/api/messages/:channel', async function (req, res) {
+router.get('/api/messages/:channel', async (req, res) => {
   try {
-    var channel = req.params.channel;
+    const channel = req.params.channel;
 
-    if (getAllChannelIds().indexOf(channel) === -1) {
+    if (!ALL_CHANNEL_IDS.has(channel)) {
       return res.status(400).json({ success: false, error: 'Invalid channel.' });
     }
 
-    /* Pro channel access check */
-    if (isProChannel(channel)) {
+    if (PRO_CHANNEL_IDS.has(channel)) {
       if (!req.session || !req.session.userId) {
         return res.status(401).json({ success: false, error: 'Login required.' });
       }
@@ -93,7 +91,7 @@ router.get('/api/messages/:channel', async function (req, res) {
       }
     }
 
-    var [rows] = await pool.execute(
+    const [rows] = await pool.execute(
       `SELECT m.id, m.content, m.channel, m.created_at,
               u.id AS user_id, u.username, u.is_pro
        FROM messages m
@@ -106,19 +104,20 @@ router.get('/api/messages/:channel', async function (req, res) {
 
     return res.json({ success: true, messages: rows.reverse() });
   } catch (err) {
+    logger.error({ err, channel: req.params.channel }, '[Community] Failed to load messages');
     return res.status(500).json({ success: false, error: 'Failed to load messages.' });
   }
 });
 
 /* ========== API: POST MESSAGE ========== */
-router.post('/api/messages', async function (req, res) {
+router.post('/api/messages', async (req, res) => {
   try {
     if (!req.session || !req.session.userId) {
       return res.status(401).json({ success: false, error: 'You must be logged in to send messages.' });
     }
 
-    var content = (req.body.content || '').trim();
-    var channel = (req.body.channel || '').trim();
+    const content = helpers.stripTags((req.body.content || '').trim());
+    const channel = (req.body.channel || '').trim();
 
     if (!content || content.length === 0) {
       return res.status(400).json({ success: false, error: 'Message cannot be empty.' });
@@ -126,14 +125,14 @@ router.post('/api/messages', async function (req, res) {
     if (content.length > 2000) {
       return res.status(400).json({ success: false, error: 'Message cannot exceed 2000 characters.' });
     }
-    if (getAllChannelIds().indexOf(channel) === -1) {
+    if (!ALL_CHANNEL_IDS.has(channel)) {
       return res.status(400).json({ success: false, error: 'Invalid channel.' });
     }
-    if (isProChannel(channel) && !req.session.isPro) {
+    if (PRO_CHANNEL_IDS.has(channel) && !req.session.isPro) {
       return res.status(403).json({ success: false, error: 'Pro subscription required for this channel.' });
     }
 
-    var [result] = await pool.execute(
+    const [result] = await pool.execute(
       'INSERT INTO messages (user_id, channel, content) VALUES (?, ?, ?)',
       [req.session.userId, channel, content]
     );
@@ -151,23 +150,24 @@ router.post('/api/messages', async function (req, res) {
       }
     });
   } catch (err) {
+    logger.error({ err }, '[Community] Failed to send message');
     return res.status(500).json({ success: false, error: 'Failed to send message.' });
   }
 });
 
 /* ========== API: DELETE OWN MESSAGE ========== */
-router.delete('/api/messages/:id', async function (req, res) {
+router.delete('/api/messages/:id', async (req, res) => {
   try {
     if (!req.session || !req.session.userId) {
       return res.status(401).json({ success: false, error: 'Login required.' });
     }
 
-    var messageId = parseInt(req.params.id, 10);
+    const messageId = parseInt(req.params.id, 10);
     if (isNaN(messageId)) {
       return res.status(400).json({ success: false, error: 'Invalid message ID.' });
     }
 
-    var [rows] = await pool.execute(
+    const [rows] = await pool.execute(
       'SELECT id, user_id FROM messages WHERE id = ?',
       [messageId]
     );
@@ -184,6 +184,7 @@ router.delete('/api/messages/:id', async function (req, res) {
 
     return res.json({ success: true });
   } catch (err) {
+    logger.error({ err, messageId: req.params.id }, '[Community] Failed to delete message');
     return res.status(500).json({ success: false, error: 'Failed to delete message.' });
   }
 });

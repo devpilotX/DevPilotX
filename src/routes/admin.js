@@ -2,30 +2,44 @@
 
 /**
  * ============================================================
- * admin.js — Admin Panel Routes
+ * admin.js — Admin Panel Routes (SECURED)
  * ============================================================
- * Handles:
- *   GET  /admin/login              — Login page
- *   POST /admin/login              — Authenticate admin
- *   POST /admin/logout             — Destroy admin session
- *   GET  /admin                    — Redirect to /admin/articles
- *   GET  /admin/articles           — Article list dashboard
- *   GET  /admin/articles/new       — Create article form
- *   POST /admin/articles/new       — Save new article
- *   GET  /admin/articles/edit/:id  — Edit article form
- *   POST /admin/articles/edit/:id  — Update article
- *   POST /admin/articles/delete/:id— Delete article
- *   GET  /admin/categories         — Category management
- *   POST /admin/categories/new     — Create category
- *   POST /admin/categories/edit/:id— Update category
- *   POST /admin/categories/delete/:id — Delete category
+ * Changes from original:
+ * - Admin login uses bcrypt hash comparison (ADMIN_PASSWORD_HASH)
+ * - sanitizeInput() now uses DOMPurify for real XSS protection
+ * - Article content sanitized with DOMPurify before DB insert
+ * - All catch blocks log errors with context
+ * - CSRF tokens required on all POST forms (handled by server.js)
  * ============================================================
  */
 
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 const db = require('../config/database');
 const { requireAdmin } = require('../middleware/adminAuth');
+const pino = require('pino');
+const logger = pino({ level: process.env.NODE_ENV === 'production' ? 'info' : 'debug' });
+
+/* ========== DOM PURIFY SETUP ========== */
+const createDOMPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+const DOMPurify = createDOMPurify(new JSDOM('').window);
+
+/** Allowed HTML tags for blog article content */
+const CONTENT_PURIFY_CONFIG = {
+  ALLOWED_TAGS: [
+    'h1','h2','h3','h4','h5','h6','p','a','ul','ol','li','strong','em','b','i',
+    'code','pre','blockquote','img','br','hr','table','thead','tbody','tr','th','td',
+    'span','div','figure','figcaption','section','article','aside','details','summary',
+    'mark','del','ins','sub','sup','small','abbr','iframe'
+  ],
+  ALLOWED_ATTR: [
+    'href','src','alt','class','id','target','rel','title','width','height',
+    'loading','decoding','style','data-language','data-line'
+  ],
+  ALLOW_DATA_ATTR: true
+};
 
 /* ========== HELPERS ========== */
 
@@ -40,10 +54,22 @@ function toSlug(str) {
     .replace(/^-+|-+$/g, '');
 }
 
-/** Sanitize HTML to prevent XSS in stored content */
+/**
+ * Sanitize plain-text input fields (titles, tags, meta, etc.).
+ * Strips ALL HTML — only use for non-rich-text fields.
+ */
 function sanitizeInput(str) {
   if (typeof str !== 'string') return '';
-  return str.trim();
+  return DOMPurify.sanitize(str.trim(), { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
+}
+
+/**
+ * Sanitize rich HTML content (article body).
+ * Allows safe HTML tags for blog formatting.
+ */
+function sanitizeContent(html) {
+  if (typeof html !== 'string') return '';
+  return DOMPurify.sanitize(html, CONTENT_PURIFY_CONFIG);
 }
 
 /** Admin render helper — uses the admin layout */
@@ -56,7 +82,7 @@ function adminRender(res, view, data = {}) {
   });
 }
 
-/* ========== LOGIN ========== */
+/* ========== LOGIN (BCRYPT) ========== */
 
 router.get('/login', (req, res) => {
   if (req.session.isAdminLoggedIn) return res.redirect('/admin/articles');
@@ -68,26 +94,32 @@ router.get('/login', (req, res) => {
   delete req.session.loginError;
 });
 
-router.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  const adminEmail = process.env.ADMIN_EMAIL || '';
-  const adminPassword = process.env.ADMIN_PASSWORD || '';
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const adminEmail = process.env.ADMIN_EMAIL || '';
+    const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH || '';
 
-  if (!adminEmail || !adminPassword) {
-    req.session.loginError = 'Admin credentials not configured. Set ADMIN_EMAIL and ADMIN_PASSWORD in .env';
-    return res.redirect('/admin/login');
+    if (!adminEmail || !adminPasswordHash) {
+      req.session.loginError = 'Admin credentials not configured. Set ADMIN_EMAIL and ADMIN_PASSWORD_HASH in .env';
+      return res.redirect('/admin/login');
+    }
+
+    if (email === adminEmail && await bcrypt.compare(password, adminPasswordHash)) {
+      req.session.isAdminLoggedIn = true;
+      delete req.session.loginError;
+      const redirectTo = req.session.adminRedirectTo || '/admin/articles';
+      delete req.session.adminRedirectTo;
+      return res.redirect(redirectTo);
+    }
+
+    req.session.loginError = 'Invalid email or password.';
+    res.redirect('/admin/login');
+  } catch (err) {
+    logger.error({ err }, '[Admin] Login error');
+    req.session.loginError = 'An error occurred. Please try again.';
+    res.redirect('/admin/login');
   }
-
-  if (email === adminEmail && password === adminPassword) {
-    req.session.isAdminLoggedIn = true;
-    delete req.session.loginError;
-    const redirectTo = req.session.adminRedirectTo || '/admin/articles';
-    delete req.session.adminRedirectTo;
-    return res.redirect(redirectTo);
-  }
-
-  req.session.loginError = 'Invalid email or password.';
-  res.redirect('/admin/login');
 });
 
 router.post('/logout', requireAdmin, (req, res) => {
@@ -145,6 +177,7 @@ router.get('/articles', requireAdmin, async (req, res, next) => {
     });
     delete req.session.flash;
   } catch (err) {
+    logger.error({ err }, '[Admin] Failed to load articles');
     next(err);
   }
 });
@@ -163,6 +196,7 @@ router.get('/articles/new', requireAdmin, async (req, res, next) => {
       schema: null
     });
   } catch (err) {
+    logger.error({ err }, '[Admin] Failed to load new article form');
     next(err);
   }
 });
@@ -181,6 +215,8 @@ router.post('/articles/new', requireAdmin, async (req, res, next) => {
     }
 
     const slug = toSlug(title);
+    const cleanContent = sanitizeContent(content);
+
     let publishedAt = null;
     if (status === 'published') {
       if (published_at) {
@@ -201,7 +237,7 @@ router.post('/articles/new', requireAdmin, async (req, res, next) => {
         slug,
         sanitizeInput(thumbnail) || null,
         sanitizeInput(summary) || null,
-        content || '',
+        cleanContent,
         sanitizeInput(author) || 'Dipanshu Kumar',
         category_id || null,
         sanitizeInput(tags) || null,
@@ -216,6 +252,7 @@ router.post('/articles/new', requireAdmin, async (req, res, next) => {
     req.session.flash = { type: 'success', message: `Article "${title}" created successfully.` };
     res.redirect('/admin/articles');
   } catch (err) {
+    logger.error({ err }, '[Admin] Failed to create article');
     if (err.code === 'ER_DUP_ENTRY') {
       req.session.flash = { type: 'error', message: 'A slug with that title already exists. Please use a slightly different title.' };
       return res.redirect('/admin/articles/new');
@@ -242,6 +279,7 @@ router.get('/articles/edit/:id', requireAdmin, async (req, res, next) => {
     });
     delete req.session.flash;
   } catch (err) {
+    logger.error({ err, articleId: req.params.id }, '[Admin] Failed to load article for edit');
     next(err);
   }
 });
@@ -260,22 +298,21 @@ router.post('/articles/edit/:id', requireAdmin, async (req, res, next) => {
       return res.redirect(`/admin/articles/edit/${id}`);
     }
 
+    const cleanContent = sanitizeContent(content);
+
     const [[existing]] = await db.query('SELECT slug, status FROM articles WHERE id = ?', [id]);
     if (!existing) return next();
 
-    /* Determine published_at value */
     let publishedAtQuery = '';
     let publishedAtValue = null;
 
     if (published_at) {
-      /* Admin explicitly set a date — always honour it */
       const parsed = new Date(published_at);
       if (!isNaN(parsed.getTime())) {
         publishedAtValue = parsed;
         publishedAtQuery = ', published_at = ?';
       }
     } else if (status === 'published' && existing.status === 'draft') {
-      /* First publish with no custom date — use NOW() */
       publishedAtQuery = ', published_at = NOW()';
     }
 
@@ -283,7 +320,7 @@ router.post('/articles/edit/:id', requireAdmin, async (req, res, next) => {
       title,
       sanitizeInput(thumbnail) || null,
       sanitizeInput(summary) || null,
-      content || '',
+      cleanContent,
       sanitizeInput(author) || 'Dipanshu Kumar',
       category_id || null,
       sanitizeInput(tags) || null,
@@ -308,6 +345,7 @@ router.post('/articles/edit/:id', requireAdmin, async (req, res, next) => {
     req.session.flash = { type: 'success', message: `Article "${title}" updated successfully.` };
     res.redirect('/admin/articles');
   } catch (err) {
+    logger.error({ err, articleId: req.params.id }, '[Admin] Failed to update article');
     next(err);
   }
 });
@@ -323,6 +361,7 @@ router.post('/articles/delete/:id', requireAdmin, async (req, res, next) => {
     req.session.flash = { type: 'success', message: `Article "${article.title}" deleted.` };
     res.redirect('/admin/articles');
   } catch (err) {
+    logger.error({ err, articleId: req.params.id }, '[Admin] Failed to delete article');
     next(err);
   }
 });
@@ -347,6 +386,7 @@ router.get('/categories', requireAdmin, async (req, res, next) => {
     });
     delete req.session.flash;
   } catch (err) {
+    logger.error({ err }, '[Admin] Failed to load categories');
     next(err);
   }
 });
@@ -367,6 +407,7 @@ router.post('/categories/new', requireAdmin, async (req, res, next) => {
     req.session.flash = { type: 'success', message: `Category "${name}" created.` };
     res.redirect('/admin/categories');
   } catch (err) {
+    logger.error({ err }, '[Admin] Failed to create category');
     if (err.code === 'ER_DUP_ENTRY') {
       req.session.flash = { type: 'error', message: 'A category with that name already exists.' };
       return res.redirect('/admin/categories');
@@ -387,9 +428,10 @@ router.post('/categories/edit/:id', requireAdmin, async (req, res, next) => {
       'UPDATE categories SET name = ?, description = ? WHERE id = ?',
       [name, description || null, req.params.id]
     );
-    req.session.flash = { type: 'success', message: `Category updated.` };
+    req.session.flash = { type: 'success', message: 'Category updated.' };
     res.redirect('/admin/categories');
   } catch (err) {
+    logger.error({ err, categoryId: req.params.id }, '[Admin] Failed to update category');
     next(err);
   }
 });
@@ -402,6 +444,7 @@ router.post('/categories/delete/:id', requireAdmin, async (req, res, next) => {
     req.session.flash = { type: 'success', message: `Category "${cat.name}" deleted. Articles in this category are now uncategorised.` };
     res.redirect('/admin/categories');
   } catch (err) {
+    logger.error({ err, categoryId: req.params.id }, '[Admin] Failed to delete category');
     next(err);
   }
 });

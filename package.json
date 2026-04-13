@@ -21,15 +21,20 @@
     "@octokit/rest": "^22.0.1",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
+    "csrf-csrf": "^4.0.3",
+    "dompurify": "^3.3.3",
     "dotenv": "^16.6.1",
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "express-ejs-layouts": "^2.5.1",
+    "express-mysql-session": "^3.0.3",
     "express-rate-limit": "^7.4.0",
     "express-session": "^1.18.0",
     "express-validator": "^7.2.0",
     "helmet": "^7.1.0",
-    "mysql2": "^3.11.0"
+    "jsdom": "^29.0.2",
+    "mysql2": "^3.11.0",
+    "pino": "^10.3.1"
   },
   "engines": {
     "node": ">=18.0.0",

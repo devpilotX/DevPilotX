@@ -1,11 +1,13 @@
 'use strict';
 
+const pino = require('pino');
+const logger = pino({ level: process.env.NODE_ENV === 'production' ? 'info' : 'debug' });
+
 /**
  * adminAuth.js — Admin Authentication Middleware
  * Protects all /admin/* routes.
- * Credentials are read from environment variables:
- *   ADMIN_EMAIL    — admin login email
- *   ADMIN_PASSWORD — admin login password (plain text, store hashed in prod)
+ * Admin credentials are verified via bcrypt in admin.js login route.
+ * This middleware only checks the session flag.
  */
 
 /**
@@ -15,6 +17,7 @@ function requireAdmin(req, res, next) {
   if (req.session && req.session.isAdminLoggedIn === true) {
     return next();
   }
+  logger.info({ url: req.originalUrl, ip: req.ip }, '[Admin] Unauthorized access attempt');
   req.session.adminRedirectTo = req.originalUrl;
   res.redirect('/admin/login');
 }

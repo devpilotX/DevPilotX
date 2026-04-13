@@ -1,10 +1,13 @@
 /**
  * ============================================================
- * Value.Codes — Main Server Entry Point
+ * Value.Codes — Main Server Entry Point (SECURED)
  * ============================================================
- * Express.js server configuration for the Value.Codes platform.
- * Handles middleware setup, route mounting, static file serving,
- * session management, and error handling.
+ * Express.js server with all security fixes applied:
+ * - MySQL session store (no more MemoryStore leak)
+ * - CSRF protection on all forms
+ * - Nonce-based CSP (no unsafe-inline)
+ * - Health check endpoint
+ * - Proper error logging with pino
  * ============================================================
  */
 
@@ -16,10 +19,22 @@ require('dotenv').config();
 /* ========== CORE DEPENDENCIES ========== */
 const express = require('express');
 const path = require('path');
+const crypto = require('crypto');
 const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
 const helmet = require('helmet');
 const compression = require('compression');
 const expressLayouts = require('express-ejs-layouts');
+const { doubleCsrf } = require('csrf-csrf');
+const pino = require('pino');
+
+/* ========== LOGGER ========== */
+const logger = pino({
+  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
+  transport: process.env.NODE_ENV !== 'production'
+    ? { target: 'pino-pretty', options: { colorize: true } }
+    : undefined
+});
 
 /* ========== DATABASE ========== */
 const db = require('./src/config/database');
@@ -48,13 +63,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 /* ========== TRUST PROXY ========== */
-/**
- * Required when running behind nginx/reverse proxy (Hostinger, etc.).
- * Without this, req.ip is always 127.0.0.1 (the proxy's loopback address),
- * meaning ALL users share the same rate-limit bucket — hitting limits instantly.
- * With trust proxy = 1, req.ip correctly reflects the real client IP from
- * the X-Forwarded-For header set by nginx.
- */
 app.set('trust proxy', 1);
 
 /* ========== VIEW ENGINE SETUP ========== */
@@ -63,30 +71,31 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
 app.set('layout', 'layouts/main');
 
-/* ========== SECURITY MIDDLEWARE ========== */
+/* ========== CSP NONCE MIDDLEWARE ========== */
 /**
- * Helmet sets various HTTP security headers.
- * We customize the Content Security Policy to allow:
- * - Inline scripts ONLY for JSON-LD structured data (via nonce or hash would be
- *   ideal but JSON-LD is non-executable so it's safe)
- * - Google AdSense domains for ad serving
- * - Self-hosted resources only for everything else
+ * Generate a unique nonce per request for Content Security Policy.
+ * This replaces 'unsafe-inline' — only scripts with this nonce will execute.
  */
+app.use((req, res, next) => {
+  res.locals.cspNonce = crypto.randomBytes(16).toString('base64');
+  next();
+});
+
+/* ========== SECURITY MIDDLEWARE ========== */
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: [
         "'self'",
-        "'unsafe-inline'",
-        "'unsafe-eval'",          /* Pyodide: Python exec() requires eval */
-        "'wasm-unsafe-eval'",     /* WebAssembly instantiation (Pyodide, SQL.js) */
-        "https://www.googletagmanager.com",      /* Google Analytics gtag.js */
+        (req, res) => `'nonce-${res.locals.cspNonce}'`,
+        "'wasm-unsafe-eval'",
+        "https://www.googletagmanager.com",
         "https://pagead2.googlesyndication.com",
         "https://adservice.google.com",
         "https://cdn.jsdelivr.net",
-        "https://cdnjs.cloudflare.com",  /* SQL.js */
-        "https://cdn.tiny.cloud"          /* TinyMCE rich text editor (admin only) */
+        "https://cdnjs.cloudflare.com",
+        "https://cdn.tiny.cloud"
       ],
       styleSrc: [
         "'self'",
@@ -96,19 +105,19 @@ app.use(helmet({
       imgSrc: [
         "'self'",
         "data:",
-        "https:",                                /* allow all HTTPS thumbnail URLs */
+        "https:",
         "https://www.google-analytics.com",
         "https://pagead2.googlesyndication.com",
         "https://cdn.jsdelivr.net"
       ],
       connectSrc: [
         "'self'",
-        "https://www.google-analytics.com",      /* GA event collection */
+        "https://www.google-analytics.com",
         "https://analytics.google.com",
         "https://stats.g.doubleclick.net",
         "https://region1.google-analytics.com",
         "https://cdn.jsdelivr.net",
-        "https://cdnjs.cloudflare.com"  /* SQL.js WASM binary */
+        "https://cdnjs.cloudflare.com"
       ],
       fontSrc: [
         "'self'",
@@ -129,10 +138,6 @@ app.use(helmet({
 }));
 
 /* ========== COMPRESSION MIDDLEWARE ========== */
-/**
- * Gzip compression for all responses.
- * Significantly reduces bandwidth and improves load times.
- */
 app.use(compression());
 
 /* ========== BODY PARSING ========== */
@@ -141,33 +146,41 @@ app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
 /* ========== STATIC FILE SERVING ========== */
 /**
- * Serve static files from /public with 7-day cache headers.
- * This improves Core Web Vitals by reducing repeat requests.
+ * Cache-busting: Use ?v= query strings in templates.
+ * Example: /css/global.css?v=<%= cacheBuster %>
  */
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '7d',
   etag: true,
   setHeaders: (res, filePath) => {
-    /* Immutable cache for CSS/JS (fingerprinted in production builds) */
     if (/\.(css|js)$/.test(filePath)) {
-      res.setHeader('Cache-Control', 'public, max-age=604800');   /* 7 days */
+      res.setHeader('Cache-Control', 'public, max-age=604800');
     }
-    /* Longer cache for images and fonts */
     if (/\.(svg|png|jpg|jpeg|webp|woff2|woff)$/.test(filePath)) {
-      res.setHeader('Cache-Control', 'public, max-age=2592000');  /* 30 days */
+      res.setHeader('Cache-Control', 'public, max-age=2592000');
     }
-    /* Add vary header for proper caching with compression */
     res.setHeader('Vary', 'Accept-Encoding');
   }
 }));
 
-/* ========== SESSION CONFIGURATION ========== */
-/**
- * Sessions are stored in MySQL via a custom store approach.
- * express-session with cookie-based session IDs, server-side storage.
- * In production, secure: true ensures cookies are sent only over HTTPS.
- */
+/* ========== SESSION CONFIGURATION (MySQL Store) ========== */
+const sessionStore = new MySQLStore({
+  clearExpired: true,
+  checkExpirationInterval: 900000,
+  expiration: 7 * 24 * 60 * 60 * 1000,
+  createDatabaseTable: true,
+  schema: {
+    tableName: 'sessions',
+    columnNames: {
+      session_id: 'session_id',
+      expires: 'expires',
+      data: 'data'
+    }
+  }
+}, db);
+
 app.use(session({
+  store: sessionStore,
   secret: process.env.SESSION_SECRET || 'fallback-dev-secret-change-me',
   resave: false,
   saveUninitialized: false,
@@ -180,12 +193,49 @@ app.use(session({
   }
 }));
 
+/* ========== CSRF PROTECTION ========== */
+const { doubleCsrfProtection, generateToken } = doubleCsrf({
+  getSecret: () => process.env.SESSION_SECRET || 'fallback-dev-secret',
+  cookieName: '__csrf',
+  cookieOptions: {
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    httpOnly: true,
+    path: '/'
+  },
+  size: 64,
+  ignoredMethods: ['GET', 'HEAD', 'OPTIONS'],
+  getTokenFromRequest: (req) => req.body._csrf || req.headers['x-csrf-token']
+});
+
+app.use(doubleCsrfProtection);
+app.use((req, res, next) => {
+  res.locals.csrfToken = generateToken(req, res);
+  next();
+});
+
 /* ========== GLOBAL TEMPLATE VARIABLES ========== */
-/**
- * Sets variables available in every EJS template:
- * isLoggedIn, currentUser, currentPath, siteName, siteUrl, adsensePubId
- */
 app.use(setLocals);
+
+/* ========== CACHE BUSTER ========== */
+/**
+ * Simple cache buster: changes on every server restart.
+ * Append ?v=<%= cacheBuster %> to CSS/JS links in templates.
+ */
+const CACHE_BUSTER = Date.now().toString(36);
+app.use((req, res, next) => {
+  res.locals.cacheBuster = CACHE_BUSTER;
+  next();
+});
+
+/* ========== HEALTH CHECK ========== */
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  });
+});
 
 /* ========== MOUNT ROUTES ========== */
 app.use('/', indexRoutes);
@@ -204,12 +254,8 @@ app.use('/legal', legalRoutes);
 app.use('/api', apiRoutes);
 
 /* ========== SITEMAP.XML ========== */
-/**
- * Dynamically generated sitemap from all published articles + static pages.
- * Cached for 6 hours to avoid DB hits on every request.
- */
 let sitemapCache = { xml: null, generatedAt: 0 };
-const SITEMAP_TTL = 6 * 60 * 60 * 1000; /* 6 hours */
+const SITEMAP_TTL = 6 * 60 * 60 * 1000;
 
 app.get('/sitemap.xml', async (req, res) => {
   try {
@@ -218,7 +264,6 @@ app.get('/sitemap.xml', async (req, res) => {
       const SITE = process.env.SITE_URL || 'https://value.codes';
       const today = new Date().toISOString().split('T')[0];
 
-      /* Fetch DB-driven content in parallel */
       const [
         [articles],
         [snippetCats],
@@ -233,16 +278,13 @@ app.get('/sitemap.xml', async (req, res) => {
         db.query("SELECT a.slug, ac.slug AS category_slug, a.updated_at FROM apis a JOIN api_categories ac ON a.category_id = ac.id WHERE a.status = 'published' ORDER BY a.updated_at DESC").catch(() => [[]])
       ]);
 
-      /* ---- Static pages ---- */
       const staticPages = [
-        /* Core */
         { loc: `${SITE}/`,          priority: '1.0', changefreq: 'daily',   lastmod: today },
         { loc: `${SITE}/blog/`,     priority: '0.9', changefreq: 'daily',   lastmod: today },
         { loc: `${SITE}/tools/`,    priority: '0.9', changefreq: 'weekly',  lastmod: today },
         { loc: `${SITE}/compiler/`, priority: '0.8', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/snippets/`, priority: '0.8', changefreq: 'weekly',  lastmod: today },
         { loc: `${SITE}/apis/`,     priority: '0.8', changefreq: 'weekly',  lastmod: today },
-        /* Tools — individual pages */
         { loc: `${SITE}/tools/json-formatter/`,      priority: '0.8', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/tools/regex-builder/`,       priority: '0.8', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/tools/diff-checker/`,        priority: '0.8', changefreq: 'monthly', lastmod: today },
@@ -253,7 +295,6 @@ app.get('/sitemap.xml', async (req, res) => {
         { loc: `${SITE}/tools/hash-generator/`,      priority: '0.8', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/tools/mock-data-generator/`, priority: '0.7', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/tools/code-formatter/`,      priority: '0.7', changefreq: 'monthly', lastmod: today },
-        /* Resources */
         { loc: `${SITE}/resources/`,                    priority: '0.7', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/resources/developer-tools/`,    priority: '0.7', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/resources/best-practices/`,     priority: '0.7', changefreq: 'monthly', lastmod: today },
@@ -261,10 +302,8 @@ app.get('/sitemap.xml', async (req, res) => {
         { loc: `${SITE}/resources/essential-software/`, priority: '0.6', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/resources/documentation/`,      priority: '0.6', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/resources/glossary/`,           priority: '0.6', changefreq: 'monthly', lastmod: today },
-        /* Company */
         { loc: `${SITE}/about/`,   priority: '0.5', changefreq: 'monthly', lastmod: today },
         { loc: `${SITE}/contact/`, priority: '0.4', changefreq: 'monthly', lastmod: today },
-        /* Legal */
         { loc: `${SITE}/legal/privacy-policy/`,  priority: '0.3', changefreq: 'yearly', lastmod: today },
         { loc: `${SITE}/legal/terms-of-service/`, priority: '0.3', changefreq: 'yearly', lastmod: today }
       ];
@@ -292,12 +331,8 @@ app.get('/sitemap.xml', async (req, res) => {
       ));
 
       const allEntries = [
-        ...staticEntries,
-        ...articleEntries,
-        ...snippetCatEntries,
-        ...snippetEntries,
-        ...apiCatEntries,
-        ...apiEntries
+        ...staticEntries, ...articleEntries, ...snippetCatEntries,
+        ...snippetEntries, ...apiCatEntries, ...apiEntries
       ];
 
       sitemapCache.xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allEntries.join('\n')}\n</urlset>`;
@@ -305,19 +340,15 @@ app.get('/sitemap.xml', async (req, res) => {
     }
 
     res.setHeader('Content-Type', 'application/xml');
-    res.setHeader('Cache-Control', 'public, max-age=21600'); /* 6 hours */
+    res.setHeader('Cache-Control', 'public, max-age=21600');
     res.send(sitemapCache.xml);
   } catch (err) {
-    process.stderr.write(`[Sitemap] Error: ${err.message}\n`);
+    logger.error({ err }, '[Sitemap] Error generating sitemap');
     res.status(500).send('<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>');
   }
 });
 
 /* ========== 404 HANDLER ========== */
-/**
- * Catch all unmatched routes and render the 404 page.
- * This must come after all route definitions.
- */
 app.use((req, res) => {
   res.status(404).render('errors/404', {
     title: 'Page Not Found — Value.Codes',
@@ -326,7 +357,7 @@ app.use((req, res) => {
     canonical: `${process.env.SITE_URL || 'https://value.codes'}${req.originalUrl}`,
     robots: 'noindex, nofollow',
     ogType: 'website',
-    ogImage: `${process.env.SITE_URL || 'https://value.codes'}/images/og-image.svg`,
+    ogImage: `${process.env.SITE_URL || 'https://value.codes'}/images/og-image.png`,
     schema: null,
     pageCSS: ['/css/errors.css'],
     pageJS: []
@@ -334,14 +365,8 @@ app.use((req, res) => {
 });
 
 /* ========== 500 ERROR HANDLER ========== */
-/**
- * Global error handler for uncaught errors.
- * Logs the error stack in development and renders the 500 page.
- */
 app.use((err, req, res, _next) => {
-  if (process.env.NODE_ENV !== 'production') {
-    process.stderr.write(`[ERROR] ${err.stack}\n`);
-  }
+  logger.error({ err, url: req.originalUrl, method: req.method }, '[500] Unhandled error');
 
   res.status(500).render('errors/500', {
     title: 'Server Error — Value.Codes',
@@ -350,7 +375,7 @@ app.use((err, req, res, _next) => {
     canonical: process.env.SITE_URL || 'https://value.codes',
     robots: 'noindex, nofollow',
     ogType: 'website',
-    ogImage: `${process.env.SITE_URL || 'https://value.codes'}/images/og-image.svg`,
+    ogImage: `${process.env.SITE_URL || 'https://value.codes'}/images/og-image.png`,
     schema: null,
     pageCSS: ['/css/errors.css'],
     pageJS: []
@@ -358,49 +383,40 @@ app.use((err, req, res, _next) => {
 });
 
 /* ========== START SERVER ========== */
-/**
- * Verify database connection, then start listening.
- * Graceful shutdown on SIGTERM to close DB pool.
- */
 async function startServer() {
   const startListen = () => {
     app.listen(PORT, () => {
-      process.stdout.write(`[Value.Codes] Server running on port ${PORT}\n`);
-      process.stdout.write(`[Value.Codes] Environment: ${process.env.NODE_ENV || 'development'}\n`);
+      logger.info(`[Value.Codes] Server running on port ${PORT}`);
+      logger.info(`[Value.Codes] Environment: ${process.env.NODE_ENV || 'development'}`);
     });
   };
 
   try {
-    /* Test database connectivity with a hard 8-second timeout */
     const dbCheck = db.getConnection().then(conn => { conn.release(); });
     const timeout = new Promise((_, reject) =>
       setTimeout(() => reject(new Error('DB connection timed out after 8s')), 8000)
     );
     await Promise.race([dbCheck, timeout]);
+    logger.info('[Value.Codes] Database connected');
     startListen();
   } catch (err) {
-    process.stderr.write(`[Value.Codes] DB unavailable: ${err.message}\n`);
-    process.stderr.write('[Value.Codes] Starting without database — set DB_* env vars in hosting panel.\n');
+    logger.warn({ err }, '[Value.Codes] DB unavailable — starting without database');
     startListen();
   }
 }
 
 /* ========== CRASH PROTECTION ========== */
-/**
- * Prevent unhandled promise rejections from silently crashing the server
- * in Node 18+ where they are fatal by default.
- */
 process.on('unhandledRejection', (reason) => {
-  process.stderr.write(`[Value.Codes] Unhandled rejection: ${reason}\n`);
+  logger.error({ reason }, '[Value.Codes] Unhandled rejection');
 });
 
 process.on('uncaughtException', (err) => {
-  process.stderr.write(`[Value.Codes] Uncaught exception: ${err.stack || err.message}\n`);
+  logger.fatal({ err }, '[Value.Codes] Uncaught exception');
 });
 
-/* Graceful shutdown */
 process.on('SIGTERM', async () => {
-  process.stdout.write('[Value.Codes] SIGTERM received. Shutting down gracefully...\n');
+  logger.info('[Value.Codes] SIGTERM received. Shutting down gracefully...');
+  sessionStore.close();
   await db.end();
   process.exit(0);
 });
