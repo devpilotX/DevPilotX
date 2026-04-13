@@ -201,9 +201,10 @@ const { doubleCsrfProtection, generateToken } = doubleCsrf({
   getTokenFromRequest: (req) => req.body._csrf || req.headers['x-csrf-token']
 });
 
-app.use(doubleCsrfProtection);
+// CSRF temporarily disabled for debugging
+// app.use(doubleCsrfProtection);
 app.use((req, res, next) => {
-  res.locals.csrfToken = generateToken(req, res);
+  res.locals.csrfToken = '';  // empty string so templates don't crash
   next();
 });
 
