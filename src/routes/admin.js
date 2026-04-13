@@ -99,13 +99,18 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const adminEmail = process.env.ADMIN_EMAIL || '';
     const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH || '';
+const adminPasswordPlain = process.env.ADMIN_PASSWORD || '';
 
     if (!adminEmail || !adminPasswordHash) {
       req.session.loginError = 'Admin credentials not configured. Set ADMIN_EMAIL and ADMIN_PASSWORD_HASH in .env';
       return res.redirect('/admin/login');
     }
 
-    if (email === adminEmail && await bcrypt.compare(password, adminPasswordHash)) {
+    const isAdmin = adminPasswordHash
+  ? await bcrypt.compare(password, adminPasswordHash)
+  : (password === adminPasswordPlain);
+
+if (email === adminEmail && isAdmin) {
       req.session.isAdminLoggedIn = true;
       delete req.session.loginError;
       const redirectTo = req.session.adminRedirectTo || '/admin/articles';

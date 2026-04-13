@@ -30,12 +30,8 @@ const pino = require('pino');
 
 /* ========== LOGGER ========== */
 const logger = pino({
-  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
-  transport: process.env.NODE_ENV !== 'production'
-    ? { target: 'pino-pretty', options: { colorize: true } }
-    : undefined
+  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug'
 });
-
 /* ========== DATABASE ========== */
 const db = require('./src/config/database');
 
@@ -165,19 +161,16 @@ app.use(express.static(path.join(__dirname, 'public'), {
 
 /* ========== SESSION CONFIGURATION (MySQL Store) ========== */
 const sessionStore = new MySQLStore({
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT, 10) || 3306,
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'value_codes',
   clearExpired: true,
   checkExpirationInterval: 900000,
   expiration: 7 * 24 * 60 * 60 * 1000,
-  createDatabaseTable: true,
-  schema: {
-    tableName: 'sessions',
-    columnNames: {
-      session_id: 'session_id',
-      expires: 'expires',
-      data: 'data'
-    }
-  }
-}, db);
+  createDatabaseTable: true
+});
 
 app.use(session({
   store: sessionStore,
