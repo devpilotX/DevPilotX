@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="preconnect" href="https://api.devpilotx.com" crossorigin>
   <link rel="dns-prefetch" href="https://adservice.google.com">
   <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -87,6 +88,9 @@
   <script src="<%= jsFile %>" defer></script>
     <% }); %>
   <% } %>
+
+  <!-- ========== DEVSAGE AI ASSISTANT WIDGET ========== -->
+  <script src="https://api.devpilotx.com/widget.js" data-assistant="devsage" defer></script>
 
   <!-- ========== GOOGLE ADSENSE (deferred — loads after page is idle) ========== -->
   <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
