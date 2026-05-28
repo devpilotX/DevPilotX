@@ -77,3 +77,28 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#ffffff">
 <meta name="rating" content="general">
+
+<!-- ========== JSON-LD: Organization + WebSite (sitewide) ========== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Value.Codes",
+  "url": "https://value.codes",
+  "logo": "https://value.codes/images/og-image.svg",
+  "sameAs": ["https://github.com/devpilotX","https://devpilotx.com"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Value.Codes",
+  "url": "https://value.codes",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://value.codes/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
