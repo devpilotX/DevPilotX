@@ -1,13 +1,38 @@
 <%# ============================================================ %>
 <%# Value.Codes — Base HTML Layout                               %>
 <%# ============================================================ %>
+<%#
+  Resolve hardcoded fallbacks once so the page is correctly
+  configured even if the per-environment values are not passed
+  in by the route. The fallback values are the production keys
+  for value.codes (AdSense pub-6484525483464374, GA G-5T92Y8GWVF,
+  GSC token q-64NlSbH9If4pSlx2ccbEa30GP_WXxcg5Xs6yJAzy0).
+%>
+<%
+  const _adsensePubId = (typeof adsensePubId !== 'undefined' && adsensePubId)
+    ? adsensePubId
+    : 'ca-pub-6484525483464374';
+  const _gaMeasurementId = (typeof gaMeasurementId !== 'undefined' && gaMeasurementId)
+    ? gaMeasurementId
+    : 'G-5T92Y8GWVF';
+  const _googleSiteVerification = (typeof googleSiteVerification !== 'undefined' && googleSiteVerification)
+    ? googleSiteVerification
+    : 'q-64NlSbH9If4pSlx2ccbEa30GP_WXxcg5Xs6yJAzy0';
+  const _cspNonce = (typeof cspNonce !== 'undefined' && cspNonce) ? cspNonce : '';
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <%- include('../partials/seo-head') %>
+  <!-- ========== GOOGLE SEARCH CONSOLE VERIFICATION ========== -->
+  <meta name="google-site-verification" content="<%= _googleSiteVerification %>">
+
+  <!-- ========== GOOGLE ADSENSE ACCOUNT META ========== -->
+  <meta name="google-adsense-account" content="<%= _adsensePubId %>">
+
+  <%- include('../partials/seo-head', { googleSiteVerification: _googleSiteVerification }) %>
 
   <!-- ========== FAVICON & TOUCH ICONS ========== -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -45,18 +70,13 @@
   <noscript><link rel="stylesheet" href="/css/footer.css"></noscript>
 
   <!-- ========== GOOGLE ANALYTICS (async — non-blocking) ========== -->
-  <% if (typeof gaMeasurementId !== 'undefined' && gaMeasurementId) { %>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gaMeasurementId %>"></script>
-  <script nonce="<%= cspNonce %>">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= _gaMeasurementId %>"></script>
+  <script<% if (_cspNonce) { %> nonce="<%= _cspNonce %>"<% } %>>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '<%= gaMeasurementId %>', { send_page_view: true });
+    gtag('config', '<%= _gaMeasurementId %>', { send_page_view: true });
   </script>
-  <% } %>
-
-  <!-- ========== GOOGLE ADSENSE (verification meta — must be in head) ========== -->
-  <meta name="google-adsense-account" content="<%= adsensePubId %>">
 </head>
 <body>
   <%- include('../partials/header') %>
@@ -93,14 +113,13 @@
   <script src="https://api.devpilotx.com/widget.js" data-assistant="devsage" defer></script>
 
   <!-- ========== GOOGLE ADSENSE (deferred — loads after page is idle) ========== -->
-  <% if (adsensePubId && adsensePubId !== 'ca-pub-XXXXXXXXXXXXXXXXX') { %>
   <script>
     (function() {
       function loadAdSense() {
         var s = document.createElement('script');
         s.async = true;
         s.crossOrigin = 'anonymous';
-        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= adsensePubId %>';
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= _adsensePubId %>';
         document.head.appendChild(s);
       }
       if ('requestIdleCallback' in window) {
@@ -112,6 +131,5 @@
       }
     })();
   </script>
-  <% } %>
 </body>
 </html>
